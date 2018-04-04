@@ -1,0 +1,9 @@
+{
+	"practeraUrl" : "https://sandbox.practera.com",
+	"appv1Url" : "https://appdev.practera.com",
+	"appv1Program" : "{your test program name}",
+	"appv1AdminUser" : "{account}",
+	"appv1AdminPassword" : "{password}",
+	"appv1StudentPassword" : "{password}",
+	"driverPath" : "{chrome/driver/path}"
+}
