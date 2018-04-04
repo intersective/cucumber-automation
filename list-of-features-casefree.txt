@@ -1,0 +1,3 @@
+features/commonFeature.feature
+features/casefree/testLogin.feature
+features/casefree/testSignup.feature
