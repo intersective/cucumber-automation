@@ -18,7 +18,7 @@ Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)"$/) do |ar
 end
 
 Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
-    if waitForElement($driver, $wait, arg2) == nil
+    if waitForElementVisible($driver, $wait, arg2) == nil
         fail("something wrong")
     end
 end
@@ -40,7 +40,7 @@ Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpat
 end
 
 Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
-    if waitForElementXpath($driver, $wait, arg2) == nil
+    if waitForElementVisibleXpath($driver, $wait, arg2) == nil
         fail("something wrong")
     end
 end

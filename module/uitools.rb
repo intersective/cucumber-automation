@@ -1,10 +1,25 @@
+private def findElement(webDriver, selectorPath, selectorType="css")
+	begin
+		if selectorType == "css"
+			return webDriver.find_element(:css => selectorPath)
+		end
+		if selectorType == "xpath"
+			return webDriver.find_element(:xpath => selectorPath)
+		end
+		return webDriver.find_element(:css => selectorPath)
+	rescue Exception => e
+		$testLogger1.error(e.message)
+	end
+	return nil
+end
+
 def waitForElement(webDriver, waitor, selectorPath)
 	begin
 		return waitor.until { webDriver.find_element(:css => selectorPath) }
 	rescue Exception => e
 		$testLogger1.error(e.message)
-		return nil
 	end
+	return nil
 end
 
 def waitForElementXpath(webDriver, waitor, selectorPath)
@@ -12,8 +27,8 @@ def waitForElementXpath(webDriver, waitor, selectorPath)
 		return waitor.until { webDriver.find_element(:xpath => selectorPath) }
 	rescue Exception => e
 		$testLogger1.error(e.message)
-		return nil
 	end
+	return nil
 end
 
 def waitForElements(webDriver, waitor, selectorPath)
@@ -21,26 +36,30 @@ def waitForElements(webDriver, waitor, selectorPath)
 		return waitor.until { webDriver.find_elements(:css => selectorPath) }
 	rescue Exception => e
 		$testLogger1.error(e.message)
-		return nil
 	end
+	return nil
 end
 
 def waitForElementVisible(webDriver, waitor, selectorPath)
-	ele = waitForElement(webDriver, waitor, selectorPath)
-	while !ele.displayed? do
-		sleep 1
+	loop do
 		ele = waitForElement(webDriver, waitor, selectorPath)
+		if ele.displayed? || ele == nil
+			break
+		end
+		sleep 1
 	end
-	return webDriver.find_element(:css => selectorPath)
+	return findElement(webDriver, selectorPath)
 end
 
 def waitForElementVisibleXpath(webDriver, waitor, selectorPath)
-	ele = waitForElementXpath(webDriver, waitor, selectorPath)
-	while !ele.displayed? do
-		sleep 1
+	loop do
 		ele = waitForElementXpath(webDriver, waitor, selectorPath)
+		if ele.displayed? || ele == nil
+			break
+		end
+		sleep 1
 	end
-	return webDriver.find_element(:xpath => selectorPath)
+	return findElement(webDriver, selectorPath, "xpath")
 end
 
 def waitToastMessageDisappear(webDriver, waitor)
