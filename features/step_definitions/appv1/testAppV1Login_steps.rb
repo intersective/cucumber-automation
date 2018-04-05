@@ -22,7 +22,3 @@ Then(/^I can see the app home screen$/) do
 		fail("something wrong in the home screen")
 	end
 end
-
-Then(/^I log out$/) do
-	$appv1PageActions.logout($driver, $wait)
-end
