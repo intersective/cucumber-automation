@@ -4,6 +4,7 @@ require_relative "../../module/testLogger"
 require_relative "../../module/sharedData"
 require_relative "../../module/sharedWebDriver"
 require_relative "../../module/actions/appv1"
+require 'httparty'
 
 at_exit do
     puts("tear down")

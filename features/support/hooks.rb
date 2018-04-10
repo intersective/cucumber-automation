@@ -7,14 +7,16 @@ end
 
 AfterConfiguration do |config|
     puts("should only happen once")
-    $testLogger1 = TestLogger.instance
-    $sharedWebDriver1 = SharedWebDriver.instance
-    $sharedData1 = SharedData.instance
-    $driver = $sharedWebDriver1.getDriver()
-    $wait = $sharedWebDriver1.getWaitor()
-    $shortWait = $sharedWebDriver1.getShortWaitor()
-    $normalWait = $sharedWebDriver1.getNormalWaitor()
     $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
+    $testLogger1 = TestLogger.instance
+    if !$configObj["apiTest"]
+        $sharedWebDriver1 = SharedWebDriver.instance
+        $sharedData1 = SharedData.instance
+        $driver = $sharedWebDriver1.getDriver()
+        $wait = $sharedWebDriver1.getWaitor()
+        $shortWait = $sharedWebDriver1.getShortWaitor()
+        $normalWait = $sharedWebDriver1.getNormalWaitor()
+    end
     $appv1PageActions = Appv1PageActions.new
 end
 
