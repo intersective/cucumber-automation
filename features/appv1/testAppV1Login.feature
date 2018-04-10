@@ -15,5 +15,5 @@ Feature: AppV1 login
 		Then I can see desired program "App V1 Selenium Program"
 		Then I click on "the first card button" which is located at ".jsmbp-switch-item:nth-of-type(1)"
 		Then I can see the app home screen
-		Then I log out
+		Then "Appv1" I log out
 		Then I wait 5 seconds
