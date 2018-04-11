@@ -15,4 +15,3 @@ creatDir(){
 creatDir "logs"
 creatDir "reports"
 creatDir "reportBackup"
-creatDir "configuration"
