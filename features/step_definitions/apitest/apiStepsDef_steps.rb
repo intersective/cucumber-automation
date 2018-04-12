@@ -19,7 +19,7 @@ Given(/^I call the app "([^"]*)" api "([^"]*)" with app key "([^"]*)" and api ke
         end
         
         if (apiMethod == "post")
-            response = HTTParty.post(apiUrl, :headers => pheaders, :body => pquery)
+            response = HTTParty.post(apiUrl, :body => pquery, :headers => pheaders)
         else
             response = HTTParty.get(apiUrl, :query => pquery, :headers => pheaders)
         end
