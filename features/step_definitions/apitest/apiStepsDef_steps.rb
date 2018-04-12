@@ -21,7 +21,7 @@ Given(/^I call the app "([^"]*)" api "([^"]*)" with app key "([^"]*)" and api ke
         if (apiMethod == "post")
             response = HTTParty.post(apiUrl, :headers => pheaders, :body => pquery)
         else
-            response = HTTParty.get(apiUrl, :headers => pheaders, :body => pquery)
+            response = HTTParty.get(apiUrl, :query => pquery, :headers => pheaders)
         end
         result = JSON.parse(response.body)
         expectedResult = readJsonfile(Dir.pwd + "/testExpectedResult/" + data[i][-1])
