@@ -14,6 +14,6 @@ Feature: AppV1 student registration
 		Then I should be able to see "a pop up" which is located at ".popup-buttons"
 		Then I click on "an ok button" which is located at ".popup-buttons > button:nth-of-type(1)"
 		Then I wait 10 seconds
-		Then I can see the app home screen
+		Then "Appv1" I can see the app home screen
 		Then "Appv1" I log out
 		Then I wait 5 seconds
