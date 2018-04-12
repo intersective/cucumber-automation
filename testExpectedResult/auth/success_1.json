@@ -1,1 +1,41 @@
-{"success":true, "status":"success", "cache":false, "data":{"success":true, "tutorial":false, "apikey":"b9b3537864043b34cb4a", "Timelines":[{"Program":{"id":248, "experience_id":67, "name":"Personal Edge 1.0", "max_achievable_points":1000000000}, "Timeline":{"id":734, "title":"Automation Timeline", "start_date":"2018-02-25", "state":0}, "Project":{"id":551, "name":"Personal Edge v1.0", "description":"", "lead_image":null, "emails":""}, "Enrolment":{"id":16068, "status":"fullaccess"}}], "Teams":[], "Experience":{"config":{"app":{"name":"ISDK"}, "tabs":{"events":{"name":"events", "title":"Events", "icon":"md-calendar", "order":2}, "rankings":{"name":"rankings", "title":"Rankings", "icon":"md-medal", "order":3}, "settings":{"name":"settings", "title":"Settings", "icon":"md-person", "order":4}}}}}}
+{
+  "success": true,
+  "status": "success",
+  "cache": false,
+  "data": {
+    "success": true,
+    "tutorial": false,
+    "apikey": "b9b3537864043b34cb4a",
+    "Timelines": [
+      {
+        "Program": {
+          "id": 248,
+          "experience_id": 67,
+          "name": "Personal Edge 1.0",
+          "max_achievable_points": 1000000000
+        },
+        "Timeline": {
+          "id": 734,
+          "title": "Automation Timeline",
+          "start_date": "2018-02-25",
+          "state": 0
+        },
+        "Project": {
+          "id": 551,
+          "name": "Personal Edge v1.0",
+          "description": "",
+          "lead_image": null,
+          "emails": ""
+        },
+        "Enrolment": {
+          "id": 16068,
+          "status": "fullaccess"
+        }
+      }
+    ],
+    "Teams": [],
+    "Experience": {
+      "config": null
+    }
+  }
+}
