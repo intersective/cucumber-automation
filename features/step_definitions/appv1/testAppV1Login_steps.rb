@@ -7,7 +7,7 @@ end
 
 Then(/^"Appv1" I corrent the password$/) do
 	studentAccount = $sharedData1.loadDataFromKey("studentAccount")
-	$appv1PageActions.login($driver, $wait, studentAccount, $configObj["appv1AdminPassword"])
+	$appv1PageActions.login($driver, $wait, studentAccount, $configObj["appv1StudentPassword"])
 end
 
 Then(/^"Appv1" I can see desired program "([^"]*)"$/) do |programName|
