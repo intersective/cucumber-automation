@@ -29,17 +29,17 @@ end
 After do |scenario|
     if scenario.passed?
         message = "scenario [%s] succeed" % [@scenarioFullTitle]
-        $testLogger1.logCase(message)
+        $testLogger1.debug(message)
     else
         message = "scenario [%s] failed as reason - [%s]" % [@scenarioFullTitle, scenario.exception.message]
-        $testLogger1.logCase(message)
+        $testLogger1.debug(message)
     end
 end
 
 AfterStep do |reuslt, testStep|
     if @stepIndex < @stepCount
         message = "scenario [%s] step [%s]" % [@scenarioFullTitle, testStep.text]
-        $testLogger1.logCase(message)
+        $testLogger1.debug(message)
         @stepIndex += 1
     end
 end
