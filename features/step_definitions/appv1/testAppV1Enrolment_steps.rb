@@ -1,10 +1,5 @@
 
 
-Then(/^I input user email "([^"]*)" and user password "([^"]*)"$/) do |arg1, arg2|
-	waitForElementVisible($driver, $wait, arg1).send_keys($configObj["appv1AdminUser"])
-	waitForElementVisible($driver, $wait, arg2).send_keys($configObj["appv1AdminPassword"])
-end
-
 Then(/^I input the enrolment information which is located at "([^"]*)"$/) do |arg1|
 	studentId = generateStudentId()
 	studentName = "selenium.%s" % [studentId]

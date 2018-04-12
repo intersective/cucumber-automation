@@ -15,3 +15,5 @@ creatDir(){
 creatDir "logs"
 creatDir "reports"
 creatDir "reportBackup"
+
+echo "init completed"

@@ -8,15 +8,16 @@ Feature: AppV1 Enrolment
 		When The "message" which is located at ".toast-message" should be disappear
 		Then I click on "a button" which is located at "#main-nav > ul.nav > li:nth-of-type(2) > a"
 		Then I should be able to see "a form" which is located at "form#login"
-		Then I input user email "form#login input#UserEmail" and user password "form#login input#UserPassword"
+		Then I input "admin_selenium@practera.com" to "email input field" which is located at "form#login input#UserEmail"
+		Then I input "12341234" to "password input field" which is located at "form#login input#UserPassword"
 		Then I click on "a button" which is located at "form#login button"
 		Then I should be able to see "message" which is located at ".toast-message"
 		When The "message" which is located at ".toast-message" should be disappear
 		Then I wait 2 seconds
 		Then I should be able to see "a bar" which is located at "#sidebar"
-		Then I click on "a button" which is located at "#sidebar ul.nav li.hsub:nth-of-type(4) a"
+		Then I click on "a button" which is located at "#sidebar ul.nav li.hsub:nth-of-type(5) a"
 		Then I wait 2 seconds
-		Then I click on "a menu" which is located at "#sidebar ul.nav li.hsub:nth-of-type(4) ul.submenu li:nth-of-type(1)"
+		Then I click on "a menu" which is located at "#sidebar ul.nav li.hsub:nth-of-type(5) ul.submenu li:nth-of-type(1)"
 		Then I click on "a menu" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I should be able to see "a form" which is located at "#EnrolmentAddForm"
 		Then I select "App V1 timeline 1" to "a selector" which is located at "#EnrolmentAddForm .timeline-select #EnrolmentTimelineId"
