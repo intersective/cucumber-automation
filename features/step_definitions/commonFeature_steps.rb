@@ -54,3 +54,7 @@ end
 Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
     waitForElementVisible($driver, $wait, arg3).send_keys(arg1)
 end
+
+Then(/^I upload the file "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
+    waitForElement($driver, $wait, arg3).send_keys(arg1)
+end
