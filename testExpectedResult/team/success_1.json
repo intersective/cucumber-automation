@@ -1,1 +1,8 @@
-{"success":true,"status":"success","cache":false,"data":{"Teams":[]}}
+{
+    "success":true,
+    "status":"success",
+    "cache":false,
+    "data":{
+        "Teams":[]
+    }
+}

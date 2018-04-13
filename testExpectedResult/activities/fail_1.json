@@ -1,0 +1,5 @@
+{
+    "success": false,
+    "status": "unauthorized",
+    "msg": "Could not authenticate user"
+}

@@ -3,39 +3,54 @@
   "status": "success",
   "cache": false,
   "data": {
-    "success": true,
-    "tutorial": false,
-    "apikey": "64a6d1ff98a22b0f4940",
-    "Timelines": [
-      {
-        "Program": {
-          "id": 261,
-          "experience_id": 73,
-          "name": "App V1 Selenium Program",
-          "max_achievable_points": 0
-        },
-        "Timeline": {
-          "id": 587,
-          "title": "App V1 timeline 1",
-          "start_date": "2017-12-01",
-          "state": 0
-        },
-        "Project": {
-          "id": 556,
-          "name": "App V1 Selenium Project",
-          "description": "",
-          "lead_image": null,
-          "emails": ""
-        },
-        "Enrolment": {
-          "id": 16062,
-          "status": "readonly"
-        }
+      "success": true,
+      "tutorial": false,
+      "apikey": "64a6d1ff98a22b0f4940",
+      "Timelines": [
+          {
+              "Program": {
+                  "id": 261,
+                  "experience_id": 73,
+                  "name": "App V1 Selenium Program",
+                  "max_achievable_points": 0
+              },
+              "Timeline": {
+                  "id": 587,
+                  "title": "App V1 timeline 1",
+                  "start_date": "2017-12-01",
+                  "state": 0
+              },
+              "Project": {
+                  "id": 556,
+                  "name": "App V1 Selenium Project",
+                  "description": "",
+                  "lead_image": null,
+                  "emails": ""
+              },
+              "Enrolment": {
+                  "id": 16062,
+                  "status": "readonly"
+              }
+          }
+      ],
+      "Teams": [],
+      "Experience": {
+          "config": {
+              "exp": "test experience",
+              "custom_branding": {
+                  "experiences": {
+                      "20": {
+                          "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-qut.css"
+                      },
+                      "38": {
+                          "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-red.css"
+                      },
+                      "72": {
+                          "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-dev.css"
+                      }
+                  }
+              }
+          }
       }
-    ],
-    "Teams": [],
-    "Experience": {
-      "config": null
-    }
   }
 }

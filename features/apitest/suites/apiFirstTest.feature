@@ -17,7 +17,9 @@ Feature: API first test
         Then I call the app "get" api "https://sandbox.practera.com/api/teams.json" with app key "b11e7c189b" and api key "64a6d1ff98a22b0f4940", with:
             | timeline_id | result file |
             | 587 | team/success_1.json |
+            | 586 | team/fail_1.json |
         Then I wait 2 seconds
         Then I call the app "get" api "https://sandbox.practera.com/api/activities.json" with app key "b11e7c189b" and api key "64a6d1ff98a22b0f4940", with:
             | milestone_id | project_id | timeline_id | result file |
             | 2405 | 556 | 587 | activities/success_1.json |
+            | 2405 | 556 | 586 | activities/fail_1.json |
