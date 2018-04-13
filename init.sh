@@ -16,4 +16,9 @@ creatDir "logs"
 creatDir "reports"
 creatDir "reportBackup"
 
+touch logs/error.log
+touch logs/info.log
+touch logs/trace.log
+touch logs/testcases.log
+
 echo "init completed"
