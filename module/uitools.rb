@@ -79,3 +79,13 @@ def waitForLoadFinished(webDriver, waitor)
 	end
 	sleep 2
 end
+
+def waitForElementVisibleWithInAGroup(webDriver, waitor, selectorPath, index)
+	i = index.to_i - 1
+	elements = waitForElements(webDriver, waitor, selectorPath)
+	while !elements[i].displayed?
+		sleep 2
+		elements = waitForElements($driver, $wait, selectorPath)
+	end
+	return elements[i]
+end

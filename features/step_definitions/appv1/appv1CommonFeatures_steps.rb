@@ -22,12 +22,8 @@ Then(/^"Appv1" I can see "([^"]*)" milestones$/) do |numberOfMilestones|
 end
 
 Then(/^"Appv1" I go to the "([^"]*)" milestone$/) do |milestoneLocation|
-	milestones = waitForElements($driver, $wait, ".view-container[nav-view='active'] .card")
-	while !milestones[milestoneLocation.to_i - 1].displayed?
-		sleep 2
-		milestones = waitForElements($driver, $wait, ".view-container[nav-view='active'] .card")
-	end
-	milestones[milestoneLocation.to_i - 1].click()
+	milestone = waitForElementVisibleWithInAGroup($driver, $wait, ".view-container[nav-view='active'] .card", milestoneLocation)
+	milestone.click()
 end
 
 Then(/^"Appv1" I can see "([^"]*)" assessments and topics$/) do |numberOfObjects|
@@ -63,8 +59,8 @@ Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)
 end
 
 Then(/^"Appv1" I go to the "([^"]*)" locating at "([^"]*)"$/) do |itemName, itemLocation|
-	toDoThings = waitForElements($driver, $wait, ".jsmbp-detail-items > div")
-	toDoThings[itemLocation.to_i - 1].click()
+	toDoThing = waitForElementVisibleWithInAGroup($driver, $wait, ".jsmbp-detail-items > div", itemLocation)
+	toDoThing.click()
 	waitForLoadFinished($driver, $wait)
 end
 
@@ -81,5 +77,5 @@ Then(/^"Appv1" I can see the topic with title "([^"]*)" and content "([^"]*)"$/)
 end
 
 Then(/^"Appv1" I go back from topic page$/) do
-	waitForElement($driver, $wait, ".nav-bar-block[nav-bar=active] .back-button").click()
+	waitForElementVisible($driver, $wait, ".nav-bar-block[nav-bar=active] .back-button").click()
 end
