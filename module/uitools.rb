@@ -69,8 +69,8 @@ def waitToastMessageDisappear(webDriver, waitor)
 	end
 end
 
-def refineElementTextContent(txt)
-	return txt.gsub("\n", "").strip
+def refineElementTextContent(ele)
+	return ele.attribute("innerText").gsub("\n", "").strip
 end
 
 def waitForLoadFinished(webDriver, waitor)

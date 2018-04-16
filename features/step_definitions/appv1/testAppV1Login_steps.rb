@@ -1,11 +1,11 @@
 
 
-Then(/^"Appv1" I type the username with a wrong password$/) do
+Then(/^"Appv1" I login with the right username with a wrong password$/) do
 	studentAccount = $sharedData1.loadDataFromKey("studentAccount")
 	$appv1PageActions.login($driver, $wait, studentAccount, studentAccount)
 end
 
-Then(/^"Appv1" I corrent the password$/) do
+Then(/^"Appv1" I login with the right username with a right password$/) do
 	studentAccount = $sharedData1.loadDataFromKey("studentAccount")
 	$appv1PageActions.login($driver, $wait, studentAccount, $configObj["appv1StudentPassword"])
 end
@@ -14,7 +14,7 @@ Then(/^"Appv1" I can see desired program "([^"]*)"$/) do |programName|
 	programs = waitForElements($driver, $wait, ".item-content")
 	found = false
 	programs.each do |opg|
-		if programName == refineElementTextContent(opg.attribute("innerText"))
+		if programName == refineElementTextContent(opg)
 			found = true
 			break
 		end
@@ -29,7 +29,7 @@ Then(/^"Appv1" I choose a program "([^"]*)"$/) do |programName|
 	i = 0
 	programs.each do |opg|
 		i = i + 1
-		if programName == refineElementTextContent(opg.attribute("innerText"))
+		if programName == refineElementTextContent(opg)
 			waitForElement($driver, $wait, ".jsmbp-switch-item:nth-of-type(" + i.to_s + ")").click()
 			break
 		end
@@ -40,5 +40,17 @@ Then(/^"Appv1" I can see the app home screen$/) do
 	waitForLoadFinished($driver, $wait)
 	if "active" != waitForElement($driver, $wait, "ion-nav-view[name='home']").attribute("nav-view")
 		fail("something wrong in the home screen")
+	end
+end
+
+Then(/^"Appv1" I can see the current milestone "([^"]*)" with status "([^"]*)"$/) do |milestoneName, milestoneStatus|
+	milestone = waitForElementXpath($driver, $wait, "//*[text()='Things to do']/following-sibling::div")
+	aMileStoneName = refineElementTextContent(milestone.find_element(:css => ".title"))
+	aMilestoneStatus = refineElementTextContent(milestone.find_element(:css => "h3"))
+	if milestoneName != aMileStoneName
+		$testLogger1.logCase("expected milestone name [ " + milestoneName + " ] but found [ " + aMileStoneName + " ]")
+	end
+	if milestoneStatus != aMilestoneStatus
+		$testLogger1.logCase("expected milestone status [ " + milestoneStatus + " ] but found [ " + aMilestoneStatus + " ]")
 	end
 end
