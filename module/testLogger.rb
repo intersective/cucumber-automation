@@ -9,6 +9,7 @@ class TestLogger
 	
 	def initialize
 		@logUUID = SecureRandom.uuid
+		puts(@logUUID)
 		@infoLog = Logger.new(File.open(Dir.pwd + '/logs/info.log', File::WRONLY | File::APPEND), 10, 100 * 1024 * 1024)
 		@errorLog = Logger.new(File.open(Dir.pwd + '/logs/error.log', File::WRONLY | File::APPEND), 10, 100 * 1024 * 1024)
 		@caseLog = Logger.new(File.open(Dir.pwd + '/logs/testcases.log', File::WRONLY | File::APPEND), 10, 100 * 1024 * 1024)

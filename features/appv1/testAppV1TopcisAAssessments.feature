@@ -9,7 +9,7 @@ Feature: AppV1 topics and assessments
 		Then "Appv1" I login with the right username with a right password
 		Then I should not see "Invalid Login Details pop up" which is located at "//*[@class='popup-title'][text()='Invalid Login Details']" with xpath assert
 		Then "Appv1" I choose a program "App V1 Selenium Program"
-		Then "Appv1" I can see the app home screen
+		Then "Appv1" I should see the app home screen
 		Then I wait 6 seconds
 		Then "Appv1" I can see the current milestone "Comprehensive Milestone" with status "UNLOCKED"
 		Then I wait 2 seconds
@@ -20,8 +20,8 @@ Feature: AppV1 topics and assessments
 		Then I wait 3 seconds
 		Then "Appv1" I can see "8" assessments and topics
 		Then I wait 2 seconds
-		Then "Appv1" I should see the "topic" locating at "1" with title "Topic 1" and category "topic"
+		Then "Appv1" I can see the "topic" locating at "1" with title "Topic 1" and category "topic"
 		Then "Appv1" I go to the "topic" locating at "1"
-		Then "Appv1" I should see the topic with title "Topic 1" and content "This is the content of topic 1"
+		Then "Appv1" I can see the topic with title "Topic 1" and content "This is the content of topic 1"
 		Then "Appv1" I go back from topic page
-		Then "Appv1" I should see the "assessment" locating at "2" with title "Comprehensive Quiz" and category "assessment"
+		Then "Appv1" I can see the "assessment" locating at "2" with title "Comprehensive Quiz" and category "assessment"

@@ -49,7 +49,7 @@ Then(/^"Appv1" I can see the activity name "([^"]*)" and description "([^"]*)"$/
 	end
 end
 
-Then(/^"Appv1" I should see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)" and category "([^"]*)"$/) do |itemName, itemLocation, itemTitle, itemCategory|
+Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)" and category "([^"]*)"$/) do |itemName, itemLocation, itemTitle, itemCategory|
 	toDoThings = waitForElements($driver, $wait, ".jsmbp-detail-items > div")
 	topicHeader = toDoThings[itemLocation.to_i - 1].find_element(:css => ".item")
 	aItemTitle = topicHeader.find_element(:css => "detail-title h2")
@@ -68,7 +68,7 @@ Then(/^"Appv1" I go to the "([^"]*)" locating at "([^"]*)"$/) do |itemName, item
 	waitForLoadFinished($driver, $wait)
 end
 
-Then(/^"Appv1" I should see the topic with title "([^"]*)" and content "([^"]*)"$/) do |topicTitle, topicContent|
+Then(/^"Appv1" I can see the topic with title "([^"]*)" and content "([^"]*)"$/) do |topicTitle, topicContent|
 	waitForElements($driver, $wait, ".pane[nav-view='active'] .activities")
 	aTopicTitle = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities h3"))
 	if topicTitle != aTopicTitle

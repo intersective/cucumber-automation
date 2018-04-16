@@ -10,7 +10,7 @@ Then(/^"Appv1" I login with the right username with a right password$/) do
 	$appv1PageActions.login($driver, $wait, studentAccount, $configObj["appv1StudentPassword"])
 end
 
-Then(/^"Appv1" I can see desired program "([^"]*)"$/) do |programName|
+Then(/^"Appv1" I should see desired program "([^"]*)"$/) do |programName|
 	programs = waitForElements($driver, $wait, ".item-content")
 	found = false
 	programs.each do |opg|
@@ -36,7 +36,7 @@ Then(/^"Appv1" I choose a program "([^"]*)"$/) do |programName|
 	end
 end
 
-Then(/^"Appv1" I can see the app home screen$/) do
+Then(/^"Appv1" I should see the app home screen$/) do
 	waitForLoadFinished($driver, $wait)
 	if "active" != waitForElement($driver, $wait, "ion-nav-view[name='home']").attribute("nav-view")
 		fail("something wrong in the home screen")
