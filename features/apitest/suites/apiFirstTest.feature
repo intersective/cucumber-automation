@@ -56,3 +56,11 @@ Feature: API first test
         Then I call the app "get" api "https://sandbox.practera.com/api/milestone.json" with app key "b11e7c189b" and api key "cf2f8016c2a5a3d4608f", with:
             | timeline_id | result file |
             | 587 | milestone/success_1.json |
+        Then I wait 2 seconds
+        Then I call the app "get" api "https://sandbox.practera.com/api/maximum_points.json" with app key "b11e7c189b" and api key "64a6d1ff98a22b0f4940", with:
+            | target_id | target_model | team_id | timeline_id | result file |
+            | 261 | Program | 1129 | 587 | maximum_points/success_1.json |
+        Then I wait 2 seconds
+        Then I call the app "get" api "https://sandbox.practera.com/api/maximum_points.json" with app key "b11e7c189b" and api key "cf2f8016c2a5a3d4608f", with:
+            | target_id | target_model | team_id | timeline_id | result file |
+            | 261 | Program | 1129 | 587 | maximum_points/success_2.json |
