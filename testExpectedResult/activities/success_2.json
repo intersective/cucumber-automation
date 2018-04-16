@@ -1,7 +1,7 @@
 {
     "success": true,
     "status": "success",
-    "cache": "Api.activities.timeline_id.587.user_id.12214:false",
+    "cache": "Api.activities.timeline_id.587.user_id.12175:false",
     "data": [
       {
         "Activity": {
@@ -378,6 +378,141 @@
             "Assessment": {
               "id": 2105,
               "name": "Video question"
+            }
+          }
+        ]
+      },
+      {
+        "Activity": {
+          "id": 7683,
+          "milestone_id": 2406,
+          "name": "Activity 2",
+          "description": "",
+          "lead_image": null,
+          "video_url": "",
+          "order": null,
+          "instructions": "",
+          "is_locked": false,
+          "start": "2020-08-26 14:00:00",
+          "end": "2020-12-04 12:59:59",
+          "deadline": "2020-12-04 12:59:59"
+        },
+        "ActivitySequence": [
+          {
+            "id": 37958,
+            "activity_id": 7683,
+            "model": "Story.Topic",
+            "model_id": 6538,
+            "order": 0,
+            "is_locked": false,
+            "Story.Topic": {
+              "id": 6538,
+              "program_id": 261,
+              "title": "Topic 1",
+              "summary": "",
+              "videolink": "",
+              "created": "2017-12-07 00:30:12.488166",
+              "modified": "2017-12-07 04:06:22",
+              "story_type": "topic",
+              "feature_image_id": null,
+              "author_id": 2,
+              "has_comments": true,
+              "tags": "",
+              "slug": "topic_1",
+              "collaboration_id": null,
+              "comments": 0,
+              "experience_id": 73,
+              "assessment_id": null,
+              "view_time": "0.5",
+              "parent_id": null
+            }
+          },
+          {
+            "id": 38808,
+            "activity_id": 7683,
+            "model": "Assess.Assessment",
+            "model_id": 2225,
+            "order": 1,
+            "is_locked": false,
+            "Assess.Assessment": {
+              "id": 2225,
+              "name": "Evaluation questions",
+              "description": "this is the description of Evaluation questions",
+              "assessment_type": "team360",
+              "is_live": true,
+              "is_team": false,
+              "review_instructions": null,
+              "score_type": "numeric",
+              "experience_id": 73,
+              "program_id": 261,
+              "deleted": false,
+              "deleted_date": null,
+              "comparison_group_size": 3,
+              "comparison_group_points": 10,
+              "review_period": 72,
+              "review_scope": "team",
+              "review_scope_id": null,
+              "created": "2018-03-19 00:17:58.009452",
+              "modified": "2018-03-19 01:27:18",
+              "is_repeatable": false,
+              "num_reviews": 1,
+              "review_type": "single",
+              "review_role": "mentor",
+              "auto_assign_reviewers": null,
+              "parent_id": null,
+              "auto_publish_reviews": false
+            }
+          },
+          {
+            "id": 38895,
+            "activity_id": 7683,
+            "model": "Assess.Assessment",
+            "model_id": 2287,
+            "order": 2,
+            "is_locked": false,
+            "Assess.Assessment": {
+              "id": 2287,
+              "name": "Appv1 test automation team assessment",
+              "description": "this is the description of Appv1 test automation team assessment",
+              "assessment_type": "quiz",
+              "is_live": true,
+              "is_team": true,
+              "review_instructions": null,
+              "score_type": "numeric",
+              "experience_id": 73,
+              "program_id": 261,
+              "deleted": false,
+              "deleted_date": null,
+              "comparison_group_size": 3,
+              "comparison_group_points": 10,
+              "review_period": 72,
+              "review_scope": "team",
+              "review_scope_id": null,
+              "created": "2018-03-28 06:15:17.368931",
+              "modified": "2018-03-28 06:18:49",
+              "is_repeatable": false,
+              "num_reviews": 1,
+              "review_type": "single",
+              "review_role": "mentor",
+              "auto_assign_reviewers": null,
+              "parent_id": null,
+              "auto_publish_reviews": false
+            }
+          }
+        ],
+        "References": [
+          {
+            "context_id": 3258,
+            "Assessment": {
+              "id": 2225,
+              "name": "Evaluation questions"
+            }
+          },
+          {
+            "context_id": 3455,
+            "Assessment": {
+              "id": 2287,
+              "name": "Appv1 test automation team assessment"
             }
           }
         ]

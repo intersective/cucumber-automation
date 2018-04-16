@@ -1,0 +1,33 @@
+{
+    "success": true,
+    "status": "success",
+    "cache": false,
+    "data": [
+      {
+        "id": 2405,
+        "project_id": 556,
+        "name": "Comprehensive Milestone",
+        "description": "",
+        "duration": 1000,
+        "order": 0,
+        "visibility": 30,
+        "delivery": 2,
+        "parent_id": null,
+        "lead_image": null,
+        "is_locked": false
+      },
+      {
+        "id": 2406,
+        "project_id": 556,
+        "name": "Locked Milestone",
+        "description": "",
+        "duration": 1000,
+        "order": 1,
+        "visibility": 30,
+        "delivery": 2,
+        "parent_id": null,
+        "lead_image": null,
+        "is_locked": false
+      }
+    ]
+  }

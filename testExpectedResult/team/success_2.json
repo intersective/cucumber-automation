@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "status": "success",
+    "cache": false,
+    "data": {
+      "Teams": [
+        {
+          "id": 1129,
+          "name": "Team 10",
+          "joincode": "3YBUR",
+          "designator": "Team 10",
+          "can_join": true
+        }
+      ]
+    }
+  }

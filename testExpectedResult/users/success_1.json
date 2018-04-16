@@ -1,0 +1,19 @@
+{
+    "success": true,
+    "status": "success",
+    "cache": false,
+    "data": {
+      "User": {
+        "linkedinConnected": false,
+        "name": "selenium.20180329113824",
+        "email": "selenium.20180329113824@practera.com",
+        "image": null,
+        "linkedin_url": null,
+        "timeline_id": "587",
+        "program_id": 261,
+        "project_id": 556,
+        "experience_id": 73,
+        "role": "participant"
+      }
+    }
+  }
