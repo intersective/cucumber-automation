@@ -1,12 +1,21 @@
 private def findElement(webDriver, selectorPath, selectorType="css")
 	begin
-		if selectorType == "css"
-			return webDriver.find_element(:css => selectorPath)
-		end
 		if selectorType == "xpath"
 			return webDriver.find_element(:xpath => selectorPath)
 		end
 		return webDriver.find_element(:css => selectorPath)
+	rescue Exception => e
+		$testLogger1.error(e.message)
+	end
+	return nil
+end
+
+def findElementWithParent(parentEle, selectorPath, selectorType="css")
+	begin
+		if selectorType == "xpath"
+			return parentEle.find_element(:xpath => selectorPath)
+		end
+		return parentEle.find_element(:css => selectorPath)
 	rescue Exception => e
 		$testLogger1.error(e.message)
 	end
@@ -77,6 +86,13 @@ def waitForLoadFinished(webDriver, waitor)
 	while waitForElement(webDriver, waitor, ".loading-container").attribute("class").index("active") != nil
 		sleep 1
 	end
+	clickBlock = waitForElement(webDriver, waitor, ".click-block")
+	if clickBlock != nil
+		while clickBlock.attribute("class").index("click-block-active") != nil
+			sleep 1
+			clickBlock = waitForElement(webDriver, waitor, ".click-block")
+		end
+	end
 	sleep 2
 end
 
@@ -88,4 +104,11 @@ def waitForElementVisibleWithInAGroup(webDriver, waitor, selectorPath, index)
 		elements = waitForElements($driver, $wait, selectorPath)
 	end
 	return elements[i]
+end
+
+def scrollIfNotVisible(webDriver, ele)
+	if !ele.displayed?
+		webDriver.action.move_to(ele).perform
+		sleep 1
+	end
 end

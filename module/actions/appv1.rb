@@ -16,4 +16,14 @@ class Appv1PageActions
         waitForElement(webDriver, waitor, ".jsmbp-login-form")
     end
 
+    def getQuestionAnswerContainer(webDriver, waitor, questionIndex)
+        one = waitForElements(webDriver, waitor, "div[ng-repeat='question in group.questions']")[questionIndex.to_i - 1]
+        aQuestionDescription = findElementWithParent(one, "div[ng-if='question.description']")
+        answerContainer = nil
+        if aQuestionDescription != nil
+            answerContainer = one.find_element(:css => "div:nth-of-type(3)")
+        else
+            answerContainer = one.find_element(:css => "div:nth-of-type(2)")
+        end
+    end
 end

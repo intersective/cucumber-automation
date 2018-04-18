@@ -35,6 +35,12 @@ When(/^I click on "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1
     waitForElementVisibleXpath($driver, $wait, arg2).click()
 end
 
+When(/^I click on "([^"]*)" which is located at "([^"]*)" with xpath scroll$/) do |arg1, arg2|
+    ele = waitForElementXpath($driver, $wait, arg2)
+    scrollIfNotVisible($driver, ele)
+    ele.click()
+end
+
 Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
     waitForElementVisibleXpath($driver, $wait, arg2)
 end

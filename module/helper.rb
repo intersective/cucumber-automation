@@ -19,3 +19,9 @@ def readJsonfile(filePath)
 	dataHash = JSON.parse(fileContent)
 	return dataHash
 end
+
+def compareWithLog(headerMessage, expectedValue, actualValue)
+	if expectedValue != actualValue
+		$testLogger1.logCase(headerMessage + " [ " + expectedValue + " ] but found [ " + actualValue + " ]")
+	end
+end

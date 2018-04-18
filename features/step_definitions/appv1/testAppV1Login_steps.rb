@@ -47,10 +47,6 @@ Then(/^"Appv1" I can see the current milestone "([^"]*)" with status "([^"]*)"$/
 	milestone = waitForElementXpath($driver, $wait, "//*[text()='Things to do']/following-sibling::div")
 	aMileStoneName = refineElementTextContent(milestone.find_element(:css => ".title"))
 	aMilestoneStatus = refineElementTextContent(milestone.find_element(:css => "h3"))
-	if milestoneName != aMileStoneName
-		$testLogger1.logCase("expected milestone name [ " + milestoneName + " ] but found [ " + aMileStoneName + " ]")
-	end
-	if milestoneStatus != aMilestoneStatus
-		$testLogger1.logCase("expected milestone status [ " + milestoneStatus + " ] but found [ " + aMilestoneStatus + " ]")
-	end
+	compareWithLog("expected milestone title", milestoneName, aMileStoneName)
+	compareWithLog("expected milestone title", milestoneStatus, aMilestoneStatus)
 end
