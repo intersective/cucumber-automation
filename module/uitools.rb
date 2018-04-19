@@ -42,7 +42,8 @@ end
 
 def waitForElements(webDriver, waitor, selectorPath)
 	begin
-		return waitor.until { webDriver.find_elements(:css => selectorPath) }
+		waitor.until { webDriver.find_elements(:css => selectorPath).length > 0 }
+		return webDriver.find_elements(:css => selectorPath)
 	rescue Exception => e
 		$testLogger1.error(e.message)
 	end

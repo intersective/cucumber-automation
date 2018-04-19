@@ -1,4 +1,11 @@
 
+Then(/^"Appv1" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
+	$appv1PageActions.login($driver, $wait, userName, userPassword)
+end
+
+Then(/^"Appv1" I log out$/) do
+	$appv1PageActions.logout($driver, $wait)
+end
 
 Then(/^"Appv1" I login with the right username with a wrong password$/) do
 	studentAccount = $sharedData1.loadDataFromKey("studentAccount")
@@ -30,7 +37,7 @@ Then(/^"Appv1" I choose a program "([^"]*)"$/) do |programName|
 	programs.each do |opg|
 		i = i + 1
 		if programName == refineElementTextContent(opg)
-			waitForElement($driver, $wait, ".jsmbp-switch-item:nth-of-type(" + i.to_s + ")").click()
+			waitForElementVisible($driver, $wait, ".jsmbp-switch-item:nth-of-type(" + i.to_s + ")").click()
 			break
 		end
 	end

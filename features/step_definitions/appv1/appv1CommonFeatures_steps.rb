@@ -1,13 +1,5 @@
 
 
-Then(/^"Appv1" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
-	$appv1PageActions.login($driver, $wait, userName, userPassword)
-end
-
-Then(/^"Appv1" I log out$/) do
-	$appv1PageActions.logout($driver, $wait)
-end
-
 Then(/^"Appv1" I go to the "([^"]*)" tab page$/) do |tabIndex|
 	waitForElementVisible($driver, $wait, ".tab-nav > a:nth-of-type(" + tabIndex + ")").click()
 	waitForLoadFinished($driver, $wait)
@@ -50,7 +42,7 @@ Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)
 	compareWithLog("expected item category", itemCategory, refineElementTextContent(category).downcase)
 end
 
-Then(/^"Appv1" I go to the "([^"]*)" locating at "([^"]*)"$/) do |itemName, itemLocation|
+Then(/^"Appv1" I go to the (topic|assessment) locating at "([^"]*)"$/) do |itemName, itemLocation|
 	waitForLoadFinished($driver, $wait)
 	toDoThing = waitForElements($driver, $wait, ".jsmbp-detail-items > div")[itemLocation.to_i - 1]
 	scrollIfNotVisible($driver, toDoThing)
@@ -140,4 +132,43 @@ Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([
 		sleep 1
 	end
 	sleep 4
+end
+
+Given(/^"Appv1" I login with a previous registerd user$/) do
+	step("I go to " + "\"https://appdev.practera.com\"")
+	step("I wait 10 seconds")
+	step("\"Appv1\"" + " I login with the right username with a right password")
+	step("I should not see " + "\"Invalid Login Details pop up\"" + " which is located at " + "\"//*[@class='popup-title'][text()='Invalid Login Details']\"" + " with xpath assert")
+end
+
+Then(/^"Appv1" I go to the first milestone page before quiz completed$/) do
+	step("\"Appv1\"" + " I choose a program " + "\"App V1 Selenium Program\"")
+	step("\"Appv1\"" + " I should see the app home screen")
+	step("I wait 6 seconds")
+	step("\"Appv1\"" + " I can see the current milestone " + "\"Comprehensive Milestone\"" + " with status " + "\"UNLOCKED\"")
+	step("I wait 2 seconds")
+	step("\"Appv1\"" + " I go to the " + "\"2\"" + " tab page")
+	step("\"Appv1\"" + " I can see " + "\"2\"" + " milestones")
+	step("I wait 2 seconds")
+	step("\"Appv1\"" + " I go to the "+ "\"1\"" + " milestone")
+	step("I wait 3 seconds")
+	step("\"Appv1\"" + " I can see " + "\"8\"" + " assessments and topics")
+	step("I wait 2 seconds")
+end
+
+Then(/^"Appv1" I go to the first milestone page$/) do
+	step("\"Appv1\"" + " I choose a program " + "\"App V1 Selenium Program\"")
+	step("\"Appv1\"" + " I should see the app home screen")
+	step("I wait 8 seconds")
+	step("\"Appv1\"" + " I go to the " + "\"2\"" + " tab page")
+	step("\"Appv1\"" + " I can see " + "\"2\"" + " milestones")
+	step("I wait 2 seconds")
+	step("\"Appv1\"" + " I go to the "+ "\"1\"" + " milestone")
+	step("I wait 3 seconds")
+	step("\"Appv1\"" + " I can see " + "\"8\"" + " assessments and topics")
+	step("I wait 2 seconds")
+end
+
+Then(/^I wait until the loading finished$/) do
+	waitForLoadFinished($driver, $wait)
 end
