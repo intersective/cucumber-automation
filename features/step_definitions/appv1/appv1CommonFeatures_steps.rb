@@ -141,21 +141,6 @@ Given(/^"Appv1" I login with a previous registerd user$/) do
 	step("I should not see " + "\"Invalid Login Details pop up\"" + " which is located at " + "\"//*[@class='popup-title'][text()='Invalid Login Details']\"" + " with xpath assert")
 end
 
-Then(/^"Appv1" I go to the first milestone page before quiz completed$/) do
-	step("\"Appv1\"" + " I choose a program " + "\"App V1 Selenium Program\"")
-	step("\"Appv1\"" + " I should see the app home screen")
-	step("I wait 6 seconds")
-	step("\"Appv1\"" + " I can see the current milestone " + "\"Comprehensive Milestone\"" + " with status " + "\"UNLOCKED\"")
-	step("I wait 2 seconds")
-	step("\"Appv1\"" + " I go to the " + "\"2\"" + " tab page")
-	step("\"Appv1\"" + " I can see " + "\"2\"" + " milestones")
-	step("I wait 2 seconds")
-	step("\"Appv1\"" + " I go to the "+ "\"1\"" + " milestone")
-	step("I wait 3 seconds")
-	step("\"Appv1\"" + " I can see " + "\"8\"" + " assessments and topics")
-	step("I wait 2 seconds")
-end
-
 Then(/^"Appv1" I go to the first milestone page$/) do
 	step("\"Appv1\"" + " I choose a program " + "\"App V1 Selenium Program\"")
 	step("\"Appv1\"" + " I should see the app home screen")

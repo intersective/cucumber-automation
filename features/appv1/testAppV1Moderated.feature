@@ -13,7 +13,7 @@ Feature: AppV1 moderated assessment
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"
 		Then "Appv1" I do the text question locating at "1" with answer "This is the text from Selenium text automation"
 		Then I wait 2 seconds
-		Then "Appv1" I do the team member selector question locating at "2" with answer "2"
+		Then "Appv1" I do the oneof question locating at "2" with answer "2"
 		Then I wait 2 seconds
 		Then "Appv1" I do the multiple question locating at "3" with answer "2,3"
 		Then I wait 2 seconds

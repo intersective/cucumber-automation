@@ -1,6 +1,7 @@
 features/appv1/testAppV1Enrolment.feature
 features/appv1/testAppV1StudentRegistration.feature
 features/appv1/testAppV1Login.feature
+features/appv1/appv1CurrentMilestone.feature
 features/appv1/testAppV1Topics.feature
 features/appv1/testAppV1Relection.feature
 features/appv1/testAppV1QuizAssessment.feature
