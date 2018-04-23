@@ -6,11 +6,11 @@ Feature: AppV1 login
 	Scenario: Test AppV1 Login Scenario
 		Given I go to "https://appdev.practera.com"
 		When I wait 10 seconds
-		Then "Appv1" I login with the right username with a wrong password
+		Then "Appv1" I login with the right username with a password "11111111"
 		Then I should be able to see "Invalid Login Details pop up" which is located at "//*[@class='popup-title'][text()='Invalid Login Details']" with xpath assert
 		Then I click on "a button" which is located at ".popup > .popup-buttons > button"
 		Then I wait 2 seconds
-		Then "Appv1" I login with the right username with a right password
+		Then "Appv1" I login with the right username with a password "12341234"
 		Then I should not see "Invalid Login Details pop up" which is located at "//*[@class='popup-title'][text()='Invalid Login Details']" with xpath assert
 		Then I wait until the loading finished
 		Then "Appv1" I should see desired program "App V1 Selenium Program"

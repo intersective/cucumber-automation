@@ -134,13 +134,6 @@ Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([
 	sleep 4
 end
 
-Given(/^"Appv1" I login with a previous registerd user$/) do
-	step("I go to " + "\"https://appdev.practera.com\"")
-	step("I wait 10 seconds")
-	step("\"Appv1\"" + " I login with the right username with a right password")
-	step("I should not see " + "\"Invalid Login Details pop up\"" + " which is located at " + "\"//*[@class='popup-title'][text()='Invalid Login Details']\"" + " with xpath assert")
-end
-
 Then(/^"Appv1" I go to the first milestone page$/) do
 	step("\"Appv1\"" + " I choose a program " + "\"App V1 Selenium Program\"")
 	step("\"Appv1\"" + " I should see the app home screen")

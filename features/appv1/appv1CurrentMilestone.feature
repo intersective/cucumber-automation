@@ -6,7 +6,7 @@ Feature: AppV1 current milestone
     Scenario: Test AppV1 current milestone
         Given I go to "https://appdev.practera.com"
         Then I wait 10 seconds
-        Then "Appv1" I login with the right username with a right password
+        Then "Appv1" I login with the right username with a password "12341234"
         Then I wait until the loading finished
         Then "Appv1" I choose a program "App V1 Selenium Program"
         Then "Appv1" I should see the app home screen

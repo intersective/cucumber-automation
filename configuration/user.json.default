@@ -1,7 +1,4 @@
 {
-	"practeraUrl" : "https://sandbox.practera.com",
-	"appv1Url" : "https://appdev.practera.com",
-	"appv1StudentPassword" : "{password}",
 	"driverPath" : "{/chrome/driver/path}",
 	"apiTest" : false
 }

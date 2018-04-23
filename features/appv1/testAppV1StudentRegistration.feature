@@ -6,7 +6,7 @@ Feature: AppV1 student registration
 	Scenario: Test AppV1 student registration
 		Given I use the registration link
 		When I wait 5 seconds
-		Then I type my own password for registration
+		Then I type my own password "12341234" for registration
 		Then I wait 2 seconds
 		Then I scroll to "agree check box" which is located at ".item-checkbox" and click
 		Then I wait 2 seconds
