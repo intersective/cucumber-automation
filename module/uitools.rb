@@ -22,6 +22,18 @@ def findElementWithParent(parentEle, selectorPath, selectorType="css")
 	return nil
 end
 
+def waitElementWithParent(waitor, parentEle, selectorPath, selectorType="css")
+	begin
+		if selectorType == "xpath"
+			return waitor.until { parentEle.find_element(:xpath => selectorPath) }
+		end
+		return waitor.until { parentEle.find_element(:css => selectorPath) }
+	rescue Exception => e
+		$testLogger1.error(e.message)
+	end
+	return nil
+end
+
 def waitForElement(webDriver, waitor, selectorPath)
 	begin
 		return waitor.until { webDriver.find_element(:css => selectorPath) }

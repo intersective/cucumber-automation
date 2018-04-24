@@ -5,25 +5,9 @@ Then(/^"Appv1" I go to the "([^"]*)" tab page$/) do |tabIndex|
 	waitForLoadFinished($driver, $wait)
 end
 
-Then(/^"Appv1" I can see "([^"]*)" milestones$/) do |numberOfMilestones|
-	milestones = waitForElements($driver, $wait, ".view-container[nav-view='active'] .card")
-	while milestones.length != numberOfMilestones.to_i
-		sleep 1
-		milestones = waitForElements($driver, $wait, ".view-container[nav-view='active'] .card")
-	end
-end
-
 Then(/^"Appv1" I go to the "([^"]*)" milestone$/) do |milestoneLocation|
 	milestone = waitForElementVisibleWithInAGroup($driver, $wait, ".view-container[nav-view='active'] .card", milestoneLocation)
 	milestone.click()
-end
-
-Then(/^"Appv1" I can see "([^"]*)" assessments and topics$/) do |numberOfObjects|
-	toDoThings = waitForElements($driver, $wait, ".jsmbp-detail-items > div")
-	while toDoThings.length != numberOfObjects.to_i
-		sleep 1
-		toDoThings = waitForElements($driver, $wait, ".jsmbp-detail-items > div")
-	end
 end
 
 Then(/^"Appv1" I can see the activity name "([^"]*)" and description "([^"]*)"$/) do |actName, actDescription|
@@ -135,15 +119,15 @@ Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([
 end
 
 Then(/^"Appv1" I go to the first milestone page$/) do
-	step("\"Appv1\"" + " I choose a program " + "\"App V1 Selenium Program\"")
-	step("\"Appv1\"" + " I should see the app home screen")
+	step("\"Appv1\" I choose a program \"App V1 Selenium Program\"")
+	step("\"Appv1\" I should see the app home screen")
 	step("I wait 8 seconds")
-	step("\"Appv1\"" + " I go to the " + "\"2\"" + " tab page")
-	step("\"Appv1\"" + " I can see " + "\"2\"" + " milestones")
+	step("\"Appv1\" I go to the \"2\" tab page")
+	step("I can see a group of \"milestones\" with total \"2\" which is located at \".view-container[nav-view='active'] .card\"")
 	step("I wait 2 seconds")
-	step("\"Appv1\"" + " I go to the "+ "\"1\"" + " milestone")
+	step("\"Appv1\" I go to the \"1\" milestone")
 	step("I wait 3 seconds")
-	step("\"Appv1\"" + " I can see " + "\"8\"" + " assessments and topics")
+	step("I can see a group of \"assessments and topics\" with total \"8\" which is located at \".jsmbp-detail-items > div\"")
 	step("I wait 2 seconds")
 end
 

@@ -6,14 +6,7 @@ Feature: AppV1 Enrolment
 	Scenario: Test AppV1 Enrolment Scenario
 		Given I go to "https://sandbox.practera.com"
 		When The "message" which is located at ".toast-message" should be disappear
-		Then I click on "a button" which is located at "#main-nav > ul.nav > li:nth-of-type(2) > a"
-		Then I should be able to see "a form" which is located at "form#login"
-		Then I input "admin_selenium@practera.com" to "email input field" which is located at "form#login input#UserEmail"
-		Then I input "12341234" to "password input field" which is located at "form#login input#UserPassword"
-		Then I click on "a button" which is located at "form#login button"
-		Then I should be able to see "message" which is located at ".toast-message"
-		When The "message" which is located at ".toast-message" should be disappear
-		Then I wait 2 seconds
+		Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a bar" which is located at "#sidebar"
 		Then I click on "a button" which is located at "#sidebar ul.nav li.hsub:nth-of-type(4) a"
 		Then I wait 2 seconds

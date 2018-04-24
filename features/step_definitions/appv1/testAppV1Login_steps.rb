@@ -7,9 +7,9 @@ Then(/^"Appv1" I log out$/) do
 	$appv1PageActions.logout($driver, $wait)
 end
 
-Then(/^"Appv1" I login with the right username with a password "([^"]*)"$/) do |userPassword|
+Then(/^"Appv1" I login with the student account and password "([^"]*)"$/) do |userPassword|
 	studentAccount = $sharedData1.loadDataFromKey("studentAccount")
-	$appv1PageActions.login($driver, $wait, studentAccount, userPassword)
+	step("\"Appv1\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 
 Then(/^"Appv1" I should see desired program "([^"]*)"$/) do |programName|

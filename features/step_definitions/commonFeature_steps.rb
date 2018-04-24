@@ -23,6 +23,24 @@ Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with asse
     end
 end
 
+Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
+	waitForElements($driver, $wait, arg2)
+end
+
+Then(/^I can see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
+    elements = waitForElements($driver, $wait, arg3)
+	while elements.length != arg2.to_i
+		sleep 1
+		elements = waitForElements($driver, $wait, arg3)
+	end
+end
+
+Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
+	if waitForElements($driver, $wait, arg2) == nil
+        fail("something wrong")
+    end
+end
+
 Then(/^I wait (.*?) seconds$/) do |arg1|
 	sleep arg1.to_i
 end
@@ -63,4 +81,8 @@ end
 
 Then(/^I upload the file "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
     waitForElement($driver, $wait, arg3).send_keys(arg1)
+end
+
+Then(/^I scroll to the top$/) do
+    $driver.execute_script("window.scrollTo(0, -document.body.scrollHeight);")
 end

@@ -6,3 +6,4 @@ features/appv1/testAppV1Topics.feature
 features/appv1/testAppV1Relection.feature
 features/appv1/testAppV1QuizAssessment.feature
 features/appv1/testAppV1Moderated.feature
+features/practera/testAssignMentors.feature
