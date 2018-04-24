@@ -16,8 +16,8 @@ Feature: Practera Assign reviewers
 		Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
-		Then "Practera" I should see the student submission
-		Then "Practera" I can assign a mentor "selenium_mentor2" to the student submission
+		Then "Practera" I should see a student "selenium.20180424114404" submission
+		Then "Practera" I can assign a mentor "selenium_mentor2" to a student "selenium.20180424114404" submission
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
