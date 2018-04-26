@@ -12,12 +12,11 @@ Feature: Practera Assign reviewers
 		Then I wait 2 seconds
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
-		Then I click on "moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
-		Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
+		Then I click on "ready to publish on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(1) td:nth-of-type(5) > a"
 		Then I wait 2 seconds
-		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
-		Then "Practera" I should see the student submission
-		Then "Practera" I can assign a mentor "selenium_mentor2" to the student submission
+		Then I should be able to see a group of "reviewed submissions" which is located at "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr"
+		Then "Practera" I should see the student ready to publish submission
+		Then "Practera" I can publish the student submission review
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top

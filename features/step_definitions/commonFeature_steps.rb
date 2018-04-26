@@ -13,6 +13,12 @@ Then(/^I click on "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
 	waitForElementVisible($driver, $wait, arg2).click()
 end
 
+Then(/^I click on "([^"]*)" which is located at "([^"]*)" with scroll$/) do |arg1, arg2|
+    ele = waitForElement($driver, $wait, arg2)
+    scrollIfNotVisible($driver, ele)
+    ele.click()
+end
+
 Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
 	waitForElementVisible($driver, $wait, arg2)
 end
@@ -77,6 +83,18 @@ end
 
 Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
     waitForElementVisible($driver, $wait, arg3).send_keys(arg1)
+end
+
+Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)" with scroll$/) do |arg1, arg2, arg3|
+    ele = waitForElement($driver, $wait, arg3)
+    scrollIfNotVisible($driver, ele)
+    ele.send_keys(arg1)
+end
+
+Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)" with xpath scroll$/) do |arg1, arg2, arg3|
+    ele = waitForElementXpath($driver, $wait, arg3)
+    scrollIfNotVisible($driver, ele)
+    ele.send_keys(arg1)
 end
 
 Then(/^I upload the file "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|

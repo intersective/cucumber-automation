@@ -23,6 +23,25 @@ Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName
     end
 end
 
+Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/) do |studentName|
+    found = false
+    readytopublishes = waitForElements($driver, $wait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes.each do |uas|
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+            found = true
+            break
+        end
+    end
+    if !found
+        fail("I can not see the student ready to publish submissions")
+    end
+end
+
+Then(/^"Practera" I should see the student ready to publish submission$/) do
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step("\"Practera\" I should see a student \"#{studentName}\" ready to publish submission")
+end
+
 Then(/^"Practera" I should see the student submission$/) do
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I should see a student \"#{studentName}\" submission")
@@ -48,7 +67,40 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submiss
     end
 end
 
+Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
+    readytopublishes = waitForElements($driver, $wait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes.each do |uas|
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+            $driver.execute_script("window.confirm = function(){return true;}")
+            sleep 2
+            findElementWithParent(uas, "td:nth-of-type(5) > span:nth-of-type(2) > a").click()
+            break
+        end
+    end
+end
+
+Then(/^"Practera" I can publish the student submission review$/) do |mentorName|
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
+end
+
 Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) do |mentorName|
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I can assign a mentor \"selenium_mentor2\" to a student \"#{studentName}\" submission")
+end
+
+Then(/^"Practera" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
+    toReviews = waitForElements($driver, $wait, "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row")
+    toReviews.each do |row|
+        if studentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(3)")) &&
+            assessmentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(1)"))
+            findElementWithParent(row, "div:nth-of-type(4) > a").click()
+            break
+        end
+    end
+end
+
+Then(/^"Practera" I can go to the review page with the student submission and the assessment "([^"]*)"$/) do |assessmentName|
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step(" \"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
