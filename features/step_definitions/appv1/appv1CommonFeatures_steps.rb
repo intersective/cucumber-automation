@@ -26,6 +26,11 @@ Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)
 	compareWithLog("expected item category", itemCategory, refineElementTextContent(category).downcase)
 end
 
+Then(/^"Appv1" I can see the "([^"]*)" with status "([^"]*)"$/) do |itemName, itemStatus|
+	aitemStatus = waitForElementXpath($driver, $wait, "//*[@class='title'][text()='" + itemName + "']/../div/*[@ng-if='seq.asmtStatus']")
+	compareWithLog("expected item status", itemStatus, refineElementTextContent(aitemStatus))
+end
+
 Then(/^"Appv1" I go to the (topic|assessment) locating at "([^"]*)"$/) do |itemName, itemLocation|
 	waitForLoadFinished($driver, $wait)
 	toDoThing = waitForElements($driver, $wait, ".jsmbp-detail-items > div")[itemLocation.to_i - 1]

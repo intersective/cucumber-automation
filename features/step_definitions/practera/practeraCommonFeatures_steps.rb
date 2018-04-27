@@ -79,7 +79,7 @@ Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |stu
     end
 end
 
-Then(/^"Practera" I can publish the student submission review$/) do |mentorName|
+Then(/^"Practera" I can publish the student submission review$/) do
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
 end
@@ -102,5 +102,5 @@ end
 
 Then(/^"Practera" I can go to the review page with the student submission and the assessment "([^"]*)"$/) do |assessmentName|
     studentName = $sharedData1.loadDataFromKey("studentName")
-    step(" \"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
+    step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
