@@ -4,7 +4,7 @@ Feature: Practera Mentor Review
 	so that I can review student submissions
 
     Scenario: Test Practera Mentor Review
-		Given I go to "https://sandbox.practera.com"
+		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "selenium_mentor2@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"

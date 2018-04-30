@@ -4,7 +4,7 @@ Feature: AppV1 Enrolment
 	so that I can allow them to experience the program contents
 
 	Scenario: Test AppV1 Enrolment Scenario
-		Given I go to "https://sandbox.practera.com"
+		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a bar" which is located at "#sidebar"

@@ -4,7 +4,7 @@ Feature: AppV1 login
 	so that I can experience the program contents
 	
 	Scenario: Test AppV1 Login Scenario
-		Given I go to "https://appdev.practera.com"
+		Given I go to App V1
 		When I wait 10 seconds
 		Then "Appv1" I login with the student account and password "11111111"
 		Then I should be able to see "Invalid Login Details pop up" which is located at "//*[@class='popup-title'][text()='Invalid Login Details']" with xpath assert

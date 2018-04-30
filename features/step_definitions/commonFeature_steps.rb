@@ -2,6 +2,16 @@ Given(/^I go to "([^"]*)"$/) do |arg1|
 	$driver.get(arg1)
 end
 
+Given(/^I go to App V1$/) do
+    appV1Link = $configObj["appv1Url"]
+    step("I go to \"#{appV1Link}\"")
+end
+
+Given(/^I go to Practera Platform$/) do
+    practeraLink = $configObj["practeraUrl"]
+    step("I go to \"#{practeraLink}\"")
+end
+
 When(/^The "([^"]*)" which is located at "([^"]*)" should be disappear$/) do |arg1, arg2|
 	sleep 1
 	while waitForElement($driver, $shortWait, arg2) != nil

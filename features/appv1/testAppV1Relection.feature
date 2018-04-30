@@ -4,7 +4,7 @@ Feature: AppV1 reflection assessment
 	so that I can experience the program contents
 	
 	Scenario: Test AppV1 reflection assessment
-		Given I go to "https://appdev.practera.com"
+		Given I go to App V1
 		Then I wait 10 seconds
 		Then "Appv1" I login with the student account and password "12341234"
 		Then I wait until the loading finished

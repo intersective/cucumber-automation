@@ -1,0 +1,3 @@
+features/appv1/testAppV1Enrolment.feature
+features/appv1/testAppV1StudentRegistration.feature
+features/appv1/testAppV1QuizAssessment.feature
