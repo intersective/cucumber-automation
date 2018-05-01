@@ -2,5 +2,6 @@
 	"driverPath" : "{/chrome/driver/path}",
 	"apiTest" : false,
 	"appv1Url" : "https://appdev.practera.com",
-	"practeraUrl" : "https://sandbox.practera.com"
+	"practeraUrl" : "https://sandbox.practera.com",
+	"mailtrap" : "http://mailtrap.io/"
 }

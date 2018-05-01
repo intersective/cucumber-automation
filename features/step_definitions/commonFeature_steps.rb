@@ -1,3 +1,5 @@
+
+
 Given(/^I go to "([^"]*)"$/) do |arg1|
 	$driver.get(arg1)
 end
@@ -10,6 +12,11 @@ end
 Given(/^I go to Practera Platform$/) do
     practeraLink = $configObj["practeraUrl"]
     step("I go to \"#{practeraLink}\"")
+end
+
+Given(/^I go to Mailtrap$/) do
+    mailtrapLink = $configObj["mailtrap"]
+    step("I go to \"#{mailtrapLink}\"")
 end
 
 When(/^The "([^"]*)" which is located at "([^"]*)" should be disappear$/) do |arg1, arg2|

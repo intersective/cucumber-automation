@@ -1,3 +1,5 @@
+
+
 Then(/^"Practera" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
     step("I click on \"a button\" which is located at \"#main-nav > ul.nav > li:nth-of-type(2) > a\"")
     step("I should be able to see \"a form\" which is located at \"form#login\"")

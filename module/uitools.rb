@@ -52,6 +52,16 @@ def waitForElementXpath(webDriver, waitor, selectorPath)
 	return nil
 end
 
+def waitForElementsXpath(webDriver, waitor, selectorPath)
+	begin
+		waitor.until { webDriver.find_elements(:xpath => selectorPath).length > 0 }
+		return webDriver.find_elements(:xpath => selectorPath)
+	rescue Exception => e
+		$testLogger1.error(e.message)
+	end
+	return nil
+end
+
 def waitForElements(webDriver, waitor, selectorPath)
 	begin
 		waitor.until { webDriver.find_elements(:css => selectorPath).length > 0 }

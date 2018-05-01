@@ -1,4 +1,5 @@
 
+
 Then(/^"Appv1" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
 	$appv1PageActions.login($driver, $wait, userName, userPassword)
 end
