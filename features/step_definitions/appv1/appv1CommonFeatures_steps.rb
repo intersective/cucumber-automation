@@ -51,6 +51,11 @@ Then(/^"Appv1" I go back from topic page$/) do
 	waitForLoadFinished($driver, $wait)
 end
 
+Then(/^"Appv1" I go back from assessment page$/) do
+	waitForElementVisible($driver, $wait, ".nav-bar-block[nav-bar=active] div:nth-of-type(1) .back-button").click()
+	waitForLoadFinished($driver, $wait)
+end
+
 Then(/^"Appv1" I can see the assessment with name "([^"]*)" and description "([^"]*)"$/) do |assessmentTitle, assessmentDescription|
 	aAssessmenTitle = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.name'] > h1"))
 	aAssessmenDescription = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.description']"))
@@ -136,6 +141,35 @@ Then(/^"Appv1" I go to the first milestone page$/) do
 	step("I wait 2 seconds")
 end
 
+Then(/^"Appv1" I go to the second milestone page$/) do
+	step("\"Appv1\" I choose a program \"App V1 Selenium Program\"")
+	step("\"Appv1\" I should see the app home screen")
+	step("I wait 8 seconds")
+	step("\"Appv1\" I go to the \"2\" tab page")
+	step("I can see a group of \"milestones\" with total \"2\" which is located at \".view-container[nav-view='active'] .card\"")
+	step("I wait 2 seconds")
+	step("\"Appv1\" I go to the \"2\" milestone")
+	step("I wait 3 seconds")
+	step("I can see a group of \"assessments and topics\" with total \"3\" which is located at \".jsmbp-detail-items > div\"")
+	step("I wait 2 seconds")
+end
+
 Then(/^I wait until the loading finished$/) do
 	waitForLoadFinished($driver, $wait)
+end
+
+Then(/^"Appv1" I should be able to select "([^"]*)" to team member selector which is located at "([^"]*)"$/) do |selectOption, selectorPath|
+	selectorOption = waitForElementXpath($driver, $wait, selectorPath)
+	if refineElementTextContent(findElementWithParent(selectorOption, ".item-content")).split(" ", 2)[1] != selectOption
+		fail("I can not see the team member")
+	end
+	scrollIfNotVisible($driver, selectorOption)
+	selectorOption.click()
+end
+
+Then(/^"Appv1" I should be able to see "([^"]*)" which is located at "([^"]*)"$/) do |questionAnswer, selectorPath|
+	aQuestionAnswer = waitForElementXpath($driver, $wait, selectorPath)
+	if refineElementTextContent(aQuestionAnswer) != questionAnswer
+		fail("I can not see the answers")
+	end
 end
