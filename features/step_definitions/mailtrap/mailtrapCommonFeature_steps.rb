@@ -27,7 +27,8 @@ Then(/^"Mailtrap" I search email with title "([^"]*)" and receiver "([^"]*)"$/) 
     emails = waitForElementsXpath($driver, $normalWait, "//*[contains(concat(' ', @class, ' '), 'messages_list')]//*[@class='to']")
     emails.each do |ema|
         if refineElementTextContent(ema) == "To: <" + receiver + ">"
-            email  = ema
+            email = ema
+            break
         end
     end
     email.click()

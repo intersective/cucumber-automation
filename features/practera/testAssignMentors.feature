@@ -9,7 +9,7 @@ Feature: Practera Assign reviewers
         Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-		Then I wait 2 seconds
+		Then I wait 3 seconds
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
 		Then I click on "moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
