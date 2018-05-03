@@ -75,7 +75,7 @@ end
 def waitForElementVisible(webDriver, waitor, selectorPath)
 	loop do
 		ele = waitForElement(webDriver, waitor, selectorPath)
-		if ele.displayed? || ele == nil
+		if ele == nil || ele.displayed?
 			break
 		end
 		sleep 1
@@ -86,7 +86,7 @@ end
 def waitForElementVisibleXpath(webDriver, waitor, selectorPath)
 	loop do
 		ele = waitForElementXpath(webDriver, waitor, selectorPath)
-		if ele.displayed? || ele == nil
+		if ele == nil || ele.displayed?
 			break
 		end
 		sleep 1

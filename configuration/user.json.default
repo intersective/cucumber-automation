@@ -3,5 +3,6 @@
 	"apiTest" : false,
 	"appv1Url" : "https://appdev.practera.com",
 	"practeraUrl" : "https://sandbox.practera.com",
-	"mailtrap" : "http://mailtrap.io/"
+	"mailtrap" : "http://mailtrap.io/",
+	"peUrl" : "https://pe-stage.practera.com/"
 }

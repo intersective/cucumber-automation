@@ -106,3 +106,29 @@ Then(/^"Practera" I can go to the review page with the student submission and th
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
+
+Then(/^I wait until the enrolment process percentage be 100 percent$/) do
+	while "100% Complete" != waitForElement($driver, $wait, "div.progress > #process-percentage").attribute("innerText")
+		sleep 1
+	end
+end
+
+Then(/^I input student name to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
+	waitForElement($driver, $wait, arg2).send_keys($sharedData1.loadDataFromKey("studentName"))
+end
+
+Then(/^I wait the search result$/) do
+	while waitForElements($driver, $listWait, "table#indextbl tbody tr").length != 1
+		sleep 1
+	end
+end
+
+Then(/^I get the registration url at "([^"]*)"$/) do |arg1|
+    regHref = waitForElement($driver, $wait, arg1).attribute("href")
+    $sharedData1.putData("regUrl", regHref)
+end
+
+Then(/^I use the registration link$/) do
+	regLink = $sharedData1.loadDataFromKey("regUrl")
+	$driver.get(regLink)
+end

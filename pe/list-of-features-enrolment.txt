@@ -1,0 +1,2 @@
+features/pe/testPEEnrolment.feature
+features/pe/testPERegistration.feature

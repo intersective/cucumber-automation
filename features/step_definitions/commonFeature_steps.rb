@@ -19,6 +19,11 @@ Given(/^I go to Mailtrap$/) do
     step("I go to \"#{mailtrapLink}\"")
 end
 
+Given(/^I go to PE$/) do
+    peLink = $configObj["peUrl"]
+    step("I go to \"#{peLink}\"")
+end
+
 When(/^The "([^"]*)" which is located at "([^"]*)" should be disappear$/) do |arg1, arg2|
 	sleep 1
 	while waitForElement($driver, $shortWait, arg2) != nil

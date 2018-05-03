@@ -60,3 +60,14 @@ Then(/^"Mailtrap" I log out$/) do
     sleep 2
     waitForElementVisible($driver, $wait, ".account-dropdown > li:nth-of-type(4)").click()
 end
+
+Then(/^"Mailtrap" I go into the email content$/) do
+    currentWindow = $driver.window_handle
+    $sharedData1.putData("previousWindow", currentWindow)
+    $driver.switch_to.frame(0)
+end
+
+Then(/^"Mailtrap" I go back to previous window$/) do
+    previousWindow = $sharedData1.loadDataFromKey("previousWindow")
+    $driver.switch_to.window(previousWindow)
+end

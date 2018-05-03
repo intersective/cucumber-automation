@@ -2,3 +2,4 @@ configuration/user.json
 logs/
 reportBackup/
 reports/
+data/sandbox-pe-participant.csv
