@@ -47,19 +47,19 @@ Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with asse
 end
 
 Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
-	waitForElements($driver, $wait, arg2)
+	waitForElements($driver, $listWait, arg2)
 end
 
 Then(/^I can see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
-    elements = waitForElements($driver, $wait, arg3)
+    elements = waitForElements($driver, $listWait, arg3)
 	while elements.length != arg2.to_i
 		sleep 1
-		elements = waitForElements($driver, $wait, arg3)
+		elements = waitForElements($driver, $listWait, arg3)
 	end
 end
 
 Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
-	if waitForElements($driver, $wait, arg2) == nil
+	if waitForElements($driver, $listWait, arg2) == nil
         fail("something wrong")
     end
 end

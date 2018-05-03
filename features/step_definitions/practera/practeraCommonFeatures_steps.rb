@@ -27,7 +27,7 @@ end
 
 Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/) do |studentName|
     found = false
-    readytopublishes = waitForElements($driver, $wait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             found = true
@@ -52,7 +52,7 @@ end
 Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentorName, studentName|
     popover = nil
     index = 1
-    unassigneds = waitForElements($driver, $wait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr")
+    unassigneds = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr")
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             findElementWithParent(uas, "td:nth-of-type(3) > span a").click()
@@ -70,7 +70,7 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submiss
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
-    readytopublishes = waitForElements($driver, $wait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             $driver.execute_script("window.confirm = function(){return true;}")
@@ -92,7 +92,7 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) d
 end
 
 Then(/^"Practera" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
-    toReviews = waitForElements($driver, $wait, "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row")
+    toReviews = waitForElements($driver, $listWait, "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row")
     toReviews.each do |row|
         if studentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(3)")) &&
             assessmentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(1)"))

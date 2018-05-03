@@ -6,7 +6,7 @@ Then(/^"Appv1" I go to the "([^"]*)" tab page$/) do |tabIndex|
 end
 
 Then(/^"Appv1" I go to the "([^"]*)" milestone$/) do |milestoneLocation|
-	milestone = waitForElementVisibleWithInAGroup($driver, $wait, ".view-container[nav-view='active'] .card", milestoneLocation)
+	milestone = waitForElementVisibleWithInAGroup($driver, $listWait, ".view-container[nav-view='active'] .card", milestoneLocation)
 	milestone.click()
 end
 
@@ -18,7 +18,7 @@ Then(/^"Appv1" I can see the activity name "([^"]*)" and description "([^"]*)"$/
 end
 
 Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)" and category "([^"]*)"$/) do |itemName, itemLocation, itemTitle, itemCategory|
-	toDoThings = waitForElements($driver, $wait, ".jsmbp-detail-items > div")
+	toDoThings = waitForElements($driver, $listWait, ".jsmbp-detail-items > div")
 	topicHeader = toDoThings[itemLocation.to_i - 1].find_element(:css => ".item")
 	aItemTitle = topicHeader.find_element(:css => "detail-title h2")
 	category = topicHeader.find_element(:css => "detail-title p")
@@ -33,7 +33,7 @@ end
 
 Then(/^"Appv1" I go to the (topic|assessment) locating at "([^"]*)"$/) do |itemName, itemLocation|
 	waitForLoadFinished($driver, $wait)
-	toDoThing = waitForElements($driver, $wait, ".jsmbp-detail-items > div")[itemLocation.to_i - 1]
+	toDoThing = waitForElements($driver, $listWait, ".jsmbp-detail-items > div")[itemLocation.to_i - 1]
 	scrollIfNotVisible($driver, toDoThing)
 	toDoThing.click()
 	waitForLoadFinished($driver, $wait)
@@ -64,7 +64,7 @@ Then(/^"Appv1" I can see the assessment with name "([^"]*)" and description "([^
 end
 
 Then(/^"Appv1" I can see the question locating at "([^"]*)" with name "([^"]*)" and description "([^"]*)"$/) do |questionIndex, questionName, questionDescription|
-	one = waitForElements($driver, $wait, "div[ng-repeat='question in group.questions']")[questionIndex.to_i - 1]
+	one = waitForElements($driver, $listWait, "div[ng-repeat='question in group.questions']")[questionIndex.to_i - 1]
 	aQuestionName = refineElementTextContent(one.find_element(:css => ".item h2"))
 	aQuestionDescription = findElementWithParent(one, "div[ng-if='question.description']")
 	compareWithLog("expected question name", questionName, aQuestionName)
@@ -74,13 +74,13 @@ Then(/^"Appv1" I can see the question locating at "([^"]*)" with name "([^"]*)" 
 end
 
 Then(/^"Appv1" I do the text question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $wait, questionIndex)
+	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
 	scrollIfNotVisible($driver, answerContainer)
 	answerContainer.find_element(:css => "textarea").send_keys(questionAnswer)
 end
 
 Then(/^"Appv1" I do the (oneof|team member selector) question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionType, questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $wait, questionIndex)
+	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
 	scrollIfNotVisible($driver, answerContainer)
 	selectOption = answerContainer.find_element(:css => ".list > label:nth-of-type(" + questionAnswer + ")")
 	scrollIfNotVisible($driver, selectOption)
@@ -88,7 +88,7 @@ Then(/^"Appv1" I do the (oneof|team member selector) question locating at "([^"]
 end
 
 Then(/^"Appv1" I do the multiple question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $wait, questionIndex)
+	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
 	scrollIfNotVisible($driver, answerContainer)
 	answers = questionAnswer.split(",")
 	answers.each do |ans|
@@ -99,7 +99,7 @@ Then(/^"Appv1" I do the multiple question locating at "([^"]*)" with answer "([^
 end
 
 Then(/^"Appv1" I do the (file|image|video) question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionType, questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $wait, questionIndex)
+	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
 	scrollIfNotVisible($driver, answerContainer)
 	uploadBtn = answerContainer.find_element(:css => "div:nth-of-type(1) button:nth-of-type(1)")
 	scrollIfNotVisible($driver, uploadBtn)
@@ -114,7 +114,7 @@ Then(/^"Appv1" I do the (file|image|video) question locating at "([^"]*)" with a
 end
 
 Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $wait, questionIndex)
+	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
 	scrollIfNotVisible($driver, answerContainer)
 	uploadBtn = answerContainer.find_element(:css => "div:nth-of-type(1) button:nth-of-type(1)")
 	scrollIfNotVisible($driver, uploadBtn)

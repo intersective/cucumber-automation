@@ -13,6 +13,7 @@ class SharedWebDriver
 		@driver.manage.window.move_to(0, 0)
 		@driver.manage.window.resize_to(1440, 1000)
 		@wait = Selenium::WebDriver::Wait.new(:timeout => 30) # seconds
+		@listWait = Selenium::WebDriver::Wait.new(:timeout => 120) # seconds
 		@shortWait = Selenium::WebDriver::Wait.new(:timeout => 3) # seconds
 		@normalWait = Selenium::WebDriver::Wait.new(:timeout => 10) # seconds
 	end
@@ -31,6 +32,10 @@ class SharedWebDriver
 
 	def getNormalWaitor()
 		return @normalWait
+	end
+
+	def getListWaitor()
+		return @listWait
 	end
 
 end

@@ -21,7 +21,7 @@ Then(/^I input student name to "([^"]*)" which is located at "([^"]*)"$/) do |ar
 end
 
 Then(/^I wait the search result$/) do
-	while waitForElements($driver, $wait, "table#indextbl tbody tr").length != 1
+	while waitForElements($driver, $listWait, "table#indextbl tbody tr").length != 1
 		sleep 1
 	end
 	regHref = waitForElement($driver, $wait, "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a").attribute("href")

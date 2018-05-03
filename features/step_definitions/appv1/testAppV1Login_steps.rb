@@ -14,7 +14,7 @@ Then(/^"Appv1" I login with the student account and password "([^"]*)"$/) do |us
 end
 
 Then(/^"Appv1" I should see desired program "([^"]*)"$/) do |programName|
-	programs = waitForElements($driver, $wait, ".item-content")
+	programs = waitForElements($driver, $listWait, ".item-content")
 	found = false
 	programs.each do |opg|
 		if programName == refineElementTextContent(opg)
@@ -28,7 +28,7 @@ Then(/^"Appv1" I should see desired program "([^"]*)"$/) do |programName|
 end
 
 Then(/^"Appv1" I choose a program "([^"]*)"$/) do |programName|
-	programs = waitForElements($driver, $wait, ".item-content")
+	programs = waitForElements($driver, $listWait, ".item-content")
 	i = 0
 	programs.each do |opg|
 		i = i + 1
