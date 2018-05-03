@@ -6,13 +6,13 @@ Feature: AppV1 Check Team Assessment
 	Scenario: Test AppV1 Check Team Assessment
 		Given I go to App V1
 		Then I wait 10 seconds
-		Then "Appv1" I login with username "selenium.20180502163930@practera.com" and password "12341234"
+		Then "Appv1" I login with username "selenium.20180503171521@practera.com" and password "12341234"
 		Then I wait until the loading finished
 		Then "Appv1" I go to the second milestone page
 		Then "Appv1" I can see the "assessment" locating at "3" with title "Appv1 test automation team assessment" and category "assessment"
 		Then "Appv1" I go to the assessment locating at "3"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"
-		Then "Appv1" I should be able to see "selenium.20180502185029 is working with us" which is located at "//*[@ng-repeat='question in group.questions'][1]//*[@ng-if='isDone']"
+		Then "Appv1" I should be able to see "selenium.20180503171521 is working with us" which is located at "//*[@ng-repeat='question in group.questions'][1]//*[@ng-if='isDone']"
 		Then "Appv1" I should be able to see "Choice Two" which is located at "//*[@ng-repeat='question in group.questions'][2]//*[@ng-if='isDone']"
 		Then I wait 2 seconds
 		Then "Appv1" I go back from assessment page
