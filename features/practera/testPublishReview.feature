@@ -1,9 +1,9 @@
-Feature: Practera Assign reviewers
+Feature: Practera Publish Reviews
 	As a program admin
 	I want to login to Practera platform
-	so that I can assign a mentor to review the assessments from students
+	so that I can publish an assessment review
 
-    Scenario: Test Practera Assign reviewers
+    Scenario: Test Practera Publish Reviews
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
