@@ -1,35 +1,23 @@
-Feature: Personal Edge Student Career Strategist Activity
+Feature: Personal Edge Student Confident Communicator Activity
 	As a student to the program
 	I want to login to the app
-	so that I can start to taking the fourth activity
+	so that I can start to taking the second activity
 
-    Scenario: Test Personal Edge Student Personal Edge Student Career Strategist Activity
+    Scenario: Test Personal Edge Student Personal Edge Student Confident Communicator Activity
         Given I go to PE
         When "PE" I login with username "selenium.20180508013454@practera.com" and password "12341234"
         Then "PE" I wait for loading finished
-        Then "PE" I can see an activity locating at "4" position with title "Career Strategist"
-        Then "PE" I can see an activity locating at "4" position with "0" tick
-        Then "PE" I can see an activity locating at "4" position with "0" score
-        Then "PE" I go to "4" activity
-        Then "PE" I can see "0" submissions for "Career Strategist" activity
+        Then "PE" I can see an activity locating at "2" position with title "Confident Communicator"
+        Then "PE" I go to "2" activity
+        Then "PE" I can see "1" submissions for "Confident Communicator" activity
         Then "PE" I can add a new submission
-        Then "PE" I can see an assessment with title "CAREER STRATEGIST"
-        Then "PE" I can see an assessment with description "Please choose a meaningful title, write a STARL/P statement and attach relevant files. The better your submission is, the more points you will win!"
         Then "PE" I can see "4" question groups
-        Then "PE" I can see "1" question group with title "SUBMISSION TITLE"
-        Then "PE" I can see "1" question group with description "In order to highlight your experience, you need to give your submission a title. For example \"Volunteering for fund raising\" or \"Leading a team project\""
-        Then "PE" I can see "2" question group with title "STARL/P STATEMENT"
-        Then "PE" I can see "2" question group with description "The following structure is provided to guide students in reflecting and doing a pitch to employers: STARL/P"
-        Then "PE" I can see "3" question group with title "FILE UPLOAD"
-        Then "PE" I can see "4" question group with title "OTHER FILES"
         Then "PE" I can go to "1" question group
         Then I wait 2 seconds
-        Then "PE" I can see an assessment with title "SUBMISSION TITLE" in the assessment detail page
-        Then "PE" I can see an assessment with description "In order to highlight your experience, you need to give your submission a title. For example \"Volunteering for fund raising\" or \"Leading a team project\"" in the assessment detail page
         Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
-            | text | What is the title of your experience? | I am really into the Career Strategist part |
+            | text | What is the title of your experience? | I am really into the Confident assessment part |
         Then I wait 2 seconds
         Then I click on "save button" which is located at "assessments-group-page ion-navbar.toolbar ion-buttons button.btn-save"
         Then I wait 2 seconds
@@ -37,16 +25,14 @@ Feature: Personal Edge Student Career Strategist Activity
         Then I wait 2 seconds
         Then "PE" I can go to "2" question group
         Then I wait 2 seconds
-        Then "PE" I can see an assessment with title "STARL/P STATEMENT" in the assessment detail page
-        Then "PE" I can see an assessment with description "The following structure is provided to guide students in reflecting and doing a pitch to employers: STARL/P" in the assessment detail page
         Then I can see a group of "questions" with total "5" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
-            | text | Situation | I am really into the Career Strategist part |
-            | text | Task | I am really into the Career Strategist part |
-            | text | Action | I am really into the Career Strategist part |
-            | text | Result | I am really into the Career Strategist part |
-            | text | Learn / Plan | I am really into the Career Strategist part |
+            | text | Situation | I am really into the Confident assessment part |
+            | text | Task | I am really into the Confident assessment part |
+            | text | Action | I am really into the Confident assessment part |
+            | text | Result | I am really into the Confident assessment part |
+            | text | Learn / Plan | I am really into the Confident assessment part |
         Then I wait 2 seconds
         Then I click on "save button" which is located at "assessments-group-page ion-navbar.toolbar ion-buttons button.btn-save"
         Then I wait 2 seconds
@@ -54,7 +40,6 @@ Feature: Personal Edge Student Career Strategist Activity
         Then I wait 2 seconds
         Then "PE" I can go to "3" question group
         Then I wait 2 seconds
-        Then "PE" I can see an assessment with title "FILE UPLOAD" in the assessment detail page
         Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |

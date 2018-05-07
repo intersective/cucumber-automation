@@ -5,7 +5,7 @@ Feature: Personal Edge login
 
     Scenario: Test Personal Edge login
         Given I go to PE
-        When "PE" I login with username "selenium.20180507221857@practera.com" and password "12341234"
+        When "PE" I login with username "selenium.20180508013454@practera.com" and password "12341234"
         Then "PE" I wait for loading finished
         Then I should be able to see "activity list page" which is located at "activities-list-page" with assert
         Then "PE" I log out

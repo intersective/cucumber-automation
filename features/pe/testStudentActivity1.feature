@@ -5,7 +5,7 @@ Feature: Personal Edge Student Creative Thinker Activity
 
     Scenario: Test Personal Edge Student Creative Thinker Activity
         Given I go to PE
-        When "PE" I login with username "selenium.20180507221857@practera.com" and password "12341234"
+        When "PE" I login with username "selenium.20180508013454@practera.com" and password "12341234"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "1" position with title "Creative Thinker"
         Then "PE" I can see an activity locating at "1" position with "0" tick
@@ -59,6 +59,30 @@ Feature: Personal Edge Student Creative Thinker Activity
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | file | File upload | /Users/barrychen/workspace/cucumber-automation/uploadFile/medium-size-dogs-a-medium.jpg |
+        Then I wait 2 seconds
+        Then I click on "save button" which is located at "assessments-group-page ion-navbar.toolbar ion-buttons button.btn-save"
+        Then I wait 2 seconds
+        Then "PE" I wait for loading finished
+        Then I wait 2 seconds
+        Then I click on "back button" which is located at "assessments-page ion-header ion-navbar.toolbar button.back-button"
+        Then "PE" I wait for loading finished
+        Then I wait 2 seconds
+        Then I click on "back button" which is located at "ion-header.activity-detail ion-navbar.toolbar button.back-button"
+        Then I wait 2 seconds
+        Then "PE" I wait for loading finished
+        Then "PE" I go to "1" activity
+        Then "PE" I can see "1" submissions for "Creative Thinker" activity
+        Then "PE" I go to the in progress submission
+        Then I wait 2 seconds
+        Then "PE" I wait for loading finished
+        Then I wait 2 seconds
+        Then "PE" I can see "4" question groups
+        Then "PE" I can go to "1" question group
+        Then I wait 2 seconds
+        Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
+        Then "PE" I do the questions with:
+            | questionType | questionTitle | questionAnswer |
+            | text | What is the title of your experience? | I am really into the assessment part |
         Then I wait 2 seconds
         Then I click on "save button" which is located at "assessments-group-page ion-navbar.toolbar ion-buttons button.btn-save"
         Then I wait 2 seconds
