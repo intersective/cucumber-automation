@@ -1,0 +1,7 @@
+features/pe/testStudentActivity1.feature
+features/pe/testStudentActivity2.feature
+features/pe/testStudentActivity3.feature
+features/pe/testStudentActivity4.feature
+features/pe/testStudentActivity5.feature
+features/pe/testStudentActivity6.feature
+features/pe/testCheckActivityResult.feature

@@ -1,1 +1,2 @@
 features/pe/testLogin.feature
+features/pe/testNewbie.feature
