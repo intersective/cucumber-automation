@@ -14,15 +14,15 @@ Feature: Practera Mentor Review for Personal Edge
 		Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row"
 		
 		Then "Practera" I can do the review with:
-			| student name | assessment name |
+			| assessment name | student name |
 			| Creative Thinker | selenium.20180508013454 |
 			| Creative Thinker | selenium.20180508013454 |
 			| Career Strategist | selenium.20180508013454 |
 			| Career Strategist | selenium.20180508013454 |
 			| Cross-Cultural Team Player | selenium.20180508013454 |
 			| Cross-Cultural Team Player | selenium.20180508013454 |
-			| Creative Thinker | selenium.20180508013454 |
-			| Creative Thinker | selenium.20180508013454 |
+			| Ethical Leader | selenium.20180508013454 |
+			| Ethical Leader | selenium.20180508013454 |
 			| Confident Communicator | selenium.20180508013454 |
 			| Confident Communicator | selenium.20180508013454 |
 			| Digital Citizen | selenium.20180508013454 |

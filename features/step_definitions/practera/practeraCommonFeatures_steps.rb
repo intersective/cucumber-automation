@@ -228,3 +228,33 @@ Then(/^"Practera" I can do the review with:$/) do |table|
 		step("I should be able to see a group of \"to review submission\" which is located at \"div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row\"")
     end
 end
+
+Then(/^"Practera" I can publish the submission reviews with:$/) do |table|
+    data = table.raw
+    rows = data.length - 1
+
+    for i in 1..rows
+        assessments = waitForElements($driver, $listWait, ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr")
+        assessments.each do |assessment|
+            assessmentName = refineElementTextContent(assessment.find_element(:css => "td:nth-of-type(1)"))
+            if assessmentName == data[i][0]
+                assessment.find_element(:css => "td:nth-of-type(5) > a").click()
+                step("I wait 2 seconds")
+                step("I should be able to see a group of \"reviewed submissions\" which is located at \"#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr\"")
+                break
+            end
+        end
+        students = data[i][1].split(";")
+        students.each do |student|
+            step("\"Practera\" I should see a student \"#{student}\" ready to publish submission")
+            step("\"Practera\" I can publish a student \"#{student}\" submission review")
+            step("I should be able to see \"message\" which is located at \".toast-message\"")
+            step("The \"message\" which is located at \".toast-message\" should be disappear")
+        end
+
+        step("I scroll to the top")
+		step("I wait 2 seconds")
+		step("I click on \"a tag\" which is located at \".page-header span > a\"")
+		step("I wait 2 seconds")
+    end
+end
