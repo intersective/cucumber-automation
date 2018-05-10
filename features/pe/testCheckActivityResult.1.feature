@@ -1,5 +1,5 @@
 Feature: Personal Edge Student Activity result after reviewing
-	As a new student to the program
+	As a student to the program
 	I want to login to the app
 	so that I can check my Activity result after I have received my submissions reviews
 
@@ -28,5 +28,6 @@ Feature: Personal Edge Student Activity result after reviewing
         Then "PE" I can see an activity locating at "7" position with title "Newbie"
         Then "PE" I can see an activity locating at "7" position with "4" tick
         Then "PE" I can see an activity locating at "7" position with "4" score
+        Then "PE" I can see score "4.00" on the grade field
         Then I wait 5 seconds
         Then "PE" I log out

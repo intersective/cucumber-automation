@@ -215,3 +215,8 @@ Then(/^"PE" I wait file uploading finished$/) do
         $testLogger1.debug("file uploading")
     end
 end
+
+Then(/^"PE" I can see score "([^"]*)" on the grade field$/) do |score|
+    aScore = refineElementTextContent(waitForElement($driver, $wait, ".dashboard-data > li:nth-of-type(3) .number > .badge"))
+    compareWithLog("expected score", score, aScore)
+end
