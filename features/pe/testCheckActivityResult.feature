@@ -1,11 +1,11 @@
-Feature: Personal Edge Student Activity result
+Feature: Personal Edge Student Activity result for one submission
 	As a new student to the program
 	I want to login to the app
-	so that I can check my Activity result
+	so that I can check my Activity result after I have done one submission for each activity
 
-    Scenario: Test Personal Edge Student Activity result
+    Scenario: Test Personal Edge Student Activity result for one submission
         Given I go to PE
-        When "PE" I login with username "selenium.20180507221857@practera.com" and password "12341234"
+        When "PE" I login with username "selenium.20180508013454@practera.com" and password "12341234"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "1" position with title "Creative Thinker"
         Then "PE" I can see an activity locating at "1" position with "1" tick

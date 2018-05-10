@@ -1,1 +1,3 @@
+features/practera/testAssignMentors_pe.feature
+features/practera/testMentorReview_pe.feature
 features/practera/testPublishReview_pe.feature
