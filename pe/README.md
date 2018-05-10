@@ -9,3 +9,5 @@ list-of-features-pe_student_done - check the ticks and score of student activiti
 list-of-features-pe_student_portfolio - do the student portfolio
 
 Remember: change the student account in each of pe scenairo
+
+list-of-features-event - can run it at any time because it uses a preserved student account
