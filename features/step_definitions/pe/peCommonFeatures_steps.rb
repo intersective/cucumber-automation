@@ -220,3 +220,59 @@ Then(/^"PE" I can see score "([^"]*)" on the grade field$/) do |score|
     aScore = refineElementTextContent(waitForElement($driver, $wait, ".dashboard-data > li:nth-of-type(3) .number > .badge"))
     compareWithLog("expected score", score, aScore)
 end
+
+Then(/^"PE" I go to an event "([^"]*)" page$/) do |eventName|
+    events = waitForElements($driver, $listWait, "events-list-page ion-list event")
+    position = 1
+    events.each do |event|
+        if eventName == refineElementTextContent(event.find_element(:css => "ion-card > ion-list > .title"))
+            break
+        end
+        position = position + 1
+    end
+    if position > events.length
+        fail("we can not find the event %s" % [eventName])
+    end
+    script = "var t = document.querySelector('%s:nth-of-type(%s) ion-card > ion-list').style['background-image'].split('cdn.filestackcontent.com/')[1]; return t.slice(0,-2);" % ["events-list-page ion-list event", position]
+    eventIdentifier = $driver.execute_script(script)
+    $sharedData1.putData("eventIdentifier", eventIdentifier)
+    events[position - 1].find_element(:css => "ion-card").click()
+    sleep 5
+end
+
+Then(/^"PE" I go to the event page$/) do
+    event = $sharedData1.loadDataFromKey("currentEvent")
+    step("\"PE\" I go to an event \"#{event}\" page")
+end
+
+Then(/^"PE" I check an event "([^"]*)" is still here$/) do |eventName|
+    events = waitForElements($driver, $listWait, "events-list-page ion-list event")
+    position = 1
+    events.each do |event|
+        if eventName == refineElementTextContent(event.find_element(:css => "ion-card > ion-list > .title"))
+            break
+        end
+        position = position + 1
+    end
+    if position > events.length
+        fail("we can not find the event %s" % [eventName])
+    end
+    script = "var t = document.querySelector('%s:nth-of-type(%s) ion-card > ion-list').style['background-image'].split('cdn.filestackcontent.com/')[1]; return t.slice(0,-2);" % ["events-list-page ion-list event", position]
+    eventIdentifier = $driver.execute_script(script)
+    pEventIdentifier = $sharedData1.loadDataFromKey("eventIdentifier")
+    if eventIdentifier != pEventIdentifier
+        fail("the event %s is not here" % [eventName])
+    end
+end
+
+Then(/^"PE" I check the event is still here$/) do
+    event = $sharedData1.loadDataFromKey("currentEvent")
+    step("\"PE\" I check an event \"#{event}\" is still here")
+end
+
+Then(/^"PE" I can see the event check in button being not disabled$/) do
+    checkinBtn = waitForElement($driver, $wait ,".footer button.checkin-btn")
+    if checkinBtn.attribute("disabled")
+        fail("the event check in button being disabled")
+    end
+end

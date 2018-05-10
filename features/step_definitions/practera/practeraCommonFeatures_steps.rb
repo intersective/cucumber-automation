@@ -258,3 +258,49 @@ Then(/^"Practera" I can publish the submission reviews with:$/) do |table|
 		step("I wait 2 seconds")
     end
 end
+
+Then(/^"Practera" I can choose a timeline "([^"]*)" calendar$/) do |timeline|
+    xapth = "//td[text()='%s']/../td[5]/div/a[2]" % [timeline]
+    waitForElementVisibleXpath($driver, $wait, xapth).click()
+end
+
+Then(/^"Practera" I can create an event today$/) do
+    localNow = Time.now
+    today = "%s-%s-%s" % [localNow.year.to_s, prependZero(localNow.month), prependZero(localNow.day)]
+    locator = "div#calendar tbody td[data-date='%s']" % [today]
+    waitForElements($driver, $listWait, locator)[1].click()
+    sleep 2
+    activityType = Selenium::WebDriver::Support::Select.new(waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog select#className"))
+    activityType.select_by(:index, 1)
+    isOriginalSelect = Selenium::WebDriver::Support::Select.new(waitForElement($driver, $wait, "select#is_original"))
+    isOriginalSelect.select_by(:index, 0)
+    sleep 2
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fkey #s2id_foreign_key").click()
+    waitForElement($driver, $wait, "#select2-drop > .select2-search > input").send_keys("newbie")
+    waitForElementVisible($driver, $wait, ".select2-results> li > div > span").click()
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fhas_assessment input[type=checkbox]").click()
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fassessment #s2id_assessment").click()
+    waitForElement($driver, $wait, "#select2-drop > .select2-search > input").send_keys("generic barry checkin assessment")
+    waitForElementVisible($driver, $wait, ".select2-results> li > div > span").click()
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityParticipant").click()
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityMentor").click()
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .datetime-calendar").click()
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .datetime-calendar").click()
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .bootstrap-datetimepicker-widget .datepicker > .datepicker-days .today").click()
+    sleep 2
+    Selenium::WebDriver::Support::Select.new(waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog select#EventAddNotify")).select_by(:index, 0)
+    eventId = generateStudentId()
+    evevtName = "Selenium Event - %s" % [eventId]
+    evevtDescription = "%s description" % [evevtName]
+    waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#title").send_keys(evevtName)
+    waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#location").send_keys("Sydney city")
+    waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog textarea#description").send_keys(evevtDescription)
+    waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#capacity").send_keys("100")
+    waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog .modal-footer > button:nth-of-type(1)").click()
+    $sharedData1.putData("currentEvent", evevtName)
+    sleep 5
+    locator = "//*[@class='fc-title'][text()='%s']" % [evevtName]
+    waitForElementVisibleXpath($driver, $wait, locator).click()
+    sleep 2
+    waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog .modal-footer > button[data-bb-handler='close']").click()
+end
