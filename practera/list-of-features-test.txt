@@ -1,1 +1,2 @@
 features/practera/story/testCore-2884.feature
+features/practera/story/testCore-2824.feature

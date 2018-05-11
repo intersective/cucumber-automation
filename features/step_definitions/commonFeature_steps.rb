@@ -51,8 +51,24 @@ Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with asse
     end
 end
 
+Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
+    if waitForElement($driver, $wait, arg2) != nil
+        fail("something wrong")
+    end
+end
+
 Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
 	waitForElements($driver, $listWait, arg2)
+end
+
+Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
+	waitForElementsXpath($driver, $listWait, arg2)
+end
+
+Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
+    if waitForElementsXpath($driver, $listWait, arg2) == nil
+        fail("something wrong")
+    end
 end
 
 Then(/^I can see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|

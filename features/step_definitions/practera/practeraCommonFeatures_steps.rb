@@ -325,3 +325,16 @@ Then(/^"Practera" I wait file uploading finished$/) do
         $testLogger1.debug("file uploading")
     end
 end
+
+Then(/^"Practera" I wait for spinner loading finished$/) do
+    while waitForElement($driver, $shortWait, ".spinner") != nil
+        sleep(0.1)
+    end
+    sleep(0.5)
+end
+
+Then(/^"Practera" I wait the event toggler spinner disappear$/) do
+    while findElement($driver, "#event_toggle_spinner").attribute("class").index("hidden") == nil
+        sleep(0.1)
+    end
+end
