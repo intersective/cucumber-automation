@@ -304,3 +304,24 @@ Then(/^"Practera" I can create an event today$/) do
     sleep 2
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog .modal-footer > button[data-bb-handler='close']").click()
 end
+
+Then(/^"Practera" I upload the file "([^"]*)" to file picker$/) do |filePath|
+    currentWindow = $driver.window_handle
+    waitForElement($driver, $wait, "#filepicker_dialog")
+    sleep 3
+    $driver.switch_to.frame("filepicker_dialog")
+    waitForElement($driver, $wait, "section.fp__drag-and-drop button")
+    sleep 2
+    waitForElement($driver, $wait, "input[type='file']").send_keys(filePath)
+    waitForElementVisibleXpath($driver, $wait, "//button[text()='Upload']").click()
+    $driver.switch_to.window(currentWindow)
+    step("\"Practera\" I wait file uploading finished")
+    sleep 2
+end
+
+Then(/^"Practera" I wait file uploading finished$/) do
+    while waitForElement($driver, $shortWait, "#filepicker_dialog") != nil
+        sleep 1
+        $testLogger1.debug("file uploading")
+    end
+end

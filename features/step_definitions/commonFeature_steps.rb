@@ -126,3 +126,22 @@ end
 Then(/^I scroll to the top$/) do
     $driver.execute_script("window.scrollTo(0, -document.body.scrollHeight);")
 end
+
+Then(/^I can see an alert contain "([^"]*)"$/) do |text|
+    currentWindow = $driver.window_handle
+    a = $driver.switch_to.alert
+    compareWithLog("expected alert text", text, a.text)
+    sleep 2
+    a.accept
+    $driver.switch_to.window(currentWindow)
+end
+
+Then(/^I move to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
+    element = waitForElement($driver, $wait, arg2)
+    $driver.action.move_to(element).perform
+end
+
+Then(/^I move to "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
+    element = waitForElementXpath($driver, $wait, arg2)
+    $driver.action.move_to(element).perform
+end
