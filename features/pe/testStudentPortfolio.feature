@@ -17,7 +17,7 @@ Feature: Personal Edge Student Portfolio
         Then I wait 3 seconds
         Then "PE" I wait for loading finished
         Then I wait 2 seconds
-        Then "PE" I can see an assessment with title "Personal Edge Post-Program Questionnaire"
+        Then "PE" I can see an assessment with title "PERSONAL EDGE POST-PROGRAM QUESTIONNAIRE"
         Then "PE" I can see an assessment with description "Congratulations on completing Personal Edge! Please take 5 minutes to help us understand how you feel about your future career."
         Then "PE" I can see "2" question groups
         Then "PE" I can see "1" question group with title "MY SELF-ASSESSMENT"
@@ -68,7 +68,7 @@ Feature: Personal Edge Student Portfolio
             | oneof | The format (registration/ workshop/ evidence submission) of the program was understandable | Strongly agree |
             | oneof | The student volunteers were supportive and helpful | Strongly agree |
             | oneof | The staff put a lot of time into commenting on my work | Strongly agree |
-            | oneof | Students' ideas and suggestions were used during the program | Strongly agree |
+            | oneof | Students’ ideas and suggestions were used during the program | Strongly agree |
             | oneof | I consider what I learned valuable for my future employability | Strongly agree |
             | oneof | The program has made me more interested in future learning | Strongly agree |
             | text | What were the best aspects of the Personal Edge program? | I am really into the assessment part |
