@@ -276,3 +276,45 @@ Then(/^"PE" I can see the event check in button being not disabled$/) do
         fail("the event check in button being disabled")
     end
 end
+
+Then(/^"PE" I check that the spin chances on the page should equal to the number on the tab$/) do
+    tabSpinChance = refineElementTextContent(waitForElement($driver, $wait, "#tab-t0-3 ion-badge")).to_i
+    spinChances = refineElementTextContent(waitForElement($driver, $wait, "#spinChances")).to_i
+    if tabSpinChance != spinChances
+        fail("the spin chances on the page does not equal to the number on the tab")
+    end
+    $sharedData1.putData("spinChances", spinChances)
+end
+
+Then(/^"PE" I click on the spinner wheel$/) do
+    previousEP = refineElementTextContent(waitForElement($driver, $wait, "#spinEP")).to_i
+
+    step("I click on \"the wheel\" which is located at \"canvas#spinwheel\"")
+    step("I should be able to see \"a pop up\" which is located at \"ion-alert[role=dialog]\"")
+    step("I should be able to see \"Congratulations\" which is located at \"//ion-alert[@role='dialog']//h2[@class='alert-title'][text()='Congratulations']\" with xpath assert")
+    
+    spinChances = $sharedData1.loadDataFromKey("spinChances")
+    aSpinChances = refineElementTextContent(waitForElement($driver, $wait, "#spinChances")).to_i
+    tabSpinChance = refineElementTextContent(waitForElement($driver, $wait, "#tab-t0-3 ion-badge")).to_i
+    compareWithLog("expected spin chance decrement", "1", (spinChances - aSpinChances).to_s)
+    compareWithLog("expected spin chance", aSpinChances.to_s, tabSpinChance.to_s)
+    message = refineElementTextContent(waitForElement($driver, $wait, "ion-alert[role=dialog] .alert-sub-title"))
+    sleep(1)
+    $driver.execute_script("document.querySelector('ion-alert[role=dialog] ion-backdrop').click();")
+    sleep(2)
+    incrementedEP = /\s+[1-9][0-9]*\s+/.match(message)[0].strip()
+    spinEP = refineElementTextContent(waitForElement($driver, $wait, "#spinEP")).to_i
+    compareWithLog("expected incremented points", incrementedEP, (spinEP - previousEP).to_s)
+    $sharedData1.putData("spinEP", spinEP)
+end
+
+Then(/^"PE" I check that the points on the dashboard equal to points on the spinner page$/) do
+    waitForElement($driver, $wait, "#tab-t0-0").click()
+    step("\"PE\" I wait for loading finished")
+    step("I should be able to see \"activity list page\" which is located at \"activities-list-page\"")
+    spinEP = $sharedData1.loadDataFromKey("spinEP")
+    points = refineElementTextContent(waitForElement($driver, $wait, ".dashboard-data > li:nth-of-type(2) .number")).to_i
+    if spinEP != points
+        fail("points on the dashboard does not equal to points on the spinner page")
+    end
+end

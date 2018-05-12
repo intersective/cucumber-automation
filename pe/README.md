@@ -11,3 +11,5 @@ list-of-features-pe_student_portfolio - do the student portfolio
 Remember: change the student account in each of pe scenairo
 
 list-of-features-event - can run it at any time because it uses a preserved student account
+
+list-of-features-spinner - can run it at any time as long as there is a spin chance in the student account
