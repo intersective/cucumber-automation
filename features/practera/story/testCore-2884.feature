@@ -4,9 +4,9 @@ Feature: Practera is_required file applies to file type question
 	so that I can ensure they give some key information during learding
 
     Scenario: Test Practera is_required file applies to file type question
-        Given I go to "http://127.0.0.1:8080/login"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "test_program_student_1@practera.com" and password "12341234"
+        Then "Practera" I login with username "barry_test_program.student2@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "Assessments" which is located at "#sidebar ul.nav li:nth-of-type(3) a"
         Then I wait 2 seconds
