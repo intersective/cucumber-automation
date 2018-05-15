@@ -57,6 +57,14 @@ Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with assert$/) d
     end
 end
 
+Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with scroll assert$/) do |arg1, arg2|
+    ele = waitForElement($driver, $wait, arg2)
+    if ele == nil
+        fail("something wrong")
+    end
+    scrollIfNotVisible($driver, ele)
+end
+
 Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
 	waitForElements($driver, $listWait, arg2)
 end
@@ -111,6 +119,14 @@ Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpat
     if waitForElementVisibleXpath($driver, $wait, arg2) == nil
         fail("something wrong")
     end
+end
+
+Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath scroll assert$/) do |arg1, arg2|
+    ele = waitForElementXpath($driver, $wait, arg2)
+    if ele == nil
+        fail("something wrong")
+    end
+    scrollIfNotVisible($driver, ele)
 end
 
 Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
