@@ -8,7 +8,7 @@ Feature: AppV1 moderated assessment
 		Then I wait 10 seconds
 		Then "Appv1" I login with the student account and password "12341234"
 		Then I wait until the loading finished
-		Then "Appv1" I go to the first milestone page
+		Then "Appv1" I go to the "Comprehensive Milestone" milestone page which has "8" items
 		Then "Appv1" I go to the assessment locating at "4"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"
 		Then "Appv1" I do the text question locating at "1" with answer "This is the text from Selenium text automation"
