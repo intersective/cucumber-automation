@@ -6,5 +6,6 @@
 	"mailtrap" : "http://mailtrap.io/",
 	"peUrl" : "https://pe-stage.practera.com/",
 	"AWS_ACCESS_KEY_ID" : {AWS_ACCESS_KEY_ID},
-	"AWS_SECRET_ACCESS_KEY" : {AWS_SECRET_ACCESS_KEY}
+	"AWS_SECRET_ACCESS_KEY" : {AWS_SECRET_ACCESS_KEY},
+	"headless" : false
 }
