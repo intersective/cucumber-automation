@@ -20,5 +20,8 @@ Feature: AppV1 Check Moderated Assessment Answer
         Then I should be able to see "my answer" which is located at "//*[text()='Multiple Choice Question 1']/../..//*[text()='Choice 0.8, Choice 0.6']" with xpath scroll assert
         Then I should be able to see "expert feedback choice" which is located at "//*[text()='Multiple Choice Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='Choice 1, Choice 0.4']" with xpath scroll assert
         Then I should be able to see "expert feedback text" which is located at "//*[text()='Multiple Choice Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='your work is good']" with xpath scroll assert
+        Then I can see "file question 1 -any" which is located at "div[ng-repeat='group in ::assessment.questionGroups']:nth-of-type(4) > div[ng-repeat='question in group.questions']:nth-of-type(2) div[ng-click='previewFile(answer._raw.answer)']" containing text "2017-Scrum-Guide-US.pdf"
+        Then I can see "file question 1 -any" which is located at "div[ng-repeat='group in ::assessment.questionGroups']:nth-of-type(4) > div[ng-repeat='question in group.questions']:nth-of-type(3) div[ng-click='previewFile(answer._raw.answer)']" containing text "Video Upload issue 2.mp4"
+        Then I can see "file question 1 -any" which is located at "div[ng-repeat='group in ::assessment.questionGroups']:nth-of-type(4) > div[ng-repeat='question in group.questions']:nth-of-type(4) div[ng-click='previewFile(answer._raw.answer)']" containing text "medium-size-dogs-a-medium.jpg"
         Then I click on "back button" which is located at ".nav-bar-block[nav-bar=active] .back-button"
         Then "Appv1" I log out

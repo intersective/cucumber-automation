@@ -177,3 +177,9 @@ Then(/^I move to "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1,
     element = waitForElementXpath($driver, $wait, arg2)
     $driver.action.move_to(element).perform
 end
+
+Then("I can see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|
+    ele = waitForElement($driver, $wait, arg2)
+    text = refineElementTextContent(ele)
+    compareWithLog("expected text", text, arg3)
+end
