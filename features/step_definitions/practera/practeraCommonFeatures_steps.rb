@@ -184,10 +184,11 @@ Then(/^"Practera" I can do the review with:$/) do |table|
                 if findElement($driver, locator) == nil
                     locator = "I input \"your works are excellent, thank you for submissions\" to \"Free text review\" which is located at \".content-container > .row:nth-of-type(%s) #choice-text textarea\" with scroll" % [i]
                     step(locator)
-                    locator = "I input \"your works are excellent, thank you for submissions\" to \"Free text review\" which is located at \".content-container > .row:nth-of-type(%s) #choice-comment textarea\" with scroll" % [i]
-                    step(locator)
                 end
             end
+        end
+        if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType="xpath") != nil
+            compareWithLog("expected reviewer comments", "nil", "something")
         end
         step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 		step("I wait 2 seconds")
@@ -201,10 +202,11 @@ Then(/^"Practera" I can do the review with:$/) do |table|
                 if findElement($driver, locator) == nil
                     locator = "I input \"your works are excellent, thank you for submissions\" to \"Free text review\" which is located at \".content-container > .row:nth-of-type(%s) #choice-text textarea\" with scroll" % [i]
                     step(locator)
-                    locator = "I input \"your works are excellent, thank you for submissions\" to \"Free text review\" which is located at \".content-container > .row:nth-of-type(%s) #choice-comment textarea\" with scroll" % [i]
-                    step(locator)
                 end
             end
+        end
+        if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType="xpath") != nil
+            compareWithLog("expected reviewer comments", "nil", "something")
         end
 		step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 		step("I wait 2 seconds")
