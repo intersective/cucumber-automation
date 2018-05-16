@@ -13,7 +13,7 @@ Feature: AppV1 Check Moderated Assessment Answer
         Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] ion-view[state='p2.feedback'] .scroll"
         Then I should be able to see "text question answer for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='This is the text from Selenium text automation']" with xpath scroll assert
         Then I should be able to see "reviewer answer for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Answer']/../*[text()='your works are excellent, thank you for submissions']" with xpath scroll assert
-        # Then I should not see "reviewer comments for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Comments']" with xpath assert
+        Then I should not see "reviewer comments for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Comments']" with xpath assert
         Then I should be able to see "oneof question answer" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Normal']" with xpath scroll assert
         Then I should be able to see "expert feedback choice" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='Good']" with xpath scroll assert
         Then I should be able to see "expert feedback text" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='your works are excellent, thank you for submissions']" with xpath scroll assert
