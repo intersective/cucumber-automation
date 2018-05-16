@@ -7,9 +7,7 @@ list-of-features-pe_student.1 - do the student activities again after one submis
 list-of-features-pe_practera - assign mentor, mentor review and publish review at Practera Platform
 list-of-features-pe_student_done - check the ticks and score of student activities
 list-of-features-pe_student_portfolio - do the student portfolio
-
-Remember: change the student account in each of pe scenairo
-
 list-of-features-event - can run it at any time because it uses a preserved student account
-
 list-of-features-spinner - can run it at any time as long as there is a spin chance in the student account
+
+Remember: change the student account in each of 'pe_' scenairo, and also change student account in the practera pe test cases
