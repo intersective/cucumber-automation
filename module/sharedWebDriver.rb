@@ -10,10 +10,16 @@ class SharedWebDriver
 		tconfigObj = readJsonfile(Dir.pwd + "/configuration/user.json")
 		Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
 		if tconfigObj["headless"]
-			caps = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: {
-				binary: "/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary", 
-				args: [ "--headless" ]})
-			@driver = Selenium::WebDriver.for(:chrome, desired_capabilities: caps)
+			if tconfigObj["server"]
+				options = Selenium::WebDriver::Chrome::Options.new
+				options.add_argument('--headless')
+				@driver = Selenium::WebDriver.for(:chrome, options: options)
+			else
+				caps = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: {
+					binary: "/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary", 
+					args: [ "--headless" ]})
+				@driver = Selenium::WebDriver.for(:chrome, desired_capabilities: caps)
+			end
 		elsif
 			@driver = Selenium::WebDriver.for(:chrome)
 		end
