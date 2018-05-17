@@ -1,1 +1,1 @@
-features/apitest/suites/apiFirstTest.feature
+features/apitest/suites/apiTest.feature
