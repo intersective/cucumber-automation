@@ -6,7 +6,7 @@ Feature: API first test
     Scenario: API first test
         Given I call the app "post" api "https://sandbox.practera.com/api/auths.json?action=authentication" with app key "69ad1e66dc" and api key "", with:
             | data[User][email] | data[User][password] | result file |
-            | selenium.20180409143910@practera.com | 12341234 | auths/success_1.json |
+            | selenium.20180409143910@practera.com | 123456123456 | auths/success_1.json |
             | selenium.20180409143910@practera.com | 11111111 | auths/fail_1.json |
         Then I wait 2 seconds
         Then I call the app "post" api "https://sandbox.practera.com/api/auth.json" with app key "b11e7c189b" and api key "", with:

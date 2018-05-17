@@ -1,386 +1,357 @@
 {
-    "success": true,
-    "status": "success",
-    "cache": "Api.activities.timeline_id.587.user_id.12214:false",
-    "data": [
-      {
-        "Activity": {
-          "id": 7682,
-          "milestone_id": 2405,
-          "name": "Comprehensive Activity",
-          "description": "",
-          "lead_image": null,
-          "video_url": "",
-          "order": null,
-          "instructions": "",
+  "success": true,
+  "status": "success",
+  "cache": "Api.activities.timeline_id.587.user_id.12214:false",
+  "data": [
+    {
+      "Activity": {
+        "id": 7682,
+        "milestone_id": 2405,
+        "name": "Comprehensive Activity",
+        "description": "",
+        "lead_image": null,
+        "video_url": "",
+        "order": null,
+        "instructions": "",
+        "is_locked": false,
+        "start": "2017-11-30 13:00:00",
+        "end": "2020-08-26 13:59:59",
+        "deadline": "2020-08-26 13:59:59"
+      },
+      "ActivitySequence": [
+        {
+          "id": 37952,
+          "activity_id": 7682,
+          "model": "Story.Topic",
+          "model_id": 6538,
+          "order": 0,
           "is_locked": false,
-          "start": "2017-11-30 13:00:00",
-          "end": "2020-08-26 13:59:59",
-          "deadline": "2020-08-26 13:59:59"
+          "Story.Topic": {
+            "id": 6538,
+            "program_id": 261,
+            "title": "Topic 1",
+            "summary": "",
+            "videolink": "",
+            "created": "2017-12-07 00:30:12.488166",
+            "modified": "2017-12-07 04:06:22",
+            "story_type": "topic",
+            "feature_image_id": null,
+            "author_id": 2,
+            "has_comments": true,
+            "tags": "",
+            "slug": "topic_1",
+            "collaboration_id": null,
+            "comments": 0,
+            "experience_id": 73,
+            "assessment_id": null,
+            "view_time": "0.5",
+            "parent_id": null
+          }
         },
-        "ActivitySequence": [
-          {
-            "id": 37952,
-            "activity_id": 7682,
-            "model": "Story.Topic",
-            "model_id": 6538,
-            "order": 0,
-            "is_locked": false,
-            "Story.Topic": {
-              "id": 6538,
-              "program_id": 261,
-              "title": "Topic 1",
-              "summary": "",
-              "videolink": "",
-              "created": "2017-12-07 00:30:12.488166",
-              "modified": "2017-12-07 04:06:22",
-              "story_type": "topic",
-              "feature_image_id": null,
-              "author_id": 2,
-              "has_comments": true,
-              "tags": "",
-              "slug": "topic_1",
-              "collaboration_id": null,
-              "comments": 0,
-              "experience_id": 73,
-              "assessment_id": null,
-              "view_time": "0.5",
-              "parent_id": null
-            }
-          },
-          {
-            "id": 37953,
-            "activity_id": 7682,
-            "model": "Assess.Assessment",
-            "model_id": 2097,
-            "order": 1,
-            "is_locked": false,
-            "Assess.Assessment": {
-              "id": 2097,
-              "name": "Comprehensive Quiz",
-              "description": "This is a comprehensive quiz",
-              "assessment_type": "quiz",
-              "is_live": true,
-              "is_team": false,
-              "review_instructions": null,
-              "score_type": "numeric",
-              "experience_id": 73,
-              "program_id": 261,
-              "deleted": false,
-              "deleted_date": null,
-              "comparison_group_size": 3,
-              "comparison_group_points": 10,
-              "review_period": 72,
-              "review_scope": "team",
-              "review_scope_id": null,
-              "created": "2017-12-07 00:41:54.221641",
-              "modified": "2017-12-07 00:57:06",
-              "is_repeatable": false,
-              "num_reviews": 1,
-              "review_type": "single",
-              "review_role": "mentor",
-              "auto_assign_reviewers": null,
-              "parent_id": null,
-              "auto_publish_reviews": false
-            }
-          },
-          {
-            "id": 37954,
-            "activity_id": 7682,
-            "model": "Assess.Assessment",
-            "model_id": 2098,
-            "order": 2,
-            "is_locked": false,
-            "Assess.Assessment": {
-              "id": 2098,
-              "name": "Comprehensive Reflection",
-              "description": "This is a comprehensive reflection",
-              "assessment_type": "reflection",
-              "is_live": true,
-              "is_team": false,
-              "review_instructions": null,
-              "score_type": "numeric",
-              "experience_id": 73,
-              "program_id": 261,
-              "deleted": false,
-              "deleted_date": null,
-              "comparison_group_size": 3,
-              "comparison_group_points": 10,
-              "review_period": 72,
-              "review_scope": "team",
-              "review_scope_id": null,
-              "created": "2017-12-07 00:41:54.221641",
-              "modified": "2017-12-07 00:57:25",
-              "is_repeatable": false,
-              "num_reviews": 1,
-              "review_type": "single",
-              "review_role": "mentor",
-              "auto_assign_reviewers": null,
-              "parent_id": null,
-              "auto_publish_reviews": false
-            }
-          },
-          {
-            "id": 37955,
-            "activity_id": 7682,
-            "model": "Assess.Assessment",
-            "model_id": 2099,
-            "order": 3,
-            "is_locked": false,
-            "Assess.Assessment": {
-              "id": 2099,
-              "name": "Comprehensive Moderated",
-              "description": "This is a comprehensive moderated assessment",
-              "assessment_type": "moderated",
-              "is_live": true,
-              "is_team": false,
-              "review_instructions": null,
-              "score_type": "numeric",
-              "experience_id": 73,
-              "program_id": 261,
-              "deleted": false,
-              "deleted_date": null,
-              "comparison_group_size": 3,
-              "comparison_group_points": 10,
-              "review_period": 72,
-              "review_scope": "team",
-              "review_scope_id": null,
-              "created": "2017-12-07 00:41:54.221641",
-              "modified": "2018-04-11 07:11:41",
-              "is_repeatable": false,
-              "num_reviews": 1,
-              "review_type": "single",
-              "review_role": "mentor",
-              "auto_assign_reviewers": null,
-              "parent_id": null,
-              "auto_publish_reviews": false
-            }
-          },
-          {
-            "id": 37959,
-            "activity_id": 7682,
-            "model": "Assess.Assessment",
-            "model_id": 2102,
-            "order": 4,
-            "is_locked": false,
-            "Assess.Assessment": {
-              "id": 2102,
-              "name": "File question Any",
-              "description": "File question Any",
-              "assessment_type": "quiz",
-              "is_live": true,
-              "is_team": false,
-              "review_instructions": null,
-              "score_type": "numeric",
-              "experience_id": 73,
-              "program_id": 261,
-              "deleted": false,
-              "deleted_date": null,
-              "comparison_group_size": 3,
-              "comparison_group_points": 10,
-              "review_period": 72,
-              "review_scope": "team",
-              "review_scope_id": null,
-              "created": "2017-12-12 22:20:06.292356",
-              "modified": "2017-12-12 22:21:14",
-              "is_repeatable": false,
-              "num_reviews": 1,
-              "review_type": "single",
-              "review_role": "mentor",
-              "auto_assign_reviewers": null,
-              "parent_id": null,
-              "auto_publish_reviews": false
-            }
-          },
-          {
-            "id": 37960,
-            "activity_id": 7682,
-            "model": "Assess.Assessment",
-            "model_id": 2103,
-            "order": 5,
-            "is_locked": false,
-            "Assess.Assessment": {
-              "id": 2103,
-              "name": "File question Image",
-              "description": "File question Image",
-              "assessment_type": "quiz",
-              "is_live": true,
-              "is_team": false,
-              "review_instructions": null,
-              "score_type": "numeric",
-              "experience_id": 73,
-              "program_id": 261,
-              "deleted": false,
-              "deleted_date": null,
-              "comparison_group_size": 3,
-              "comparison_group_points": 10,
-              "review_period": 72,
-              "review_scope": "team",
-              "review_scope_id": null,
-              "created": "2017-12-12 22:21:24.323448",
-              "modified": "2017-12-12 22:22:07",
-              "is_repeatable": false,
-              "num_reviews": 1,
-              "review_type": "single",
-              "review_role": "mentor",
-              "auto_assign_reviewers": null,
-              "parent_id": null,
-              "auto_publish_reviews": false
-            }
-          },
-          {
-            "id": 37961,
-            "activity_id": 7682,
-            "model": "Assess.Assessment",
-            "model_id": 2104,
-            "order": 6,
-            "is_locked": false,
-            "Assess.Assessment": {
-              "id": 2104,
-              "name": "File question Video",
-              "description": "File question Video",
-              "assessment_type": "quiz",
-              "is_live": true,
-              "is_team": false,
-              "review_instructions": null,
-              "score_type": "numeric",
-              "experience_id": 73,
-              "program_id": 261,
-              "deleted": false,
-              "deleted_date": null,
-              "comparison_group_size": 3,
-              "comparison_group_points": 10,
-              "review_period": 72,
-              "review_scope": "team",
-              "review_scope_id": null,
-              "created": "2017-12-12 22:22:18.239943",
-              "modified": "2017-12-12 22:23:06",
-              "is_repeatable": false,
-              "num_reviews": 1,
-              "review_type": "single",
-              "review_role": "mentor",
-              "auto_assign_reviewers": null,
-              "parent_id": null,
-              "auto_publish_reviews": false
-            }
-          },
-          {
-            "id": 37962,
-            "activity_id": 7682,
-            "model": "Assess.Assessment",
-            "model_id": 2105,
-            "order": 7,
-            "is_locked": false,
-            "Assess.Assessment": {
-              "id": 2105,
-              "name": "Video question",
-              "description": "Video question",
-              "assessment_type": "quiz",
-              "is_live": true,
-              "is_team": false,
-              "review_instructions": null,
-              "score_type": "numeric",
-              "experience_id": 73,
-              "program_id": 261,
-              "deleted": false,
-              "deleted_date": null,
-              "comparison_group_size": 3,
-              "comparison_group_points": 10,
-              "review_period": 72,
-              "review_scope": "team",
-              "review_scope_id": null,
-              "created": "2017-12-13 23:12:31.436627",
-              "modified": "2017-12-13 23:13:37",
-              "is_repeatable": false,
-              "num_reviews": 1,
-              "review_type": "single",
-              "review_role": "mentor",
-              "auto_assign_reviewers": null,
-              "parent_id": null,
-              "auto_publish_reviews": false
-            }
-          },
-          {
-            "id": 38900,
-            "activity_id": 7682,
-            "model": "Story.Topic",
-            "model_id": 6974,
-            "order": 8,
-            "is_locked": false,
-            "Story.Topic": {
-              "id": 6974,
-              "program_id": 261,
-              "title": "Test large size image in line",
-              "summary": "no summary llaallalalallq",
-              "videolink": "",
-              "created": "2018-04-10 00:21:21.178211",
-              "modified": "2018-04-10 00:21:21.178211",
-              "story_type": "topic",
-              "feature_image_id": null,
-              "author_id": 11527,
-              "has_comments": true,
-              "tags": "Technology",
-              "slug": "test_large_size_image_in_line",
-              "collaboration_id": null,
-              "comments": 0,
-              "experience_id": 73,
-              "assessment_id": null,
-              "view_time": "1",
-              "parent_id": null
-            }
+        {
+          "id": 37953,
+          "activity_id": 7682,
+          "model": "Assess.Assessment",
+          "model_id": 2097,
+          "order": 1,
+          "is_locked": false,
+          "Assess.Assessment": {
+            "id": 2097,
+            "name": "Comprehensive Quiz",
+            "description": "This is a comprehensive quiz",
+            "assessment_type": "quiz",
+            "is_live": true,
+            "is_team": false,
+            "review_instructions": null,
+            "score_type": "numeric",
+            "experience_id": 73,
+            "program_id": 261,
+            "deleted": false,
+            "deleted_date": null,
+            "comparison_group_size": 3,
+            "comparison_group_points": 10,
+            "review_period": 72,
+            "review_scope": "team",
+            "review_scope_id": null,
+            "created": "2017-12-07 00:41:54.221641",
+            "modified": "2017-12-07 00:57:06",
+            "is_repeatable": false,
+            "num_reviews": 1,
+            "review_type": "single",
+            "review_role": "mentor",
+            "auto_assign_reviewers": null,
+            "parent_id": null,
+            "auto_publish_reviews": false
           }
-        ],
-        "References": [
-          {
-            "context_id": 2756,
-            "Assessment": {
-              "id": 2097,
-              "name": "Comprehensive Quiz"
-            }
-          },
-          {
-            "context_id": 2757,
-            "Assessment": {
-              "id": 2098,
-              "name": "Comprehensive Reflection"
-            }
-          },
-          {
-            "context_id": 2758,
-            "Assessment": {
-              "id": 2099,
-              "name": "Comprehensive Moderated"
-            }
-          },
-          {
-            "context_id": 2793,
-            "Assessment": {
-              "id": 2102,
-              "name": "File question Any"
-            }
-          },
-          {
-            "context_id": 2794,
-            "Assessment": {
-              "id": 2103,
-              "name": "File question Image"
-            }
-          },
-          {
-            "context_id": 2795,
-            "Assessment": {
-              "id": 2104,
-              "name": "File question Video"
-            }
-          },
-          {
-            "context_id": 2796,
-            "Assessment": {
-              "id": 2105,
-              "name": "Video question"
-            }
+        },
+        {
+          "id": 37954,
+          "activity_id": 7682,
+          "model": "Assess.Assessment",
+          "model_id": 2098,
+          "order": 2,
+          "is_locked": false,
+          "Assess.Assessment": {
+            "id": 2098,
+            "name": "Comprehensive Reflection",
+            "description": "This is a comprehensive reflection",
+            "assessment_type": "reflection",
+            "is_live": true,
+            "is_team": false,
+            "review_instructions": null,
+            "score_type": "numeric",
+            "experience_id": 73,
+            "program_id": 261,
+            "deleted": false,
+            "deleted_date": null,
+            "comparison_group_size": 3,
+            "comparison_group_points": 10,
+            "review_period": 72,
+            "review_scope": "team",
+            "review_scope_id": null,
+            "created": "2017-12-07 00:41:54.221641",
+            "modified": "2017-12-07 00:57:25",
+            "is_repeatable": false,
+            "num_reviews": 1,
+            "review_type": "single",
+            "review_role": "mentor",
+            "auto_assign_reviewers": null,
+            "parent_id": null,
+            "auto_publish_reviews": false
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "id": 37955,
+          "activity_id": 7682,
+          "model": "Assess.Assessment",
+          "model_id": 2099,
+          "order": 3,
+          "is_locked": false,
+          "Assess.Assessment": {
+            "id": 2099,
+            "name": "Comprehensive Moderated",
+            "description": "This is a comprehensive moderated assessment",
+            "assessment_type": "moderated",
+            "is_live": true,
+            "is_team": false,
+            "review_instructions": null,
+            "score_type": "numeric",
+            "experience_id": 73,
+            "program_id": 261,
+            "deleted": false,
+            "deleted_date": null,
+            "comparison_group_size": 3,
+            "comparison_group_points": 10,
+            "review_period": 72,
+            "review_scope": "team",
+            "review_scope_id": null,
+            "created": "2017-12-07 00:41:54.221641",
+            "modified": "2018-04-11 07:11:41",
+            "is_repeatable": false,
+            "num_reviews": 1,
+            "review_type": "single",
+            "review_role": "mentor",
+            "auto_assign_reviewers": null,
+            "parent_id": null,
+            "auto_publish_reviews": false
+          }
+        },
+        {
+          "id": 37959,
+          "activity_id": 7682,
+          "model": "Assess.Assessment",
+          "model_id": 2102,
+          "order": 4,
+          "is_locked": false,
+          "Assess.Assessment": {
+            "id": 2102,
+            "name": "File question Any",
+            "description": "File question Any",
+            "assessment_type": "quiz",
+            "is_live": true,
+            "is_team": false,
+            "review_instructions": null,
+            "score_type": "numeric",
+            "experience_id": 73,
+            "program_id": 261,
+            "deleted": false,
+            "deleted_date": null,
+            "comparison_group_size": 3,
+            "comparison_group_points": 10,
+            "review_period": 72,
+            "review_scope": "team",
+            "review_scope_id": null,
+            "created": "2017-12-12 22:20:06.292356",
+            "modified": "2017-12-12 22:21:14",
+            "is_repeatable": false,
+            "num_reviews": 1,
+            "review_type": "single",
+            "review_role": "mentor",
+            "auto_assign_reviewers": null,
+            "parent_id": null,
+            "auto_publish_reviews": false
+          }
+        },
+        {
+          "id": 37960,
+          "activity_id": 7682,
+          "model": "Assess.Assessment",
+          "model_id": 2103,
+          "order": 5,
+          "is_locked": false,
+          "Assess.Assessment": {
+            "id": 2103,
+            "name": "File question Image",
+            "description": "File question Image",
+            "assessment_type": "quiz",
+            "is_live": true,
+            "is_team": false,
+            "review_instructions": null,
+            "score_type": "numeric",
+            "experience_id": 73,
+            "program_id": 261,
+            "deleted": false,
+            "deleted_date": null,
+            "comparison_group_size": 3,
+            "comparison_group_points": 10,
+            "review_period": 72,
+            "review_scope": "team",
+            "review_scope_id": null,
+            "created": "2017-12-12 22:21:24.323448",
+            "modified": "2017-12-12 22:22:07",
+            "is_repeatable": false,
+            "num_reviews": 1,
+            "review_type": "single",
+            "review_role": "mentor",
+            "auto_assign_reviewers": null,
+            "parent_id": null,
+            "auto_publish_reviews": false
+          }
+        },
+        {
+          "id": 37961,
+          "activity_id": 7682,
+          "model": "Assess.Assessment",
+          "model_id": 2104,
+          "order": 6,
+          "is_locked": false,
+          "Assess.Assessment": {
+            "id": 2104,
+            "name": "File question Video",
+            "description": "File question Video",
+            "assessment_type": "quiz",
+            "is_live": true,
+            "is_team": false,
+            "review_instructions": null,
+            "score_type": "numeric",
+            "experience_id": 73,
+            "program_id": 261,
+            "deleted": false,
+            "deleted_date": null,
+            "comparison_group_size": 3,
+            "comparison_group_points": 10,
+            "review_period": 72,
+            "review_scope": "team",
+            "review_scope_id": null,
+            "created": "2017-12-12 22:22:18.239943",
+            "modified": "2017-12-12 22:23:06",
+            "is_repeatable": false,
+            "num_reviews": 1,
+            "review_type": "single",
+            "review_role": "mentor",
+            "auto_assign_reviewers": null,
+            "parent_id": null,
+            "auto_publish_reviews": false
+          }
+        },
+        {
+          "id": 37962,
+          "activity_id": 7682,
+          "model": "Assess.Assessment",
+          "model_id": 2105,
+          "order": 7,
+          "is_locked": false,
+          "Assess.Assessment": {
+            "id": 2105,
+            "name": "Video question",
+            "description": "Video question",
+            "assessment_type": "quiz",
+            "is_live": true,
+            "is_team": false,
+            "review_instructions": null,
+            "score_type": "numeric",
+            "experience_id": 73,
+            "program_id": 261,
+            "deleted": false,
+            "deleted_date": null,
+            "comparison_group_size": 3,
+            "comparison_group_points": 10,
+            "review_period": 72,
+            "review_scope": "team",
+            "review_scope_id": null,
+            "created": "2017-12-13 23:12:31.436627",
+            "modified": "2017-12-13 23:13:37",
+            "is_repeatable": false,
+            "num_reviews": 1,
+            "review_type": "single",
+            "review_role": "mentor",
+            "auto_assign_reviewers": null,
+            "parent_id": null,
+            "auto_publish_reviews": false
+          }
+        }
+      ],
+      "References": [
+        {
+          "context_id": 2756,
+          "Assessment": {
+            "id": 2097,
+            "name": "Comprehensive Quiz"
+          }
+        },
+        {
+          "context_id": 2757,
+          "Assessment": {
+            "id": 2098,
+            "name": "Comprehensive Reflection"
+          }
+        },
+        {
+          "context_id": 2758,
+          "Assessment": {
+            "id": 2099,
+            "name": "Comprehensive Moderated"
+          }
+        },
+        {
+          "context_id": 2793,
+          "Assessment": {
+            "id": 2102,
+            "name": "File question Any"
+          }
+        },
+        {
+          "context_id": 2794,
+          "Assessment": {
+            "id": 2103,
+            "name": "File question Image"
+          }
+        },
+        {
+          "context_id": 2795,
+          "Assessment": {
+            "id": 2104,
+            "name": "File question Video"
+          }
+        },
+        {
+          "context_id": 2796,
+          "Assessment": {
+            "id": 2105,
+            "name": "Video question"
+          }
+        }
+      ]
+    }
+  ]
+}

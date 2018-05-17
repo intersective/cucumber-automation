@@ -27,7 +27,7 @@ Given(/^I call the app "([^"]*)" api "([^"]*)" with app key "([^"]*)" and api ke
         expectedResult = readJsonfile(Dir.pwd + "/testExpectedResult/" + data[i][-1])
 
         if expectedResult != result
-            $testLogger1.logCase("[" + apiUrl + "] expected, [" + expectedResult.to_s + "]\nbut found, [" + result.to_s + "]")
+            $testLogger1.logCase("[" + apiUrl + "] expected, [" + expectedResult.to_s + "] but found, [" + result.to_s + "]")
         else
             $testLogger1.logCase("[" + apiUrl + "] passed")
         end
