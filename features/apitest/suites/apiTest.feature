@@ -71,3 +71,39 @@ Feature: API test
         Then I call the "get" api "https://sandbox.practera.com/api/events.json" by headers "timelineID=734;appKey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
             | timelineID | type | activity_id | success | status |
             | 734 | session | [7655,7656,7657,7658,7659,7660,7661] | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/submissions.json" by headers "timelineID=734;appKey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | success | status |
+            | 734 | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/characters" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | game_id | action | period | character_id | success | status |
+            | 734 | 1 | ranking | monthly | 655 | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/characters" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | game_id | action | period | success | status |
+            | 734 | 1 | ranking | monthly | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/characters" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | game_id | success | status |
+            | 734 | 1 | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/achievements.json" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | success | status |
+            | 734 | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/submissions.json" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | context_id | success | status |
+            | 734 | 2537 | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/assessments.json" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | assessment_id | structured | success | status |
+            | 734 | 2068 | true | true | success |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/user_achievements.json" by headers "timelineID=734;appKey=b11e7c189b;apikey=64a6d1ff98a22b0f4940", should have success and status with:
+            | timelineID | success | status |
+            | 734 | false | unauthorized |
+        Then I wait 2 seconds
+        Then I call the "get" api "https://sandbox.practera.com/api/user_achievements.json" by headers "timelineID=734;appKey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
+            | timelineID | success | status |
+            | 734 | true | success |
