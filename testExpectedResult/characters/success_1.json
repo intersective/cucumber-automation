@@ -1,0 +1,8 @@
+{
+    "success": true,
+    "status": "success",
+    "cache": false,
+    "data": {
+      "msg": "Character's settings successfully updated!"
+    }
+  }

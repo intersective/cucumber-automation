@@ -3,7 +3,7 @@ Feature: API test
 	I want to test some api
 	so that I can cover some test cases regardless the UI interactions
 
-    Scenario: API first test
+    Scenario: API test
         Given I call the "post" api "https://sandbox.practera.com/api/auths.json?action=authentication" by headers "appKey=69ad1e66dc;apikey=nil", should have success and status with:
             | data[User][email] | data[User][password] | success | status |
             | selenium.20180409143910@practera.com | 123456123456 | true | success |
@@ -107,3 +107,8 @@ Feature: API test
         Then I call the "get" api "https://sandbox.practera.com/api/user_achievements.json" by headers "timelineID=734;appKey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should have success and status with:
             | timelineID | success | status |
             | 734 | true | success |
+        Then I wait 2 seconds
+        Then "Json" I call the "post" api "https://sandbox.practera.com/api/characters" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", with:
+            | json parameters | result file |
+            | {"Character":{"id":655,"meta":{"private":0}}} | characters/success_1.json |
+            | {"Character":{"id":655,"meta":{"private":1}}} | characters/success_2.json |
