@@ -170,12 +170,12 @@ end
 
 Then(/^I move to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
     element = waitForElement($driver, $wait, arg2)
-    $driver.action.move_to(element).perform
+    $driver.action.move_to(element).click.perform
 end
 
 Then(/^I move to "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
     element = waitForElementXpath($driver, $wait, arg2)
-    $driver.action.move_to(element).perform
+    $driver.action.move_to(element).click.perform
 end
 
 Then("I can see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|
