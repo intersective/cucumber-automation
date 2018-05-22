@@ -17,7 +17,7 @@ Feature: Practera is_required file applies to file type question
         Then I click on "begin/continue button" which is located at "button#take"
         Then I can see a group of "questions" with total "2" which is located at ".question"
         Then I click on "submit button" which is located at "button#submit"
-        Then I can see an alert contain "You must upload at least one file"
+        Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//a[text()='Upload Files']" with xpath
         Then I wait 2 seconds
         Then "Practera" I upload the file "/Users/barrychen/workspace/cucumber-automation/uploadFile/medium-size-dogs-a-medium.jpg" to file picker
@@ -31,7 +31,7 @@ Feature: Practera is_required file applies to file type question
         Then I click on "next button" which is located at "button#next" with scroll
         Then I should be able to see "step 2" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active"
         Then I click on "submit button" which is located at "button#submit"
-        Then I can see an alert contain "You must upload at least one file"
+        Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//a[text()='Upload Files']" with xpath
         Then I wait 2 seconds
         Then "Practera" I upload the file "/Users/barrychen/workspace/cucumber-automation/uploadFile/Video Upload issue 2.mp4" to file picker
