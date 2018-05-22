@@ -27,5 +27,6 @@ class Appv1PageActions
         else
             answerContainer = one.find_element(:css => "div:nth-of-type(2)")
         end
+        return answerContainer
     end
 end
