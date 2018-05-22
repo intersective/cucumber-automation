@@ -88,7 +88,7 @@ end
 
 Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) do |mentorName|
     studentName = $sharedData1.loadDataFromKey("studentName")
-    step("\"Practera\" I can assign a mentor \"selenium_mentor2\" to a student \"#{studentName}\" submission")
+    step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
 end
 
 Then(/^"Practera" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
