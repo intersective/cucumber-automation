@@ -1,2 +1,1 @@
-features/practera/story/testCore-2884.feature
-features/practera/story/testCore-2924.feature
+features/practera/testQuestionRequire.feature
