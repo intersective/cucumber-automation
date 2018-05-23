@@ -21,7 +21,7 @@ Feature: API V2 test
             | Topic | 125 | completed | v2/motivations/progress/create/success_3.json |
         Then I call the app "get" api "http://localhost:8080/api/v2/observation/slider/list.json" by headers "appKey=b11e7c189b;apikey=da26cb1fe019b47b4729", with:
             | timeline_id | team_id | result file |
-            | 734 | 1138 | observation/slider/list/success_1.json |
-        Then "Json" I call the "post" api "http://localhost:8080/api/v2/observation/slider/create.json" by headers "timeline_id=734;appKey=b11e7c189b;apikey=da26cb1fe019b47b4729", with:
-            | json parameters | result file |
-            | [{"index/choice_id":0,"id":1},{"index/choice_id":1,"id":2}] | observation/slider/create/success_1.json |
+            | 734 | 1138 | v2/observation/slider/list/success_1.json |
+        Then "object" I call the "post" api "http://localhost:8080/api/v2/observation/slider/create.json" by headers "timeline_id=734;appKey=b11e7c189b;apikey=da26cb1fe019b47b4729", with:
+            | api parameters | result file |
+            | [{"index/choice_id":0,"id":1},{"index/choice_id":1,"id":2}] | v2/observation/slider/create/success_1.json |
