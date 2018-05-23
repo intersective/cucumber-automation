@@ -1,0 +1,8 @@
+{
+    "success": true,
+    "status": "success",
+    "Topic": {
+        "id": 123,
+        "progress": 0.7
+    }
+}

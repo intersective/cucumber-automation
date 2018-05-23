@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "status": "success",
+    "Project": {
+		"id": 12,
+		"progress": 0.3,
+		"Milestone": [
+			{
+				"id": 13,
+				"progress": 0.7,
+				"Activity": [
+					{
+						"id": 15,
+						"progress": 0.6
+					},
+					{
+						"id": 15,
+						"progress": 0.6
+					}
+				]
+			},
+			{
+				"id": 15,
+				"progress": 0.6,
+				"Activity": [
+					{
+						"id": 15,
+						"progress": 0.6
+					},
+					{
+						"id": 15,
+						"progress": 0.6
+					}
+				]
+			}
+		]
+	}
+}
