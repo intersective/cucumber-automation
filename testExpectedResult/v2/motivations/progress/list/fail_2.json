@@ -1,0 +1,5 @@
+{
+    "success": false,
+    "status": "invalid_parameter",
+    "msg": "scope is not valid"
+}

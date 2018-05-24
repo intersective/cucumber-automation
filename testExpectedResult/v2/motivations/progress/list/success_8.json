@@ -1,0 +1,11 @@
+{
+    "success": true,
+    "status": "success",
+    "cache": false,
+    "data": {
+        "Milestone": {
+            "id": 2405,
+            "progress": 0.13
+        }
+    }
+}
