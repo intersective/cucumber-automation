@@ -5,11 +5,11 @@ Then(/^"Appv1" I go to the "([^"]*)" tab page$/) do |tabIndex|
 	waitForLoadFinished($driver, $wait)
 end
 
-Then("\"Appv1\" I go to the {string} milestone") do |milestoneTitle|
-	milestones = waitForElements($driver, $listWait, ".view-container[nav-view='active'] .card")
-	milestones.each do |milestone|
-		if milestoneTitle == refineElementTextContent(milestone.find_element(:css => ".title"))
-			milestone.click()
+Then("\"Appv1\" I go to the {string} activity") do |activityTitle|
+	activities = waitForElements($driver, $listWait, ".view-container[nav-view='active'] .card")
+	activities.each do |activity|
+		if activityTitle == refineElementTextContent(activity.find_element(:css => ".title"))
+			activity.click()
 			break
 		end
 	end
@@ -133,14 +133,14 @@ Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([
 	sleep 4
 end
 
-Then("\"Appv1\" I go to the {string} milestone page which has {string} items") do |milestoneTitle, numberOfItems|
-	step("\"Appv1\" I choose a program \"App V1 Selenium Program\"")
+Then("\"Appv1\" I go to the {string} activity page which has {string} items") do |milestoneTitle, numberOfItems|
+	# step("\"Appv1\" I choose a program \"App V1 Selenium Program\"")
 	step("\"Appv1\" I should see the app home screen")
 	step("I wait 8 seconds")
 	step("\"Appv1\" I go to the \"2\" tab page")
-	step("I can see a group of \"milestones\" with total \"2\" which is located at \".view-container[nav-view='active'] .card\"")
+	step("I can see a group of \"milestones\" with total \"2\" which is located at \".milestone-header\"")
 	step("I wait 2 seconds")
-	step("\"Appv1\" I go to the \"#{milestoneTitle}\" milestone")
+	step("\"Appv1\" I go to the \"#{milestoneTitle}\" activity")
 	step("I wait 3 seconds")
 	step("I can see a group of \"assessments and topics\" with total \"#{numberOfItems}\" which is located at \".jsmbp-detail-items > div\"")
 	step("I wait 2 seconds")

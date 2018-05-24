@@ -8,7 +8,7 @@ Feature: AppV1 Team Evaluation
 		Then I wait 10 seconds
 		Then "Appv1" I login with username "selenium.20180503165632@practera.com" and password "12341234"
 		Then I wait until the loading finished
-		Then "Appv1" I go to the "Locked Milestone" milestone page which has "3" items
+		Then "Appv1" I go to the "Activity 2" activity page which has "3" items
 		Then "Appv1" I can see the "topic" locating at "1" with title "Topic 1" and category "topic"
 		Then "Appv1" I can see the "assessment" locating at "2" with title "Evaluation questions" and category "assessment"
 		Then "Appv1" I go to the assessment locating at "2"

@@ -8,7 +8,7 @@ Feature: AppV1 Check Moderated Assessment Answer
         Then I wait 10 seconds
         Then "Appv1" I login with username "selenium.20180503165632@practera.com" and password "12341234"
         Then I wait until the loading finished
-        Then "Appv1" I go to the "Comprehensive Milestone" milestone page which has "8" items
+        Then "Appv1" I go to the "Comprehensive Activity" activity page which has "8" items
         Then "Appv1" I go to the assessment locating at "4"
         Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] ion-view[state='p2.feedback'] .scroll"
 

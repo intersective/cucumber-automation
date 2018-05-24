@@ -8,7 +8,7 @@ Feature: AppV1 Team Assessment
 		Then I wait 10 seconds
 		Then "Appv1" I login with username "selenium.20180503165632@practera.com" and password "12341234"
 		Then I wait until the loading finished
-		Then "Appv1" I go to the "Locked Milestone" milestone page which has "3" items
+		Then "Appv1" I go to the "Activity 2" activity page which has "3" items
 		Then "Appv1" I can see the "assessment" locating at "3" with title "Appv1 test automation team assessment" and category "assessment"
 		Then "Appv1" I go to the assessment locating at "3"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"

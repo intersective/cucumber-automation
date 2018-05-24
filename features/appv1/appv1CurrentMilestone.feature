@@ -8,7 +8,7 @@ Feature: AppV1 current milestone
         Then I wait 10 seconds
         Then "Appv1" I login with the student account and password "12341234"
         Then I wait until the loading finished
-        Then "Appv1" I choose a program "App V1 Selenium Program"
+        # Then "Appv1" I choose a program "App V1 Selenium Program"
         Then "Appv1" I should see the app home screen
         Then I wait 6 seconds
         Then "Appv1" I can see the current milestone "Comprehensive Milestone" with status "UNLOCKED"
