@@ -1,28 +1,6 @@
 {
     "success": true,
     "status": "success",
-    "sliders" : [
-        {
-            "id":   1,
-            "title": "Title of slider or slider name",
-            "description": "details of slider",
-            "choices": [
-                {
-                    "id/index": 0,
-                    "title": "title"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "title": "Title of slider or slider name",
-            "description": "details of slider",
-            "choices": [
-                {
-                    "id/index": 1,
-                    "title": "title"
-                }
-            ]
-        }
-    ]
+    "cache": false,
+    "data": []
 }

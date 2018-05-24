@@ -1,38 +1,32 @@
 {
     "success": true,
     "status": "success",
-    "Project": {
-		"id": 12,
-		"progress": 0.3,
-		"Milestone": [
-			{
-				"id": 13,
-				"progress": 0.7,
-				"Activity": [
-					{
-						"id": 15,
-						"progress": 0.6
-					},
-					{
-						"id": 15,
-						"progress": 0.6
-					}
-				]
-			},
-			{
-				"id": 15,
-				"progress": 0.6,
-				"Activity": [
-					{
-						"id": 15,
-						"progress": 0.6
-					},
-					{
-						"id": 15,
-						"progress": 0.6
-					}
-				]
-			}
-		]
-	}
+    "cache": false,
+    "data": {
+        "Project": {
+            "progress": 0.23,
+            "Milestone": [
+                {
+                    "id": 2406,
+                    "Activity": [
+                        {
+                            "id": 7683,
+                            "progress": 0.33
+                        }
+                    ],
+                    "progress": 0.33
+                },
+                {
+                    "id": 2405,
+                    "Activity": [
+                        {
+                            "id": 7682,
+                            "progress": 0.13
+                        }
+                    ],
+                    "progress": 0.13
+                }
+            ]
+        }
+    }
 }

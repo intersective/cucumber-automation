@@ -1,8 +1,10 @@
 {
     "success": true,
     "status": "success",
-    "Project": {
-        "id": 12,
-        "progress": 0.3
+    "cache": false,
+    "data": {
+        "Project": {
+            "progress": 0.23
+        }
     }
 }

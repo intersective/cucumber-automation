@@ -1,4 +1,6 @@
 {
     "success": true,
-    "status": "success"
+    "status": "success",
+    "cache": false,
+    "data": null
 }

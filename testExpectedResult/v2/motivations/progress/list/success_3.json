@@ -1,19 +1,17 @@
 {
     "success": true,
     "status": "success",
-    "Milestone": 
-    {
-        "id": 13,
-        "progress": 0.7,
-        "Activity": [
-            {
-                "id": 15,
-                "progress": 0.6
-            },
-            {
-                "id": 15,
-                "progress": 0.6
-            }
-        ]
+    "cache": false,
+    "data": {
+        "Milestone": {
+            "id": 2405,
+            "Activity": [
+                {
+                    "id": 7682,
+                    "progress": 0.13
+                }
+            ],
+            "progress": 0.13
+        }
     }
 }
