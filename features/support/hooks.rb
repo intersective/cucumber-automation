@@ -32,6 +32,7 @@ After do |scenario|
         message = "scenario [%s] succeed" % [@scenarioFullTitle]
         $testLogger1.debug(message)
     else
+        $driver.save_screenshot("%s/headlessReport/%s.png" % [Dir.pwd, SecureRandom.uuid])
         message = "scenario [%s] failed as reason - [%s]" % [@scenarioFullTitle, scenario.exception.message]
         $testLogger1.debug(message)
     end
