@@ -8,7 +8,7 @@ Feature: AppV1 topics
 		Then I wait 10 seconds
 		Then "Appv1" I login with the student account and password "12341234"
 		Then I wait until the loading finished
-		Then "Appv1" I go to the "Activity 2" activity page which has "8" items
+		Then "Appv1" I go to the "Comprehensive Activity" activity page which has "8" items
 		Then "Appv1" I can see the "topic" locating at "1" with title "Topic 1" and category "topic"
 		Then "Appv1" I go to the topic locating at "1"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"

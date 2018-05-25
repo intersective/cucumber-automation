@@ -11,6 +11,6 @@ Feature: AppV1 current milestone
         # Then "Appv1" I choose a program "App V1 Selenium Program"
         Then "Appv1" I should see the app home screen
         Then I wait 6 seconds
-        Then "Appv1" I can see the current milestone "Comprehensive Milestone" with status "UNLOCKED"
-        Then I wait 2 seconds
+        # Then "Appv1" I can see the current milestone "Comprehensive Milestone" with status "UNLOCKED"
+        Then I should be able to see "activty category title" which is located at "//p[text()='Activity']" with xpath assert
         Then "Appv1" I log out

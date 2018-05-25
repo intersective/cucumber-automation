@@ -32,7 +32,7 @@ Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)
 end
 
 Then(/^"Appv1" I can see the "([^"]*)" with status "([^"]*)"$/) do |itemName, itemStatus|
-	aitemStatus = waitForElementXpath($driver, $wait, "//*[@class='title'][text()='" + itemName + "']/../div/*[@ng-if='seq.asmtStatus']")
+	aitemStatus = waitForElementXpath($driver, $wait, "//*[@class='title'][text()='" + itemName + "']/../p")
 	compareWithLog("expected item status", itemStatus, refineElementTextContent(aitemStatus))
 end
 

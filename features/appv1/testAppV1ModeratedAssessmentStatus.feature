@@ -9,6 +9,6 @@ Feature: AppV1 moderated assessment status
 		Then "Appv1" I login with the student account and password "12341234"
         Then I wait until the loading finished
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "8" items
-        Then "Appv1" I can see the "Comprehensive Moderated" with status "PENDING REVIEW"
+        Then "Appv1" I can see the "Comprehensive Moderated" with status "Assessment pending review"
         Then I wait 3 seconds
         Then "Appv1" I log out

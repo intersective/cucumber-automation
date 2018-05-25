@@ -9,8 +9,8 @@ Feature: AppV1 assessment status
 		Then "Appv1" I login with the student account and password "12341234"
         Then I wait until the loading finished
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "8" items
-        Then "Appv1" I can see the "Comprehensive Moderated" with status "PUBLISHED"
-        Then "Appv1" I can see the "Comprehensive Quiz" with status "DONE"
-        Then "Appv1" I can see the "Comprehensive Reflection" with status "DONE"
+        Then "Appv1" I can see the "Comprehensive Moderated" with status "Assessment published"
+        Then "Appv1" I can see the "Comprehensive Quiz" with status "Assessment done"
+        Then "Appv1" I can see the "Comprehensive Reflection" with status "Assessment done"
         Then I wait 3 seconds
         Then "Appv1" I log out
