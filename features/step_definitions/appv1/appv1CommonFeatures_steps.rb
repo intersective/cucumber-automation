@@ -110,7 +110,7 @@ Then(/^"Appv1" I do the (file|image|video) question locating at "([^"]*)" with a
 	scrollIfNotVisible($driver, uploadBtn)
 	uploadBtn.click()
 	sleep 5
-	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(questionAnswer)
+	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(getUploadFileFullPath(questionAnswer))
 	sleep 1
 	while waitForElement($driver, $shortWait, ".fsp-picker--active") != nil
 		sleep 1
@@ -125,7 +125,7 @@ Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([
 	scrollIfNotVisible($driver, uploadBtn)
 	uploadBtn.click()
 	sleep 5
-	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(questionAnswer)
+	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(getUploadFileFullPath(questionAnswer))
 	sleep 1
 	while waitForElement($driver, $shortWait, ".fsp-picker--active") != nil
 		sleep 1

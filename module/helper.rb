@@ -26,3 +26,7 @@ def compareWithLog(headerMessage, expectedValue, actualValue)
 		$testLogger1.logCase(headerMessage + " [ " + expectedValue + " ] but found [ " + actualValue + " ]")
 	end
 end
+
+def getUploadFileFullPath(fileName)
+	return File.join($configObj["uploadFilePath"], fileName)
+end

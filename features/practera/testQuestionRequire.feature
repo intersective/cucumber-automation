@@ -31,17 +31,17 @@ Feature: Practera is_required file applies to different type of question
         Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//*[text()='File Question - any']/../..//a[text()='Upload Files']" with xpath scroll
         Then I wait 2 seconds
-        Then "Practera" I upload the file "/Users/barrychen/workspace/cucumber-automation/uploadFile/2017-Scrum-Guide-US.pdf" to file picker
+        Then "Practera" I upload the file "2017-Scrum-Guide-US.pdf" to file picker
         Then I click on "next button" which is located at "button#next" with scroll
         Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//*[text()='File question - image']/../..//a[text()='Upload Files']" with xpath scroll
         Then I wait 2 seconds
-        Then "Practera" I upload the file "/Users/barrychen/workspace/cucumber-automation/uploadFile/medium-size-dogs-a-medium.jpg" to file picker
+        Then "Practera" I upload the file "medium-size-dogs-a-medium.jpg" to file picker
         Then I click on "next button" which is located at "button#next" with scroll
         Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//*[text()='File Question - video']/../..//a[text()='Upload Files']" with xpath scroll
         Then I wait 2 seconds
-        Then "Practera" I upload the file "/Users/barrychen/workspace/cucumber-automation/uploadFile/Video Upload issue 2.mp4" to file picker
+        Then "Practera" I upload the file "Video Upload issue 2.mp4" to file picker
         Then I wait 2 seconds
         Then I click on "next button" which is located at "button#next" with scroll
         Then I wait 2 seconds

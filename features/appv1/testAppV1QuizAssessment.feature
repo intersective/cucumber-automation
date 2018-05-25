@@ -19,13 +19,13 @@ Feature: AppV1 quiz assessment
 		Then I wait 2 seconds
 		Then "Appv1" I do the multiple question locating at "3" with answer "2,3"
 		Then I wait 2 seconds
-		Then "Appv1" I do the file question locating at "4" with answer "/Users/barrychen/workspace/cucumber-automation/uploadFile/2017-Scrum-Guide-US.pdf"
+		Then "Appv1" I do the file question locating at "4" with answer "2017-Scrum-Guide-US.pdf"
 		Then I wait 2 seconds
-		Then "Appv1" I do the video question locating at "5" with answer "/Users/barrychen/workspace/cucumber-automation/uploadFile/Video Upload issue 2.mp4"
+		Then "Appv1" I do the video question locating at "5" with answer "Video Upload issue 2.mp4"
 		Then I wait 2 seconds
-		Then "Appv1" I do the image question locating at "6" with answer "/Users/barrychen/workspace/cucumber-automation/uploadFile/medium-size-dogs-a-medium.jpg"
+		Then "Appv1" I do the image question locating at "6" with answer "medium-size-dogs-a-medium.jpg"
 		Then I wait 2 seconds
-		Then "Appv1" I do the video url question locating at "7" with answer "/Users/barrychen/workspace/cucumber-automation/uploadFile/WhatsApp Video 2017-11-30 at 11.27.14.mp4"
+		Then "Appv1" I do the video url question locating at "7" with answer "WhatsApp Video 2017-11-30 at 11.27.14.mp4"
 		Then I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
 		Then I should be able to see "a pop up" which is located at ".popup"
 		Then I click on "cancel button" which is located at ".popup .popup-buttons > button:nth-of-type(1)"

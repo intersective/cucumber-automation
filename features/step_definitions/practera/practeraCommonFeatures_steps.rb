@@ -314,7 +314,7 @@ Then(/^"Practera" I upload the file "([^"]*)" to file picker$/) do |filePath|
     $driver.switch_to.frame("filepicker_dialog")
     waitForElement($driver, $wait, "section.fp__drag-and-drop button")
     sleep 2
-    waitForElement($driver, $wait, "input[type='file']").send_keys(filePath)
+    waitForElement($driver, $wait, "input[type='file']").send_keys(getUploadFileFullPath(filePath))
     waitForElementVisibleXpath($driver, $wait, "//button[text()='Upload']").click()
     $driver.switch_to.window(currentWindow)
     step("\"Practera\" I wait file uploading finished")

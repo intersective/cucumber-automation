@@ -202,7 +202,7 @@ Then(/^"PE" I do the "([^"]*)" question which is located at "([^"]*)" with title
         $driver.switch_to.frame("filepicker_dialog")
         waitForElement($driver, $wait, "section.fp__drag-and-drop button")
         sleep 2
-        waitForElement($driver, $wait, "input[type='file']").send_keys(answer)
+        waitForElement($driver, $wait, "input[type='file']").send_keys(getUploadFileFullPath(answer))
         $driver.switch_to.window(currentWindow)
         step("\"PE\" I wait file uploading finished")
         sleep 2

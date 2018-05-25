@@ -1,5 +1,6 @@
 {
 	"driverPath" : "{/chrome/driver/path}",
+	"uploadFilePath" : "{Users/username/workspace/project-name/uploadFile}",
 	"apiTest" : false,
 	"appv1Url" : "https://appdev.practera.com",
 	"practeraUrl" : "https://sandbox.practera.com",

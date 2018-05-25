@@ -43,7 +43,7 @@ Feature: Personal Edge Student Ethical Leader Activity
         Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
-            | file | File upload | /Users/barrychen/workspace/cucumber-automation/uploadFile/rc.jpg |
+            | file | File upload | rc.jpg |
         Then I wait 2 seconds
         Then I click on "save button" which is located at "assessments-group-page ion-navbar.toolbar ion-buttons button.btn-save"
         Then I wait 2 seconds

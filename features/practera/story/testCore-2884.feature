@@ -20,7 +20,7 @@ Feature: Practera is_required file applies to file type question
         Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//a[text()='Upload Files']" with xpath
         Then I wait 2 seconds
-        Then "Practera" I upload the file "/Users/barrychen/workspace/cucumber-automation/uploadFile/medium-size-dogs-a-medium.jpg" to file picker
+        Then "Practera" I upload the file "medium-size-dogs-a-medium.jpg" to file picker
         Then I click on "submit button" which is located at "button#submit"
         Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
@@ -34,7 +34,7 @@ Feature: Practera is_required file applies to file type question
         Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//a[text()='Upload Files']" with xpath
         Then I wait 2 seconds
-        Then "Practera" I upload the file "/Users/barrychen/workspace/cucumber-automation/uploadFile/Video Upload issue 2.mp4" to file picker
+        Then "Practera" I upload the file "Video Upload issue 2.mp4" to file picker
         Then I click on "submit button" which is located at "button#submit"
         Then I should be able to see "this field is required" which is located at "//div[@class='row question'][3]//div[text()='This field is required.']" with xpath
         Then I input "http://www.youtube.com/watch?v=9bZkp7q19f0" to "video url input box" which is located at "//div[@class='row question'][3]//input" with xpath scroll
