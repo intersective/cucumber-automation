@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "status": "success",
+  "cache": false,
+  "data": {
+    "Team": {
+      "name": "Team 18",
+      "designator": "Team 18",
+      "joincode": "YGYWY",
+      "can_join": true,
+      "id": 1138
+    },
+    "TeamMember": [
+      {
+        "user_id": 12321,
+        "team_id": 1138,
+        "name": "selenium.20180503165632",
+        "email": "selenium.20180503165632@practera.com",
+        "image": null,
+        "linkedin_url": null
+      },
+      {
+        "user_id": 12322,
+        "team_id": 1138,
+        "name": "selenium.20180503171521",
+        "email": "selenium.20180503171521@practera.com",
+        "image": null,
+        "linkedin_url": null
+      }
+    ]
+  }
+}

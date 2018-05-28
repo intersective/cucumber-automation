@@ -36,6 +36,9 @@ Feature: API first test
         Then I call the app "get" api "https://sandbox.practera.com/api/teams.json" by headers "appKey=b11e7c189b;apikey=cf2f8016c2a5a3d4608f", with:
             | timeline_id | result file |
             | 587 | team/success_2.json |
+        Then I call the app "get" api "https://sandbox.practera.com/api/teams.json" by headers "appKey=b11e7c189b;apikey=559bc4dc011b694a9928", with:
+            | timeline_id | team_id | result file |
+            | 587 | 1138 | team/success_3.json |
         Then I wait 2 seconds
         Then I call the app "get" api "https://sandbox.practera.com/api/activities.json" by headers "appKey=b11e7c189b;apikey=cf2f8016c2a5a3d4608f", with:
             | milestone_id | project_id | timeline_id | result file |
