@@ -1,0 +1,77 @@
+{
+    "success": true,
+    "status": "success",
+    "cache": false,
+    "data": [
+        {
+            "name": "Generic App ",
+            "config": {
+                "auth_via_contact_number": true,
+                "app": {
+                    "name": "APP",
+                    "version": "v1.0",
+                    "logo": {
+                        "512x512": "https://app.practera.com/img/themes/practera/logo.svg"
+                    }
+                },
+                "custom-style": {
+                    "bar-header": "{background-color:'#ffc900'}"
+                },
+                "custom_branding": {
+                    "experiences": {
+                        "38": {
+                            "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-red.css"
+                        }
+                    }
+                }
+            },
+            "logo": ""
+        },
+        {
+            "name": "App V1 Selenium ",
+            "config": {
+                "qwqwqwqwqwe": "qwwqqeqweqewqeqw",
+                "auth_via_contact_number": false
+            },
+            "logo": ""
+        },
+        {
+            "name": "Global Scope",
+            "config": {
+                "app": {
+                    "name": "APP",
+                    "version": "v1.0",
+                    "logo": {
+                        "512x512": "https://app.practera.com/img/themes/practera/logo.svg"
+                    }
+                },
+                "custom-style": {
+                    "bar-header": "{background-color:'#ffc900'}"
+                },
+                "custom_branding": {
+                    "experiences": {
+                        "20": {
+                            "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-qut.css"
+                        },
+                        "38": {
+                            "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-dev.css"
+                        }
+                    }
+                }
+            },
+            "logo": "/storage/filestores/open/28352.png"
+        },
+        {
+            "name": "Showcase for Demo",
+            "config": {
+                "custom_branding": []
+            },
+            "logo": ""
+        },
+        {
+            "name": "Team Horcruxes Experience",
+            "config": null,
+            "logo": ""
+        }
+    ]
+}

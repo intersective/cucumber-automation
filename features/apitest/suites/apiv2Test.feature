@@ -37,3 +37,10 @@ Feature: API V2 test
         Then "object" I call the "post" api "https://sandbox.practera.com/api/v2/observation/slider/create.json" by headers "timelineid=587;appkey=b11e7c189b;apikey=6bcfa5a817f3e9ba7130", with:
             | api parameters | result file |
             | [{"index/choice_id":0},{"index/choice_id":1}] | v2/observation/slider/create/fail_1.json |
+        Then I call the app "get" api "https://sandbox.practera.com/api/v2/plan/experience/config" by headers "appkey=b11e7c189b;apikey=559bc4dc011b694a9928", with:
+            | domain | timeline_id | result file |
+            | appdev.practera.com | 587 | v2/plan/experience/config/success_1.json |
+        Then I call the app "get" api "https://sandbox.practera.com/api/v2/plan/experience/config" by headers "appkey=b11e7c189b;apikey=559bc4dc011b694a9928", with:
+            | domain | result file |
+            | appdev.practera.com | v2/plan/experience/config/success_1.json |
+            | 127.0.0.1 | v2/plan/experience/config/success_2.json |
