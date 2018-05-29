@@ -31,7 +31,8 @@
             "name": "App V1 Selenium ",
             "config": {
                 "qwqwqwqwqwe": "qwwqqeqweqewqeqw",
-                "auth_via_contact_number": false
+                "auth_via_contact_number": false,
+                "alert": "disable"
             },
             "logo": ""
         },

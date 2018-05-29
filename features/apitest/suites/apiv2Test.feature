@@ -37,7 +37,7 @@ Feature: API V2 test
         Then I call the app "get" api "https://sandbox.practera.com/api/v2/observation/slider/list.json" by headers "appkey=b11e7c189b;apikey=130fed6d9bd213a644b5", with:
             | timeline_id | result file |
             | 585 | v2/observation/slider/list/success_2.json |
-        Then "object" I call the "post" api "https://sandbox.practera.com/api/v2/observation/slider/create.json" by headers "timelineid=587;appkey=b11e7c189b;apikey=6bcfa5a817f3e9ba7130", with:
+        Then "object" I call the "post" api "https://sandbox.practera.com/api/v2/observation/slider/create?timeline_id=587" by headers "appkey=b11e7c189b;apikey=6bcfa5a817f3e9ba7130", with:
             | api parameters | result file |
             | [{"id":"7","choice_id":null},{"id":"8","choice_id":null},{"id":"9","choice_id":null}] | v2/observation/slider/create/fail_1.json |
         Then I call the app "get" api "https://sandbox.practera.com/api/v2/plan/experience/config" by headers "appkey=b11e7c189b;apikey=559bc4dc011b694a9928", with:
