@@ -50,14 +50,15 @@ end
 
 class UploadFileAction < MyAWSAction
 
-    def initialize(bucketName, filePathName)
+    def initialize(regionName, bucketName, filePathName)
+        @regionName = regionName
         @bucketName = bucketName
         @filePathName = filePathName
     end
 
     def perform()
         super()
-        bucket = getBucketObj(@bucketName)
+        bucket = getBucketObj(@bucketName, @regionName)
         if bucket == nil
             exit
         end
@@ -72,7 +73,8 @@ end
 
 class DownLoadFile < MyAWSAction
 
-    def initialize(bucketFileFullPath, localFilePath)
+    def initialize(regionName, bucketFileFullPath, localFilePath)
+        @regionName = regionName
         @bucketFileFullPath = bucketFileFullPath
         @localFilePath = localFilePath
     end
@@ -80,7 +82,7 @@ class DownLoadFile < MyAWSAction
     def perform()
         super()
         temp = @bucketFileFullPath.split(":")
-        bucket = getBucketObj(temp[0])
+        bucket = getBucketObj(temp[0], @regionName)
         if bucket == nil
             exit
         end
@@ -164,17 +166,19 @@ end
 if ARGV.length == 0 || (ARGV.length == 1 && ARGV[0] == "-h")
     puts("Usage:")
     puts("usage: -h")
-    puts("upload a file to a s3 bucket: bucket_name the_local_file_path -u")
-    puts("download a file from a s3 bucket: bucketName:file_path_in_the_bucket the_local_file_path_to_save -d")
+    puts("upload a file to a s3 bucket: bucket_name@region_name the_local_file_path -u")
+    puts("download a file from a s3 bucket: bucketName:file_path_in_the_bucket@region_name the_local_file_path_to_save -d")
     puts("start a AWS instance within a region: instanceId myRegion -start")
     puts("stop a AWS instance within a region: instanceId myRegion -stop")
 elsif ARGV.length != 3
     puts("do not support this command")
 else
     if ARGV[2] == "-u"
-        UploadFileAction.new(ARGV[0], ARGV[1]).perform()
+        t = ARGV[0].split("@")
+        UploadFileAction.new(t[1], t[0], ARGV[1]).perform()
     elsif ARGV[2] == "-d"
-        DownLoadFile.new(ARGV[0], ARGV[1]).perform()
+        t = ARGV[0].split("@")
+        DownLoadFile.new(t[1], t[0], ARGV[1]).perform()
     elsif ARGV[2] == "-start"
         StartAWSInstanceByRegion.new(ARGV[0], ARGV[1]).perform()
     elsif ARGV[2] == "-stop"
