@@ -1,5 +1,5 @@
 {
     "success": false,
     "status": "invalid_data",
-    "msg": "Feedback data are missing"
+    "msg": "Invalid Slider."
 }
