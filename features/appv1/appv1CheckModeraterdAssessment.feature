@@ -4,7 +4,7 @@ Feature: AppV1 Check Moderated Assessment Answer
 	so that I can improve my work
 
     Scenario: Test Check Moderated Assessment Answer
-        Given I go to "http://127.0.0.1:8888/"
+        Given I go to App V1
         Then I wait 10 seconds
         Then "Appv1" I login with username "selenium.20180503165632@practera.com" and password "12341234"
         Then I wait until the loading finished

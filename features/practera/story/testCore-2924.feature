@@ -4,7 +4,7 @@ Feature: Practera Hide Activities on Calendar
     so that I can have cleaner calendar.
 
     Scenario: Test Practera Hide Activities on Calendar
-        Given I go to "http://127.0.0.1:8080/login"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
@@ -30,7 +30,7 @@ Feature: Practera Hide Activities on Calendar
 		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
     
     Scenario: Test Practera Hide Activities on Calendar with another coordinator account
-        Given I go to "http://127.0.0.1:8080/login"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.coordinator@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
@@ -50,7 +50,7 @@ Feature: Practera Hide Activities on Calendar
 		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
     
     Scenario: Test Practera Hide Activities on Calendar with the same coordinator
-        Given I go to "http://127.0.0.1:8080/login"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
@@ -76,7 +76,7 @@ Feature: Practera Hide Activities on Calendar
 		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
 
     Scenario: Test Practera Hide Activities on Calendar with a participant account
-        Given I go to "http://127.0.0.1:8080/login"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "test_program_student_1@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
@@ -98,7 +98,7 @@ Feature: Practera Hide Activities on Calendar
 		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
 
     Scenario: Test Practera Hide Activities on Calendar with the same participant account
-        Given I go to "http://127.0.0.1:8080/login"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "test_program_student_1@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
