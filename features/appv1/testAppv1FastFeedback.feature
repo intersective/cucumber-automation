@@ -2,9 +2,9 @@ Feature: Appv1 slider type questions
     As a coordinator, I want to get frequent answers from my students to specific questions I am interested in
     so that I can intervene if the answers are suggesting an intervention is required.
 
-    Scenario: Test Appv1 slider type questions for a student who is not in a team(Generic App v1 program - Barry(test.barry@practera.com))
+    Scenario: Test Appv1 slider type questions for a student who is not in a team
         Given I go to App V1
-        Then I wait 10 seconds
+        When I wait 10 seconds
         Then "Appv1" I login with username "selenium.20180530171600@practera.com" and password "12341234"
         When I wait until the loading finished
         Then I should be able to see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath assert
@@ -34,9 +34,32 @@ Feature: Appv1 slider type questions
         Then I wait until the loading finished
         Then "Appv1" I log out
 
-        When I go to App V1
-        Then I wait 10 seconds
+        Given I go to App V1
+        When I wait 10 seconds
         Then "Appv1" I login with username "selenium.20180530171600@practera.com" and password "12341234"
         When I wait until the loading finished
         Then I should not see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath assert
+        Then "Appv1" I log out
+
+    Scenario: Test Appv1 slider type questions for students who are in a team
+        Given I go to App V1
+        When I wait 10 seconds
+        Then "Appv1" I login with username "selenium.20180531102500@practera.com" and password "12341234"
+        When I wait until the loading finished
+        Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
+        Then I click on "Yes for the third question" which is located at "//*[@ng-repeat='question in modal.questions'][3]//span[normalize-space()='Yes']/../../.." with xpath scroll
+        Then I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
+        Then I click on "close button" which is located at ".popup-container button"
+        Then I wait until the loading finished
+        Then "Appv1" I log out
+
+        Given I go to App V1
+        When I wait 10 seconds
+        Then "Appv1" I login with username "selenium.20180531102600@practera.com" and password "12341234"
+        When I wait until the loading finished
+        Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
+        Then I click on "Yes for the second question" which is located at "//*[@ng-repeat='question in modal.questions'][2]//span[normalize-space()='Yes']/../../.." with xpath scroll
+        Then I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
+        Then I click on "close button" which is located at ".popup-container button"
+        Then I wait until the loading finished
         Then "Appv1" I log out
