@@ -278,11 +278,11 @@ Then(/^"Practera" I can create an event today$/) do
     sleep 2
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fkey #s2id_foreign_key").click()
     waitForElement($driver, $wait, "#select2-drop > .select2-search > input").send_keys("newbie")
-    waitForElementVisible($driver, $wait, ".select2-results> li > div > span").click()
+    waitForElementVisible($driver, $wait, ".select2-results > li > div > span").click()
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fhas_assessment input[type=checkbox]").click()
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fassessment #s2id_assessment").click()
     waitForElement($driver, $wait, "#select2-drop > .select2-search > input").send_keys("generic barry checkin assessment")
-    waitForElementVisible($driver, $wait, ".select2-results> li > div > span").click()
+    waitForElementVisible($driver, $wait, ".select2-results > li > div > span").click()
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityParticipant").click()
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityMentor").click()
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .datetime-calendar").click()
