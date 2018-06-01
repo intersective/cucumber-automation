@@ -118,8 +118,8 @@ Then(/^I input student name to "([^"]*)" which is located at "([^"]*)"$/) do |ar
 	waitForElement($driver, $wait, arg2).send_keys($sharedData1.loadDataFromKey("studentName"))
 end
 
-Then(/^I wait the search result$/) do
-	while waitForElements($driver, $listWait, "table#indextbl tbody tr").length != 1
+Then("I wait the search result with locator {string}") do |arg1|
+	while waitForElements($driver, $listWait, arg1).length != 1
 		sleep 1
 	end
 end

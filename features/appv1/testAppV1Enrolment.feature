@@ -22,7 +22,7 @@ Feature: AppV1 Enrolment
 		Then I click on "a button" which is located at ".page-header a"
 		Then I input student name to "the box" which is located at "#indextbl_filter input"
 		Then I wait 2 seconds
-		Then I wait the search result
+		Then I wait the search result with locator "table#indextbl tbody tr"
 		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a"
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"

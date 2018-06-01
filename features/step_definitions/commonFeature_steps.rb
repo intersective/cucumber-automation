@@ -31,11 +31,11 @@ When(/^The "([^"]*)" which is located at "([^"]*)" should be disappear$/) do |ar
 	end
 end
 
-Then(/^I click on "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
+Then("I click on {string} which is located at {string}") do |arg1, arg2|
 	waitForElementVisible($driver, $wait, arg2).click()
 end
 
-Then(/^I click on "([^"]*)" which is located at "([^"]*)" with scroll$/) do |arg1, arg2|
+Then("I click on {string} which is located at {string} with scroll") do |arg1, arg2|
     ele = waitForElement($driver, $wait, arg2)
     scrollIfNotVisible($driver, ele)
     ele.click()
@@ -101,11 +101,11 @@ Then(/^I select "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1
 	Selenium::WebDriver::Support::Select.new(waitForElementVisible($driver, $wait, arg3)).select_by(:text, arg1)
 end
 
-When(/^I click on "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
+When("I click on {string} which is located at {string} with xpath") do |arg1, arg2|
     waitForElementVisibleXpath($driver, $wait, arg2).click()
 end
 
-When(/^I click on "([^"]*)" which is located at "([^"]*)" with xpath scroll$/) do |arg1, arg2|
+When("I click on {string} which is located at {string} with xpath scroll") do |arg1, arg2|
     ele = waitForElementXpath($driver, $wait, arg2)
     scrollIfNotVisible($driver, ele)
     ele.click()
