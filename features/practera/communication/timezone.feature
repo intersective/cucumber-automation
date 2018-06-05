@@ -4,7 +4,7 @@ Feature: Practera users timezone
     so that User can changes the timezone to in the edit profile page.
 
     Scenario: Test change timezone in the user profile page
-        Given I go to "http://127.0.0.1:8080/"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
@@ -32,7 +32,7 @@ Feature: Practera users timezone
         Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
 
     Scenario: Test scheduled a communication email in response to the user timezone changes
-        Given I go to "http://127.0.0.1:8080/"
+        Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.admin@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
