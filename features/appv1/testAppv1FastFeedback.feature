@@ -12,6 +12,10 @@ Feature: Appv1 slider type questions
         
         Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
 
+        When I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
+        Then I should be able to see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']"
+        Then I click on "close button" which is located at ".popup-container button"
+
         Then I should be able to see "the first slider question title" which is located at "//*[@ng-repeat='question in modal.questions'][1]//*[text()='Q1. Have you personally engaged with your mentor within the last two weeks?']" with xpath scroll assert
         Then I should be able to see "the first slider question description" which is located at "//*[@ng-repeat='question in modal.questions'][1]//*[@ng-if='question.description'][text()='You should engage with your mentor at least once every fortnight.']" with xpath scroll assert
         Then I click on "Yes for the first question" which is located at "//*[@ng-repeat='question in modal.questions'][1]//span[normalize-space()='Yes']/../../.." with xpath scroll
@@ -49,6 +53,12 @@ Feature: Appv1 slider type questions
         Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
         Then I click on "Yes for the third question" which is located at "//*[@ng-repeat='question in modal.questions'][3]//span[normalize-space()='Yes']/../../.." with xpath scroll
         Then I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
+        Then I should be able to see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']"
+        Then I click on "close button" which is located at ".popup-container button"
+        Then I click on "Yes for the first question" which is located at "//*[@ng-repeat='question in modal.questions'][1]//span[normalize-space()='Yes']/../../.." with xpath scroll
+        Then I click on "Yes for the second question" which is located at "//*[@ng-repeat='question in modal.questions'][2]//span[normalize-space()='Yes']/../../.." with xpath scroll
+        Then I click on "Storming for the fourth question" which is located at "//*[@ng-repeat='question in modal.questions'][4]//span[normalize-space()='Storming']/../../.." with xpath scroll
+        Then I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
         Then I click on "close button" which is located at ".popup-container button"
         Then I wait until the loading finished
         Then "Appv1" I log out
@@ -58,7 +68,10 @@ Feature: Appv1 slider type questions
         Then "Appv1" I login with username "selenium.20180531102600@practera.com" and password "12341234"
         When I wait until the loading finished
         Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
-        Then I click on "Yes for the second question" which is located at "//*[@ng-repeat='question in modal.questions'][2]//span[normalize-space()='Yes']/../../.." with xpath scroll
+        Then I click on "Yes for the first question" which is located at "//*[@ng-repeat='question in modal.questions'][1]//span[normalize-space()='Yes']/../../.." with xpath scroll
+        Then I click on "No for the second question" which is located at "//*[@ng-repeat='question in modal.questions'][2]//span[normalize-space()='No']/../../.." with xpath scroll
+        Then I click on "Yes for the third question" which is located at "//*[@ng-repeat='question in modal.questions'][3]//span[normalize-space()='Yes']/../../.." with xpath scroll
+        Then I click on "Norming for the fourth question" which is located at "//*[@ng-repeat='question in modal.questions'][4]//span[normalize-space()='Norming']/../../.." with xpath scroll
         Then I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
         Then I click on "close button" which is located at ".popup-container button"
         Then I wait until the loading finished
