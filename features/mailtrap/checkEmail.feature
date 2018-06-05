@@ -7,7 +7,7 @@ Feature: Mailtrap check api enrolement email
         Given I go to Mailtrap
         When "Mailtrap" I login with username "phil@intersective.com" and password "El3phant"
         Then "Mailtrap" I go to practera inbox
-        Then "Mailtrap" I search email with receiver "selenium.20180605143200@practera.com" and filter "[ App V1 Selenium ] You are now part of a team"
+        Then "Mailtrap" I search email with receiver "selenium.20180605143200@practera.com" and filter "[ App V1 Selenium  ] You are now part of a team"
         Then I wait 2 seconds
         Then "Mailtrap" I log out
 
