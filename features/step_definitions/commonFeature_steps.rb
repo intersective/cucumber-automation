@@ -198,9 +198,9 @@ end
 Then("I should be able to see {string} which is located at {string} has color {string}") do |arg1, arg2, arg3|
     color = $driver.execute_script("return window.getComputedStyle(document.querySelector('%s')).getPropertyValue('color')" % [arg2])
     rgb = color[4..-2].split(",")
-    color1 = arg3[0,2].hex
-    color2 = arg3[2,2].hex
-    color3 = arg3[4,2].hex
+    color1 = arg3[0,2].hex.to_s
+    color2 = arg3[2,2].hex.to_s
+    color3 = arg3[4,2].hex.to_s
     if rgb[0].strip() != color1 || rgb[1].strip() != color2 || rgb[2].strip() != color3
         fail("expected color %s, but found %s" % [arg3, color])
     end
