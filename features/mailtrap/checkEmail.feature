@@ -15,6 +15,6 @@ Feature: Mailtrap check api enrolement email
         Given I go to Mailtrap
         When "Mailtrap" I login with username "phil@intersective.com" and password "El3phant"
         Then "Mailtrap" I go to practera inbox
-        Then "Mailtrap" I search email with title "Custom Branding Changes" and filter "help@practera.com"
+        Then "Mailtrap" I search email with title "Custom Branding Changes" and receiver "help@practera.com"
         Then I wait 2 seconds
         Then "Mailtrap" I log out
