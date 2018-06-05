@@ -1,7 +1,7 @@
-Feature: Mailtrap check api enrolement email
+Feature: Mailtrap check emails
 	As a admin
-	I want to stay notified by the student enrolement
-	So that I can see how many students being enrolled
+	I want to stay notified by the emails
+	So that I can see where I am up to and what I need to do afterwards
 
     Scenario: Test Mailtrap team email
         Given I go to Mailtrap
