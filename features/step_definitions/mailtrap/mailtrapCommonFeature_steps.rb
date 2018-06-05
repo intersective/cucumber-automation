@@ -71,3 +71,9 @@ Then(/^"Mailtrap" I go back to previous window$/) do
     previousWindow = $sharedData1.loadDataFromKey("previousWindow")
     $driver.switch_to.window(previousWindow)
 end
+
+Then("\"Mailtrap\" I can see {string} in the email content") do |contentStr|
+    if waitForElementsXpath($driver, $wait, "//*[text()='" + contentStr + "']") == nil
+        fail("I cannot see the email content")
+    end
+end
