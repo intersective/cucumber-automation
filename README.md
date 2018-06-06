@@ -2,6 +2,7 @@
 
 ## Overview
 * This is the cucumber automation test (BDD) implemented by Ruby
+* ruby selenium web driver assists the tests to navigate and manipualte the web elements
 * html format test repots are in the reports folder
 * testsuites are in the top folders under the project directory, such as 'apitest'
 * there are README explaining the procedure to run the tests for each suite
@@ -18,3 +19,7 @@
 
 ## Note
 * https://intersective.atlassian.net/wiki/spaces/QD/pages/345407489/Cucumber+Format is a simple guide to write a step definition
+
+## Some Handy Developer Links
+* [Selenium](http://www.seleniumhq.org/docs/) - Web driver assists automates web-based testing
+* [Cucumber](https://docs.cucumber.io/) - Behaviour Driver Development Testing Framework
