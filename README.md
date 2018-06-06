@@ -1,7 +1,7 @@
-![Practera](http://intersective-wordpress-media.s3.amazonaws.com/wp-content/uploads/2014/04/Practera_Logo.png)
+![Practera](https://s3-ap-southeast-2.amazonaws.com/sydney-api-test/Practera_Logo_Primary_RGB.png)
 
 ## Overview
-* This is the cucumber automation test (BDD) implemented by Ruby
+* this is the cucumber automation test (BDD) implemented by Ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]
 * ruby selenium web driver assists the tests to navigate and manipualte the web elements
 * html format test repots are in the reports folder
 * testsuites are in the top folders under the project directory, such as 'apitest'
