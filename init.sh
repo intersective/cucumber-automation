@@ -15,7 +15,7 @@ creatDir(){
 creatDir "logs"
 creatDir "reports"
 creatDir "reportBackup"
-creatDir "headlessReport"
+creatDir "headlessScreenshot"
 
 touch logs/error.log
 touch logs/info.log
