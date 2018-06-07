@@ -26,9 +26,9 @@ Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)
 	toDoThings = waitForElements($driver, $listWait, ".jsmbp-detail-items > div")
 	topicHeader = toDoThings[itemLocation.to_i - 1].find_element(:css => ".item")
 	aItemTitle = topicHeader.find_element(:css => "detail-title h2")
-	category = topicHeader.find_element(:css => "detail-title p")
+	category = refineElementTextContent(topicHeader.find_element(:css => "detail-title p")).split(" ")[0].downcase
 	compareWithLog("expected item title", itemTitle, refineElementTextContent(aItemTitle))
-	compareWithLog("expected item category", itemCategory, refineElementTextContent(category).downcase)
+	compareWithLog("expected item category", itemCategory, category)
 end
 
 Then(/^"Appv1" I can see the "([^"]*)" with status "([^"]*)"$/) do |itemName, itemStatus|
