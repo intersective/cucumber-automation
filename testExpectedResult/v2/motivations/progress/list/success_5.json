@@ -4,79 +4,59 @@
     "cache": false,
     "data": {
         "Project": {
-            "progress": 0.23,
+            "progress": 0.3325,
             "Milestone": [
                 {
-                    "id": 2406,
+                    "id": 2730,
                     "Activity": [
                         {
-                            "id": 7683,
+                            "id": 8564,
+                            "Assessment": [
+                                {
+                                    "id": 2341,
+                                    "progress": 0
+                                }
+                            ],
+                            "progress": 0
+                        }
+                    ],
+                    "progress": 0
+                },
+                {
+                    "id": 2549,
+                    "Activity": [
+                        {
+                            "id": 8563,
                             "Topic": [
                                 {
-                                    "id": 6538,
+                                    "id": 8943,
+                                    "progress": 1
+                                }
+                            ],
+                            "progress": 1
+                        },
+                        {
+                            "id": 8092,
+                            "Topic": [
+                                {
+                                    "id": 8943,
                                     "progress": 1
                                 }
                             ],
                             "Assessment": [
                                 {
-                                    "id": 2225,
+                                    "id": 2341,
                                     "progress": 0
                                 },
                                 {
-                                    "id": 2287,
+                                    "id": 2679,
                                     "progress": 0
                                 }
                             ],
                             "progress": 0.33
                         }
                     ],
-                    "progress": 0.33
-                },
-                {
-                    "id": 2405,
-                    "Activity": [
-                        {
-                            "id": 7682,
-                            "Topic": [
-                                {
-                                    "id": 6538,
-                                    "progress": 1
-                                }
-                            ],
-                            "Assessment": [
-                                {
-                                    "id": 2097,
-                                    "progress": 0
-                                },
-                                {
-                                    "id": 2098,
-                                    "progress": 0
-                                },
-                                {
-                                    "id": 2099,
-                                    "progress": 0
-                                },
-                                {
-                                    "id": 2102,
-                                    "progress": 0
-                                },
-                                {
-                                    "id": 2103,
-                                    "progress": 0
-                                },
-                                {
-                                    "id": 2104,
-                                    "progress": 0
-                                },
-                                {
-                                    "id": 2105,
-                                    "progress": 0
-                                }
-                            ],
-                            "progress": 0.13
-                        }
-                    ],
-                    "progress": 0.13
+                    "progress": 0.665
                 }
             ]
         }

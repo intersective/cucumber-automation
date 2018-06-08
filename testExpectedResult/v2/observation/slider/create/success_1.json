@@ -1,8 +1,8 @@
 {
-    "success":true,
-    "status":"success",
-    "cache":false,
-    "data":{
-        "msg":"Feedbacks have been successfully submitted!"
+    "success": true,
+    "status": "success",
+    "cache": false,
+    "data": {
+        "msg": "Feedbacks have been successfully submitted!"
     }
 }

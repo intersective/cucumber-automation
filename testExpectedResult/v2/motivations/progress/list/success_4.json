@@ -4,27 +4,31 @@
     "cache": false,
     "data": {
         "Project": {
-            "progress": 0.23,
+            "progress": 0.3325,
             "Milestone": [
                 {
-                    "id": 2406,
+                    "id": 2730,
                     "Activity": [
                         {
-                            "id": 7683,
+                            "id": 8564,
+                            "progress": 0
+                        }
+                    ],
+                    "progress": 0
+                },
+                {
+                    "id": 2549,
+                    "Activity": [
+                        {
+                            "id": 8563,
+                            "progress": 1
+                        },
+                        {
+                            "id": 8092,
                             "progress": 0.33
                         }
                     ],
-                    "progress": 0.33
-                },
-                {
-                    "id": 2405,
-                    "Activity": [
-                        {
-                            "id": 7682,
-                            "progress": 0.13
-                        }
-                    ],
-                    "progress": 0.13
+                    "progress": 0.665
                 }
             ]
         }

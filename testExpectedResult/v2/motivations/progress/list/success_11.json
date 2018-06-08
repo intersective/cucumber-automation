@@ -4,83 +4,38 @@
     "cache": false,
     "data": {
         "Activity": {
-            "id": 7682,
+            "id": 8092,
             "Topic": {
-                "6538": {
+                "8943": {
                     "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
+                        "self": 0.33,
+                        "total": 0.08
                     },
                     "done": true,
                     "progress": 1
                 }
             },
             "Assessment": {
-                "2097": {
-                    "context_id": 2756,
+                "2341": {
+                    "context_id": 3922,
                     "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
+                        "self": 0.33,
+                        "total": 0.08
                     },
                     "done": false,
                     "progress": 0
                 },
-                "2098": {
-                    "context_id": 2757,
+                "2679": {
+                    "context_id": 4346,
                     "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
-                    },
-                    "done": false,
-                    "progress": 0
-                },
-                "2099": {
-                    "context_id": 2758,
-                    "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
-                    },
-                    "done": false,
-                    "progress": 0
-                },
-                "2102": {
-                    "context_id": 2793,
-                    "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
-                    },
-                    "done": false,
-                    "progress": 0
-                },
-                "2103": {
-                    "context_id": 2794,
-                    "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
-                    },
-                    "done": false,
-                    "progress": 0
-                },
-                "2104": {
-                    "context_id": 2795,
-                    "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
-                    },
-                    "done": false,
-                    "progress": 0
-                },
-                "2105": {
-                    "context_id": 2796,
-                    "percentage": {
-                        "self": 0.13,
-                        "total": 0.06
+                        "self": 0.33,
+                        "total": 0.08
                     },
                     "done": false,
                     "progress": 0
                 }
             },
-            "progress": 0.13
+            "progress": 0.33
         }
     }
 }

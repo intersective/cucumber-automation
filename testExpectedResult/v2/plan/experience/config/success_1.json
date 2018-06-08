@@ -3,81 +3,98 @@
     "status": "success",
     "cache": false,
     "data": [
-        {
-            "name": "Generic App ",
-            "config": {
-                "auth_via_contact_number": true,
-                "app": {
-                    "name": "APP",
-                    "version": "v1.0",
-                    "logo": {
-                        "512x512": "https://app.practera.com/img/themes/practera/logo.svg"
-                    }
-                },
-                "custom-style": {
-                    "bar-header": "{background-color:'#ffc900'}"
-                },
-                "custom_branding": {
-                    "experiences": {
-                        "38": {
-                            "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-red.css"
-                        }
-                    }
-                }
-            },
-            "logo": ""
+      {
+        "name": "Generic App ",
+        "config": {
+          "auth_via_contact_number": false,
+          "app": {
+            "name": "APP",
+            "version": "v1.0",
+            "logo": {
+              "512x512": "https://app.practera.com/img/themes/practera/logo.svg"
+            }
+          },
+          "custom-style": {
+            "bar-header": "{background-color:'#ffc900'}"
+          },
+          "custom_branding": {
+            "experiences": {
+              "38": {
+                "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-red.css"
+              }
+            }
+          }
         },
-        {
-            "name": "Appv1 test experience 2",
-            "config": null,
-            "logo": ""
+        "logo": ""
+      },
+      {
+        "name": "Parker Dewey",
+        "config": [],
+        "logo": ""
+      },
+      {
+        "name": "Laminex",
+        "config": {
+          "auth_via_contact_number": false
         },
-        {
-            "name": "App V1 Selenium ",
-            "config": {
-                "qwqwqwqwqwe": "qwwqqeqweqewqeqw",
-                "auth_via_contact_number": false,
-                "alert": "disable"
-            },
-            "logo": ""
+        "logo": ""
+      },
+      {
+        "name": "Barry test experience 2",
+        "config": [],
+        "logo": ""
+      },
+      {
+        "name": "Business Projects Program",
+        "config": [],
+        "logo": ""
+      },
+      {
+        "name": "App V1 Selenium ",
+        "config": {
+          "qwqwqwqwqwe": "qwwqqeqweqewqeqw",
+          "auth_via_contact_number": false,
+          "alert": "disable"
         },
-        {
-            "name": "Global Scope",
-            "config": {
-                "app": {
-                    "name": "APP",
-                    "version": "v1.0",
-                    "logo": {
-                        "512x512": "https://app.practera.com/img/themes/practera/logo.svg"
-                    }
-                },
-                "custom-style": {
-                    "bar-header": "{background-color:'#ffc900'}"
-                },
-                "custom_branding": {
-                    "experiences": {
-                        "20": {
-                            "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-qut.css"
-                        },
-                        "38": {
-                            "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-dev.css"
-                        }
-                    }
-                }
-            },
-            "logo": "/storage/filestores/open/28352.png"
+        "logo": ""
+      },
+      {
+        "name": "Global Scope",
+        "config": {
+          "app": {
+            "name": "APP",
+            "version": "v1.0",
+            "logo": {
+              "512x512": "https://app.practera.com/img/themes/practera/logo.svg"
+            }
+          },
+          "custom-style": {
+            "bar-header": "{background-color:'#ffc900'}"
+          },
+          "custom_branding": {
+            "experiences": {
+              "20": {
+                "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-qut.css"
+              },
+              "38": {
+                "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-dev.css"
+              }
+            }
+          }
         },
-        {
-            "name": "Showcase for Demo",
-            "config": {
-                "custom_branding": []
-            },
-            "logo": ""
+        "logo": "/storage/filestores/open/28352.png"
+      },
+      {
+        "name": "Showcase for Demo",
+        "config": {
+          "custom_branding": []
         },
-        {
-            "name": "Team Horcruxes Experience",
-            "config": null,
-            "logo": ""
-        }
+        "logo": ""
+      },
+      {
+        "name": "Team Horcruxes Experience",
+        "config": null,
+        "logo": ""
+      }
     ]
-}
+  }

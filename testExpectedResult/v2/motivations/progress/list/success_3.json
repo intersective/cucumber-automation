@@ -4,14 +4,18 @@
     "cache": false,
     "data": {
         "Milestone": {
-            "id": 2405,
+            "id": 2549,
             "Activity": [
                 {
-                    "id": 7682,
-                    "progress": 0.13
+                    "id": 8563,
+                    "progress": 1
+                },
+                {
+                    "id": 8092,
+                    "progress": 0.33
                 }
             ],
-            "progress": 0.13
+            "progress": 0.665
         }
     }
 }
