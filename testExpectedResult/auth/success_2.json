@@ -35,22 +35,7 @@
       ],
       "Teams": [],
       "Experience": {
-        "config": {
-          "exp": "test experience",
-          "custom_branding": {
-            "experiences": {
-              "20": {
-                "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-qut.css"
-              },
-              "38": {
-                "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-red.css"
-              },
-              "72": {
-                "link": "https://s3-ap-southeast-2.amazonaws.com/css.practera.com/appv1/css/practera-dev.css"
-              }
-            }
-          }
-        }
+        "config": []
       }
     }
   }
