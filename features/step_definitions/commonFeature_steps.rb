@@ -205,3 +205,10 @@ Then("I should be able to see {string} which is located at {string} has color {s
         fail("expected color %s, but found %s" % [arg3, color])
     end
 end
+
+Then("I should be able to see {string} which is located at {string} with xpath has class {string}") do |arg1, arg2, arg3|
+    ele = waitForElementXpath($driver, $wait, arg2)
+    if ele.attribute("class").index(arg3) == nil
+        fail("%s should have %s for the class" % [arg2, arg3])
+    end
+end
