@@ -8,9 +8,9 @@ Feature: AppV1 Check Moderated Assessment Answer
         Then I wait 10 seconds
         Then "Appv1" I login with username "selenium.20180503165632@practera.com" and password "12341234"
         Then I wait until the loading finished
-        Then "Appv1" I go to the "Comprehensive Activity" activity page which has "8" items
+        Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
         Then "Appv1" I go to the assessment locating at "4"
-        Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] ion-view[state='p2.feedback'] .scroll"
+        Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
 
         Then I should be able to see "Comprehensive Moderated Text Questions Group description" which is located at "//*[text()='Text Questions']/../*[text()='Comprehensive Moderated Text Questions Group description']" with xpath scroll assert
         Then I should be able to see "this is text question 1 description" which is located at "//*[text()='Text Question 1']/../..//*[text()='this is text question 1 description']" with xpath scroll assert

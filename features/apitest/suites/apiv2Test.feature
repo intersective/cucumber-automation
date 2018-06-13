@@ -50,12 +50,12 @@ Feature: API V2 test
             | timeline_id | result file |
             | 585 | v2/observation/slider/list/success_2.json |
 
-    Scenario: API V2 test for Appv1 Selenium program
+    Scenario: API V2 test for Appv1 Selenium program in Appv1 selenium experience(selenium.20180523170502@practera.com)
         When I call the app "get" api "https://sandbox.practera.com/api/v2/observation/slider/list.json" by headers "appkey=b11e7c189b;apikey=6bcfa5a817f3e9ba7130", with:
             | timeline_id | result file |
             | 587 | v2/observation/slider/list/success_1.json |
 
-    Scenario: API V2 test for Appv1 Selenium program in Appv1 selenium experience(selenium.20180523170502@practera.com)
+    Scenario: API V2 test for Appv1 Selenium program in Appv1 test experience 2(selenium.20180530152500@practera.com)
         When I call the app "get" api "https://sandbox.practera.com/api/v2/observation/slider/list.json" by headers "appkey=b11e7c189b;apikey=3056276aafe93845e2f2", with:
             | timeline_id | result file |
             | 763 | v2/observation/slider/list/success_3.json |

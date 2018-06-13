@@ -11,4 +11,9 @@ at_exit do
     if $testLogger1 != nil
         $testLogger1.close()
     end
+    if $configObj["browserstack"]
+        if $driver != nil
+            $driver.quit
+        end
+    end
 end
