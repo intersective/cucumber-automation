@@ -112,7 +112,7 @@ Then(/^"Appv1" I do the (file|image|video) question locating at "([^"]*)" with a
 	sleep 5
 	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(getUploadFileFullPath(questionAnswer))
 	sleep 1
-	while waitForElement($driver, $shortWait, ".fsp-picker--active") != nil
+	while waitForElement($driver, $shortWait, ".fsp-picker") != nil
 		sleep 1
 	end
 	sleep 4
@@ -127,7 +127,7 @@ Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([
 	sleep 5
 	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(getUploadFileFullPath(questionAnswer))
 	sleep 1
-	while waitForElement($driver, $shortWait, ".fsp-picker--active") != nil
+	while waitForElement($driver, $shortWait, ".fsp-picker") != nil
 		sleep 1
 	end
 	sleep 4
