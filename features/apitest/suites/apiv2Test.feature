@@ -26,10 +26,11 @@ Feature: API V2 test
             | activity | 8092 | task | v2/motivations/progress/list/success_6.json |
         Then I call the app "post" api "https://sandbox.practera.com/api/v2/motivations/progress/create.json" by headers "timelineid=763;appkey=b11e7c189b;apikey=b96e61c911cc9bc095e4", with:
             | model | model_id | state | result file |
-            | Topic | 8943 | started | v2/motivations/progress/create/fail_1.json |
+            | Topic | 8943 | started | v2/motivations/progress/create/success_3.json |
             | Topic | 8943 | completed | v2/motivations/progress/create/success_3.json |
-            | Topic | 6974 | started | v2/motivations/progress/create/fail_1.json |
-            | Topic | 6974 | stopped | v2/motivations/progress/create/fail_1.json |
+            | Topic | 8943 | stopped | v2/motivations/progress/create/success_3.json |
+            | Topic | 6974 | started | v2/motivations/progress/create/success_3.json |
+            | Topic | 6974 | stopped | v2/motivations/progress/create/success_3.json |
         Then I call the app "get" api "https://sandbox.practera.com/api/v2/observation/slider/list.json" by headers "appkey=b11e7c189b;apikey=b96e61c911cc9bc095e4", with:
             | timeline_id | result file |
             | 763 | v2/observation/slider/list/success_4.json |
