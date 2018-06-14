@@ -6,3 +6,4 @@ configurations:
 5. AWS_ACCESS_KEY_ID who has the s3 related permission
 6. apiTest set to run on the api test mode, it simply disables the initialisation of the web driver
 7. driverPath the chrome driver path on your machine
+8. browserstack set to true, we invoke the remote driver on the BrowserStack
