@@ -35,9 +35,9 @@ class SharedWebDriver
 			elsif
 				@driver = Selenium::WebDriver.for(:chrome)
 			end
-			@driver.manage.window.move_to(0, 0)
-			@driver.manage.window.resize_to(1440, 1000)
 		end
+		@driver.manage.window.move_to(0, 0)
+		@driver.manage.window.resize_to(1440, 1000)
 		@wait = Selenium::WebDriver::Wait.new(:timeout => 30) # seconds
 		@listWait = Selenium::WebDriver::Wait.new(:timeout => 120) # seconds
 		@shortWait = Selenium::WebDriver::Wait.new(:timeout => 3) # seconds

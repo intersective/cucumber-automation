@@ -17,8 +17,8 @@ AfterConfiguration do |config|
         $shortWait = $sharedWebDriver1.getShortWaitor()
         $normalWait = $sharedWebDriver1.getNormalWaitor()
         $listWait = $sharedWebDriver1.getListWaitor()
+        $appv1PageActions = Appv1PageActions.new
     end
-    $appv1PageActions = Appv1PageActions.new
 end
 
 Before do |scenario|
