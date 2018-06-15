@@ -9,7 +9,7 @@ AfterConfiguration do |config|
     puts("should only happen once")
     $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
     $testLogger1 = TestLogger.instance
-    if !$configObj["apiTest"]
+    if $configObj["mode"] != "apiTest"
         $sharedWebDriver1 = SharedWebDriver.instance
         $sharedData1 = SharedData.instance
         $driver = $sharedWebDriver1.getDriver()

@@ -1,7 +1,6 @@
 {
 	"driverPath" : "{/chrome/driver/path}",
 	"uploadFilePath" : "{Users/username/workspace/project-name/uploadFile}",
-	"apiTest" : false,
 	"appv1Url" : "https://appdev.practera.com",
 	"practeraUrl" : "https://sandbox.practera.com",
 	"mailtrap" : "http://mailtrap.io/",
@@ -10,9 +9,7 @@
 	"AWS_SECRET_ACCESS_KEY" : {AWS_SECRET_ACCESS_KEY},
 	"AWS_ACCESS_KEY_ID_EC2_OPR_USER" : {AWS_ACCESS_KEY_ID_EC2_OPR_USER},
 	"AWS_SECRET_ACCESS_KEY_EC2_OPR_USER" : {AWS_SECRET_ACCESS_KEY_EC2_OPR_USER},
-	"headless" : false,
-	"server" : false,
-	"browserstack" : false,
 	"browserstackUsername" : "{browserstack Username}",
-	"browserstackAccessKey" : "{browserstack Access Key}"
+	"browserstackAccessKey" : "{browserstack Access Key}",
+	"mode" : "ui"
 }
