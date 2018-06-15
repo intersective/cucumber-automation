@@ -1,6 +1,6 @@
 
 
-Then(/^I scroll to "([^"]*)" which is located at "([^"]*)" and click$/) do |arg1, arg2|
+Then(/^I move to "([^"]*)" which is located at "([^"]*)" and click$/) do |arg1, arg2|
 	ele = waitForElement($driver, $wait, arg2)
 	$driver.action.move_to(ele, 0, 0).click.perform
 end

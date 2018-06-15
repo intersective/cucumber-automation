@@ -8,7 +8,7 @@ Feature: AppV1 student registration
 		When I wait 5 seconds
 		Then I type my own password "12341234" for registration
 		Then I wait 2 seconds
-		Then I scroll to "agree check box" which is located at ".item-checkbox" and click
+		Then I move to "agree check box" which is located at ".item-checkbox" and click
 		Then I wait 2 seconds
 		Then I click on "Register button" which is located at "button[type='submit']"
 		Then I should be able to see "a pop up" which is located at ".popup-buttons"
