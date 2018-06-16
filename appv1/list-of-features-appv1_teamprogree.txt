@@ -1,0 +1,3 @@
+features/practera/testAddTeam.feature
+features/appv1/testAppV1TeamAssessment.feature
+features/appv1/appv1TeamAssessmentProgress.feature

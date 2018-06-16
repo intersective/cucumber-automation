@@ -165,3 +165,16 @@ Then(/^"Appv1" I should be able to see "([^"]*)" which is located at "([^"]*)"$/
 		fail("I can not see the answers")
 	end
 end
+
+Then("\"Appv1\" I can see the overall project progress") do
+	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
+	$sharedData1.putData("progress", progress)
+end
+
+Then("\"Appv1\" I should have the same overall project progress") do
+	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
+	progress1 = $sharedData1.loadDataFromKey("progress")
+	if progress != progress1
+		fail("I should have the same overall project progress")
+	end
+end
