@@ -6,7 +6,10 @@ class Appv1PageActions
         loginForm.find_element(:css => "input[name=uEmail]").send_keys(accountName)
         loginForm.find_element(:css => "input[name=password]").clear
         loginForm.find_element(:css => "input[name=password]").send_keys(password)
-        loginForm.find_element(:css => "#jsmbpLoginBtn").click()
+        loginBtn = loginForm.find_element(:css => "#jsmbpLoginBtn")
+        scrollIfNotVisible(webDriver, loginBtn)
+        sleep 1
+        loginBtn.click()
     end
 
     def logout(webDriver, waitor)
