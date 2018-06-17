@@ -12,6 +12,7 @@ Feature: AppV1 Team Evaluation
 		Then "Appv1" I can see the "topic" locating at "1" with title "Topic 1" and category "topic"
 		Then "Appv1" I can see the "assessment" locating at "2" with title "Evaluation questions" and category "assessment"
 		Then "Appv1" I go to the assessment locating at "2"
+		Then I wait until the loading finished
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"
 		Then "Appv1" I should be able to select "selenium.20180617124842" to team member selector which is located at "//*[@ng-repeat='question in group.questions'][1]//label[1]"
 		Then I input "selenium.20180617124842 is a friendly and hard working person" to "evluation text area" which is located at "//*[@ng-repeat='question in group.questions'][2]//textarea" with xpath scroll

@@ -11,6 +11,7 @@ Feature: AppV1 Team Assessment
 		Then "Appv1" I go to the "Activity 2" activity page which has "3" items
 		Then "Appv1" I can see the "assessment" locating at "3" with title "Appv1 test automation team assessment" and category "assessment"
 		Then "Appv1" I go to the assessment locating at "3"
+		Then I wait until the loading finished
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"
 		Then I input "selenium.20180617124842 is working with us" to "evluation text area" which is located at "//*[@ng-repeat='question in group.questions'][1]//textarea" with xpath scroll
 		Then I click on "Choice Two" which is located at "//*[@ng-repeat='question in group.questions'][2]//label[2]" with xpath scroll
