@@ -14,11 +14,11 @@ Feature: Practera add a team
 		Then I should be able to see a group of "team lists" which is located at "#indextbl > tbody > tr"
 		Then I click on "add team button" which is located at ".page-header a"
 		Then I should be able to see "add team form" which is located at "#TeamAdminAddForm"
-		Then I input "selenium.20180617122958" to "Team memebers" which is located at "#TeamAdminAddForm > .form-group:nth-of-type(4) input[type='text']"		
-		Then I click on "the team member" which is located at "//*[@class='select2-match'][text()='selenium.20180617122958']" with xpath
+		Then I input "selenium.20180617131556" to "Team memebers" which is located at "#TeamAdminAddForm > .form-group:nth-of-type(4) input[type='text']"		
+		Then I click on "the team member" which is located at "//*[@class='select2-match'][text()='selenium.20180617131556']" with xpath
 		Then I wait 2 seconds
-		Then I input "selenium.20180617124842" to "Team memebers" which is located at "#TeamAdminAddForm > .form-group:nth-of-type(4) input[type='text']"		
-		Then I click on "the team member" which is located at "//*[@class='select2-match'][text()='selenium.20180617124842']" with xpath
+		Then I input "selenium.20180617132316" to "Team memebers" which is located at "#TeamAdminAddForm > .form-group:nth-of-type(4) input[type='text']"		
+		Then I click on "the team member" which is located at "//*[@class='select2-match'][text()='selenium.20180617132316']" with xpath
 		Then I wait 2 seconds
 		Then I click on "save button" which is located at "#TeamAdminAddForm > .form-actions button:nth-of-type(1)"
 		Then I should be able to see "message" which is located at ".toast-message"
