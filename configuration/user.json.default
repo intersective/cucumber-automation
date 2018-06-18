@@ -11,5 +11,6 @@
 	"AWS_SECRET_ACCESS_KEY_EC2_OPR_USER" : {AWS_SECRET_ACCESS_KEY_EC2_OPR_USER},
 	"browserstackUsername" : "{browserstack Username}",
 	"browserstackAccessKey" : "{browserstack Access Key}",
+	"hubUrl" : "{http://hub/rul/in/the/remote/server:port}",
 	"mode" : "ui"
 }

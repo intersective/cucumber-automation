@@ -34,6 +34,8 @@ class SharedWebDriver
 				caps["browserstack.selenium_version"] = "3.11.0"
 				remoteHunUrl = "http://%s:%s@hub-cloud.browserstack.com/wd/hub" % [tconfigObj["browserstackUsername"], tconfigObj["browserstackAccessKey"]]
 				@driver = Selenium::WebDriver.for(:remote, :url => remoteHunUrl, :desired_capabilities => caps)
+			when "hub"
+				@driver = Selenium::WebDriver.for(:remote, :url => "%s/wd/hub" % [tconfigObj["hubUrl"]], :desired_capabilities => :chrome)
 			else
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
 				@driver = Selenium::WebDriver.for(:chrome)
