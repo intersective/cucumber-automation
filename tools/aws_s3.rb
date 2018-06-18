@@ -2,6 +2,17 @@ require 'aws-sdk'
 require 'aws-sdk-ec2'
 
 
+class CommandExecutionError < StandardError
+
+    attr_reader :stacktrace
+
+    def initialize(msg)
+        @stacktrace = Thread.current.backtrace.join("\n\t")
+        super(msg)
+    end
+    
+end
+
 private def readJsonfile(filePath)
 	fileContent = File.read(filePath)
 	dataHash = JSON.parse(fileContent)
@@ -153,6 +164,86 @@ class GetAWSInstanceInfo < MyAWSEC2Action
     end
 end
 
+class DeleteSecRule < MyAWSAction
+
+    def initialize(groupdId, regionName, fromIp)
+        @groupdId = groupdId
+        @regionName = regionName
+        @fromIp = fromIp
+    end
+
+    def perform()
+        super()
+        ec2 = Aws::EC2::Client.new(region: @regionName)
+        secGroup = ec2.describe_security_groups.security_groups.select do |sg|
+            sg["group_id"] == @groupdId
+        end
+        if secGroup.length == 0
+            raise CommandExecutionError.new("aws secruity group %s not found" % [@groupdId])
+        end
+        ippermissions = secGroup[0].ip_permissions
+        if ippermissions.length == 0
+            raise CommandExecutionError.new("aws secruity group %s has no ip permissions" % [@groupdId])
+        end
+        ipRange = nil
+        ippermissions.each do |ipper|
+            ipRange = ipper.ip_ranges.select do |ippr|
+                ippr["cidr_ip"] == @fromIp
+            end
+        end
+        if ipRange.length == 0
+            raise CommandExecutionError.new("aws secruity group %s has no ip range matching to the argument %s" % [@groupdId, @fromIp])
+        end
+        ippermission = ippermissions[0]
+        response = ec2.revoke_security_group_ingress({
+            cidr_ip: ipRange[0]["cidr_ip"],
+            group_id: @groupdId,
+            ip_protocol: ippermission["ip_protocol"],
+            from_port: ippermission["from_port"],
+            to_port: ippermission["to_port"]
+        })
+        @ippermission = ippermission
+        puts(response)
+    end
+
+    def getIppermission()
+        return @ippermission
+    end
+    
+end
+
+class CreateSecRule < MyAWSAction
+
+    def initialize(groupdId, regionName, toIp, ippermission)
+        @groupdId = groupdId
+        @regionName = regionName
+        @toIp = toIp
+        @ippermission = ippermission
+    end
+
+    def perform()
+        super()
+        ec2 = Aws::EC2::Client.new(region: @regionName)
+        response = ec2.authorize_security_group_ingress({
+            group_id: @groupdId,
+            ip_permissions: [
+                {
+                    ip_protocol: @ippermission["ip_protocol"],
+                    from_port: @ippermission["from_port"],
+                    to_port: @ippermission["to_port"],
+                    ip_ranges: [
+                        {
+                            cidr_ip: @toIp,
+                        }
+                    ]
+                }
+            ]
+        })
+        puts(response)
+    end
+
+end
+
 def wait_for_instances(state, ids)
     begin
         ec2 = Aws::EC2::Client.new(region: myRegion)
@@ -185,6 +276,24 @@ elsif ARGV.length == 3
         GetAWSInstanceInfo.new(ARGV[0], ARGV[1]).perform()
     else
         puts("do not support this argument %s" % [ARGV[3]])
+    end
+elsif ARGV.length == 5
+    if ARGV[4] == "-update"
+        begin
+            cmd = DeleteSecRule.new(ARGV[0], ARGV[1], ARGV[2])
+            cmd.perform()
+            ippermission = cmd.getIppermission()
+            if ippermission == nil
+                return
+            end
+            sleep 1
+            CreateSecRule.new(ARGV[0], ARGV[1], ARGV[3], ippermission).perform()
+        rescue CommandExecutionError => e
+            puts(e.message)
+            puts(e.stacktrace)
+        end
+    else
+        puts("do not support this argument %s" % [ARGV[4]])
     end
 else
     puts("do not support this command")
