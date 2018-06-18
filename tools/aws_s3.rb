@@ -2,7 +2,29 @@ require 'aws-sdk'
 require 'aws-sdk-ec2'
 
 
+@commands = {
+    "-u" => "UploadFileAction",
+    "-d" => "DownLoadFile",
+    "-start" => "StartAWSInstanceByRegion",
+    "-stop" => "StopAWSInstanceByRegion",
+    "-info" => "GetAWSInstanceInfo",
+    "-deleteSecRule" => "DeleteSecRule",
+    "-createSecRule" => "CreateSecRule",
+    "-updateSecRule" => "UpdateSecRule"
+}
+
 class CommandExecutionError < StandardError
+
+    attr_reader :stacktrace
+
+    def initialize(msg)
+        @stacktrace = Thread.current.backtrace.join("\n\t")
+        super(msg)
+    end
+    
+end
+
+class CommandNotSupportError < StandardError
 
     attr_reader :stacktrace
 
@@ -71,7 +93,7 @@ class UploadFileAction < MyAWSAction
         super()
         bucket = getBucketObj(@bucketName, @regionName)
         if bucket == nil
-            exit
+            raise CommandExecutionError.new("%s bucket does not exist in the region %s" % [@bucketName, @regionName])
         end
 
         fileName = Dir.pwd + '/' + @filePathName
@@ -95,7 +117,7 @@ class DownLoadFile < MyAWSAction
         temp = @bucketFileFullPath.split(":")
         bucket = getBucketObj(temp[0], @regionName)
         if bucket == nil
-            exit
+            raise CommandExecutionError.new("%s bucket does not exist in the region %s" % [temp[0], @regionName])
         end
 
         obj = bucket.object(temp[1])
@@ -127,7 +149,7 @@ class StartAWSInstanceByRegion < MyAWSEC2Action
                 i.start
             end
         else
-            puts("instance %s within the region %s does not exist" % [@instanceId, @myRegion])
+            raise CommandExecutionError.new("instance %s within the region %s does not exist" % [@instanceId, @myRegion])
         end
     end
 
@@ -244,6 +266,30 @@ class CreateSecRule < MyAWSAction
 
 end
 
+class UpdateSecRule
+
+    def initialize(groupdId, regionName, fromIp, toIp)
+        @groupdId = groupdId
+        @regionName = regionName
+        @fromIp = fromIp
+        @toIp = toIp
+    end
+
+    def perform()
+        args1 = [@groupdId, @regionName, @fromIp, "-deleteSecRule"]
+        cmdObject = parseCommand(args1)
+        cmdObject.perform()
+        ippermission = cmdObject.getIppermission()
+        if ippermission == nil
+            return
+        end
+        sleep 1
+        args1 = [@groupdId, @regionName, @toIp, ippermission["ip_protocol"], ippermission["from_port"], ippermission["to_port"], "-createSecRule"]
+        parseCommand(args1).perform()
+    end
+
+end
+
 def wait_for_instances(state, ids)
     begin
         ec2 = Aws::EC2::Client.new(region: myRegion)
@@ -254,6 +300,47 @@ def wait_for_instances(state, ids)
     end
 end
 
+def parseCommand(args)
+    cmdName = nil
+    if ARGV.length == 3 || ARGV.length == 4 || ARGV.length == 5 || ARGV.length == 7
+        cmdName = args[-1]
+    else
+        raise CommandNotSupportError.new("do not support this command")
+    end
+    if @commands.keys().include? cmdName
+        case @commands[cmdName]
+            when "UploadFileAction"
+                t = args[0].split("@")
+                return Object.const_get('UploadFileAction').new(t[1], t[0], args[1])
+            when "DownLoadFile"
+                t = args[0].split("@")
+                return Object.const_get('DownLoadFile').new(t[1], t[0], args[1])
+            when "StartAWSInstanceByRegion"
+                return Object.const_get('StartAWSInstanceByRegion').new(args[0], args[1])
+            when "StopAWSInstanceByRegion"
+                return Object.const_get('StopAWSInstanceByRegion').new(args[0], args[1])
+            when "GetAWSInstanceInfo"
+                return Object.const_get('GetAWSInstanceInfo').new(args[0], args[1])
+            when "DeleteSecRule"
+                return Object.const_get('DeleteSecRule').new(args[0], args[1], args[2])
+            when "CreateSecRule"
+                ippermission = {
+                    "ip_protocol" => args[3],
+                    "from_port" => args[4],
+                    "to_port" => args[5]
+                }
+                return Object.const_get('CreateSecRule').new(args[0], args[1], args[2], ippermission)
+            when "UpdateSecRule"
+                return Object.const_get('UpdateSecRule').new(args[0], args[1], args[2], args[3])
+            else
+                raise CommandNotSupportError.new("we do not support this command %s" % [cmdName])
+        end
+    else
+        raise CommandNotSupportError.new("we do not support this command %s" % [cmdName])
+    end
+end
+
+
 if ARGV.length == 0 || (ARGV.length == 1 && ARGV[0] == "-h")
     puts("Usage:")
     puts("usage: -h")
@@ -261,40 +348,11 @@ if ARGV.length == 0 || (ARGV.length == 1 && ARGV[0] == "-h")
     puts("download a file from a s3 bucket: bucketName:file_path_in_the_bucket@region_name the_local_file_path_to_save -d")
     puts("start a AWS instance within a region: instanceId myRegion -start")
     puts("stop a AWS instance within a region: instanceId myRegion -stop")
-elsif ARGV.length == 3
-    if ARGV[2] == "-u"
-        t = ARGV[0].split("@")
-        UploadFileAction.new(t[1], t[0], ARGV[1]).perform()
-    elsif ARGV[2] == "-d"
-        t = ARGV[0].split("@")
-        DownLoadFile.new(t[1], t[0], ARGV[1]).perform()
-    elsif ARGV[2] == "-start"
-        StartAWSInstanceByRegion.new(ARGV[0], ARGV[1]).perform()
-    elsif ARGV[2] == "-stop"
-        StopAWSInstanceByRegion.new(ARGV[0], ARGV[1]).perform()
-    elsif ARGV[2] == "-info"
-        GetAWSInstanceInfo.new(ARGV[0], ARGV[1]).perform()
-    else
-        puts("do not support this argument %s" % [ARGV[3]])
-    end
-elsif ARGV.length == 5
-    if ARGV[4] == "-update"
-        begin
-            cmd = DeleteSecRule.new(ARGV[0], ARGV[1], ARGV[2])
-            cmd.perform()
-            ippermission = cmd.getIppermission()
-            if ippermission == nil
-                return
-            end
-            sleep 1
-            CreateSecRule.new(ARGV[0], ARGV[1], ARGV[3], ippermission).perform()
-        rescue CommandExecutionError => e
-            puts(e.message)
-            puts(e.stacktrace)
-        end
-    else
-        puts("do not support this argument %s" % [ARGV[4]])
-    end
 else
-    puts("do not support this command")
+    begin
+        cmdObject = parseCommand(ARGV).perform()
+    rescue CommandExecutionError, CommandNotSupportError => e
+        puts(e.message)
+        puts(e.stacktrace)
+    end
 end
