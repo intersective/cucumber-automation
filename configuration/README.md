@@ -9,3 +9,4 @@
 # 2. AWS_ACCESS_KEY_ID_EC2_OPR_USER who has the ec2 instance related permission
 # 3. AWS_ACCESS_KEY_ID who has the s3 related permission
 # 4. driverPath defines the chrome driver path on your machine
+# 5. we may change the uploadFilePath if we run the test with the browser stack or hub mode, since the driver would have to look for the files in the local file system

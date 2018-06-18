@@ -11,8 +11,9 @@ at_exit do
     if $testLogger1 != nil
         $testLogger1.close()
     end
-    if $configObj["browserstack"]
+    if $configObj["mode"] == "browserstack" || $configObj["mode"] == "hub"
         if $driver != nil
+            puts("close driver")
             $driver.quit
         end
     end
