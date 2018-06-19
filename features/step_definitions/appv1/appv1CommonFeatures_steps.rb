@@ -9,6 +9,7 @@ Then("\"Appv1\" I go to the {string} activity") do |activityTitle|
 	activities = waitForElements($driver, $listWait, ".view-container[nav-view='active'] .card")
 	activities.each do |activity|
 		if activityTitle == refineElementTextContent(activity.find_element(:css => ".title"))
+			scrollIfNotVisible(activity)
 			activity.click()
 			break
 		end
@@ -138,7 +139,7 @@ Then("\"Appv1\" I go to the {string} activity page which has {string} items") do
 	step("\"Appv1\" I should see the app home screen")
 	step("I wait 8 seconds")
 	step("\"Appv1\" I go to the \"2\" tab page")
-	step("I can see a group of \"milestones\" with total \"2\" which is located at \".milestone-header\"")
+	step("I can see a group of \"milestones\" with total \"3\" which is located at \".milestone-header\"")
 	step("I wait 2 seconds")
 	step("\"Appv1\" I go to the \"#{milestoneTitle}\" activity")
 	step("I wait 3 seconds")
