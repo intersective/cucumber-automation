@@ -11,8 +11,8 @@ Feature: AppV1 team page
         Then "Appv1" I go to the "3" tab page
         Then I wait until the loading finished
         Then I should be able to see "team title" which is located at "//*[text()='Team 26']" with xpath assert
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(1) > [ng-bind='member.name']" containing text "selenium.20180617124842"
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(1) > [ng-bind='member.email']" containing text "selenium.20180617124842@practera.com"
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(2) > [ng-bind='member.name']" containing text "selenium.20180617122958"
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(2) > [ng-bind='member.email']" containing text "selenium.20180617122958@practera.com"
+        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(1) > [ng-bind='member.name']" containing text "selenium.20180619113736"
+        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(1) > [ng-bind='member.email']" containing text "selenium.20180619113736@practera.com"
+        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(2) > [ng-bind='member.name']" containing text "selenium.20180619103038"
+        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(2) > [ng-bind='member.email']" containing text "selenium.20180619103038@practera.com"
         Then "Appv1" I log out
