@@ -9,7 +9,7 @@ Then("\"Appv1\" I go to the {string} activity") do |activityTitle|
 	activities = waitForElements($driver, $listWait, ".view-container[nav-view='active'] .card")
 	activities.each do |activity|
 		if activityTitle == refineElementTextContent(activity.find_element(:css => ".title"))
-			scrollIfNotVisible(activity)
+			scrollIfNotVisible($driver, activity)
 			activity.click()
 			break
 		end
