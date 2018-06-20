@@ -348,9 +348,13 @@ if ARGV.length == 0 || (ARGV.length == 1 && ARGV[0] == "-h")
     puts("download a file from a s3 bucket: bucketName:file_path_in_the_bucket@region_name the_local_file_path_to_save -d")
     puts("start a AWS instance within a region: instanceId myRegion -start")
     puts("stop a AWS instance within a region: instanceId myRegion -stop")
+    puts("get a AWS instance information within a region: instanceId myRegion -info")
+    puts("delete a AWS security inbound rule within a region: securitygroupid myRegion cidrip -deleteSecRule")
+    puts("create a AWS security inbound rule within a region: securitygroupid myRegion cidrip ipprotocol fromport toport -createSecRule")
+    puts("update a AWS security inbound rule within a region: securitygroupid myRegion fromcidrip tocidrip -updateSecRule")
 else
     begin
-        cmdObject = parseCommand(ARGV).perform()
+        parseCommand(ARGV).perform()
     rescue CommandExecutionError, CommandNotSupportError => e
         puts(e.message)
         puts(e.stacktrace)
