@@ -12,5 +12,9 @@
 	"browserstackUsername" : "{browserstack Username}",
 	"browserstackAccessKey" : "{browserstack Access Key}",
 	"hubUrl" : "{http://hub/rul/in/the/remote/server:port}",
-	"mode" : "ui"
+	"mode" : "ui",
+	"nodeBrowserName" : "chrome",
+	"nodeBrowserVersion" : "67",
+	"nodePlatform" : "WINDOWS 10",
+	"nodeSeleniumVersion" : "3.11.0"
 }
