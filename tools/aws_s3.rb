@@ -139,14 +139,16 @@ class StartAWSInstanceByRegion < MyAWSEC2Action
         i = ec2.instance(@instanceId)
         if i.exists?
             case i.state.code
-            when 0  # pending
-                puts("%s is pending, so it will be running in a bit" % [@instanceId])
-            when 16  # started
-                puts("%s is already started" % [@instanceId])
-            when 48  # terminated
-                puts("%s is terminated, so you cannot start it" % [@instanceId])
-            else
-                i.start
+                when 0  # pending
+                    puts("%s is pending, so it will be running in a bit" % [@instanceId])
+                when 16  # started
+                    puts("%s is already started, public ip is %s" % [@instanceId, i.public_ip_address])
+                when 48  # terminated
+                    puts("%s is terminated, so you cannot start it" % [@instanceId])
+                else
+                    i.start
+                    wait_for_instances(:instance_running, [@instanceId], @myRegion)
+                    puts(ec2.instance(@instanceId).public_ip_address)
             end
         else
             raise CommandExecutionError.new("instance %s within the region %s does not exist" % [@instanceId, @myRegion])
@@ -167,6 +169,7 @@ class StopAWSInstanceByRegion < MyAWSEC2Action
         ec2 = Aws::EC2::Resource.new(region: @myRegion)
         i = ec2.instance(@instanceId)
         i.stop
+        wait_for_instances(:instance_stopped, [@instanceId], @myRegion)
     end
 
 end
@@ -182,7 +185,9 @@ class GetAWSInstanceInfo < MyAWSEC2Action
         super()
         ec2 = Aws::EC2::Resource.new(region: @myRegion)
         i = ec2.instance(@instanceId)
-        puts(i.public_ip_address)
+        puts("instance id: #{@instanceId}, instance type: #{i.instance_type}, state: #{i.state.name}")
+        puts("public ip address: #{i.public_ip_address}, name: #{i.tags[0].value}")
+        puts("launch time: #{i.launch_time}, architecture: #{i.architecture}, platform: #{i.platform}")
     end
 end
 
@@ -290,13 +295,13 @@ class UpdateSecRule
 
 end
 
-def wait_for_instances(state, ids)
+def wait_for_instances(state, ids, myRegion)
     begin
         ec2 = Aws::EC2::Client.new(region: myRegion)
         ec2.wait_until(state, instance_ids: ids)
-        puts "Success: #{state}"
+        puts("Success: #{state}")
     rescue Aws::Waiters::Errors::WaiterFailed => error
-        puts "Failed: #{error.message}"
+        puts("Failed: #{error.message}")
     end
 end
 
