@@ -1,17 +1,7 @@
 require 'aws-sdk'
 require 'aws-sdk-ec2'
+require_relative "commandObjects"
 
-
-@commands = {
-    "-u" => "UploadFileAction",
-    "-d" => "DownLoadFile",
-    "-start" => "StartAWSInstanceByRegion",
-    "-stop" => "StopAWSInstanceByRegion",
-    "-info" => "GetAWSInstanceInfo",
-    "-deleteSecRule" => "DeleteSecRule",
-    "-createSecRule" => "CreateSecRule",
-    "-updateSecRule" => "UpdateSecRule"
-}
 
 class CommandExecutionError < StandardError
 
@@ -140,14 +130,16 @@ class StartAWSInstanceByRegion < MyAWSEC2Action
         if i.exists?
             case i.state.code
                 when 0  # pending
-                    puts("%s is pending, so it will be running in a bit" % [@instanceId])
+                    puts("%s %s is pending, so it will be running in a bit" % [i.tags[0].value, @instanceId])
                 when 16  # started
-                    puts("%s is already started, public ip is %s" % [@instanceId, i.public_ip_address])
+                    puts("%s %s is already started, public ip is" % [i.tags[0].value, @instanceId])
+                    puts(i.public_ip_address)
                 when 48  # terminated
-                    puts("%s is terminated, so you cannot start it" % [@instanceId])
+                    puts("%s %s is terminated, so you cannot start it" % [i.tags[0].value, @instanceId])
                 else
                     i.start
                     wait_for_instances(:instance_running, [@instanceId], @myRegion)
+                    puts("%s %s is started" % [i.tags[0].value, @instanceId])
                     puts(ec2.instance(@instanceId).public_ip_address)
             end
         else
@@ -170,6 +162,7 @@ class StopAWSInstanceByRegion < MyAWSEC2Action
         i = ec2.instance(@instanceId)
         i.stop
         wait_for_instances(:instance_stopped, [@instanceId], @myRegion)
+        puts("%s %s is stopped" % [i.tags[0].value, @instanceId])
     end
 
 end
@@ -212,18 +205,23 @@ class DeleteSecRule < MyAWSAction
         if ippermissions.length == 0
             raise CommandExecutionError.new("aws secruity group %s has no ip permissions" % [@groupdId])
         end
-        ipRange = nil
+        found = false
+        ippermission = nil
         ippermissions.each do |ipper|
             ipRange = ipper.ip_ranges.select do |ippr|
                 ippr["cidr_ip"] == @fromIp
             end
+            if ipRange.length > 0
+                found = true
+                ippermission = ipper
+                break
+            end
         end
-        if ipRange.length == 0
+        if !found
             raise CommandExecutionError.new("aws secruity group %s has no ip range matching to the argument %s" % [@groupdId, @fromIp])
         end
-        ippermission = ippermissions[0]
         response = ec2.revoke_security_group_ingress({
-            cidr_ip: ipRange[0]["cidr_ip"],
+            cidr_ip: @fromIp,
             group_id: @groupdId,
             ip_protocol: ippermission["ip_protocol"],
             from_port: ippermission["from_port"],
@@ -312,8 +310,10 @@ def parseCommand(args)
     else
         raise CommandNotSupportError.new("do not support this command")
     end
-    if @commands.keys().include? cmdName
-        case @commands[cmdName]
+    cmdObjects = CommandObjects.instance
+    if cmdObjects.isValidCmd(cmdName)
+        cmdClass = cmdObjects.getCmdClass(cmdName)
+        case cmdClass
             when "UploadFileAction"
                 t = args[0].split("@")
                 return Object.const_get('UploadFileAction').new(t[1], t[0], args[1])
