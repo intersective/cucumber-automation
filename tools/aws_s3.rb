@@ -71,35 +71,13 @@ class MyAWSEC2Action
 
 end
 
-class UploadFileAction < MyAWSAction
+class S3FileAction < MyAWSAction
 
-    def initialize(regionName, bucketName, filePathName)
-        @regionName = regionName
-        @bucketName = bucketName
-        @filePathName = filePathName
-    end
-
-    def perform()
-        super()
-        bucket = getBucketObj(@bucketName, @regionName)
-        if bucket == nil
-            raise CommandExecutionError.new("%s bucket does not exist in the region %s" % [@bucketName, @regionName])
-        end
-
-        fileName = Dir.pwd + '/' + @filePathName
-        baseName = File.basename(fileName)
-        obj = bucket.object(baseName)
-        obj.upload_file(fileName)
-    end
-
-end
-
-class DownLoadFile < MyAWSAction
-
-    def initialize(regionName, bucketFileFullPath, localFilePath)
+    def initialize(regionName, bucketFileFullPath, localFilePath, flag)
         @regionName = regionName
         @bucketFileFullPath = bucketFileFullPath
         @localFilePath = localFilePath
+        @flag = flag
     end
 
     def perform()
@@ -110,8 +88,15 @@ class DownLoadFile < MyAWSAction
             raise CommandExecutionError.new("%s bucket does not exist in the region %s" % [temp[0], @regionName])
         end
 
+        fileName = Dir.pwd + '/' + @localFilePath
         obj = bucket.object(temp[1])
-        obj.get(response_target: @localFilePath)
+        if @flag == "UploadFileAction"
+            obj.upload_file(fileName)
+        elsif @flag == "DownLoadFile"
+            obj.get(response_target: fileName)
+        else
+            puts(@flag)
+        end
     end
 
 end
@@ -316,10 +301,10 @@ def parseCommand(args)
         case cmdClass
             when "UploadFileAction"
                 t = args[0].split("@")
-                return Object.const_get('UploadFileAction').new(t[1], t[0], args[1])
+                return Object.const_get('S3FileAction').new(t[1], t[0], args[1], "UploadFileAction")
             when "DownLoadFile"
                 t = args[0].split("@")
-                return Object.const_get('DownLoadFile').new(t[1], t[0], args[1])
+                return Object.const_get('S3FileAction').new(t[1], t[0], args[1], "DownLoadFile")
             when "StartAWSInstanceByRegion"
                 return Object.const_get('StartAWSInstanceByRegion').new(args[0], args[1])
             when "StopAWSInstanceByRegion"
@@ -349,7 +334,7 @@ end
 if ARGV.length == 0 || (ARGV.length == 1 && ARGV[0] == "-h")
     puts("Usage:")
     puts("usage: -h")
-    puts("upload a file to a s3 bucket: bucket_name@region_name the_local_file_path -u")
+    puts("upload a file to a s3 bucket: bucket_name:file_path_in_the_bucket@region_name the_local_file_path -u")
     puts("download a file from a s3 bucket: bucketName:file_path_in_the_bucket@region_name the_local_file_path_to_save -d")
     puts("start a AWS instance within a region: instanceId myRegion -start")
     puts("stop a AWS instance within a region: instanceId myRegion -stop")
