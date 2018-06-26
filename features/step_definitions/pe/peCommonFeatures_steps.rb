@@ -30,7 +30,7 @@ Then(/^"PE" I input the enrolment information which is located at "([^"]*)"$/) d
 	$sharedData1.putData("studentName", studentName)
     $sharedData1.putData("studentAccount", studentAccount)
     csvtext = "\n%s,%s,%s,fullaccess" % [studentAccount, studentId, studentName]
-    enrolmentFile = Dir.pwd + '/data/sandbox-pe-participant.csv'
+    enrolmentFile = $configObj["projectPath"] + '/data/sandbox-pe-participant.csv'
     File.open(enrolmentFile, File::WRONLY | File::APPEND) do |f|
         f.write(csvtext)
     end
