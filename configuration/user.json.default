@@ -16,6 +16,5 @@
 	"nodeBrowserName" : "chrome",
 	"nodeBrowserVersion" : "67",
 	"nodePlatform" : "WINDOWS 10",
-	"nodeSeleniumVersion" : "3.11.0",
-	"projectPath" : "C:\\cucumber-automation"
+	"nodeSeleniumVersion" : "3.11.0"
 }

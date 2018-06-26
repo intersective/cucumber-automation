@@ -26,13 +26,19 @@ end
 Then(/^"PE" I input the enrolment information which is located at "([^"]*)"$/) do |arg1|
     studentId = generateStudentId()
 	studentName = "selenium.%s" % [studentId]
-	studentAccount = "%s@practera.com" % [studentName]
-	$sharedData1.putData("studentName", studentName)
+    studentAccount = "%s@practera.com" % [studentName]
+    $sharedData1.putData("studentName", studentName)
     $sharedData1.putData("studentAccount", studentAccount)
     csvtext = "\n%s,%s,%s,fullaccess" % [studentAccount, studentId, studentName]
-    enrolmentFile = $configObj["projectPath"] + '/data/sandbox-pe-participant.csv'
+    enrolmentFile = Dir.pwd + '/data/sandbox-pe-participant.csv'
     File.open(enrolmentFile, File::WRONLY | File::APPEND) do |f|
         f.write(csvtext)
+    end
+    if $configObj["mode"] == "hub"
+        $driver.file_detector = lambda do |args|
+            str = args.first.to_s
+            str if File.exist?(str)
+        end
     end
     step("I upload the file \"#{enrolmentFile}\" to \"Choose file\" which is located at \"#{arg1}\"")
 end
