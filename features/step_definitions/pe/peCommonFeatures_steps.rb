@@ -34,12 +34,6 @@ Then(/^"PE" I input the enrolment information which is located at "([^"]*)"$/) d
     File.open(enrolmentFile, File::WRONLY | File::APPEND) do |f|
         f.write(csvtext)
     end
-    if $configObj["mode"] == "hub"
-        $driver.file_detector = lambda do |args|
-            str = args.first.to_s
-            str if File.exist?(str)
-        end
-    end
     step("I upload the file \"#{enrolmentFile}\" to \"Choose file\" which is located at \"#{arg1}\"")
 end
 
