@@ -18,6 +18,12 @@ AfterConfiguration do |config|
         $normalWait = $sharedWebDriver1.getNormalWaitor()
         $listWait = $sharedWebDriver1.getListWaitor()
         $appv1PageActions = Appv1PageActions.new
+        if $configObj["mode"] == "hub" || $configObj["mode"] == "browserstack"
+            $driver.file_detector = lambda do |args|
+                str = args.first.to_s
+                str if File.exist?(str)
+            end
+        end
     end
 end
 
