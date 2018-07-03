@@ -67,7 +67,9 @@ Then(/^"Mailtrap" I go into the email content$/) do
     $driver.switch_to.frame(0)
 end
 
-Then(/^"Mailtrap" I go back to previous window$/) do
+Then(/^"Mailtrap" I go back to previous frame$/) do
+    # back to the main document
+    $driver.switch_to.default_content
     previousWindow = $sharedData1.loadDataFromKey("previousWindow")
     $driver.switch_to.window(previousWindow)
 end
