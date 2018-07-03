@@ -8,7 +8,7 @@ Feature: Practera is_required file applies to different type of question
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program.student6@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Assessments" which is located at "#sidebar ul.nav li:nth-of-type(3) a"
+        Then I click on "assessments tag" which is located at "//*[text()='Assessments']/.." with xpath
         Then I wait 2 seconds
         Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then I should be able to see "an assessment" which is located at "//td/a[text()='Test question required field']" with xpath assert
@@ -63,9 +63,7 @@ Feature: Practera is_required file applies to different type of question
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.admin@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Project tab" which is located at "//*[text()='Project']//.." with xpath
-        Then I wait 2 seconds
-        Then I click on "Assessment tab" which is located at "//a[@href='/admin/assess/assessments']" with xpath
+        Then I click on "submissions tab" which is located at "//*[text()='Submissions']/.." with xpath
         Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
         Then I click on "Test question required field" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
         Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
@@ -89,7 +87,7 @@ Feature: Practera is_required file applies to different type of question
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "reviews & feedback" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
         Then I wait 2 seconds
-        Then I click on "my reviews" which is located at "//a[@href='/assess/assessment_reviews']" with xpath
+        Then I click on "my reviews" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
         Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
         Then "Practera" I can go to the review page with a student "barry_test_program.student6" submission and the assessment "Test question required field"
         Then I click on "the start button" which is located at "div#start-page > div.form-actions > button"
