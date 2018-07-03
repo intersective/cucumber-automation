@@ -10,7 +10,7 @@ Feature: Personal Edge Enrolment
 		Then I should be able to see "a bar" which is located at "#sidebar"
 		Then I click on "people tab button" which is located at "//*[text()='People']/.." with xpath
 		Then I wait 2 seconds
-		Then I click on "program enrolments tab" which is located at "//*[text()='People']/../..//*[normalize-space()='Program Enrolments']" with xpath
+		Then I click on "enrolments tab" which is located at "//*[text()='People']/../..//*[normalize-space()='Enrolments']/a" with xpath
 		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I should be able to see "a form" which is located at "#EnrolmentAddForm"
 		Then I select "Automation Timeline" to "a selector" which is located at "#EnrolmentAddForm .timeline-select #EnrolmentTimelineId"
