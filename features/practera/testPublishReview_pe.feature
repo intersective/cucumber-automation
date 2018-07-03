@@ -22,5 +22,4 @@ Feature: Practera Publish Reviews for Personal Edge program
 			| Confident Communicator | selenium.20180508013454;selenium.20180508013454 |
 			| Digital Citizen | selenium.20180508013454;selenium.20180508013454 |
 
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+		Then "Practera" I log out
