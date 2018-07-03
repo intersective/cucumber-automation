@@ -8,9 +8,9 @@ Feature: Custom branding for app
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "set-up tag" which is located at "//*[text()='Set-up']/.." with xpath
+        Then I click on "a tag" which is located at "#sidebar ul.nav li.hsub:nth-of-type(5) a"
         Then I wait 2 seconds
-        Then I click on "branding tag" which is located at "//*[text()='Set-up']/../..//a[@href='/admin/programs']/.." with xpath
+        Then I click on "a tag" which is located at "#sidebar ul.nav li.hsub:nth-of-type(5) ul.submenu li:nth-of-type(1)"
         Then I should be able to see "program title" which is located at "//*[normalize-space()='Edit ProgramSave']" with xpath assert
         Then I should be able to see "program name" which is located at "//input[@name='data[Program][name]'][@value='App V1 Selenium Program']" with xpath assert
         Then I input "" to "theme color input field" which is located at "#theme-color"
