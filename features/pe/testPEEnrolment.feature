@@ -8,10 +8,10 @@ Feature: Personal Edge Enrolment
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with username "pe_admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a bar" which is located at "#sidebar"
-		Then I click on "people tab button" which is located at "//*[text()='People']/.." with xpath
+		Then I click on "a button" which is located at "#sidebar ul.nav li.hsub:nth-of-type(5) a"
 		Then I wait 2 seconds
-		Then I click on "program enrolments tab" which is located at "//*[text()='People']/../..//*[normalize-space()='Program Enrolments']" with xpath
-		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
+		Then I click on "a menu" which is located at "#sidebar ul.nav li.hsub:nth-of-type(5) ul.submenu li:nth-of-type(1)"
+		Then I click on "a menu" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I should be able to see "a form" which is located at "#EnrolmentAddForm"
 		Then I select "Automation Timeline" to "a selector" which is located at "#EnrolmentAddForm .timeline-select #EnrolmentTimelineId"
 		Then "PE" I input the enrolment information which is located at "input#fileupload[name='data[Enrolment][upload]']"
@@ -27,5 +27,4 @@ Feature: Personal Edge Enrolment
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I wait 2 seconds
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+		Then "Practera" I log out
