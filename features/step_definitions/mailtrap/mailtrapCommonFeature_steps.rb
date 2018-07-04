@@ -79,3 +79,64 @@ Then("\"Mailtrap\" I can see {string} in the email content") do |contentStr|
         fail("I cannot see the email content")
     end
 end
+
+Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {string} with {string} tries") do |type1, type1Value, type2, type2Value, tries|
+    apiUrl = "https://mailtrap.io/api/v1/inboxes/%s/messages" % [$configObj["mailtrapPracteraInboxId"]]
+    pheaders, pdata = buildMailTrapApiPara(type1Value)
+    noFound = true
+    counter = tries.to_i
+    if type1 == "receiver"
+        receiver = type1Value
+        title = type2Value
+    else
+        receiver = type2Value
+        title = type1Value
+    end
+    while noFound
+        begin
+            result = fireRequestWithData("get", apiUrl, pheaders, pdata)
+            mails = result.select do |message|
+                message["to_email"] == receiver && message["subject"] == title
+            end
+            counter = counter - 1
+            noFound = checkMails(mails, counter, tries)
+        rescue Exception => e
+            puts(e.message)
+            noFound = false
+        end
+    end
+end
+
+Then("\"Mailtrap Api\" I can see {string} in the email content") do |contentStr|
+    message = $sharedData1.loadDataFromKey("mailMessage")
+    doc =  Nokogiri::HTML(message["html_body"])
+    if doc.xpath("//*[text()='" + contentStr + "']").first == nil
+        fail("I cannot see the email content")
+    end
+end
+
+private def buildMailTrapApiPara(searchStr)
+    pheaders = {
+        "Api-Token" => $configObj["mailtrapApiToken"]
+    }
+    pdata = {
+        "search" => searchStr
+    }
+    return pheaders, pdata
+end
+
+private def checkMails(mails, counter, tries)
+    if mails.length < 1 && counter < 1
+        puts("not found with %s tries" % [tries])
+        noFound = false
+    elsif mails.length < 1
+        puts("not found, wait 10 seconds")
+        sleep(10)
+        noFound = true
+    else
+        puts("found the email with the receiver and subject")
+        noFound = false
+        $sharedData1.putData("mailMessage", mails[0])
+    end
+    return noFound
+end
