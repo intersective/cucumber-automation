@@ -6,6 +6,8 @@
 ## 1.4 headless-cancary(use google canary to drive the chrome headless)
 ## 1.5 browserstack(invoke the remote driver on the BrowserStack)
 ## 1.6 hub(invoke the remote driver on an ec2 windows intance)
+## 1.7 mailtrapPracteraInboxId can get from the url after we enter the practera inbox
+## 1.8 mailtrapApiToken can get from the mailtrap profile(settings) page
 #
 # 2. AWS_ACCESS_KEY_ID_EC2_OPR_USER who has the ec2 instance related permission
 # 3. AWS_ACCESS_KEY_ID who has the s3 related permission
