@@ -25,5 +25,4 @@ Feature: AppV1 Enrolment
 		Then I wait the search result with locator "table#indextbl tbody tr"
 		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a"
 		Then I wait 2 seconds
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+		Then "Practera" I log out

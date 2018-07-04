@@ -44,5 +44,4 @@ Feature: Practera is_required file applies to file type question
         Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
         Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
-        Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(2) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(2) > ul.user-menu > li:nth-of-type(4) > a"
+        Then "Practera" I log out

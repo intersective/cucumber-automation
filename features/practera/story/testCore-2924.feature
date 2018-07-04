@@ -26,8 +26,7 @@ Feature: Practera Hide Activities on Calendar
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
         Then "Practera" I wait for spinner loading finished
         Then I should not see "a milestone" which is located at "//span[text()='barry test milestone 1']" with xpath assert
-        Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+        Then "Practera" I log out
     
     Scenario: Test Practera Hide Activities on Calendar with another coordinator account
         Given I go to Practera Platform
@@ -46,8 +45,7 @@ Feature: Practera Hide Activities on Calendar
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
         Then "Practera" I wait for spinner loading finished
         Then I should be able to see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath assert
-        Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+        Then "Practera" I log out
     
     Scenario: Test Practera Hide Activities on Calendar with the same coordinator
         Given I go to Practera Platform
@@ -72,8 +70,7 @@ Feature: Practera Hide Activities on Calendar
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
         Then "Practera" I wait for spinner loading finished
         Then I should be able to see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath assert
-        Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+        Then "Practera" I log out
 
     Scenario: Test Practera Hide Activities on Calendar with a participant account
         Given I go to Practera Platform
@@ -94,8 +91,7 @@ Feature: Practera Hide Activities on Calendar
         Then "Practera" I wait the event toggler spinner disappear
         Then "Practera" I wait for spinner loading finished
         Then I should not see "an activity" which is located at "//span[text()='barry test activity 1']" with xpath assert
-        Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+        Then "Practera" I log out
 
     Scenario: Test Practera Hide Activities on Calendar with the same participant account
         Given I go to Practera Platform
@@ -116,5 +112,4 @@ Feature: Practera Hide Activities on Calendar
         Then "Practera" I wait the event toggler spinner disappear
         Then "Practera" I wait for spinner loading finished
         Then I should be able to see "an activity" which is located at "//span[text()='barry test activity 1']" with xpath assert
-        Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+        Then "Practera" I log out
