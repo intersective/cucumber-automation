@@ -16,5 +16,7 @@
 	"nodeBrowserName" : "chrome",
 	"nodeBrowserVersion" : "67",
 	"nodePlatform" : "WINDOWS 10",
-	"nodeSeleniumVersion" : "3.11.0"
+	"nodeSeleniumVersion" : "3.11.0",
+	"mailtrapPracteraInboxId" : {practera inbox id},
+    "mailtrapApiToken" : {mailtrap api token}
 }
