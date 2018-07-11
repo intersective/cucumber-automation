@@ -89,6 +89,17 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
             if pubPerosn != publisher
                 $testLogger1.logCase("expected publisher %s, but found %s" % [publisher, pubPerosn])
             end
+        end
+    end
+end
+
+Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studentName|
+    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes.each do |uas|
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+            $driver.execute_script("window.confirm = function(){return true;}")
+            sleep 2
+            findElementWithParent(uas, "td:nth-of-type(5) > span:nth-of-type(2) > a:nth-of-type(3)").click()
             break
         end
     end
@@ -104,9 +115,15 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) d
     step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
 end
 
+
 Then(/^"Practera" I can see the student submission review with "([^"]*)" publisher$/) do |publisher|
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I can see a student \"#{studentName}\" submission review with \"#{publisher}\" publisher")
+end
+
+Then(/^"Practera" I can edit the student submission review$/) do
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step("\"Practera\" I can edit a student \"#{studentName}\" submission review")
 end
 
 Then(/^"Practera" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
