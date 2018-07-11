@@ -341,11 +341,11 @@ Then(/^"Practera" I wait the event toggler spinner disappear$/) do
 end
 
 Then("\"Practera\" I log out") do
-    waitForElementVisible($driver, "#usermenu > a.dropdown-toggle").click()
-    waitForElementVisibleXpath($driver, "//*[@id='usermenu']//li[normalize-space()='Logout']/a").click()
+    waitForElementVisible($driver, $wait, "#usermenu > a.dropdown-toggle").click()
+    waitForElementVisibleXpath($driver, $wait, "//*[@id='usermenu']//li[normalize-space()='Logout']/a").click()
 end
 
 Then("\"Practera\" I go to profile") do
-    waitForElementVisible($driver, "#usermenu > a.dropdown-toggle").click()
-    waitForElementVisibleXpath($driver, "//*[@id='usermenu']//li[normalize-space()='Profile']/a").click()
+    waitForElementVisible($driver, $wait, "#usermenu > a.dropdown-toggle").click()
+    waitForElementVisibleXpath($driver, $wait, "//*[@id='usermenu']//li[normalize-space()='Profile']/a").click()
 end
