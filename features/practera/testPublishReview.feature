@@ -26,5 +26,5 @@ Feature: Practera Publish Reviews
 		Then I click on "published on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(1) td:nth-of-type(6) > a"
 		Then I wait 2 seconds
 		Then I should be able to see a group of "published submissions" which is located at "#reviewContainer > div#assessments > div > div#published > div > table > tbody > tr"
-		Then "Practera" I can see a student "selenium.20180614221247" submission review with "admin_selenium" publisher
+		Then "Practera" I can see the student submission review with "Admin Selenium" publisher
 		Then "Practera" I log out
