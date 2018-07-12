@@ -16,5 +16,5 @@ Feature: AppV1 Check Moderated Assessment Review After an admin edit
         Then I should be able to see "expert feedback text" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='your works are excellent, thank you for submissions from admin_selenium']" with xpath scroll assert
         Then I should be able to see "expert feedback choice" which is located at "//*[text()='Multiple Choice Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='Choice 0.8, Choice 0.6']" with xpath scroll assert
         Then I should be able to see "expert feedback text" which is located at "//*[text()='Multiple Choice Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='your work is good from admin_selenium']" with xpath scroll assert
-        Then I click on "back button" which is located at ".nav-bar-block[nav-bar=active] .back-button"
+        Then "Appv1" I go back from assessment page
         Then "Appv1" I log out
