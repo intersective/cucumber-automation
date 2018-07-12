@@ -50,8 +50,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait 2 seconds
 		Then I click on "a tag" which is located at ".page-header span > a"
 		Then I wait 2 seconds
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+		Then "Practera" I log out
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
@@ -82,8 +81,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I wait 2 seconds
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(2) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(2) > ul.user-menu > li:nth-of-type(4) > a"
+		Then "Practera" I log out
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
@@ -104,8 +102,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait 2 seconds
 		Then I click on "a tag" which is located at ".page-header span > a"
 		Then I wait 2 seconds
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > a.dropdown-toggle"
-		Then I click on "a button" which is located at "div.navbar-buttons > ul.nav > li:nth-of-type(3) > ul.user-menu > li:nth-of-type(4) > a"
+		Then "Practera" I log out
 
 		Given I go to App V1
 		Then I wait 10 seconds
