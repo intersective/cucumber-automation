@@ -146,7 +146,7 @@ Then(/^I wait until the loading finished$/) do
 	waitForLoadFinished($driver, $wait)
 end
 
-Then(/^"Appv1" I should be able to select "([^"]*)" to team member selector which is located at "([^"]*)"$/) do |selectOption, selectorPath|
+Then(/^"Appv1" I should be able to select "([^"]*)" from selector options which is located at "([^"]*)"$/) do |selectOption, selectorPath|
 	selectorOption = waitForElementXpath($driver, $wait, selectorPath)
 	if refineElementTextContent(findElementWithParent(selectorOption, ".item-content")).split(" ", 2)[1] != selectOption
 		fail("I can not see the team member")
