@@ -6,7 +6,7 @@ Feature: AppV1 Moderated Team Assessment
 	Scenario: Test AppV1 Moderated Team Assessment
 		Given I go to App V1
 		Then I wait 10 seconds
-		Then "Appv1" I login with username "selenium.20180619103038@practera.com" and password "12341234"
+		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
@@ -42,8 +42,8 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
-		Then "Practera" I should see a student "Team 30 (selenium.20180619103038)" submission
-		Then "Practera" I can assign a mentor "selenium_mentor2" to a student "Team 30 (selenium.20180619103038)" submission
+		Then "Practera Team" I should see team student "student1" submission
+		Then "Practera Team" I can assign a mentor "selenium_mentor2" to a team student "student1" submission
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
@@ -61,7 +61,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait 2 seconds
 		Then I click on "a tag" which is located at "ul.nav li:nth-of-type(4) > ul > li > a"
 		Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
-		Then "Practera" I can go to the review page with a student "Team 30 ( selenium.20180619103038 )" submission and the assessment "Team Moderated"
+		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated"
 		Then I click on "the start button" which is located at "div#start-page > div.form-actions > button"
 		Then I wait 2 seconds
 		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
@@ -96,8 +96,8 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "ready to publish on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(2) td:nth-of-type(5) > a"
 		Then I wait 2 seconds
 		Then I should be able to see a group of "reviewed submissions" which is located at "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr"
-		Then "Practera" I should see a student "Team 30 (selenium.20180619103038)" ready to publish submission
-		Then "Practera" I can publish a student "Team 30 (selenium.20180619103038)" submission review
+		Then "Practera Team" I should see team student "student1" ready to publish submission
+		Then "Practera Team" I can publish a team student "student1" submission review
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
@@ -109,7 +109,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to App V1
 		Then I wait 10 seconds
-		Then "Appv1" I login with username "selenium.20180619103038@practera.com" and password "12341234"
+		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
@@ -118,7 +118,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to App V1
 		Then I wait 10 seconds
-		Then "Appv1" I login with username "selenium.20180619113736@practera.com" and password "12341234"
+		Then "Appv1 Team" I login with team member "student2" and password "12341234" and domain "practera.com"
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"

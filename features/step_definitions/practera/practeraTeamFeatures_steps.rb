@@ -19,3 +19,43 @@ Then("\"Practera Team\" I input team name") do
     teamName = teamObj["name"]
     step("I input \"#{teamName}\" to \"Team Name\" which is located at \"#TeamAdminAddForm #TeamName\"")
 end
+
+Then("\"Practera Team\" I should see team student {string} submission") do |student|
+    teamObj = $sharedData1.loadDataFromKey("team")
+    studentName = teamObj[student]
+    teamName = teamObj["name"]
+    teamStudentName = "%s (%s)" % [teamName, studentName]
+    step("\"Practera\" I should see a student \"#{teamStudentName}\" submission")
+end
+
+Then("\"Practera Team\" I can assign a mentor {string} to a team student {string} submission") do |mentor, student|
+    teamObj = $sharedData1.loadDataFromKey("team")
+    studentName = teamObj[student]
+    teamName = teamObj["name"]
+    teamStudentName = "%s (%s)" % [teamName, studentName]
+    step("\"Practera\" I can assign a mentor \"selenium_mentor2\" to a student \"#{teamStudentName}\" submission")
+end
+
+Then("\"Practera Team\" I can go to the review page with a team student {string} submission and the assessment {string}") do |student, assessment|
+    teamObj = $sharedData1.loadDataFromKey("team")
+    studentName = teamObj[student]
+    teamName = teamObj["name"]
+    teamStudentName = "%s ( %s )" % [teamName, studentName]
+    step("\"Practera\" I can go to the review page with a student \"#{teamStudentName}\" submission and the assessment \"#{assessment}\"")
+end
+
+Then("\"Practera Team\" I should see team student {string} ready to publish submission") do |student|
+    teamObj = $sharedData1.loadDataFromKey("team")
+    studentName = teamObj[student]
+    teamName = teamObj["name"]
+    teamStudentName = "%s (%s)" % [teamName, studentName]
+    step("\"Practera\" I should see a student \"#{teamStudentName}\" ready to publish submission")
+end
+
+Then("\"Practera Team\" I can publish a team student {string} submission review") do |student|
+    teamObj = $sharedData1.loadDataFromKey("team")
+    studentName = teamObj[student]
+    teamName = teamObj["name"]
+    teamStudentName = "%s (%s)" % [teamName, studentName]
+    step("\"Practera\" I can publish a student \"#{teamStudentName}\" submission review")
+end
