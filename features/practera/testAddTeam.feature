@@ -13,13 +13,10 @@ Feature: Practera add a team
 		Then I click on "teams tag" which is located at "//*[text()='People']/../..//*[normalize-space()='Teams']" with xpath
 		Then I should be able to see a group of "team lists" which is located at "#indextbl > tbody > tr"
 		Then I click on "add team button" which is located at ".page-header a"
-		Then I should be able to see "add team form" which is located at "#TeamAdminAddForm"
-		Then I input "selenium.20180703232357" to "Team memebers" which is located at "#TeamAdminAddForm > .form-group:nth-of-type(4) input[type='text']"		
-		Then I click on "the team member" which is located at "//*[@class='select2-match'][text()='selenium.20180703232357']" with xpath
-		Then I wait 2 seconds
-		Then I input "selenium.20180703234242" to "Team memebers" which is located at "#TeamAdminAddForm > .form-group:nth-of-type(4) input[type='text']"		
-		Then I click on "the team member" which is located at "//*[@class='select2-match'][text()='selenium.20180703234242']" with xpath
-		Then I wait 2 seconds
+		Then "Practera Team" I see the add team page
+		Then "Practera Team" I input team name
+		Then "Practera Team" I add "student1" as a team member
+		Then "Practera Team" I add "student2" as a team member
 		Then I click on "save button" which is located at "#TeamAdminAddForm > .form-actions button:nth-of-type(1)"
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
