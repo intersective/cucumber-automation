@@ -1,0 +1,11 @@
+{
+	"browserstackUsername" : "{browserstack Username}",
+	"browserstackAccessKey" : "{browserstack Access Key}",
+	"browserstackOS": "Windows",
+    "browserstackOSVersion": "10",
+    "browserstackBrowser": "Chrome",
+    "browserstackBrowserVersion": "66.0",
+    "browserstackResolution": "1440x900",
+    "browserstackBrowserstackLocal": "false",
+    "browserstackBrowserstackSeleniumVersion": "3.11.0"
+}
