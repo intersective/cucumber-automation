@@ -12,6 +12,7 @@
 # 2. AWS_ACCESS_KEY_ID_EC2_OPR_USER who has the ec2 instance related permission
 # 3. AWS_ACCESS_KEY_ID who has the s3 related permission
 # 4. driverPath defines the chrome driver path on your machine
-# 5. we may change the uploadFilePath if we run the test with the hub mode, and we want the driver to look for the files in the remote file system
+# 5. we may change the uploadFilePath if we run the test with the hub mode, and we want the driver to look for the files in the remote file system; no need now, we always look for the files in the local file system eventhough we are in the hub and browserstack mode
 # 6. we may change the hubUrl when it is in hub mode
 ## 6.1 currently, we only support the chrome browser
+## 6.2 nodeBrowserName, nodeBrowserVersion, nodePlatform and nodeSeleniumVersion are the parametes being sent to hun to decide which browser and driver to use
