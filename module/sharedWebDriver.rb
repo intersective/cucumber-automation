@@ -33,7 +33,7 @@ class SharedWebDriver
 				caps["resolution"] = tconfigObjBrowserStack["browserstackResolution"]
 				caps["browserstack.local"] = tconfigObjBrowserStack["browserstackBrowserstackLocal"]
 				caps["browserstack.selenium_version"] = tconfigObjBrowserStack["browserstackBrowserstackSeleniumVersion"]
-				remoteHunUrl = "http://%s:%s@hub-cloud.browserstack.com/wd/hub" % [tconfigObj["browserstackUsername"], tconfigObj["browserstackAccessKey"]]
+				remoteHunUrl = "http://%s:%s@hub-cloud.browserstack.com/wd/hub" % [tconfigObjBrowserStack["browserstackUsername"], tconfigObjBrowserStack["browserstackAccessKey"]]
 				@driver = Selenium::WebDriver.for(:remote, :url => remoteHunUrl, :desired_capabilities => caps)
 			when "hub"
 				tconfigObjHub = readJsonfile(Dir.pwd + "/configuration/user_hub.json")
