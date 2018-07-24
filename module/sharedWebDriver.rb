@@ -24,23 +24,25 @@ class SharedWebDriver
 							args: [ "--headless" ]})
 				@driver = Selenium::WebDriver.for(:chrome, desired_capabilities: caps)
 			when "browserstack"
+				tconfigObjBrowserStack = readJsonfile(Dir.pwd + "/configuration/user_browserstack.json")
 				caps = Selenium::WebDriver::Remote::Capabilities.new
-				caps["os"] = "Windows"
-				caps["os_version"] = "10"
-				caps["browser"] = "Chrome"
-				caps["browser_version"] = "66.0"
-				caps["resolution"] = "1440x900"
-				caps["browserstack.local"] = "false"
-				caps["browserstack.selenium_version"] = "3.11.0"
+				caps["os"] = tconfigObjBrowserStack["browserstackOS"]
+				caps["os_version"] = tconfigObjBrowserStack["browserstackOSVersion"]
+				caps["browser"] = tconfigObjBrowserStack["browserstackBrowser"]
+				caps["browser_version"] = tconfigObjBrowserStack["browserstackBrowserVersion"]
+				caps["resolution"] = tconfigObjBrowserStack["browserstackResolution"]
+				caps["browserstack.local"] = tconfigObjBrowserStack["browserstackBrowserstackLocal"]
+				caps["browserstack.selenium_version"] = tconfigObjBrowserStack["browserstackBrowserstackSeleniumVersion"]
 				remoteHunUrl = "http://%s:%s@hub-cloud.browserstack.com/wd/hub" % [tconfigObj["browserstackUsername"], tconfigObj["browserstackAccessKey"]]
 				@driver = Selenium::WebDriver.for(:remote, :url => remoteHunUrl, :desired_capabilities => caps)
 			when "hub"
+				tconfigObjHub = readJsonfile(Dir.pwd + "/configuration/user_hub.json")
 				caps = Selenium::WebDriver::Remote::Capabilities.new
-				caps["browserName"] = tconfigObj["nodeBrowserName"]
-				caps["browserVersion"] = tconfigObj["nodeBrowserVersion"]
-				caps["platform"] = tconfigObj["nodePlatform"]
-				caps["seleniumVersion"] = tconfigObj["nodeSeleniumVersion"]
-				@driver = Selenium::WebDriver.for(:remote, :url => "%s/wd/hub" % [tconfigObj["hubUrl"]], :desired_capabilities => caps)
+				caps["browserName"] = tconfigObjHub["nodeBrowserName"]
+				caps["browserVersion"] = tconfigObjHub["nodeBrowserVersion"]
+				caps["platform"] = tconfigObjHub["nodePlatform"]
+				caps["seleniumVersion"] = tconfigObjHub["nodeSeleniumVersion"]
+				@driver = Selenium::WebDriver.for(:remote, :url => "%s/wd/hub" % [tconfigObjHub["hubUrl"]], :desired_capabilities => caps)
 			else
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
 				@driver = Selenium::WebDriver.for(:chrome)
