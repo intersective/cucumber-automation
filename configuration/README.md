@@ -16,3 +16,5 @@
 # 6. we may change the hubUrl when it is in hub mode
 ## 6.1 currently, we only support the chrome browser
 ## 6.2 nodeBrowserName, nodeBrowserVersion, nodePlatform and nodeSeleniumVersion are the parametes being sent to hun to decide which browser and driver to use
+
+#7 we now have multiple configuarion files for different mode
