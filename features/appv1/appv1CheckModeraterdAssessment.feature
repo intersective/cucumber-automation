@@ -42,5 +42,5 @@ Feature: AppV1 Check Moderated Assessment Answer
         Then I should be able to see "Comprehensive Moderated Video Question 1 description" which is located at "//*[text()='Video Question 1']/../..//*[text()='Comprehensive Moderated Video Question 1 description']" with xpath scroll assert
         Then I can see "Video Question 1" which is located at "div[ng-repeat='group in ::assessment.questionGroups']:nth-of-type(5) > div[ng-repeat='question in group.questions']:nth-of-type(2) div[ng-click='previewFile(answer._raw.answer)']" containing text "WhatsApp Video 2017-11-30 at 11.27.14.mp4"
         
-        Then I click on "back button" which is located at ".nav-bar-block[nav-bar=active] .back-button"
+        Then "Appv1" I go back from assessment page
         Then "Appv1" I log out

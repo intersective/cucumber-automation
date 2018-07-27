@@ -44,7 +44,7 @@ end
 class MyAWSAction
 
     private def setup()
-        userJson = readJsonfile(Dir.pwd + "/configuration/user.json")
+        userJson = readJsonfile(Dir.pwd + "/configuration/user_aws.json")
         Aws.config.update({
             credentials: Aws::Credentials.new(userJson["AWS_ACCESS_KEY_ID"], userJson["AWS_SECRET_ACCESS_KEY"])
         })
@@ -59,7 +59,7 @@ end
 class MyAWSEC2Action
 
     private def setup()
-        userJson = readJsonfile(Dir.pwd + "/configuration/user.json")
+        userJson = readJsonfile(Dir.pwd + "/configuration/user_aws.json")
         Aws.config.update({
             credentials: Aws::Credentials.new(userJson["AWS_ACCESS_KEY_ID_EC2_OPR_USER"], userJson["AWS_SECRET_ACCESS_KEY_EC2_OPR_USER"])
         })

@@ -8,9 +8,7 @@ Feature: Practera Assign reviewers for Personal Edge assessment
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "pe_admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-		Then I wait 3 seconds
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
+		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 
 		Then "Practera" I can assign a mentor to student submissions with:
 			| assessment name | mentor name | students |

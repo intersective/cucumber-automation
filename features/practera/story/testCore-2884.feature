@@ -8,7 +8,7 @@ Feature: Practera is_required file applies to file type question
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program.student5@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Assessments" which is located at "#sidebar ul.nav li:nth-of-type(3) a"
+        Then I click on "Assessments" which is located at "//*[normalize-space()='Assessments']/a" with xpath
         Then I wait 2 seconds
         Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then I should be able to see "an assessment" which is located at "//td/a[text()='Test file question required field']" with xpath assert

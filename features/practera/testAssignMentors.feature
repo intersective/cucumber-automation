@@ -8,9 +8,7 @@ Feature: Practera Assign reviewers
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-		Then I wait 3 seconds
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
+		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
 		Then I click on "moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
 		Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"

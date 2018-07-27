@@ -8,13 +8,11 @@ Feature: Practera create an event in a timeline
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "pe_admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "a tag" which is located at "#sidebar ul.nav li.hsub:nth-of-type(2) a"
-		Then I wait 2 seconds
-		Then I click on "li tag" which is located at "#sidebar ul.nav li.hsub:nth-of-type(2) ul.submenu li:nth-of-type(1)"
-		Then I click on "cohorts tab" which is located at "#projectTab > li:nth-of-type(2) > a"
-		Then I wait 2 seconds
-		Then I should be able to see a group of "timelines" which is located at "table#tblTimeline tbody tr"
-		Then "Practera" I can choose a timeline "Automation Timeline" calendar
+		Then I click on "change cohort" which is located at "//*[normalize-space()='Change Cohort'][@class='select2-offscreen']/.." with xpath
+		Then I select "Automation Timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
+		Then I should be able to see "message" which is located at ".toast-message"
+		Then The "message" which is located at ".toast-message" should be disappear
+		Then I click on "calendar tab" which is located at "//*[text()='Calendar']/../.." with xpath
 		Then I click on "today button" which is located at "div#calendar button.fc-today-button"
 		Then I wait 2 seconds
 		Then "Practera" I can create an event today

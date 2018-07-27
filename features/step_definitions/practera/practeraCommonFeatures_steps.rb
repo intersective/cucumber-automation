@@ -80,6 +80,31 @@ Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |stu
     end
 end
 
+Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)" publisher$/) do |studentName, publisher|
+    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#published > div > table > tbody > tr")
+    readytopublishes.each do |uas|
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+            sleep 2
+            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("data-original-title").split("Published By:")[1].strip()
+            if pubPerosn != publisher
+                $testLogger1.logCase("expected publisher %s, but found %s" % [publisher, pubPerosn])
+            end
+        end
+    end
+end
+
+Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studentName|
+    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes.each do |uas|
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+            $driver.execute_script("window.confirm = function(){return true;}")
+            sleep 2
+            findElementWithParent(uas, "td:nth-of-type(5) > span:nth-of-type(2) > a:nth-of-type(3)").click()
+            break
+        end
+    end
+end
+
 Then(/^"Practera" I can publish the student submission review$/) do
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
@@ -88,6 +113,17 @@ end
 Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) do |mentorName|
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
+end
+
+
+Then(/^"Practera" I can see the student submission review with "([^"]*)" publisher$/) do |publisher|
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step("\"Practera\" I can see a student \"#{studentName}\" submission review with \"#{publisher}\" publisher")
+end
+
+Then(/^"Practera" I can edit the student submission review$/) do
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step("\"Practera\" I can edit a student \"#{studentName}\" submission review")
 end
 
 Then(/^"Practera" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
@@ -341,11 +377,11 @@ Then(/^"Practera" I wait the event toggler spinner disappear$/) do
 end
 
 Then("\"Practera\" I log out") do
-    waitForElementVisible($driver, "#usermenu > a.dropdown-toggle").click()
-    waitForElementVisibleXpath($driver, "//*[@id='usermenu']//li[normalize-space()='Logout']/a").click()
+    waitForElementVisible($driver, $wait, "#usermenu > a.dropdown-toggle").click()
+    waitForElementVisibleXpath($driver, $wait, "//*[@id='usermenu']//li[normalize-space()='Logout']/a").click()
 end
 
 Then("\"Practera\" I go to profile") do
-    waitForElementVisible($driver, "#usermenu > a.dropdown-toggle").click()
-    waitForElementVisibleXpath($driver, "//*[@id='usermenu']//li[normalize-space()='Profile']/a").click()
+    waitForElementVisible($driver, $wait, "#usermenu > a.dropdown-toggle").click()
+    waitForElementVisibleXpath($driver, $wait, "//*[@id='usermenu']//li[normalize-space()='Profile']/a").click()
 end
