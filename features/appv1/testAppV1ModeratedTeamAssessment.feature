@@ -37,8 +37,8 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
 		Then I wait 3 seconds
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
-		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
-		Then I click on "team moderated(team)" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a"
+		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+		Then I click on "team moderated(team)" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a"
 		Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
@@ -90,8 +90,8 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
 		Then I wait 2 seconds
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
-		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
-		Then I click on "ready to publish on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(2) td:nth-of-type(5) > a"
+		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+		Then I click on "ready to publish on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(2) td:nth-of-type(5) > a"
 		Then I wait 2 seconds
 		Then I should be able to see a group of "reviewed submissions" which is located at "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr"
 		Then "Practera Team" I should see team student "student1" ready to publish submission

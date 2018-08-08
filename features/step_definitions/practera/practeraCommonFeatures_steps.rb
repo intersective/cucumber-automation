@@ -12,7 +12,7 @@ end
 
 Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName|
     found = false
-    unassigneds = waitForElements($driver, $wait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr")
+    unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             found = true
@@ -26,7 +26,7 @@ end
 
 Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/) do |studentName|
     found = false
-    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             found = true
@@ -51,7 +51,7 @@ end
 Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentorName, studentName|
     popover = nil
     index = 1
-    unassigneds = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr")
+    unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             findElementWithParent(uas, "td:nth-of-type(3) > span a").click()
@@ -63,25 +63,25 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submiss
     findElementWithParent(popover, ".popover-content input").send_keys(mentorName)
     waitForElement($driver, $wait, "ul.select2-results > li > div").click()
     findElementWithParent(popover, ".popover-content button.editable-submit").click()
-    while waitForElement($driver, $shortWait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(3) > span > div.popover") != nil
+    while waitForElement($driver, $shortWait, "#tblUnassigned > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(3) > span > div.popover") != nil
         sleep 1
     end
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
-    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             $driver.execute_script("window.confirm = function(){return true;}")
             sleep 2
-            findElementWithParent(uas, "td:nth-of-type(5) > span:nth-of-type(2) > a").click()
+            findElementWithParent(uas, "td:nth-of-type(6) > a").click()
             break
         end
     end
 end
 
 Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)" publisher$/) do |studentName, publisher|
-    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#published > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#tblPublished > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             sleep 2
@@ -94,7 +94,7 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
 end
 
 Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studentName|
-    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             $driver.execute_script("window.confirm = function(){return true;}")
@@ -171,7 +171,7 @@ Then(/^I use the registration link$/) do
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|
-    step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr\"")
+    step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
 
     data = table.raw
     rows = data.length - 1
@@ -180,7 +180,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         assessmentName = data[i][0].strip()
         mentorName = data[i][1].strip()
         students = data[i][2].strip().split(";")
-        step("I click on \"#{assessmentName}\" which is located at \".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a\"")
+        step("I click on \"#{assessmentName}\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a\"")
 		step("I click on \"review tab\" which is located at \"#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)\"")
 	    step("I wait 2 seconds")
         students.each do |student|
@@ -194,7 +194,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         step("I scroll to the top")
 		step("I wait 2 seconds")
 		step("I click on \"a tag\" which is located at \".page-header span > a\"")
-		step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr\"")
+		step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
     end    
 end
 
@@ -271,13 +271,13 @@ Then(/^"Practera" I can publish the submission reviews with:$/) do |table|
     rows = data.length - 1
 
     for i in 1..rows
-        assessments = waitForElements($driver, $listWait, ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr")
+        assessments = waitForElements($driver, $listWait, ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr")
         assessments.each do |assessment|
             assessmentName = refineElementTextContent(assessment.find_element(:css => "td:nth-of-type(1)"))
             if assessmentName == data[i][0]
                 assessment.find_element(:css => "td:nth-of-type(5) > a").click()
                 step("I wait 2 seconds")
-                step("I should be able to see a group of \"reviewed submissions\" which is located at \"#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr\"")
+                step("I should be able to see a group of \"reviewed submissions\" which is located at \"#tblReady-to-publish > tbody > tr\"")
                 break
             end
         end

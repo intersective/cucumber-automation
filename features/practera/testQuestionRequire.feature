@@ -63,8 +63,8 @@ Feature: Practera is_required file applies to different type of question
         Then "Practera" I login with username "barry_test_program1.admin@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "submissions tab" which is located at "//*[text()='Submissions']/.." with xpath
-        Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
-        Then I click on "Test question required field" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
+        Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+        Then I click on "Test question required field" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
         Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
