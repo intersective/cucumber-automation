@@ -174,3 +174,7 @@ Then("\"Appv1\" I should have the same overall project progress") do
 		fail("I should have the same overall project progress")
 	end
 end
+
+Then("\"Appv1\" I wait unitl the splash disappear") do
+	sleep 10
+end
