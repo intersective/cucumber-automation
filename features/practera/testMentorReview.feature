@@ -13,7 +13,7 @@ Feature: Practera Mentor Review
 		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
 		Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
 		Then "Practera" I can go to the review page with the student submission and the assessment "Comprehensive Moderated"
-		Then I click on "the start button" which is located at "div#start-page > div.form-actions > button"
+		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
 		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
 		Then I input "your works are excellent, thank you for submissions" to "Free text review" which is located at "//span[normalize-space()='Free text review']/../textarea" with xpath scroll

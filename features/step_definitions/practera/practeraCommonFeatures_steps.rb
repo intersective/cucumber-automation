@@ -85,8 +85,8 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             sleep 2
-            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("data-original-title").split("Published By:")[1].strip()
-            if pubPerosn != publisher
+            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("data-original-title").split(",")[-1,].strip()
+            if pubPerosn.index(publisher) == nil
                 $testLogger1.logCase("expected publisher %s, but found %s" % [publisher, pubPerosn])
             end
         end
@@ -114,7 +114,6 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) d
     studentName = $sharedData1.loadDataFromKey("studentName")
     step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
 end
-
 
 Then(/^"Practera" I can see the student submission review with "([^"]*)" publisher$/) do |publisher|
     studentName = $sharedData1.loadDataFromKey("studentName")
@@ -208,7 +207,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
         
         step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 		
-		step("I click on \"the start button\" which is located at \"div#start-page > div.form-actions > button\"")
+		step("I click on \"the start button\" which is located at \"//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button\" with xpath")
 		step("I wait 2 seconds")
 
 		step("I should be able to see \"wizard steps\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active\"")

@@ -23,8 +23,8 @@ Feature: Practera Publish Reviews
 		Then I wait 2 seconds
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr"
-		Then I click on "published on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(1) td:nth-of-type(6) > a"
+		Then I click on "published on moderated assessment" which is located at "//*[text()='Comprehensive Moderated']/../../td[6]/a" with xpath
 		Then I wait 2 seconds
-		Then I should be able to see a group of "published submissions" which is located at "#reviewContainer > div#assessments > div > div#published > div > table > tbody > tr"
+		Then I should be able to see a group of "published submissions" which is located at "#tblPublished > tbody > tr"
 		Then "Practera" I can see the student submission review with "Admin Selenium" publisher
 		Then "Practera" I log out

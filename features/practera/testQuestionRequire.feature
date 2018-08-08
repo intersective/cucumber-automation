@@ -64,10 +64,10 @@ Feature: Practera is_required file applies to different type of question
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "submissions tab" which is located at "//*[text()='Submissions']/.." with xpath
         Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
-        Then I click on "Test question required field" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
-        Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
+        Then I click on "Test question required field" which is located at "//*[text()='Test question required field']/../../td[3]/a" with xpath
+        Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
-		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
+		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see a student "barry_test_program.student6" submission
 		Then "Practera" I can assign a mentor "barry.test.program.mentor1" to a student "barry_test_program.student6" submission
 		Then I should be able to see "message" which is located at ".toast-message"
@@ -88,7 +88,7 @@ Feature: Practera is_required file applies to different type of question
         Then I click on "my reviews" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
         Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
         Then "Practera" I can go to the review page with a student "barry_test_program.student6" submission and the assessment "Test question required field"
-        Then I click on "the start button" which is located at "div#start-page > div.form-actions > button"
+        Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
         Then I wait 2 seconds
         Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
         Then I input "your works are excellent, thank you for submissions - text question 1" to "Free text review" which is located at "//span[normalize-space()='Text question 1']/../..//span[normalize-space()='Free text review']/../textarea" with xpath scroll

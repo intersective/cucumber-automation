@@ -61,7 +61,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "a tag" which is located at "ul.nav li:nth-of-type(4) > ul > li > a"
 		Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
 		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated"
-		Then I click on "the start button" which is located at "div#start-page > div.form-actions > button"
+		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
 		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
 		Then I input "your works are excellent, thank you for submissions" to "Free text review" which is located at "//span[normalize-space()='Free text review']/../textarea" with xpath scroll
