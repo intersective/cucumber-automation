@@ -5,7 +5,7 @@ Feature: AppV1 login
 	
 	Scenario: Test AppV1 Login Scenario
 		Given I go to App V1
-		When I wait 10 seconds
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1" I login with the student account and password "11111111"
 		Then I should be able to see "Invalid Login Details pop up" which is located at "//*[@class='popup-title'][text()='Invalid Login Details']" with xpath assert
 		Then I click on "a button" which is located at ".popup > .popup-buttons > button"
