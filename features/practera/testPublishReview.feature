@@ -10,7 +10,7 @@ Feature: Practera Publish Reviews
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr" with assert
-		Then I click on "ready to publish on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(1) td:nth-of-type(5) > a"
+		Then I click on "ready to publish on moderated assessment" which is located at "//*[text()='Comprehensive Moderated']/../../td[5]/a" with xpath
 		Then I wait 2 seconds
 		Then I should be able to see a group of "ready to publish submissions" which is located at "#tblReady-to-publish > tbody > tr"
 		Then "Practera" I should see the student ready to publish submission

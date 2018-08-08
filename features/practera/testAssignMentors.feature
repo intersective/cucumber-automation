@@ -10,10 +10,10 @@ Feature: Practera Assign reviewers
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr" with assert
-		Then I click on "moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(1) td:nth-of-type(3) > a"
-		Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
+		Then I click on "unassigned moderated assessment" which is located at "//*[text()='Comprehensive Moderated']/../../td[3]/a" with xpath
+		Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
-		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
+		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see the student submission
 		Then "Practera" I can assign a mentor "selenium_mentor2" to the student submission
 		Then I should be able to see "message" which is located at ".toast-message"

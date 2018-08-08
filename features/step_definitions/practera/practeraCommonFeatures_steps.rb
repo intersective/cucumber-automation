@@ -54,8 +54,8 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submiss
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
-            findElementWithParent(uas, "td:nth-of-type(3) > span a").click()
-            popover = waitElementWithParent($wait, uas, "td:nth-of-type(3) > span > div.popover")
+            findElementWithParent(uas, "td:nth-of-type(4) > a").click()
+            popover = waitElementWithParent($wait, uas, "td:nth-of-type(4) div.popover")
             break
         end
         index = index + 1
