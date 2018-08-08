@@ -37,11 +37,11 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
 		Then I wait 3 seconds
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
-		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
-		Then I click on "team moderated(team)" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a"
-		Then I click on "review tab" which is located at "#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)"
+		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+		Then I click on "team moderated(team) unassigned" which is located at "//*[text()='Team Moderated (team)']/../../td[3]/a" with xpath
+		Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
-		Then I should be able to see a group of "unassigned submissions" which is located at "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr"
+		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera Team" I should see team student "student1" submission
 		Then "Practera Team" I can assign a mentor "selenium_mentor2" to a team student "student1" submission
 		Then I should be able to see "message" which is located at ".toast-message"
@@ -61,7 +61,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "a tag" which is located at "ul.nav li:nth-of-type(4) > ul > li > a"
 		Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
 		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated"
-		Then I click on "the start button" which is located at "div#start-page > div.form-actions > button"
+		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
 		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
 		Then I input "your works are excellent, thank you for submissions" to "Free text review" which is located at "//span[normalize-space()='Free text review']/../textarea" with xpath scroll
@@ -90,10 +90,10 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
 		Then I wait 2 seconds
 		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
-		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
-		Then I click on "ready to publish on moderated assessment" which is located at ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(2) td:nth-of-type(5) > a"
+		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+		Then I click on "ready to publish on team moderated assessment" which is located at "//*[text()='Team Moderated (team)']/../../td[5]/a" with xpath
 		Then I wait 2 seconds
-		Then I should be able to see a group of "reviewed submissions" which is located at "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr"
+		Then I should be able to see a group of "reviewed submissions" which is located at "#tblReady-to-publish > tbody > tr"
 		Then "Practera Team" I should see team student "student1" ready to publish submission
 		Then "Practera Team" I can publish a team student "student1" submission review
 		Then I should be able to see "message" which is located at ".toast-message"
