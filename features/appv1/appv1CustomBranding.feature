@@ -22,7 +22,7 @@ Feature: Custom branding for app
         
     Scenario: Test Custom branding for a student in the AppV1
         Given I go to App V1
-        Then I wait 10 seconds
+        Then "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180525145649@practera.com" and password "12341234"
         Then I wait until the loading finished
         Then I wait 5 seconds
