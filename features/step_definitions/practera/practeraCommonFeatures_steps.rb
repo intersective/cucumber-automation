@@ -126,11 +126,11 @@ Then(/^"Practera" I can edit the student submission review$/) do
 end
 
 Then(/^"Practera" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
-    toReviews = waitForElements($driver, $listWait, "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row")
+    toReviews = waitForElements($driver, $listWait, "#toreview tbody tr")
     toReviews.each do |row|
-        if studentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(3)")) &&
-            assessmentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(1)"))
-            ele = findElementWithParent(row, "div:nth-of-type(4) > a")
+        if studentName == refineElementTextContent(findElementWithParent(row, "td:nth-of-type(3)")) &&
+            assessmentName == refineElementTextContent(findElementWithParent(row, "td:nth-of-type(1)"))
+            ele = findElementWithParent(row, "td:nth-of-type(5) > a")
             scrollIfNotVisible($driver, ele)
             ele.click() 
             break
@@ -261,7 +261,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
 		step("I click on \"submit button\" which is located at \"div#assessment-buttons button#submit\" with scroll")
 		step("I should be able to see \"message\" which is located at \".toast-message\"")
 		step("The \"message\" which is located at \".toast-message\" should be disappear")
-		step("I should be able to see a group of \"to review submission\" which is located at \"div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row\"")
+		step("I should be able to see a group of \"to review submission\" which is located at \"#toreview tbody tr\"")
     end
 end
 

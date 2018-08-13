@@ -11,7 +11,7 @@ Feature: Practera Mentor Review
 		Then I click on "reviews and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds
 		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
-		Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
+		Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
 		Then "Practera" I can go to the review page with the student submission and the assessment "Comprehensive Moderated"
 		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds

@@ -86,7 +86,7 @@ Feature: Practera is_required file applies to different type of question
         Then I click on "reviews & feedback" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
         Then I wait 2 seconds
         Then I click on "my reviews" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
-        Then I should be able to see a group of "to review submission" which is located at "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row" with assert
+        Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
         Then "Practera" I can go to the review page with a student "barry_test_program.student6" submission and the assessment "Test question required field"
         Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
         Then I wait 2 seconds
