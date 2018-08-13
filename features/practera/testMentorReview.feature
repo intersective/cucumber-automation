@@ -13,6 +13,13 @@ Feature: Practera Mentor Review
 		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
 		Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
 		Then "Practera" I can go to the review page with the student submission and the assessment "Comprehensive Moderated"
+		Then I should be able to see "Files uploaded in submission" which is located at "//*[text()='Files uploaded in submission']" with xpath assert
+		Then "Practera" I check the assessment uploaded file with:
+			| file position | file name |
+			| 1 | WhatsAppVideo2017-11-30at11.27.14.mp4 |
+			| 2 | medium-size-dogs-a-medium.jpg |
+			| 3 | VideoUploadissue2.mp4 |
+			| 4 | 2017-Scrum-Guide-US.pdf |
 		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
 		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert

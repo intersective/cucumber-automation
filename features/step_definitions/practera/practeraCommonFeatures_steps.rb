@@ -384,3 +384,14 @@ Then("\"Practera\" I go to profile") do
     waitForElementVisible($driver, $wait, "#usermenu > a.dropdown-toggle").click()
     waitForElementVisibleXpath($driver, $wait, "//*[@id='usermenu']//li[normalize-space()='Profile']/a").click()
 end
+
+Then("\"Practera\" I check the assessment uploaded file with:") do |table|
+    data = table.raw
+    rows = data.length - 1
+
+    for i in 1..rows
+        filePosition = data[i][0].strip()
+        fileName = data[i][1].strip()
+        step("I should be able to see \"a file link\" which is located at \"//*[@id='assessment']//ul/li[#{filePosition}]/a[text()='#{fileName}']\" with xpath assert")
+    end
+end
