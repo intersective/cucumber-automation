@@ -29,7 +29,7 @@ Feature: No answer for an assessment
             Then "Appv1" I can see the "Comprehensive Quiz Two" with status "Assessment done"
             Then "Appv1" I go to the assessment locating at "9"
             Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
-            Then I should be able to see "submitted messages" which is located at "//*[normalize-space()='Activity has been already submitted.']" with xpath scroll assert
+            Then I should be able to see "submitted messages" which is located at "//*[normalize-space()='Activity has been submitted']" with xpath scroll assert
             Then I should be able to see "the submit button" which is located at "//button[text()='Submit']" with xpath has class "ng-hide"
             Then "Appv1" I go back from assessment page
             Then "Appv1" I log out
