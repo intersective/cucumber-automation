@@ -39,9 +39,7 @@ Feature: AppV1 Moderated Team Assessment
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-		Then I wait 3 seconds
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
+		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
 		Then I click on "team moderated(team) unassigned" which is located at "//*[text()='Team Moderated (team)']/../../td[3]/a" with xpath
 		Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
@@ -61,11 +59,11 @@ Feature: AppV1 Moderated Team Assessment
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "selenium_mentor2@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(4) a"
+		Then I click on "review and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds
-		Then I click on "a tag" which is located at "ul.nav li:nth-of-type(4) > ul > li > a"
+		Then I click on "my reviews tag" which is located at "//*[normalize-space()='My Reviews']/a" with xpath
 		Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
-		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated"
+		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated (Team)"
 		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
 		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
@@ -92,9 +90,7 @@ Feature: AppV1 Moderated Team Assessment
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-		Then I wait 2 seconds
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
+		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
 		Then I click on "ready to publish on team moderated assessment" which is located at "//*[text()='Team Moderated (team)']/../../td[5]/a" with xpath
 		Then I wait 2 seconds
@@ -116,7 +112,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
-		Then "Appv1" I can see the "Team Moderated" with status "Assessment published"
+		Then "Appv1" I can see the "Team Moderated" with status "Feedback available"
 		Then "Appv1" I log out
 
 		Given I go to App V1
@@ -126,16 +122,16 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
-		Then "Appv1" I can see the "Team Moderated" with status "Assessment published"
+		Then "Appv1" I can see the "Team Moderated" with status "Feedback available"
 		Then "Appv1" I go to the assessment locating at "1"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
-		Then I click on "mark review as read button" which is located at "//*[text()='Mark review as read']/../../label" with xpath
+		Then I click on "mark review as read button" which is located at "//*[text()='Mark review as read']/../../label" with xpath scroll
 		Then "Appv1" I go back from assessment page
 		Then "Appv1" I go to the "1" tab page
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I go to the assessment locating at "1"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
-		Then I should be able to see "the review marked as read" which is located at "[ng-click='markAssessmentDone()'][disabled='disabled']" with assert
+		Then I should be able to see "the review marked as read" which is located at "[ng-click='markAsDone()'][disabled='disabled']" with scroll assert
 		Then "Appv1" I go back from assessment page
 		Then "Appv1" I log out
