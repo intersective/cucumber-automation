@@ -5,14 +5,13 @@ Feature: AppV1 team page
 
     Scenario: Test AppV1 team page
         Given I go to App V1
-        Then I wait 10 seconds
-        Then "Appv1" I login with username "selenium.20180702211929@practera.com" and password "12341234"
+        Then "Appv1" I wait unitl the splash disappear
+        Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
+        Then "Appv1" I should see the app home screen
         Then I wait until the loading finished
         Then "Appv1" I go to the "3" tab page
         Then I wait until the loading finished
-        Then I should be able to see "team title" which is located at "//*[text()='Team 34']" with xpath assert
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(1) > [ng-bind='member.name']" containing text "selenium.20180702215257"
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(1) > [ng-bind='member.email']" containing text "selenium.20180702215257@practera.com"
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(2) > [ng-bind='member.name']" containing text "selenium.20180702211929"
-        Then I can see "first member name" which is located at "[ng-repeat='member in members']:nth-of-type(2) > [ng-bind='member.email']" containing text "selenium.20180702211929@practera.com"
+        Then "Appv1 Team" I should be able to see the team name with assert
+        Then "Appv1 Team" I can see "1" team member "student2" name
+        Then "Appv1 Team" I can see "1" team member "student2" email with domain "practera.com"
         Then "Appv1" I log out

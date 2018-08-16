@@ -52,13 +52,8 @@ Then(/^"Appv1" I can see the topic with title "([^"]*)" and content "([^"]*)"$/)
 	compareWithLog("expected topic content", topicContent, aTopicContent)
 end
 
-Then(/^"Appv1" I go back from topic page$/) do
-	waitForElementVisible($driver, $wait, ".nav-bar-block[nav-bar=active] .back-button").click()
-	waitForLoadFinished($driver, $wait)
-end
-
-Then(/^"Appv1" I go back from assessment page$/) do
-	waitForElementVisible($driver, $wait, ".nav-bar-block[nav-bar=active] div:nth-of-type(1) .back-button").click()
+Then(/^"Appv1" I go back from (topic|assessment) page$/) do |itemName|
+	waitForElementVisible($driver, $wait, ".nav-bar-block[nav-bar=active] .back-button[ng-click]:not(.hide)").click()
 	waitForLoadFinished($driver, $wait)
 end
 
@@ -151,7 +146,7 @@ Then(/^I wait until the loading finished$/) do
 	waitForLoadFinished($driver, $wait)
 end
 
-Then(/^"Appv1" I should be able to select "([^"]*)" to team member selector which is located at "([^"]*)"$/) do |selectOption, selectorPath|
+Then(/^"Appv1" I should be able to select "([^"]*)" from selector options which is located at "([^"]*)"$/) do |selectOption, selectorPath|
 	selectorOption = waitForElementXpath($driver, $wait, selectorPath)
 	if refineElementTextContent(findElementWithParent(selectorOption, ".item-content")).split(" ", 2)[1] != selectOption
 		fail("I can not see the team member")
@@ -178,4 +173,8 @@ Then("\"Appv1\" I should have the same overall project progress") do
 	if progress != progress1
 		fail("I should have the same overall project progress")
 	end
+end
+
+Then("\"Appv1\" I wait unitl the splash disappear") do
+	sleep 10
 end

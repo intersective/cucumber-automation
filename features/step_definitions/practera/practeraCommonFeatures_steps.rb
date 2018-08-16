@@ -12,7 +12,7 @@ end
 
 Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName|
     found = false
-    unassigneds = waitForElements($driver, $wait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr")
+    unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             found = true
@@ -26,7 +26,7 @@ end
 
 Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/) do |studentName|
     found = false
-    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             found = true
@@ -51,11 +51,11 @@ end
 Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentorName, studentName|
     popover = nil
     index = 1
-    unassigneds = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr")
+    unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
-            findElementWithParent(uas, "td:nth-of-type(3) > span a").click()
-            popover = waitElementWithParent($wait, uas, "td:nth-of-type(3) > span > div.popover")
+            findElementWithParent(uas, "td:nth-of-type(4) > a").click()
+            popover = waitElementWithParent($wait, uas, "td:nth-of-type(4) div.popover")
             break
         end
         index = index + 1
@@ -63,18 +63,43 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submiss
     findElementWithParent(popover, ".popover-content input").send_keys(mentorName)
     waitForElement($driver, $wait, "ul.select2-results > li > div").click()
     findElementWithParent(popover, ".popover-content button.editable-submit").click()
-    while waitForElement($driver, $shortWait, "#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(3) > span > div.popover") != nil
+    while waitForElement($driver, $shortWait, "#tblUnassigned > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(3) > span > div.popover") != nil
         sleep 1
     end
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
-    readytopublishes = waitForElements($driver, $listWait, "#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr")
+    readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             $driver.execute_script("window.confirm = function(){return true;}")
             sleep 2
-            findElementWithParent(uas, "td:nth-of-type(5) > span:nth-of-type(2) > a").click()
+            findElementWithParent(uas, "td:nth-of-type(6) > a").click()
+            break
+        end
+    end
+end
+
+Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)" publisher$/) do |studentName, publisher|
+    readytopublishes = waitForElements($driver, $listWait, "#tblPublished > tbody > tr")
+    readytopublishes.each do |uas|
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+            sleep 2
+            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("data-original-title").split(",")[-1,].strip()
+            if pubPerosn.index(publisher) == nil
+                $testLogger1.logCase("expected publisher %s, but found %s" % [publisher, pubPerosn])
+            end
+        end
+    end
+end
+
+Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studentName|
+    readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
+    readytopublishes.each do |uas|
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+            $driver.execute_script("window.confirm = function(){return true;}")
+            sleep 2
+            findElementWithParent(uas, "td:nth-of-type(5) > span:nth-of-type(2) > a:nth-of-type(3)").click()
             break
         end
     end
@@ -90,12 +115,22 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) d
     step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
 end
 
+Then(/^"Practera" I can see the student submission review with "([^"]*)" publisher$/) do |publisher|
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step("\"Practera\" I can see a student \"#{studentName}\" submission review with \"#{publisher}\" publisher")
+end
+
+Then(/^"Practera" I can edit the student submission review$/) do
+    studentName = $sharedData1.loadDataFromKey("studentName")
+    step("\"Practera\" I can edit a student \"#{studentName}\" submission review")
+end
+
 Then(/^"Practera" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
-    toReviews = waitForElements($driver, $listWait, "div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row")
+    toReviews = waitForElements($driver, $listWait, "#toreview tbody tr")
     toReviews.each do |row|
-        if studentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(3)")) &&
-            assessmentName == refineElementTextContent(findElementWithParent(row, "div:nth-of-type(1)"))
-            ele = findElementWithParent(row, "div:nth-of-type(4) > a")
+        if studentName == refineElementTextContent(findElementWithParent(row, "td:nth-of-type(3)")) &&
+            assessmentName == refineElementTextContent(findElementWithParent(row, "td:nth-of-type(1)"))
+            ele = findElementWithParent(row, "td:nth-of-type(5) > a")
             scrollIfNotVisible($driver, ele)
             ele.click() 
             break
@@ -135,7 +170,7 @@ Then(/^I use the registration link$/) do
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|
-    step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr\"")
+    step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
 
     data = table.raw
     rows = data.length - 1
@@ -144,7 +179,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         assessmentName = data[i][0].strip()
         mentorName = data[i][1].strip()
         students = data[i][2].strip().split(";")
-        step("I click on \"#{assessmentName}\" which is located at \".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a\"")
+        step("I click on \"#{assessmentName}\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a\"")
 		step("I click on \"review tab\" which is located at \"#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)\"")
 	    step("I wait 2 seconds")
         students.each do |student|
@@ -158,7 +193,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         step("I scroll to the top")
 		step("I wait 2 seconds")
 		step("I click on \"a tag\" which is located at \".page-header span > a\"")
-		step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr\"")
+		step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
     end    
 end
 
@@ -172,7 +207,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
         
         step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 		
-		step("I click on \"the start button\" which is located at \"div#start-page > div.form-actions > button\"")
+		step("I click on \"the start button\" which is located at \"//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button\" with xpath")
 		step("I wait 2 seconds")
 
 		step("I should be able to see \"wizard steps\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active\"")
@@ -226,7 +261,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
 		step("I click on \"submit button\" which is located at \"div#assessment-buttons button#submit\" with scroll")
 		step("I should be able to see \"message\" which is located at \".toast-message\"")
 		step("The \"message\" which is located at \".toast-message\" should be disappear")
-		step("I should be able to see a group of \"to review submission\" which is located at \"div.page-content > div.content-container > div#assessments > div.tab-content > div#toreview > div.row\"")
+		step("I should be able to see a group of \"to review submission\" which is located at \"#toreview tbody tr\"")
     end
 end
 
@@ -235,13 +270,13 @@ Then(/^"Practera" I can publish the submission reviews with:$/) do |table|
     rows = data.length - 1
 
     for i in 1..rows
-        assessments = waitForElements($driver, $listWait, ".content-container > div#assessments > .tab-content > #moderated > div > table > tbody > tr")
+        assessments = waitForElements($driver, $listWait, ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr")
         assessments.each do |assessment|
             assessmentName = refineElementTextContent(assessment.find_element(:css => "td:nth-of-type(1)"))
             if assessmentName == data[i][0]
                 assessment.find_element(:css => "td:nth-of-type(5) > a").click()
                 step("I wait 2 seconds")
-                step("I should be able to see a group of \"reviewed submissions\" which is located at \"#reviewContainer > div#assessments > div > div#readytopublish > div > table > tbody > tr\"")
+                step("I should be able to see a group of \"reviewed submissions\" which is located at \"#tblReady-to-publish > tbody > tr\"")
                 break
             end
         end
@@ -341,11 +376,22 @@ Then(/^"Practera" I wait the event toggler spinner disappear$/) do
 end
 
 Then("\"Practera\" I log out") do
-    waitForElementVisible($driver, "#usermenu > a.dropdown-toggle").click()
-    waitForElementVisibleXpath($driver, "//*[@id='usermenu']//li[normalize-space()='Logout']/a").click()
+    waitForElementVisible($driver, $wait, "#usermenu > a.dropdown-toggle").click()
+    waitForElementVisibleXpath($driver, $wait, "//*[@id='usermenu']//li[normalize-space()='Logout']/a").click()
 end
 
 Then("\"Practera\" I go to profile") do
-    waitForElementVisible($driver, "#usermenu > a.dropdown-toggle").click()
-    waitForElementVisibleXpath($driver, "//*[@id='usermenu']//li[normalize-space()='Profile']/a").click()
+    waitForElementVisible($driver, $wait, "#usermenu > a.dropdown-toggle").click()
+    waitForElementVisibleXpath($driver, $wait, "//*[@id='usermenu']//li[normalize-space()='Profile']/a").click()
+end
+
+Then("\"Practera\" I check the assessment uploaded file with:") do |table|
+    data = table.raw
+    rows = data.length - 1
+
+    for i in 1..rows
+        filePosition = data[i][0].strip()
+        fileName = data[i][1].strip()
+        step("I should be able to see \"a file link\" which is located at \"//*[@id='assessment']//ul/li[#{filePosition}]/a[text()='#{fileName}']\" with xpath assert")
+    end
 end

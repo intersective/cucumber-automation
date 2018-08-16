@@ -5,6 +5,11 @@ private def getScenarioName(sobj)
     return scenarioFullTitle
 end
 
+private def initTestData(filePath, key)
+    testObj = readJsonfile(filePath)
+    $sharedData1.putData(key, testObj)
+end
+
 AfterConfiguration do |config|
     puts("should only happen once")
     $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
@@ -24,6 +29,7 @@ AfterConfiguration do |config|
                 str if File.exist?(str)
             end
         end
+        initTestData(Dir.pwd + "/data/team.json", "team")
     end
 end
 

@@ -8,13 +8,10 @@ Feature: Practera Hide Activities on Calendar
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Project" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-        Then I wait 2 seconds
-        Then I click on "Projects" which is located at "#sidebar ul.nav li:nth-of-type(2) .submenu > li:nth-of-type(1) > a"
-        Then I wait 2 seconds
-        Then I click on "cohorts tab" which is located at "a[href='#cohorts']"
-        Then I should be able to see "test automation timeline" which is located at "//td[text()='test automation timeline']" with xpath
-        Then I click on "the calendar" which is located at "//td[text()='test automation timeline']/../td[5]/div[1]/a[2]" with xpath
+        Then I click on "change cohort" which is located at "//*[normalize-space()='Change Cohort'][@class='select2-offscreen']/.." with xpath
+		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
+        # Then I should be able to see "message" which is located at ".toast-message"
+        Then The "message" which is located at ".toast-message" should be disappear
         Then I should be able to see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
@@ -33,13 +30,10 @@ Feature: Practera Hide Activities on Calendar
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.coordinator@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Project" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-        Then I wait 2 seconds
-        Then I click on "Projects" which is located at "#sidebar ul.nav li:nth-of-type(2) .submenu > li:nth-of-type(1) > a"
-        Then I wait 2 seconds
-        Then I click on "cohorts tab" which is located at "a[href='#cohorts']"
-        Then I should be able to see "test automation timeline" which is located at "//td[text()='test automation timeline']" with xpath
-        Then I click on "the calendar" which is located at "//td[text()='test automation timeline']/../td[5]/div[1]/a[2]" with xpath
+        Then I click on "change cohort" which is located at "//*[normalize-space()='Change Cohort'][@class='select2-offscreen']/.." with xpath
+		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
+        # Then I should be able to see "message" which is located at ".toast-message"
+        Then The "message" which is located at ".toast-message" should be disappear
         Then I should be able to see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
@@ -52,13 +46,10 @@ Feature: Practera Hide Activities on Calendar
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Project" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-        Then I wait 2 seconds
-        Then I click on "Projects" which is located at "#sidebar ul.nav li:nth-of-type(2) .submenu > li:nth-of-type(1) > a"
-        Then I wait 2 seconds
-        Then I click on "cohorts tab" which is located at "a[href='#cohorts']"
-        Then I should be able to see "test automation timeline" which is located at "//td[text()='test automation timeline']" with xpath
-        Then I click on "the calendar" which is located at "//td[text()='test automation timeline']/../td[5]/div[1]/a[2]" with xpath
+        Then I click on "change cohort" which is located at "//*[normalize-space()='Change Cohort'][@class='select2-offscreen']/.." with xpath
+		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
+        # Then I should be able to see "message" which is located at ".toast-message"
+        Then The "message" which is located at ".toast-message" should be disappear
         Then I should be able to see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
@@ -77,7 +68,7 @@ Feature: Practera Hide Activities on Calendar
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "test_program_student_1@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Calendar" which is located at "#sidebar ul.nav li:nth-of-type(4) a"
+        Then I click on "calendar" which is located at "//*[text()='Calendar']/.." with xpath
         Then I wait 2 seconds
         Then I should be able to see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished
@@ -98,7 +89,7 @@ Feature: Practera Hide Activities on Calendar
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "test_program_student_1@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "Calendar" which is located at "#sidebar ul.nav li:nth-of-type(4) a"
+        Then I click on "calendar" which is located at "//*[text()='Calendar']/.." with xpath
         Then I wait 2 seconds
         Then I should be able to see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished

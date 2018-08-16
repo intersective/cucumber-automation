@@ -34,21 +34,19 @@ Feature: Practera users timezone
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "barry_test_program1.admin@practera.com" and password "12341234"
         Then I should be able to see "a side bar" which is located at "#sidebar"
-        Then I click on "project button" which is located at "//*[text()='Project']/.." with xpath
-        Then I wait 2 seconds
-        Then I click on "communications button" which is located at "//a[@href='/admin/schedule/communications']" with xpath
+        Then I click on "communications button" which is located at "//*[text()='Communications']/.." with xpath
         Then I should be able to see "view comm button" which is located at "//*[normalize-space()='View Comm Activities']/button" with xpath
-        Then I click on "add comm button" which is located at "//*[@class='visible-lg']/a[2]" with xpath
-        Then I input "barry test comm - 20180601140801" to "title field" which is located at "#intitle input"
+        Then I click on "add comm button" which is located at "//*[normalize-space()='Add Comm']" with xpath
+        Then I input "barry test comm - 20180704001600" to "title field" which is located at "#intitle input"
         Then I click on "Learners" which is located at "//label[@for='CommVisibilityParticipant']" with xpath
         Then I click on "Admins" which is located at "//label[@for='CommVisibilityAdmin']" with xpath
         Then I click on "Mentors/Employers" which is located at "//label[@for='CommVisibilityMentor']" with xpath
         Then I click on "Mail" which is located at "//label[@for='CommDeliveryEmail']" with xpath
-        Then I input "barry test comm - 20180601140801 content" to "comm content" which is located at "#content-editor"
+        Then I input "barry test comm - 20180704001600 content" to "comm content" which is located at "#content-editor"
         Then I click on "the save button" which is located at "button[name='data[Comm][is_save]']"
-        Then I input "barry test comm - 20180601140801" to "the search box" which is located at "input[aria-controls='tblOriginals']"
+        Then I input "barry test comm - 20180704001600" to "the search box" which is located at "input[aria-controls='tblOriginals']"
         Then I wait the search result with locator "table#tblOriginals tbody tr"
-        Then I click on "send now" which is located at "//td[text()='barry test comm - 20180601140801']/..//a[@title='Send Now']" with xpath
+        Then I click on "send now" which is located at "//td[text()='barry test comm - 20180704001600']/..//a[@title='Send Now']" with xpath
         Then I select "test automation timeline - barry test project - 20180208150200" to "timeline selection" which is located at "select[name='data[Event][timeline_id]']"
         Then I click on "save button" which is located at "button[type='submit']"
         Then I should be able to see "message" which is located at ".toast-message"
@@ -57,6 +55,6 @@ Feature: Practera users timezone
         Given I go to Mailtrap
         When "Mailtrap" I login with username "phil@intersective.com" and password "El3phant"
         Then "Mailtrap" I go to practera inbox
-        Then "Mailtrap" I search email with title "barry test comm - 20180601140801" and receiver "barry_test_program1.coor@practera.com"
-        Then "Mailtrap" I search email with title "barry test comm - 20180601140801" and receiver "barry_test_program1.coordinator@practera.com"
+        Then "Mailtrap" I search email with title "barry test comm - 20180704001600" and receiver "barry_test_program1.coor@practera.com"
+        Then "Mailtrap" I search email with title "barry test comm - 20180704001600" and receiver "barry_test_program1.coordinator@practera.com"
         Then "Mailtrap" I log out

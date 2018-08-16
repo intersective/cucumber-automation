@@ -8,10 +8,8 @@ Feature: Practera Publish Reviews for Personal Edge program
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with username "pe_admin_selenium@practera.com" and password "12341234"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) a"
-		Then I wait 2 seconds
-		Then I click on "a tag" which is located at "#sidebar ul.nav li:nth-of-type(2) ul.submenu li:nth-of-type(3)"
-		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated > div> table > tbody > tr" with assert
+		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/.." with xpath
+		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr" with assert
 		
 		Then "Practera" I can publish the submission reviews with:
 			| assessment name | student name |

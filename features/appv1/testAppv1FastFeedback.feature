@@ -4,8 +4,9 @@ Feature: Appv1 slider type questions
 
     Scenario: Test Appv1 slider type questions for a student who is not in a team
         Given I go to App V1
-        When I wait 10 seconds
+        When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180530171600@practera.com" and password "12341234"
+        Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I should be able to see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath assert
         Then I should be able to see "the feedback description" which is located at "//*[text()='Before you continue, please spend 10 seconds to answer these questions.']" with xpath assert
@@ -39,16 +40,18 @@ Feature: Appv1 slider type questions
         Then "Appv1" I log out
 
         Given I go to App V1
-        When I wait 10 seconds
+        When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180530171600@practera.com" and password "12341234"
+        Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I should not see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath assert
         Then "Appv1" I log out
 
     Scenario: Test Appv1 slider type questions for students who are in a team
         Given I go to App V1
-        When I wait 10 seconds
+        When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180531102500@practera.com" and password "12341234"
+        Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
         Then I click on "Yes for the third question" which is located at "//*[@ng-repeat='question in modal.questions'][3]//span[normalize-space()='Yes']/../../.." with xpath scroll
@@ -64,8 +67,9 @@ Feature: Appv1 slider type questions
         Then "Appv1" I log out
 
         Given I go to App V1
-        When I wait 10 seconds
+        When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180531102600@practera.com" and password "12341234"
+        Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
         Then I click on "Yes for the first question" which is located at "//*[@ng-repeat='question in modal.questions'][1]//span[normalize-space()='Yes']/../../.." with xpath scroll

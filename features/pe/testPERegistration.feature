@@ -10,7 +10,7 @@ Feature: Personal Edge Registration
 		Then "PE" I search email with title "Personal Edge - Welcome and Register" and the student as receiver
 		Then "Mailtrap" I go into the email content
 		Then I get the registration url at "#btn_registration"
-		Then "Mailtrap" I go back to previous window
+		Then "Mailtrap" I go back to previous frame
 		Then I wait 2 seconds
         Then "Mailtrap" I log out
 		Then I wait 2 seconds
