@@ -15,13 +15,15 @@ end
 Then("\"Appv1 Team\" I can see {string} team member {string} name") do |memberIndex, student|
     teamObj = $sharedData1.loadDataFromKey("team")
     studentName = teamObj[student]
-    step("I can see \"member name\" which is located at \"[ng-repeat='member in members']:nth-of-type(#{memberIndex}) > [ng-bind='member.name']\" containing text \"#{studentName}\"")
+    memberIndex = memberIndex.to_i + 1
+    step("I can see \"member name\" which is located at \"[ng-repeat='member in teammates']:nth-of-type(#{memberIndex}) > [ng-bind='member.name']\" containing text \"#{studentName}\"")
 end
 
 Then("\"Appv1 Team\" I can see {string} team member {string} email with domain {string}") do |memberIndex, student, domain|
     teamObj = $sharedData1.loadDataFromKey("team")
     studentEmail = teamObj[student] + "@" + domain
-    step("I can see \"member name\" which is located at \"[ng-repeat='member in members']:nth-of-type(#{memberIndex}) > [ng-bind='member.email']\" containing text \"#{studentEmail}\"")
+    memberIndex = memberIndex.to_i + 1
+    step("I can see \"member name\" which is located at \"[ng-repeat='member in teammates']:nth-of-type(#{memberIndex}) > [ng-bind='member.email']\" containing text \"#{studentEmail}\"")
 end
 
 Then("\"Appv1 Team\" I should be able to select {string} from selector options") do |student|
