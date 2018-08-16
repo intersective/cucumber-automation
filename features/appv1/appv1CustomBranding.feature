@@ -24,6 +24,7 @@ Feature: Custom branding for app
         Given I go to App V1
         Then "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180525145649@practera.com" and password "12341234"
+        Then "Appv1" I should see the app home screen
         Then I wait until the loading finished
         Then I wait 5 seconds
         Then I should be able to see "tab" which is located at ".tabs" has color "113d91"
