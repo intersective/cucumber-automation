@@ -17,11 +17,15 @@ Feature: AppV1 Team Assessment
 		Then I input "we are working well" to "evluation text area" which is located at "//*[@ng-repeat='question in group.questions'][1]//textarea" with xpath scroll
 		Then I click on "Choice Two" which is located at "//*[@ng-repeat='question in group.questions'][2]//label[2]" with xpath scroll
 		Then I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
-		Then I should be able to see "a pop up" which is located at ".popup"
+		Then I should be able to see "a submit confirmation" which is located at ".popup"
 		Then I click on "the ok button" which is located at ".popup .popup-buttons > button:nth-of-type(2)"
 		Then I wait 3 seconds
-		Then I click on "the ok button" which is located at ".popup> .popup-buttons > button"
-		Then I wait 2 seconds
-		Then I click on "the pop up button" which is located at ".modal button"
+		Then I should be able to see "a submission notification" which is located at ".popup"
+		Then I wait 3 seconds
+		Then I click on "the continue button" which is located at ".popup > .popup-buttons > button"
+		Then I wait 3 seconds
+		Then I should be able to see "a submission successful message" which is located at ".modal"
+		Then I wait 3 seconds
+		Then I click on "the ok button" which is located at ".modal button"
 		Then I wait until the loading finished
 		Then "Appv1" I log out
