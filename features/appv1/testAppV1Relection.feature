@@ -26,11 +26,15 @@ Feature: AppV1 reflection assessment
 		Then I wait 2 seconds
 		Then "Appv1" I do the video url question locating at "7" with answer "WhatsApp Video 2017-11-30 at 11.27.14.mp4"
 		Then I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
-		Then I should be able to see "a pop up" which is located at ".popup"
+		Then I should be able to see "a submit confirmation" which is located at ".popup"
 		Then I click on "the ok button" which is located at ".popup .popup-buttons > button:nth-of-type(2)"
 		Then I wait 3 seconds
-		Then I click on "the ok button" which is located at ".popup> .popup-buttons > button"
-		Then I wait 2 seconds
-		Then I click on "the pop up button" which is located at ".modal button"
+		Then I should be able to see "a submission notification" which is located at ".popup"
+		Then I wait 3 seconds
+		Then I click on "the continue button" which is located at ".popup > .popup-buttons > button"
+		Then I wait 3 seconds
+		Then I should be able to see "a submission successful message" which is located at ".modal"
+		Then I wait 3 seconds
+		Then I click on "the ok button" which is located at ".modal button"
 		Then I wait until the loading finished
 		Then "Appv1" I log out
