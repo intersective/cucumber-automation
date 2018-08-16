@@ -130,7 +130,7 @@ def waitForElementVisibleWithInAGroup(webDriver, waitor, selectorPath, index)
 end
 
 def scrollIfNotVisible(webDriver, ele)
-	if !ele.displayed?
+	while !ele.displayed?
 		webDriver.action.move_to(ele).perform
 		sleep 1
 	end

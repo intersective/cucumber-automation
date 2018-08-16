@@ -51,6 +51,14 @@ Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with asse
     end
 end
 
+Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with scroll assert$/) do |arg1, arg2|
+    ele = waitForElement($driver, $wait, arg2)
+    if ele == nil
+        fail("something wrong")
+    end
+    scrollIfNotVisible($driver, ele)
+end
+
 Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
     if waitForElement($driver, $wait, arg2) != nil
         fail("something wrong")
@@ -59,7 +67,7 @@ end
 
 Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with scroll assert$/) do |arg1, arg2|
     ele = waitForElement($driver, $wait, arg2)
-    if ele == nil
+    if ele != nil
         fail("something wrong")
     end
     scrollIfNotVisible($driver, ele)

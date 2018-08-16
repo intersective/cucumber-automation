@@ -40,8 +40,7 @@ Then("\"Practera Team\" I can go to the review page with a team student {string}
     teamObj = $sharedData1.loadDataFromKey("team")
     studentName = teamObj[student]
     teamName = teamObj["name"]
-    teamStudentName = "%s ( %s )" % [teamName, studentName]
-    step("\"Practera\" I can go to the review page with a student \"#{teamStudentName}\" submission and the assessment \"#{assessment}\"")
+    step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessment}\"")
 end
 
 Then("\"Practera Team\" I should see team student {string} ready to publish submission") do |student|
