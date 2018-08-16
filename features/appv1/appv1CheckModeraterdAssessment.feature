@@ -7,6 +7,7 @@ Feature: AppV1 Check Moderated Assessment Answer
         Given I go to App V1
         Then "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180614215353@practera.com" and password "12341234"
+        Then "Appv1" I should see the app home screen
         Then I wait until the loading finished
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
         Then "Appv1" I go to the assessment locating at "4"

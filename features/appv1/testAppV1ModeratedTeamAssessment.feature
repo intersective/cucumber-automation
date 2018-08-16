@@ -7,6 +7,7 @@ Feature: AppV1 Moderated Team Assessment
 		Given I go to App V1
 		Then "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
+		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
@@ -107,6 +108,7 @@ Feature: AppV1 Moderated Team Assessment
 		Given I go to App V1
 		Then "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
+		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
@@ -116,6 +118,7 @@ Feature: AppV1 Moderated Team Assessment
 		Given I go to App V1
 		Then "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student2" and password "12341234" and domain "practera.com"
+		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
