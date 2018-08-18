@@ -16,6 +16,8 @@ creatDir "logs"
 creatDir "reports"
 creatDir "reportBackup"
 creatDir "headlessScreenshot"
+creatDir "uploadFile"
+creatDir "data"
 
 touch logs/error.log
 touch logs/info.log
