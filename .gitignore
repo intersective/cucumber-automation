@@ -2,12 +2,10 @@ configuration/user.json
 logs/
 reportBackup/
 reports/
-data/sandbox-pe-participant.csv
-data/appv1enrolment.csv
 uploadFile/
 nohup.out
 headlessScreenshot/
 configuration/user_aws.json
 configuration/user_browserstack.json
 configuration/user_hub.json
-data/team.json
+data/
