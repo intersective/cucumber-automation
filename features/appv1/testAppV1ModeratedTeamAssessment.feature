@@ -125,6 +125,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Appv1" I can see the "Team Moderated" with status "Feedback available"
 		Then "Appv1" I go to the assessment locating at "1"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
+		Then I wait until the loading finished
 		Then I click on "mark review as read button" which is located at "//*[text()='Mark review as read']/../../label" with xpath scroll
 		Then "Appv1" I go back from assessment page
 		Then "Appv1" I go to the "1" tab page
