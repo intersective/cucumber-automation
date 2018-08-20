@@ -12,3 +12,4 @@ features/practera/testMentorReview.feature
 features/appv1/testAppV1ModeratedAssessmentStatus2.feature
 features/practera/testPublishReview.feature
 features/appv1/testAppV1AssessmentStatus.feature
+features/appv1/appv1MarkAssessmentFeabackAsRead.feature
