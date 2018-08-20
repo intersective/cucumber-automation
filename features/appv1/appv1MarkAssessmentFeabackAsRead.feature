@@ -6,7 +6,7 @@ Feature: AppV1 mark moderated assessment feadback as read
     Scenario: Test AppV1 mark moderated assessment feadback as read
         Given I go to App V1
         Then "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login the student account and password "12341234"
+        Then "Appv1" I login with the student account and password "12341234"
         Then "Appv1" I should see the app home screen
         Then I wait until the loading finished
         Then I should be able to see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Comprehensive Moderated']" with xpath assert

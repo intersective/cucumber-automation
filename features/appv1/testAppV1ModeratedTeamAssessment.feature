@@ -111,7 +111,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
-		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
+		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "feedback"
 		Then "Appv1" I can see the "Team Moderated" with status "Feedback available"
 		Then "Appv1" I log out
 
@@ -121,7 +121,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
-		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "assessment"
+		Then "Appv1" I can see the "assessment" locating at "1" with title "Team Moderated" and category "feedback"
 		Then "Appv1" I can see the "Team Moderated" with status "Feedback available"
 		Then "Appv1" I go to the assessment locating at "1"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
