@@ -1,7 +1,7 @@
 
 
 Then(/^I input the enrolment information which is located at "([^"]*)"$/) do |arg1|
-	studentId = generateStudentId()
+	studentId = generateUniId()
 	studentName = "selenium.%s" % [studentId]
 	studentAccount = "%s@practera.com" % [studentName]
 	$sharedData1.putData("studentName", studentName)
