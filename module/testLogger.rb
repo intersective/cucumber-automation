@@ -1,5 +1,4 @@
 require 'singleton'
-require 'securerandom'
 require 'logger'
 
 

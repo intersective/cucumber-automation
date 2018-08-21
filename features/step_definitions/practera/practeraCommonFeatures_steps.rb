@@ -325,7 +325,7 @@ Then(/^"Practera" I can create an event today$/) do
     waitForElementVisible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .bootstrap-datetimepicker-widget .datepicker > .datepicker-days .today").click()
     sleep 2
     Selenium::WebDriver::Support::Select.new(waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog select#EventAddNotify")).select_by(:index, 0)
-    eventId = generateStudentId()
+    eventId = generateUniId()
     evevtName = "Selenium Event - %s" % [eventId]
     evevtDescription = "%s description" % [evevtName]
     waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#title").send_keys(evevtName)

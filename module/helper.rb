@@ -2,9 +2,9 @@ require 'json'
 require 'securerandom'
 
 
-def generateStudentId()
-	localNow = Time.now
-	return "%s%s%s%s%s%s" % [localNow.year.to_s, prependZero(localNow.month), prependZero(localNow.day), prependZero(localNow.hour), prependZero(localNow.min), prependZero(localNow.sec)]
+def generateUniId()
+	utcNow = Time.now.utc
+	return "%s%s%s%s%s%s%s" % [utcNow.year.to_s, prependZero(utcNow.month), prependZero(utcNow.day), prependZero(utcNow.hour), prependZero(utcNow.min), prependZero(utcNow.sec), SecureRandom.hex(6)]
 end
 
 def prependZero(num)
