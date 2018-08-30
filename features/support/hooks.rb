@@ -10,6 +10,15 @@ private def initTestData(filePath, key)
     $sharedData1.putData(key, testObj)
 end
 
+private def initTestDataWithKey(filePath)
+    if File.exist?(filePath)
+        testObj = readJsonfile(filePath)
+        testObj.each do |key, value|
+            $sharedData1.putData(key, value)
+        end
+    end
+end
+
 AfterConfiguration do |config|
     puts("should only happen once")
     $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
@@ -30,6 +39,7 @@ AfterConfiguration do |config|
             end
         end
         initTestData(Dir.pwd + "/data/team.json", "team")
+        initTestDataWithKey(Dir.pwd + "/data/commons.json")
     end
 end
 
