@@ -9,7 +9,7 @@ Feature: AppV1 team page
         Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
         Then "Appv1" I should see the app home screen
         Then I wait until the loading finished
-        Then "Appv1" I go to the "3" tab page
+        Then "Appv1" I go to the "Team" tab page
         Then I wait until the loading finished
         Then "Appv1 Team" I should be able to see the team name with assert
         Then "Appv1 Team" I can see "1" team member "student2" name
