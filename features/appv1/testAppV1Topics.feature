@@ -18,7 +18,7 @@ Feature: AppV1 topics
 		Then I should be able to see "mark topic" which is located at "//*[text()='Mark topic as read']" with xpath assert
 		Then I click on "mark topic as read button" which is located at "//*[text()='Mark topic as read']/../../label" with xpath
 		Then "Appv1" I go back from topic page
-		Then "Appv1" I go to the "1" tab page
+		Then "Appv1" I go to the "Home" tab page
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
 		Then "Appv1" I go to the topic locating at "1"

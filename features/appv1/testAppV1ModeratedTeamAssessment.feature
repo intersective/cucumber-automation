@@ -128,7 +128,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait until the loading finished
 		Then I click on "mark review as read button" which is located at "//*[text()='Mark review as read']/../../label" with xpath scroll
 		Then "Appv1" I go back from assessment page
-		Then "Appv1" I go to the "1" tab page
+		Then "Appv1" I go to the "Home" tab page
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I go to the assessment locating at "1"
