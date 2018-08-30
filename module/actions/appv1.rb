@@ -14,7 +14,7 @@ class Appv1PageActions
 
     def logout(webDriver, waitor)
         waitForLoadFinished(webDriver, waitor)
-        waitForElement(webDriver, waitor, ".tab-nav > a:nth-of-type(4)").click()
+        step("\"Appv1\" I go to the \"Help\" tab page")
         sleep 5
         waitForLoadFinished(webDriver, waitor)
 	    waitForElement(webDriver, waitor, ".jsmbp-settings-container ion-item[ng-click='logout()']").click()
