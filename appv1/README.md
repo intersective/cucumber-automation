@@ -9,8 +9,7 @@ the student name on the below scripts
 4. (Optional) can run features/appv1/testAppv1FastFeedback.feature separately by cucumber -q
 5. (Optional) can run features/appv1/appv1CheckModeraterdAssessment.feature separately by cucumber -q
 6. (Optional) can run features/appv1/appv1NoAnswerForAssessment.feature separately by cucumber -q and change the username with a new user
-7. (Optional) for team assessment progress, run two times of list-of-features-appv1_onlyAssessment to have two students who
-have the same progress, change the student and team names in the data/team.json, run list-of-features-appv1_teamprogree.txt
+7. (Optional) for team assessment progress, run two times of list-of-features-appv1_onlyAssessment to have two students who have the same progress, change the student and team names in the data/team.json, run list-of-features-appv1_teamprogree.txt
+8. (Optional) put a commons.json under the data folder, it loads the data into the memory at the test starting point.
 
-The reason of separating the add team and team assessement is that, making the test cases being self-contained is better
-to organise the test cases
+The reason of separating the add team and team assessement is that, making the test cases being self-contained is better to organise the test cases
