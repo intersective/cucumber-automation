@@ -14,7 +14,8 @@ class Appv1PageActions
 
     def logout(webDriver, waitor)
         waitForLoadFinished(webDriver, waitor)
-        step("\"Appv1\" I go to the \"Help\" tab page")
+        tabLocator = "//*[@class='tab-title'][normalize-space()='Help']/.."
+        waitForElementVisibleXpath($driver, $wait, tabLocator).click()
         sleep 5
         waitForLoadFinished(webDriver, waitor)
 	    waitForElement(webDriver, waitor, ".jsmbp-settings-container ion-item[ng-click='logout()']").click()
