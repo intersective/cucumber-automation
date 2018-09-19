@@ -5,7 +5,7 @@ Feature: AppV1 quiz assessment
 	
 	Scenario: Test AppV1 quiz assessment
 		Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1" I login with the student account and password "12341234"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
@@ -27,7 +27,7 @@ Feature: AppV1 quiz assessment
 		Then "Appv1" I do the image question locating at "6" with answer "medium-size-dogs-a-medium.jpg"
 		Then I wait 2 seconds
 		Then "Appv1" I do the video url question locating at "7" with answer "WhatsApp Video 2017-11-30 at 11.27.14.mp4"
-		Then I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
+		When I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
 		Then I should be able to see "a submit confirmation" which is located at ".popup"
 		Then I click on "cancel button" which is located at ".popup .popup-buttons > button:nth-of-type(1)"
 		Then I wait 3 seconds

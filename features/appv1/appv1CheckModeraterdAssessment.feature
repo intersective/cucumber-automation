@@ -5,10 +5,10 @@ Feature: AppV1 Check Moderated Assessment Answer
 
     Scenario: Test Check Moderated Assessment Answer
         Given I go to App V1
-        Then "Appv1" I wait unitl the splash disappear
+        When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with username "selenium.20180614215353@practera.com" and password "12341234"
         Then "Appv1" I should see the app home screen
-        Then I wait until the loading finished
+        When I wait until the loading finished
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
         Then "Appv1" I go to the assessment locating at "4"
         Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
@@ -43,5 +43,5 @@ Feature: AppV1 Check Moderated Assessment Answer
         Then I should be able to see "Comprehensive Moderated Video Question 1 description" which is located at "//*[text()='Video Question 1']/../..//*[text()='Comprehensive Moderated Video Question 1 description']" with xpath scroll assert
         Then I can see "Video Question 1" which is located at "div[ng-repeat='group in ::assessment.questionGroups']:nth-of-type(5) > div[ng-repeat='question in group.questions']:nth-of-type(2) div[ng-click='previewFile(answer._raw.answer)']" containing text "WhatsApp Video 2017-11-30 at 11.27.14.mp4"
         
-        Then "Appv1" I go back from assessment page
+        When "Appv1" I go back from assessment page
         Then "Appv1" I log out
