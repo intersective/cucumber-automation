@@ -5,7 +5,7 @@ Feature: AppV1 Moderated Team Assessment
 	
 	Scenario: Test AppV1 Moderated Team Assessment
 		Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
@@ -106,7 +106,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Practera" I log out
 
 		Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
@@ -116,7 +116,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Appv1" I log out
 
 		Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student2" and password "12341234" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
@@ -134,5 +134,5 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Appv1" I go to the assessment locating at "1"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
 		Then I should be able to see "the review marked as read" which is located at "[ng-click='markAsDone()'][disabled='disabled']" with scroll assert
-		Then "Appv1" I go back from assessment page
+		When "Appv1" I go back from assessment page
 		Then "Appv1" I log out

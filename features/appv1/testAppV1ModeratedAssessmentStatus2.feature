@@ -5,7 +5,7 @@ Feature: AppV1 moderated assessment status
 
     Scenario: Test AppV1 moderated assessment status
         Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1" I login with the student account and password "12341234"
         Then "Appv1" I should see the app home screen
         Then I wait until the loading finished

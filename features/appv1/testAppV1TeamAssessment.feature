@@ -5,7 +5,7 @@ Feature: AppV1 Team Assessment
 	
 	Scenario: Test AppV1 Team Assessment
 		Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
@@ -18,7 +18,7 @@ Feature: AppV1 Team Assessment
 		Then I click on "Choice Two" which is located at "//*[@ng-repeat='question in group.questions'][2]//label[2]" with xpath scroll
 		Then I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
 		Then I should be able to see "a submit confirmation" which is located at ".popup"
-		Then I click on "the ok button" which is located at ".popup .popup-buttons > button:nth-of-type(2)"
+		When I click on "the ok button" which is located at ".popup .popup-buttons > button:nth-of-type(2)"
 		Then I wait 3 seconds
 		Then I should be able to see "a submission notification" which is located at ".popup"
 		Then I wait 3 seconds
