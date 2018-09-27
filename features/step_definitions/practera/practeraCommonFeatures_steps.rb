@@ -85,7 +85,7 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             sleep 2
-            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("data-original-title").split(",")[-1,].strip()
+            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("title").split(",")[-1,].strip()
             if pubPerosn.index(publisher) == nil
                 $testLogger1.logCase("expected publisher %s, but found %s" % [publisher, pubPerosn])
             end
