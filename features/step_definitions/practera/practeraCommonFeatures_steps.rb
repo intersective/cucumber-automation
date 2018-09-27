@@ -49,21 +49,21 @@ Then(/^"Practera" I should see the student submission$/) do
 end
 
 Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentorName, studentName|
-    popover = nil
+    editableform = nil
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             findElementWithParent(uas, "td:nth-of-type(4) > a").click()
-            popover = waitElementWithParent($wait, uas, "td:nth-of-type(4) div.popover")
+            editableform = waitElementWithParent($wait, uas, "td:nth-of-type(4) .editableform")
             break
         end
         index = index + 1
     end
-    findElementWithParent(popover, ".popover-content input").send_keys(mentorName)
+    findElementWithParent(editableform, ".editable-input input").send_keys(mentorName)
     waitForElement($driver, $wait, "ul.select2-results > li > div").click()
-    findElementWithParent(popover, ".popover-content button.editable-submit").click()
-    while waitForElement($driver, $shortWait, "#tblUnassigned > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(3) > span > div.popover") != nil
+    findElementWithParent(editableform, ".editable-buttons button.editable-submit").click()
+    while waitForElement($driver, $shortWait, "#tblUnassigned > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(4) .editableform") != nil
         sleep 1
     end
 end
@@ -85,7 +85,7 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             sleep 2
-            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("data-original-title").split(",")[-1,].strip()
+            pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("title").split(",")[-1,].strip()
             if pubPerosn.index(publisher) == nil
                 $testLogger1.logCase("expected publisher %s, but found %s" % [publisher, pubPerosn])
             end
