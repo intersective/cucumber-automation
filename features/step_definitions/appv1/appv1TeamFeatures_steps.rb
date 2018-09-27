@@ -31,3 +31,9 @@ Then("\"Appv1 Team\" I should be able to select {string} from selector options")
     studentName = teamObj[student]
     step("\"Appv1\" I should be able to select \"#{studentName}\" from selector options which is located at \"//*[@ng-repeat='question in group.questions'][1]//label[1]\"")
 end
+
+Then("\"Appv1 Team Chats\" I can see team member {string} name") do |student|
+    teamObj = $sharedData1.loadDataFromKey("team")
+    studentName = teamObj[student]
+    step("I should be able to see \"member name\" which is located at \"//*[@ng-if='chat.name'][normalize-space()='#{studentName}']\" with xpath assert")
+end
