@@ -5,11 +5,11 @@ Feature: AppV1 current activty
 
     Scenario: Test AppV1 current activty
         Given I go to App V1
-        Then "Appv1" I wait unitl the splash disappear
+        When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with the student account and password "12341234"
         Then I wait until the loading finished
         Then "Appv1" I should see the app home screen
-        Then I wait 6 seconds
+        When I wait 6 seconds
         Then I should be able to see "current activty category" which is located at "//p[text()='Activity']" with xpath assert
         Then I should be able to see "current activity title" which is located at ".activity-name" containing text "Comprehensive Activity"
         Then "Appv1" I log out

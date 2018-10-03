@@ -5,16 +5,16 @@ Feature: AppV1 Check Team Assessment
 	
 	Scenario: Test AppV1 Check Team Assessment
 		Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1 Team" I login with team member "student2" and password "12341234" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
-		Then I wait until the loading finished
+		When I wait until the loading finished
 		Then "Appv1" I go to the "Activity 2" activity page which has "3" items
 		Then "Appv1" I can see the "assessment" locating at "3" with title "Appv1 test automation team assessment" and category "assessment"
 		Then "Appv1" I go to the assessment locating at "3"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"
-		Then "Appv1" I should be able to see "we are working well" which is located at "//*[@ng-repeat='question in group.questions'][1]//*[@ng-if='isDone']"
-		Then "Appv1" I should be able to see "Choice Two" which is located at "//*[@ng-repeat='question in group.questions'][2]//*[@ng-if='isDone']"
+		Then I should be able to see "text answers" which is located at "//*[@ng-repeat='question in group.questions'][1]//*[@ng-if='isDone']/*[text()='we are working well']" with xpath scroll assert
+		Then I should be able to see "choice answer" which is located at "//*[@ng-repeat='question in group.questions'][2]//*[@ng-if='isDone']//*[text()='Choice Two']" with xpath scroll assert
 		Then I wait 2 seconds
-		Then "Appv1" I go back from assessment page
+		When "Appv1" I go back from assessment page
 		Then "Appv1" I log out

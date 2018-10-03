@@ -5,7 +5,7 @@ Feature: AppV1 topics
 	
 	Scenario: Test AppV1 topics
 		Given I go to App V1
-		Then "Appv1" I wait unitl the splash disappear
+		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1" I login with the student account and password "12341234"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
@@ -18,11 +18,11 @@ Feature: AppV1 topics
 		Then I should be able to see "mark topic" which is located at "//*[text()='Mark topic as read']" with xpath assert
 		Then I click on "mark topic as read button" which is located at "//*[text()='Mark topic as read']/../../label" with xpath
 		Then "Appv1" I go back from topic page
-		Then "Appv1" I go to the "1" tab page
+		Then "Appv1" I go to the "Home" tab page
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
 		Then "Appv1" I go to the topic locating at "1"
 		Then I should be able to see "topic content page" which is located at ".pane[nav-view='active'] .activities"
 		Then I should be able to see "the topic marked as read" which is located at "[ng-click='markAsDone()'][disabled='disabled']" with assert
-		Then "Appv1" I go back from topic page
+		When "Appv1" I go back from topic page
 		Then "Appv1" I log out
