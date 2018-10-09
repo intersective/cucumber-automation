@@ -21,7 +21,7 @@ Feature: AppV1 mark moderated assessment feadback as read
         Then I click on "quick response" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] .quick-response > a[ng-click=\"addOrRemoveQuickMessage('You are awesome!')\"]"
         Then I input "very informative" to "rating comment" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] input[ng-model='reviewRating.comment']" with scroll
         Then I wait 2 seconds
-        Then I click on "submit button" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] button"
+        Then I click on "submit button" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] button" with scroll
         Then The "feedback rating" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']" should be disappear
         When "Appv1" I go back from assessment page
         Then I should not see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Comprehensive Moderated']" with xpath assert
