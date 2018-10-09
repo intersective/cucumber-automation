@@ -16,7 +16,7 @@ Feature: AppV1 mark moderated assessment feadback as read
         Then I click on "mark review as read button" which is located at "//*[text()='Mark review as read']/../../label" with xpath scroll
         Then I wait until the loading finished
         Then I should be able to see "rating pop up" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']"
-        Then I move the slider "feedback rating" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] input[type='range']" by "3" times
+        Then I move the slider "feedback rating" to the "right" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] input[type='range']" by "3" times
         Then I wait 2 seconds
         Then I click on "quick response" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] .quick-response > a[ng-click=\"addOrRemoveQuickMessage('You are awesome!')\"]"
         Then I input "very informative" to "rating comment" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] input[ng-model='reviewRating.comment']" with scroll

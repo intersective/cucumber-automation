@@ -221,10 +221,14 @@ Then("I should be able to see {string} which is located at {string} with xpath h
     end
 end
 
-Then("I move the slider {string} which is located at {string} by {string} times") do |arg1, arg2, arg3|
-    ele = waitForElementVisible($driver, $wait, arg2)
-    counter = arg3.to_i
+Then("I move the slider {string} to the {string} which is located at {string} by {string} times") do |arg1, arg2, arg3, arg4|
+    ele = waitForElementVisible($driver, $wait, arg3)
+    counter = arg4.to_i
     for i in 1..counter
-        ele.send_keys(:right)
+        if arg2 == "right"
+            ele.send_keys(:right)
+        else
+            ele.send_keys(:left)
+        end
     end
 end
