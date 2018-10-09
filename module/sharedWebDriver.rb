@@ -48,7 +48,8 @@ class SharedWebDriver
 				@driver = Selenium::WebDriver.for(:chrome)
 		end
 		@driver.manage.window.move_to(0, 0)
-		@driver.manage.window.resize_to(1440, 1000)
+		maxWidth, maxHeight = @driver.execute_script("return [window.screen.availWidth, window.screen.availHeight];")
+		@driver.manage.window.resize_to(maxWidth, maxHeight)
 		@wait = Selenium::WebDriver::Wait.new(:timeout => 30) # seconds
 		@listWait = Selenium::WebDriver::Wait.new(:timeout => 120) # seconds
 		@shortWait = Selenium::WebDriver::Wait.new(:timeout => 3) # seconds
