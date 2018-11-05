@@ -63,7 +63,7 @@ After do |scenario|
             $testLogger1.debug(message)
         end
     else
-        fail("#{@collectedErrors}")
+        fail(@collectedErrors.join("\n"))
     end
 end
 
