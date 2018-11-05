@@ -44,21 +44,26 @@ AfterConfiguration do |config|
 end
 
 Before do |scenario|
+    @collected_errors = []
     @stepCount = scenario.step_count
     @stepIndex = 0
     @scenarioFullTitle = getScenarioName(scenario)
 end
 
 After do |scenario|
-    if scenario.passed?
-        message = "scenario [%s] succeed" % [@scenarioFullTitle]
-        $testLogger1.debug(message)
-    else
-        if $driver != nil
-            $driver.save_screenshot("%s/headlessScreenshot/%s.png" % [Dir.pwd, SecureRandom.uuid])
+    if @collected_errors.empty?
+        if scenario.passed?
+            message = "scenario [%s] succeed" % [@scenarioFullTitle]
+            $testLogger1.debug(message)
+        else
+            if $driver != nil
+                $driver.save_screenshot("%s/headlessScreenshot/%s.png" % [Dir.pwd, SecureRandom.uuid])
+            end
+            message = "scenario [%s] failed as reason - [%s]" % [@scenarioFullTitle, scenario.exception.message]
+            $testLogger1.debug(message)
         end
-        message = "scenario [%s] failed as reason - [%s]" % [@scenarioFullTitle, scenario.exception.message]
-        $testLogger1.debug(message)
+    else
+        fail("#{@collected_errors}")
     end
 end
 

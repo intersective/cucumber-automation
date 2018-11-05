@@ -21,9 +21,11 @@ def readJsonfile(filePath)
 	return dataHash
 end
 
-def compareWithLog(headerMessage, expectedValue, actualValue)
+def verifyValue(headerMessage, expectedValue, actualValue)
 	if expectedValue != actualValue
-		$testLogger1.logCase(headerMessage + " [ " + expectedValue + " ] but found [ " + actualValue + " ]")
+		message = headerMessage + " [ " + expectedValue + " ] but found [ " + actualValue + " ]"
+		$testLogger1.logCase(message)
+		@collected_errors.push(message)
 	end
 end
 
