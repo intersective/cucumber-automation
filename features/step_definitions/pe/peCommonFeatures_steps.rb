@@ -53,7 +53,7 @@ end
 Then(/^"PE" I can see an activity locating at "([^"]*)" position with title "([^"]*)"$/) do |actLocation, actTitle|
     act = waitForElementVisibleWithInAGroup($driver, $listWait, "activities-list-page .activity-list", actLocation)
     aActTitle = act.find_element(:css => "p.activity-title")
-    compareWithLog("expected activity title", actTitle, refineElementTextContent(aActTitle))
+    verifyValue("expected activity title", actTitle, refineElementTextContent(aActTitle))
 end
 
 Then(/^"PE" I can see an activity locating at "([^"]*)" position with "([^"]*)" tick$/) do |actLocation, numOfTicks|
@@ -65,7 +65,7 @@ Then(/^"PE" I can see an activity locating at "([^"]*)" position with "([^"]*)" 
             count = count + 1
         end
     end
-    compareWithLog("expected activity ticks", numOfTicks, count.to_s)
+    verifyValue("expected activity ticks", numOfTicks, count.to_s)
 end
 
 Then(/^"PE" I can see an activity locating at "([^"]*)" position with "([^"]*)" score$/) do |actLocation, actScore|
@@ -74,7 +74,7 @@ Then(/^"PE" I can see an activity locating at "([^"]*)" position with "([^"]*)" 
     if findElementWithParent(act, "p.assessment-score i") == nil
         score = refineElementTextContent(findElementWithParent(act, "p.assessment-score .badge"))
     end
-    compareWithLog("expected activity score", actScore, score)
+    verifyValue("expected activity score", actScore, score)
 end
 
 Then(/^"PE" I go to "([^"]*)" activity$/) do |actLocation|
@@ -88,7 +88,7 @@ Then(/^"PE" I can see "([^"]*)" submissions for "([^"]*)" activity$/) do |numOfS
     if submissions != nil
         count = submissions.length
     end
-    compareWithLog("expected number of submissions for activity " + actName, numOfSubmissions, count.to_s)
+    verifyValue("expected number of submissions for activity " + actName, numOfSubmissions, count.to_s)
 end
 
 Then(/^"PE" I go to the in progress submission$/) do
@@ -111,23 +111,23 @@ end
 Then(/^"PE" I can see an assessment with title "([^"]*)"$/) do |assessmentTitle|
     assessment = waitForElementVisible($driver, $wait, "assessments-page ion-content ion-card-content.card-content")
     aAssessmentTitle = refineElementTextContent(assessment.find_element(:css => ".assessment-title"))
-    compareWithLog("expected assessment title", assessmentTitle, aAssessmentTitle)
+    verifyValue("expected assessment title", assessmentTitle, aAssessmentTitle)
 end
 
 Then(/^"PE" I can see an assessment with title "([^"]*)" in the assessment detail page$/) do |assessmentTitle|
     aAssessmentTitle = refineElementTextContent(waitForElementVisible($driver, $wait, ".groups-question .assessments-group-text:nth-of-type(1) :nth-child(1)"))
-    compareWithLog("expected assessment title", assessmentTitle, aAssessmentTitle)
+    verifyValue("expected assessment title", assessmentTitle, aAssessmentTitle)
 end
 
 Then(/^"PE" I can see an assessment with description "([^"]*)"$/) do |assessmentDescription|
     assessment = waitForElementVisible($driver, $wait, "assessments-page ion-content ion-card-content.card-content")
     aAssessmentDescription = refineElementTextContent(assessment.find_element(:css => ".assessment-description"))
-    compareWithLog("expected assessment description", assessmentDescription, aAssessmentDescription)
+    verifyValue("expected assessment description", assessmentDescription, aAssessmentDescription)
 end
 
 Then("\"PE\" I can see an assessment with description {string} in the assessment detail page") do |assessmentDescription|
     aAssessmentDescription = refineElementTextContent(waitForElementVisible($driver, $wait, ".groups-question .assessments-group-text:nth-of-type(1) :nth-child(2)"))
-    compareWithLog("expected assessment description", assessmentDescription, aAssessmentDescription)
+    verifyValue("expected assessment description", assessmentDescription, aAssessmentDescription)
 end
 
 Then(/^"PE" I can see "([^"]*)" question groups$/) do |numOfGroups|
@@ -136,19 +136,19 @@ Then(/^"PE" I can see "([^"]*)" question groups$/) do |numOfGroups|
     if questionGroup != nil
         count = questionGroup.length
     end
-    compareWithLog("expected number of question group", numOfGroups, count.to_s)
+    verifyValue("expected number of question group", numOfGroups, count.to_s)
 end
 
 Then(/^"PE" I can see "([^"]*)" question group with title "([^"]*)"$/) do |qpLocation, questiongroupTitle|
     qp = waitForElementVisibleWithInAGroup($driver, $listWait, "assessments-page ion-content questiongroup", qpLocation)
     aQpTitle = refineElementTextContent(qp.find_element(:css => ".questionGroup .label"))
-    compareWithLog("expected question group title", questiongroupTitle, aQpTitle)
+    verifyValue("expected question group title", questiongroupTitle, aQpTitle)
 end
 
 Then("\"PE\" I can see {string} question group with description {string}") do |qpLocation, questiongroupDescription|
     qp = waitForElementVisibleWithInAGroup($driver, $listWait, "assessments-page ion-content questiongroup", qpLocation)
     aQpDescription = refineElementTextContent(qp.find_element(:css => ".questionGroup .description"))
-    compareWithLog("expected question description", questiongroupDescription, aQpDescription)
+    verifyValue("expected question description", questiongroupDescription, aQpDescription)
 end
 
 Then(/^"PE" I can go to "([^"]*)" question group$/) do |qpLocation|
@@ -171,7 +171,7 @@ end
 Then(/^"PE" I do the "([^"]*)" question which is located at "([^"]*)" with title "([^"]*)" and answer "([^"]*)"$/) do |type, i, title, answer|
     temp = ".groups-question div.assessments-group-text:nth-of-type(%s) :nth-child(1) :nth-child(1)" % [i]
     aTitle = refineElementTextContent(waitForElement($driver, $wait, temp))
-    compareWithLog("expected question title", title, aTitle)
+    verifyValue("expected question title", title, aTitle)
     if type == "oneof"
         temp1 = ".groups-question div.assessments-group-text:nth-of-type(%s) oneof-question" % [i]
         oneof = waitForElement($driver, $wait, temp1)
@@ -218,7 +218,7 @@ end
 
 Then(/^"PE" I can see score "([^"]*)" on the grade field$/) do |score|
     aScore = refineElementTextContent(waitForElement($driver, $wait, ".dashboard-data > li:nth-of-type(3) .number > .badge"))
-    compareWithLog("expected score", score, aScore)
+    verifyValue("expected score", score, aScore)
 end
 
 Then(/^"PE" I go to an event "([^"]*)" page$/) do |eventName|
@@ -296,15 +296,15 @@ Then(/^"PE" I click on the spinner wheel$/) do
     spinChances = $sharedData1.loadDataFromKey("spinChances")
     aSpinChances = refineElementTextContent(waitForElement($driver, $wait, "#spinChances")).to_i
     tabSpinChance = refineElementTextContent(waitForElement($driver, $wait, "#tab-t0-3 ion-badge")).to_i
-    compareWithLog("expected spin chance decrement", "1", (spinChances - aSpinChances).to_s)
-    compareWithLog("expected spin chance", aSpinChances.to_s, tabSpinChance.to_s)
+    verifyValue("expected spin chance decrement", "1", (spinChances - aSpinChances).to_s)
+    verifyValue("expected spin chance", aSpinChances.to_s, tabSpinChance.to_s)
     message = refineElementTextContent(waitForElement($driver, $wait, "ion-alert[role=dialog] .alert-sub-title"))
     sleep(1)
     $driver.execute_script("document.querySelector('ion-alert[role=dialog] ion-backdrop').click();")
     sleep(2)
     incrementedEP = /\s+[1-9][0-9]*\s+/.match(message)[0].strip()
     spinEP = refineElementTextContent(waitForElement($driver, $wait, "#spinEP")).to_i
-    compareWithLog("expected incremented points", incrementedEP, (spinEP - previousEP).to_s)
+    verifyValue("expected incremented points", incrementedEP, (spinEP - previousEP).to_s)
     $sharedData1.putData("spinEP", spinEP)
 end
 

@@ -20,8 +20,8 @@ end
 Then(/^"Appv1" I can see the activity name "([^"]*)" and description "([^"]*)"$/) do |actName, actDescription|
 	aActName = refineElementTextContent(waitForElement($driver, $wait, "jsmbp-detail-container > div > .item > h1"))
 	aActDescription = refineElementTextContent(waitForElement($driver, $wait, "jsmbp-detail-container > div > .item > p"))
-	compareWithLog("expected activity name", actName, aActName)
-	compareWithLog("expected activity description", actDescription, aActDescription)
+	verifyValue("expected activity name", actName, aActName)
+	verifyValue("expected activity description", actDescription, aActDescription)
 end
 
 Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)" and category "([^"]*)"$/) do |itemName, itemLocation, itemTitle, itemCategory|
@@ -29,13 +29,13 @@ Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)
 	topicHeader = toDoThings[itemLocation.to_i - 1].find_element(:css => ".item")
 	aItemTitle = topicHeader.find_element(:css => "detail-title h2")
 	category = refineElementTextContent(topicHeader.find_element(:css => "detail-title p")).split(" ")[0].downcase
-	compareWithLog("expected item title", itemTitle, refineElementTextContent(aItemTitle))
-	compareWithLog("expected item category", itemCategory, category)
+	verifyValue("expected item title", itemTitle, refineElementTextContent(aItemTitle))
+	verifyValue("expected item category", itemCategory, category)
 end
 
 Then(/^"Appv1" I can see the "([^"]*)" with status "([^"]*)"$/) do |itemName, itemStatus|
 	aitemStatus = waitForElementXpath($driver, $wait, "//*[@class='title'][text()='" + itemName + "']/../p")
-	compareWithLog("expected item status", itemStatus, refineElementTextContent(aitemStatus))
+	verifyValue("expected item status", itemStatus, refineElementTextContent(aitemStatus))
 end
 
 Then(/^"Appv1" I go to the (topic|assessment) locating at "([^"]*)"$/) do |itemName, itemLocation|
@@ -49,8 +49,8 @@ end
 Then(/^"Appv1" I can see the topic with title "([^"]*)" and content "([^"]*)"$/) do |topicTitle, topicContent|
 	aTopicTitle = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities h3"))
 	aTopicContent = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities .item-body"))
-	compareWithLog("expected topic title", topicTitle, aTopicTitle)
-	compareWithLog("expected topic content", topicContent, aTopicContent)
+	verifyValue("expected topic title", topicTitle, aTopicTitle)
+	verifyValue("expected topic content", topicContent, aTopicContent)
 end
 
 Then(/^"Appv1" I go back from (topic|assessment|chat) page$/) do |itemName|
@@ -61,17 +61,17 @@ end
 Then(/^"Appv1" I can see the assessment with name "([^"]*)" and description "([^"]*)"$/) do |assessmentTitle, assessmentDescription|
 	aAssessmenTitle = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.name'] > h1"))
 	aAssessmenDescription = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.description']"))
-	compareWithLog("expected assessment title", assessmentTitle, aAssessmenTitle)
-	compareWithLog("expected assessment description", assessmentDescription, aAssessmenDescription)
+	verifyValue("expected assessment title", assessmentTitle, aAssessmenTitle)
+	verifyValue("expected assessment description", assessmentDescription, aAssessmenDescription)
 end
 
 Then(/^"Appv1" I can see the question locating at "([^"]*)" with name "([^"]*)" and description "([^"]*)"$/) do |questionIndex, questionName, questionDescription|
 	one = waitForElements($driver, $listWait, "div[ng-repeat='question in group.questions']")[questionIndex.to_i - 1]
 	aQuestionName = refineElementTextContent(one.find_element(:css => ".item h2"))
 	aQuestionDescription = findElementWithParent(one, "div[ng-if='question.description']")
-	compareWithLog("expected question name", questionName, aQuestionName)
+	verifyValue("expected question name", questionName, aQuestionName)
 	if aQuestionDescription != nil
-		compareWithLog("expected question description", questionDescription, refineElementTextContent(aQuestionDescription))
+		verifyValue("expected question description", questionDescription, refineElementTextContent(aQuestionDescription))
 	end
 end
 
