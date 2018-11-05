@@ -25,7 +25,7 @@ def verifyValue(headerMessage, expectedValue, actualValue)
 	if expectedValue != actualValue
 		message = headerMessage + " [ " + expectedValue + " ] but found [ " + actualValue + " ]"
 		$testLogger1.logCase(message)
-		@collected_errors.push(message)
+		@collectedErrors.push(message)
 	end
 end
 

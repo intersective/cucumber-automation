@@ -89,7 +89,7 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
             if pubPerosn.index(publisher) == nil
                 message = "expected publisher %s, but found %s" % [publisher, pubPerosn]
                 $testLogger1.logCase(message)
-                @collected_errors.push(message)
+                @collectedErrors.push(message)
             end
         end
     end

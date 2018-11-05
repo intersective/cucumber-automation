@@ -44,14 +44,14 @@ AfterConfiguration do |config|
 end
 
 Before do |scenario|
-    @collected_errors = []
+    @collectedErrors = []
     @stepCount = scenario.step_count
     @stepIndex = 0
     @scenarioFullTitle = getScenarioName(scenario)
 end
 
 After do |scenario|
-    if @collected_errors.empty?
+    if @collectedErrors.empty?
         if scenario.passed?
             message = "scenario [%s] succeed" % [@scenarioFullTitle]
             $testLogger1.debug(message)
@@ -63,7 +63,7 @@ After do |scenario|
             $testLogger1.debug(message)
         end
     else
-        fail("#{@collected_errors}")
+        fail("#{@collectedErrors}")
     end
 end
 
