@@ -1,4 +1,4 @@
-![Practera](https://s3-ap-southeast-2.amazonaws.com/sydney-api-test/Practera_Logo_Primary_RGB.png)
+![Practera](https://practera.com/wp-content/themes/practera/images/logo.png)
 
 ## Overview
 * this is the cucumber automation test (BDD) implemented by Ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]
