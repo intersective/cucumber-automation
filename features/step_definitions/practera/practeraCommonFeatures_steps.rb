@@ -87,7 +87,9 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
             sleep 2
             pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("title").split(",")[-1,].strip()
             if pubPerosn.index(publisher) == nil
-                $testLogger1.logCase("expected publisher %s, but found %s" % [publisher, pubPerosn])
+                message = "expected publisher %s, but found %s" % [publisher, pubPerosn]
+                $testLogger1.logCase(message)
+                @collectedErrors.push(message)
             end
         end
     end
@@ -222,7 +224,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
             end
         end
         if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType="xpath") != nil
-            compareWithLog("expected reviewer comments", "nil", "something")
+            verifyValue("expected reviewer comments", "nil", "something")
         end
         step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 		step("I wait 2 seconds")
@@ -240,7 +242,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
             end
         end
         if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType="xpath") != nil
-            compareWithLog("expected reviewer comments", "nil", "something")
+            verifyValue("expected reviewer comments", "nil", "something")
         end
 		step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 		step("I wait 2 seconds")

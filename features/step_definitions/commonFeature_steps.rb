@@ -173,7 +173,7 @@ end
 Then(/^I can see an alert contain "([^"]*)"$/) do |text|
     currentWindow = $driver.window_handle
     a = $driver.switch_to.alert
-    compareWithLog("expected alert text", text, a.text)
+    verifyValue("expected alert text", text, a.text)
     sleep 2
     a.accept
     $driver.switch_to.window(currentWindow)
@@ -192,7 +192,7 @@ end
 Then("I can see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|
     ele = waitForElement($driver, $wait, arg2)
     text = refineElementTextContent(ele)
-    compareWithLog("expected text", text, arg3)
+    verifyValue("expected text", text, arg3)
 end
 
 Then("I should be able to see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|

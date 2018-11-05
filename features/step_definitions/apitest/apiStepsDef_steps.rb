@@ -29,8 +29,8 @@ Given("I call the {string} api {string} by headers {string}, should have success
     for i in 1..rows
         result = fireRequest(apiMethod, apiUrl, pheaders, data, cols, i)
 
-        compareWithLog(apiMethod + " " + apiUrl + " exptected success", data[i][-2], result["success"].to_s)
-        compareWithLog(apiMethod + " " + apiUrl + " exptected status", data[i][-1], result["status"].to_s)
+        verifyValue(apiMethod + " " + apiUrl + " exptected success", data[i][-2], result["success"].to_s)
+        verifyValue(apiMethod + " " + apiUrl + " exptected status", data[i][-1], result["status"].to_s)
     end
 end
 
