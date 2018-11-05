@@ -53,7 +53,7 @@ Then(/^"Appv1" I can see the topic with title "([^"]*)" and content "([^"]*)"$/)
 	compareWithLog("expected topic content", topicContent, aTopicContent)
 end
 
-Then(/^"Appv1" I go back from (topic|assessment) page$/) do |itemName|
+Then(/^"Appv1" I go back from (topic|assessment|chat) page$/) do |itemName|
 	waitForElementVisible($driver, $wait, ".nav-bar-block[nav-bar=active] .back-button[ng-click]:not(.hide)").click()
 	waitForLoadFinished($driver, $wait)
 end
