@@ -22,7 +22,7 @@ end
 AfterConfiguration do |config|
     puts("should only happen once")
     $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
-    $testLogger1 = TestLogger.instance
+    $testLogger1 = Twplogger.instance
     if $configObj["mode"] != "apiTest"
         $sharedWebDriver1 = SharedWebDriver.instance
         $sharedData1 = SharedData.instance
