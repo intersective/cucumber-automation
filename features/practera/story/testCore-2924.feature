@@ -6,7 +6,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
+        Then "Practera" I login with "testprogram1CoorAccount" and "testprogram1CoorAccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "Switch cohort" which is located at "//*[normalize-space()='Switch Cohort'][@class='select2-offscreen']/.." with xpath
 		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
@@ -28,7 +28,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with another coordinator account
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program1.coordinator@practera.com" and password "12341234"
+        Then "Practera" I login with "testprogram1Coor2Account" and "testprogram1Coor2AccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "Switch cohort" which is located at "//*[normalize-space()='Switch Cohort'][@class='select2-offscreen']/.." with xpath
 		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
@@ -44,7 +44,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with the same coordinator
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
+        Then "Practera" I login with "testprogram1CoorAccount" and "testprogram1CoorAccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "Switch cohort" which is located at "//*[normalize-space()='Switch Cohort'][@class='select2-offscreen']/.." with xpath
 		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"

@@ -6,7 +6,7 @@ Feature: Practera users timezone
     Scenario: Test change timezone in the user profile page
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program1.coor@practera.com" and password "12341234"
+        Then "Practera" I login with "testprogram1CoorAccount" and "testprogram1CoorAccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to profile
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
@@ -32,7 +32,7 @@ Feature: Practera users timezone
     Scenario: Test scheduled a communication email in response to the user timezone changes
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program1.admin@practera.com" and password "12341234"
+        Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "communications button" which is located at "//*[text()='Communications']/.." with xpath
         Then I should be able to see "view comm button" which is located at "//*[normalize-space()='View Comm Activities']/button" with xpath

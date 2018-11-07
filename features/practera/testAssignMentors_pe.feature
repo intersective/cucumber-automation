@@ -12,11 +12,11 @@ Feature: Practera Assign reviewers for Personal Edge assessment
 
 		Then "Practera" I can assign a mentor to student submissions with:
 			| assessment name | mentor name | students |
-			| Digital Citizen | selenium_mentor1 | selenium.20180508013454;selenium.20180508013454 |
-			| Ethical Leader | selenium_mentor1 | selenium.20180508013454;selenium.20180508013454 |
-			| Career Strategist | selenium_mentor1 | selenium.20180508013454;selenium.20180508013454 |
-			| Cross-Cultural Team Player | selenium_mentor1 | selenium.20180508013454;selenium.20180508013454 |
-			| Creative Thinker | selenium_mentor1 | selenium.20180508013454;selenium.20180508013454 |
-			| Confident Communicator | selenium_mentor1 | selenium.20180508013454;selenium.20180508013454 |
+			| Digital Citizen | mentor | selenium.20180508013454;selenium.20180508013454 |
+			| Ethical Leader | mentor | selenium.20180508013454;selenium.20180508013454 |
+			| Career Strategist | mentor | selenium.20180508013454;selenium.20180508013454 |
+			| Cross-Cultural Team Player | mentor | selenium.20180508013454;selenium.20180508013454 |
+			| Creative Thinker | mentor | selenium.20180508013454;selenium.20180508013454 |
+			| Confident Communicator | mentor | selenium.20180508013454;selenium.20180508013454 |
 
 		Then "Practera" I log out
