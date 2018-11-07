@@ -6,7 +6,7 @@ Feature: Custom branding for app
     Scenario: Test Custom branding configuration page for admin
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
+        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "set-up tag" which is located at "//*[text()='Set-up']/.." with xpath
         Then I wait 2 seconds

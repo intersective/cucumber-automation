@@ -6,7 +6,7 @@ Feature: Practera Assign reviewers
     Scenario: Test Practera Assign reviewers
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
+        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr" with assert
