@@ -10,6 +10,12 @@ Then(/^"Practera" I login with username "([^"]*)" and password "([^"]*)"$/) do |
     step("I wait 2 seconds")
 end
 
+Then(/^"Practera" I login with "([^"]*)" and "([^"]*)"$/) do |userNameKey, userPasswordKey|
+    userName = $sharedData1.loadDataFromKey(userNameKey)
+    userPassword = $sharedData1.loadDataFromKey(userPasswordKey)
+    step("\"Practera\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
+end
+
 Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName|
     found = false
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
@@ -48,7 +54,7 @@ Then(/^"Practera" I should see the student submission$/) do
     step("\"Practera\" I should see a student \"#{studentName}\" submission")
 end
 
-Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentorName, studentName|
+Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentor, studentName|
     editableform = nil
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
@@ -60,6 +66,7 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submiss
         end
         index = index + 1
     end
+    mentorName = $sharedData1.loadDataFromKey(mentor)
     findElementWithParent(editableform, ".editable-input input").send_keys(mentorName)
     waitForElement($driver, $wait, "ul.select2-results > li > div").click()
     findElementWithParent(editableform, ".editable-buttons button.editable-submit").click()
@@ -112,9 +119,9 @@ Then(/^"Practera" I can publish the student submission review$/) do
     step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
 end
 
-Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) do |mentorName|
+Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) do |mentor|
     studentName = $sharedData1.loadDataFromKey("studentName")
-    step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
+    step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission")
 end
 
 Then(/^"Practera" I can see the student submission review with "([^"]*)" publisher$/) do |publisher|
@@ -179,7 +186,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
 
     for i in 1..rows
         assessmentName = data[i][0].strip()
-        mentorName = data[i][1].strip()
+        mentor = data[i][1].strip()
         students = data[i][2].strip().split(";")
         step("I click on \"#{assessmentName}\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr:nth-of-type(2) td:nth-of-type(3) > a\"")
 		step("I click on \"review tab\" which is located at \"#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)\"")
@@ -187,7 +194,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         students.each do |student|
             step("I should be able to see a group of \"unassigned submissions\" which is located at \"#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr\"")
             step("\"Practera\" I should see a student \"#{student}\" submission")
-            step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{student}\" submission")
+            step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{student}\" submission")
             step("I should be able to see \"message\" which is located at \".toast-message\"")
             step("The \"message\" which is located at \".toast-message\" should be disappear")
             step("I wait 2 seconds")

@@ -6,9 +6,9 @@ Feature: Practera create an event in a timeline
     Scenario: Test ractera create an event in a timeline
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "pe_admin_selenium@practera.com" and password "12341234"
+        Then "Practera" I login with "peprogramAdminAccount" and "peprogramAdminAccountPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
-		Then I click on "change cohort" which is located at "//*[normalize-space()='Change Cohort'][@class='select2-offscreen']/.." with xpath
+		Then I click on "Switch cohort" which is located at "//*[normalize-space()='Switch Cohort'][@class='select2-offscreen']/.." with xpath
 		Then I select "Automation Timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
