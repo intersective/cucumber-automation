@@ -60,7 +60,7 @@ Feature: Practera is_required file applies to different type of question
     Scenario: Test Practera is_required file applies to different type of question assign a mentor
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program1.admin@practera.com" and password "12341234"
+        Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "submissions tab" which is located at "//*[text()='Submissions']/.." with xpath
         Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
@@ -69,7 +69,7 @@ Feature: Practera is_required file applies to different type of question
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see a student "barry_test_program.student6" submission
-		Then "Practera" I can assign a mentor "barry.test.program.mentor1" to a student "barry_test_program.student6" submission
+		Then "Practera" I can assign a mentor "testprogram1Mentor" to a student "barry_test_program.student6" submission
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
@@ -81,7 +81,7 @@ Feature: Practera is_required file applies to different type of question
     Scenario: Test Practera is_required file applies to different type of question mentor review
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry.test.program.mentor1@practera.com" and password "12341234"
+        Then "Practera" I login with "testprogram1MentorAccount" and "testprogram1MentorAccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "reviews & feedback" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
         Then I wait 2 seconds

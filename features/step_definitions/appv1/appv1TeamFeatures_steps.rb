@@ -1,8 +1,9 @@
 
 
-Then("\"Appv1 Team\" I login with team member {string} and password {string} and domain {string}") do |student, password, domain|
+Then("\"Appv1 Team\" I login with team member {string} and password {string} and domain {string}") do |student, upassword, domain|
     teamObj = $sharedData1.loadDataFromKey("team")
     studentName = teamObj[student] + "@" + domain
+    password = $sharedData1.loadDataFromKey(upassword)
     step("\"Appv1\" I login with username \"#{studentName}\" and password \"#{password}\"")
 end
 

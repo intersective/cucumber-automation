@@ -6,7 +6,7 @@ Feature: AppV1 topics
 	Scenario: Test AppV1 topics
 		Given I go to App V1
 		When "Appv1" I wait unitl the splash disappear
-		Then "Appv1" I login with the student account and password "12341234"
+		Then "Appv1" I login with the student account and password "studentPassword"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items

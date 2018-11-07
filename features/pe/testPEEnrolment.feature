@@ -6,7 +6,7 @@ Feature: Personal Edge Enrolment
 	Scenario: Test Personal Edge Enrolment
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-		Then "Practera" I login with username "pe_admin_selenium@practera.com" and password "12341234"
+		Then "Practera" I login with "peprogramAdminAccount" and "peprogramAdminAccountPassword"
 		Then I should be able to see "a bar" which is located at "#sidebar"
 		Then I click on "people tab button" which is located at "//*[text()='People']/.." with xpath
 		Then I wait 2 seconds

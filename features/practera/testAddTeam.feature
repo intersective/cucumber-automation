@@ -6,7 +6,7 @@ Feature: Practera add a team
     Scenario: Test Practera add a team
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
+        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "people tag" which is located at "//*[text()='People']/.." with xpath
 		Then I wait 2 seconds

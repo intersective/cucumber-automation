@@ -6,7 +6,7 @@ Feature: AppV1 Moderated Team Assessment
 	Scenario: Test AppV1 Moderated Team Assessment
 		Given I go to App V1
 		When "Appv1" I wait unitl the splash disappear
-		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
+		Then "Appv1 Team" I login with team member "student1" and password "studentPassword" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
@@ -37,7 +37,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
+        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
@@ -46,7 +46,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera Team" I should see team student "student1" submission
-		Then "Practera Team" I can assign a mentor "selenium_mentor2" to a team student "student1" submission
+		Then "Practera Team" I can assign a mentor "mentor2" to a team student "student1" submission
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
@@ -57,7 +57,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "selenium_mentor2@practera.com" and password "12341234"
+		Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "review and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds
@@ -88,7 +88,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "admin_selenium@practera.com" and password "12341234"
+        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
@@ -107,7 +107,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to App V1
 		When "Appv1" I wait unitl the splash disappear
-		Then "Appv1 Team" I login with team member "student1" and password "12341234" and domain "practera.com"
+		Then "Appv1 Team" I login with team member "student1" and password "studentPassword" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
@@ -117,7 +117,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to App V1
 		When "Appv1" I wait unitl the splash disappear
-		Then "Appv1 Team" I login with team member "student2" and password "12341234" and domain "practera.com"
+		Then "Appv1 Team" I login with team member "student2" and password "studentPassword" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		Then I wait until the loading finished
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items

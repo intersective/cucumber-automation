@@ -6,7 +6,7 @@ Feature: AppV1 current activty
     Scenario: Test AppV1 current activty
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with the student account and password "12341234"
+        Then "Appv1" I login with the student account and password "studentPassword"
         Then I wait until the loading finished
         Then "Appv1" I should see the app home screen
         When I wait 6 seconds

@@ -33,7 +33,8 @@ Then("\"Practera Team\" I can assign a mentor {string} to a team student {string
     studentName = teamObj[student]
     teamName = teamObj["name"]
     teamStudentName = "%s (%s)" % [teamName, studentName]
-    step("\"Practera\" I can assign a mentor \"selenium_mentor2\" to a student \"#{teamStudentName}\" submission")
+    mentorName = $sharedData1.loadDataFromKey(mentor)
+    step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{teamStudentName}\" submission")
 end
 
 Then("\"Practera Team\" I can go to the review page with a team student {string} submission and the assessment {string}") do |student, assessment|
