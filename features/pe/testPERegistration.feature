@@ -5,7 +5,7 @@ Feature: Personal Edge Registration
 
 	Scenario: Test Personal Edge Registration
 		Given I go to Mailtrap
-        When "Mailtrap" I login with username "phil@intersective.com" and password "El3phant"
+        When "Mailtrap" I login with "mailtrapUser" and "mailtrapUserPassword"
         Then "Mailtrap" I go to practera inbox
 		Then "PE" I search email with title "Personal Edge - Welcome and Register" and the student as receiver
 		Then "Mailtrap" I go into the email content

@@ -8,8 +8,9 @@ Then(/^"Appv1" I log out$/) do
 	$appv1PageActions.logout($driver, $wait)
 end
 
-Then(/^"Appv1" I login with the student account and password "([^"]*)"$/) do |userPassword|
+Then(/^"Appv1" I login with the student account and password "([^"]*)"$/) do |uPassword|
 	studentAccount = $sharedData1.loadDataFromKey("studentAccount")
+	userPassword = $sharedData1.loadDataFromKey(uPassword)
 	step("\"Appv1\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 

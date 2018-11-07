@@ -6,7 +6,7 @@ Feature: AppV1 Check Team Assessment
 	Scenario: Test AppV1 Check Team Assessment
 		Given I go to App V1
 		When "Appv1" I wait unitl the splash disappear
-		Then "Appv1 Team" I login with team member "student2" and password "12341234" and domain "practera.com"
+		Then "Appv1 Team" I login with team member "student2" and password "studentPassword" and domain "practera.com"
 		Then "Appv1" I should see the app home screen
 		When I wait until the loading finished
 		Then "Appv1" I go to the "Activity 2" activity page which has "3" items
