@@ -54,7 +54,7 @@ Then(/^"Practera" I should see the student submission$/) do
     step("\"Practera\" I should see a student \"#{studentName}\" submission")
 end
 
-Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentorName, studentName|
+Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentor, studentName|
     editableform = nil
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
@@ -66,6 +66,7 @@ Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submiss
         end
         index = index + 1
     end
+    mentorName = $sharedData1.loadDataFromKey("mentor")
     findElementWithParent(editableform, ".editable-input input").send_keys(mentorName)
     waitForElement($driver, $wait, "ul.select2-results > li > div").click()
     findElementWithParent(editableform, ".editable-buttons button.editable-submit").click()

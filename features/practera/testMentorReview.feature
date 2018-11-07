@@ -6,7 +6,7 @@ Feature: Practera Mentor Review
     Scenario: Test Practera Mentor Review
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "selenium_mentor2@practera.com" and password "12341234"
+        Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "reviews and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds

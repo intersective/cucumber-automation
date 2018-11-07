@@ -46,7 +46,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera Team" I should see team student "student1" submission
-		Then "Practera Team" I can assign a mentor "selenium_mentor2" to a team student "student1" submission
+		Then "Practera Team" I can assign a mentor "mentor2" to a team student "student1" submission
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
@@ -57,7 +57,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "selenium_mentor2@practera.com" and password "12341234"
+		Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
 		Then I should be able to see "a side bar" which is located at "#sidebar"
 		Then I click on "review and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds

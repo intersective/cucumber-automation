@@ -15,7 +15,7 @@ Feature: Practera Assign reviewers
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see the student submission
-		Then "Practera" I can assign a mentor "selenium_mentor2" to the student submission
+		Then "Practera" I can assign a mentor "mentor2" to the student submission
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
