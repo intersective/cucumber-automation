@@ -5,7 +5,7 @@ Feature: Project assessments
 
     Scenario: Test project dashboard with Admin
         Given I go to Practera Platform
-        When "Practera" I login with username "admin_newuis2@practera.com" and password "12341234"
+        When "Practera" I login with username "admin_newuis2@practera.com" and a predefined password "password1"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard

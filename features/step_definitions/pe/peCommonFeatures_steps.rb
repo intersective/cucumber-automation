@@ -12,6 +12,11 @@ Then(/^"PE" I login with the student and password "([^"]*)"$/) do |userPassword|
     step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 
+Then(/^"PE" I login with username "([^"]*)" and a predefined password "([^"]*)"$/) do |uPassword|
+    userPassword = $sharedData1.loadDataFromKey(uPassword)
+    step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
+end
+
 Then(/^"PE" I wait for loading finished$/) do
     step("The \"loading dialog\" which is located at \"ion-loading\" should be disappear")
     clickBlock = waitForElement($driver, $normalWait, ".click-block")

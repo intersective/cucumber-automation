@@ -16,6 +16,11 @@ Then(/^"Practera" I login with "([^"]*)" and "([^"]*)"$/) do |userNameKey, userP
     step("\"Practera\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
 end
 
+Then(/^"Practera" I login with username "([^"]*)" and a predefined password "([^"]*)"$/) do |userName, userPasswordKey|
+    userPassword = $sharedData1.loadDataFromKey(userPasswordKey)
+    step("\"Practera\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
+end
+
 Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName|
     found = false
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
