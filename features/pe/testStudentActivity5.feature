@@ -5,7 +5,7 @@ Feature: Personal Edge Student Cross-Cultural Team Player Activity
 
     Scenario: Test Personal Edge Student Personal Edge Student Cross-Cultural Team Player Activity
         Given I go to PE
-        When "PE" I login with username "selenium.20180508013454@practera.com" and password "12341234"
+        When "PE" I login with username "selenium.20180508013454@practera.com" and a predefined password "password1"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "5" position with title "Cross-Cultural Team Player"
         Then "PE" I can see an activity locating at "5" position with "0" tick

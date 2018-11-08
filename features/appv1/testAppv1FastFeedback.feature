@@ -5,7 +5,7 @@ Feature: Appv1 slider type questions
     Scenario: Test Appv1 slider type questions for a student who is not in a team
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with username "selenium.20180530171600@practera.com" and password "12341234"
+        Then "Appv1" I login with username "selenium.20180530171600@practera.com" and a predefined password "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I should be able to see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath assert
@@ -41,7 +41,7 @@ Feature: Appv1 slider type questions
 
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with username "selenium.20180530171600@practera.com" and password "12341234"
+        Then "Appv1" I login with username "selenium.20180530171600@practera.com" and a predefined password "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I should not see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath assert
@@ -50,7 +50,7 @@ Feature: Appv1 slider type questions
     Scenario: Test Appv1 slider type questions for students who are in a team
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with username "selenium.20180531102500@practera.com" and password "12341234"
+        Then "Appv1" I login with username "selenium.20180531102500@practera.com" and a predefined password "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
@@ -68,7 +68,7 @@ Feature: Appv1 slider type questions
 
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with username "selenium.20180531102600@practera.com" and password "12341234"
+        Then "Appv1" I login with username "selenium.20180531102600@practera.com" and a predefined password "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"

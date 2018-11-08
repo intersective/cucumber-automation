@@ -5,7 +5,7 @@ Feature: Personal Edge Student Creative Thinker Activity
 
     Scenario: Test Personal Edge Student Creative Thinker Activity
         Given I go to PE
-        When "PE" I login with username "selenium.20180508013454@practera.com" and password "12341234"
+        When "PE" I login with username "selenium.20180508013454@practera.com" and a predefined password "password1"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "1" position with title "Creative Thinker"
         Then "PE" I go to "1" activity

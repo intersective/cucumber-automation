@@ -162,6 +162,11 @@ Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)" with xpath s
     ele.send_keys(arg1)
 end
 
+Then(/^I input predefined values "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
+    values = $sharedData1.loadDataFromKey(arg1)
+    step("I input \"#{values}\" to \"#{arg2}\" which is located at \"#{arg3}\"")
+end
+
 Then(/^I upload the file "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
     waitForElement($driver, $wait, arg3).send_keys(arg1)
 end
