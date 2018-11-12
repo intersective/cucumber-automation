@@ -9,6 +9,12 @@ Then(/^"Appv1" I login with username "([^"]*)" and a predefined password "([^"]*
 	step("\"Appv1\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
 end
 
+Then(/^"Appv1" I login with "([^"]*)" and "([^"]*)"$/) do |uName, uPassword|
+	userName = $sharedData1.loadDataFromKey(uName)
+	userPassword = $sharedData1.loadDataFromKey(uPassword)
+	step("\"Appv1\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
+end
+
 Then(/^"Appv1" I log out$/) do
 	$appv1PageActions.logout($driver, $wait)
 end

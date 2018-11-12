@@ -135,7 +135,7 @@ Then("\"Appv1\" I go to the {string} activity page which has {string} items") do
 	step("\"Appv1\" I should see the app home screen")
 	step("I wait 8 seconds")
 	step("\"Appv1\" I go to the \"Activities\" tab page")
-	step("I can see a group of \"milestones\" with total \"3\" which is located at \".milestone-header\"")
+	step("I can see a group of \"milestones\" with total \"4\" which is located at \".milestone-header\"")
 	step("I wait 2 seconds")
 	step("\"Appv1\" I go to the \"#{activityTitle}\" activity")
 	step("I wait 3 seconds")
