@@ -237,3 +237,16 @@ Then("I move the slider {string} to the {string} which is located at {string} by
         end
     end
 end
+
+Then(/^I can see "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |arg1, arg2, arg3|
+    if arg3 == " with xpath"
+        ele = waitForElementXpath($driver, $wait, arg2)
+    else
+        ele = waitForElement($driver, $wait, arg2)
+    end
+    if ele == nil
+        verifyValue("expected element exist", arg2, "nil")
+    else
+        scrollIfNotVisible($driver, ele)
+    end
+end
