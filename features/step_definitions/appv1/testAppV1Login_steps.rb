@@ -9,6 +9,12 @@ Then(/^"Appv1" I login with username "([^"]*)" and a predefined password "([^"]*
 	step("\"Appv1\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
 end
 
+Then(/^"Appv1" I login with "([^"]*)" and "([^"]*)"$/) do |uName, uPassword|
+	userName = $sharedData1.loadDataFromKey(uName)
+	userPassword = $sharedData1.loadDataFromKey(uPassword)
+	step("\"Appv1\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
+end
+
 Then(/^"Appv1" I log out$/) do
 	$appv1PageActions.logout($driver, $wait)
 end
@@ -52,10 +58,8 @@ Then(/^"Appv1" I should see the app home screen$/) do
 	end
 end
 
-Then(/^"Appv1" I can see the current milestone "([^"]*)" with status "([^"]*)"$/) do |milestoneName, milestoneStatus|
-	milestone = waitForElementXpath($driver, $wait, "//*[text()='Things to do']/following-sibling::div")
-	aMileStoneName = refineElementTextContent(milestone.find_element(:css => ".title"))
-	aMilestoneStatus = refineElementTextContent(milestone.find_element(:css => "h3"))
-	verifyValue("expected milestone title", milestoneName, aMileStoneName)
-	verifyValue("expected milestone title", milestoneStatus, aMilestoneStatus)
+Then(/^"Appv1" I can see the current activity "([^"]*)"$/) do |activityName|
+	activity = waitForElementXpath($driver, $wait, "//*[text()='Current Activity']/..//following-sibling::div")
+	aActivityName = refineElementTextContent(activity.find_element(:css => ".activity-name"))
+	verifyValue("expected activity title", activityName, aActivityName)
 end
