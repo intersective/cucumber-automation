@@ -15,5 +15,6 @@ Feature: AppV1 login
 		When I wait until the loading finished
 		Then "Appv1" I should see desired program "App V1 Selenium Program"
 		Then "Appv1" I should see the app home screen
+		Then "Appv1" I can see the current activity "Comprehensive Activity"
 		Then "Appv1" I log out
 		Then I wait 5 seconds

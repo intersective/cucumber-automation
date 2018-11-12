@@ -52,10 +52,8 @@ Then(/^"Appv1" I should see the app home screen$/) do
 	end
 end
 
-Then(/^"Appv1" I can see the current milestone "([^"]*)" with status "([^"]*)"$/) do |milestoneName, milestoneStatus|
-	milestone = waitForElementXpath($driver, $wait, "//*[text()='Things to do']/following-sibling::div")
-	aMileStoneName = refineElementTextContent(milestone.find_element(:css => ".title"))
-	aMilestoneStatus = refineElementTextContent(milestone.find_element(:css => "h3"))
-	verifyValue("expected milestone title", milestoneName, aMileStoneName)
-	verifyValue("expected milestone title", milestoneStatus, aMilestoneStatus)
+Then(/^"Appv1" I can see the current activity "([^"]*)"$/) do |activityName|
+	activity = waitForElementXpath($driver, $wait, "//*[text()='Current Activity']/..//following-sibling::div")
+	aActivityName = refineElementTextContent(activity.find_element(:css => ".activity-name"))
+	verifyValue("expected activity title", activityName, aActivityName)
 end

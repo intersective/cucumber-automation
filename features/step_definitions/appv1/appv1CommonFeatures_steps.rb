@@ -130,14 +130,14 @@ Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([
 	sleep 4
 end
 
-Then("\"Appv1\" I go to the {string} activity page which has {string} items") do |milestoneTitle, numberOfItems|
+Then("\"Appv1\" I go to the {string} activity page which has {string} items") do |activityTitle, numberOfItems|
 	# step("\"Appv1\" I choose a program \"App V1 Selenium Program\"")
 	step("\"Appv1\" I should see the app home screen")
 	step("I wait 8 seconds")
 	step("\"Appv1\" I go to the \"Activities\" tab page")
 	step("I can see a group of \"milestones\" with total \"3\" which is located at \".milestone-header\"")
 	step("I wait 2 seconds")
-	step("\"Appv1\" I go to the \"#{milestoneTitle}\" activity")
+	step("\"Appv1\" I go to the \"#{activityTitle}\" activity")
 	step("I wait 3 seconds")
 	step("I can see a group of \"assessments and topics\" with total \"#{numberOfItems}\" which is located at \".jsmbp-detail-items > div\"")
 	step("I wait 2 seconds")
