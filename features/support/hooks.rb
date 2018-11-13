@@ -91,8 +91,8 @@ Before('@Feature') do |testcase|
     featureFileName = testcase.location
     baseName = featureFileName.to_s.split("/")[1..-1].join("/").split(".")[0..-2].join(".") # eliminate the folder name features
     dataFileName = "%s/data/%s.json" % [Dir.pwd, baseName]
-    $variableLoaded = initTestData(dataFileName, dataFileName)
-    $currentFeatureFile = $variableLoaded? dataFileName: ""
+    $variableLoaded = initTestData(dataFileName, baseName)
+    $currentFeatureFile = $variableLoaded? baseName: ""
 end
 
 After('@Feature') do
