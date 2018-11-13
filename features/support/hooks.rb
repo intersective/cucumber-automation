@@ -6,8 +6,12 @@ private def getScenarioName(sobj)
 end
 
 private def initTestData(filePath, key)
-    testObj = readJsonfile(filePath)
-    $sharedData1.putData(key, testObj)
+    if File.exist?(filePath)
+        testObj = readJsonfile(filePath)
+        $sharedData1.putData(key, testObj)
+        return true
+    end
+    return false
 end
 
 private def initTestDataWithKey(filePath)
@@ -16,13 +20,17 @@ private def initTestDataWithKey(filePath)
         testObj.each do |key, value|
             $sharedData1.putData(key, value)
         end
+        return true
     end
+    return false
 end
 
 AfterConfiguration do |config|
     puts("should only happen once")
     $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
     $testLogger1 = Twplogger.instance
+    $variableLoaded = false
+    $currentFeatureFile = ""
     if $configObj["mode"] != "apiTest"
         $sharedWebDriver1 = SharedWebDriver.instance
         $sharedData1 = SharedData.instance
@@ -77,4 +85,17 @@ end
 
 Around('@RunTwoTimes') do |scenario, block|
     2.times { block.call }
+end
+
+Before('@Feature') do |testcase|
+    featureFileName = testcase.location
+    baseName = featureFileName.to_s.split("/")[1..-1].join("/").split(".")[0..-2].join(".") # eliminate the folder name features
+    dataFileName = "%s/data/%s.json" % [Dir.pwd, baseName]
+    $variableLoaded = initTestData(dataFileName, baseName)
+    $currentFeatureFile = $variableLoaded? baseName: ""
+end
+
+After('@Feature') do
+    $variableLoaded = false
+    $currentFeatureFile = ""
 end

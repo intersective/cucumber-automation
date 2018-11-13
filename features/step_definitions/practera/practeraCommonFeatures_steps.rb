@@ -11,13 +11,8 @@ Then(/^"Practera" I login with username "([^"]*)" and password "([^"]*)"$/) do |
 end
 
 Then(/^"Practera" I login with "([^"]*)" and "([^"]*)"$/) do |userNameKey, userPasswordKey|
-    userName = $sharedData1.loadDataFromKey(userNameKey)
-    userPassword = $sharedData1.loadDataFromKey(userPasswordKey)
-    step("\"Practera\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
-end
-
-Then(/^"Practera" I login with username "([^"]*)" and a predefined password "([^"]*)"$/) do |userName, userPasswordKey|
-    userPassword = $sharedData1.loadDataFromKey(userPasswordKey)
+    userName = loadSharedData(userNameKey)
+    userPassword = loadSharedData(userPasswordKey)
     step("\"Practera\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
 end
 

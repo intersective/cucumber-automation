@@ -1,3 +1,4 @@
+@Feature
 Feature: Personal Edge Student After Newbie Activity
 	As a student to the program
 	I want to login to the app
@@ -5,7 +6,7 @@ Feature: Personal Edge Student After Newbie Activity
 
     Scenario: Test Personal Edge Student After Newbie Activity
         Given I go to PE
-        When "PE" I login with username "selenium.20180508013454@practera.com" and a predefined password "password1"
+        When "PE" I login with "user" and "password1"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "7" position with title "Newbie"
         Then "PE" I can see an activity locating at "7" position with "4" tick

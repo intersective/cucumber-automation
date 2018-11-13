@@ -4,14 +4,9 @@ Then(/^"Appv1" I login with username "([^"]*)" and password "([^"]*)"$/) do |use
 	$appv1PageActions.login($driver, $wait, userName, userPassword)
 end
 
-Then(/^"Appv1" I login with username "([^"]*)" and a predefined password "([^"]*)"$/) do |userName, uPassword|
-	userPassword = $sharedData1.loadDataFromKey(uPassword)
-	step("\"Appv1\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
-end
-
 Then(/^"Appv1" I login with "([^"]*)" and "([^"]*)"$/) do |uName, uPassword|
-	userName = $sharedData1.loadDataFromKey(uName)
-	userPassword = $sharedData1.loadDataFromKey(uPassword)
+	userName = loadSharedData(uName)
+	userPassword = loadSharedData(uPassword)
 	step("\"Appv1\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
 end
 
@@ -21,7 +16,7 @@ end
 
 Then(/^"Appv1" I login with the student(|[1-9]+[0-9]*) account and password "([^"]*)"$/) do |arg1, uPassword|
 	studentAccount = getStudentFromData(arg1).account
-	userPassword = $sharedData1.loadDataFromKey(uPassword)
+	userPassword = loadSharedData(uPassword)
 	step("\"Appv1\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 

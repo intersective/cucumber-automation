@@ -1,3 +1,4 @@
+@Feature
 Feature: Practera is_required file applies to file type question
 	As a program admin/coordinator
 	I want to make sure that student answer the question before the submission is made. 
@@ -6,7 +7,7 @@ Feature: Practera is_required file applies to file type question
     Scenario: Test Practera is_required file applies to file type question
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program.student5@practera.com" and a predefined password "password1"
+        Then "Practera" I login with "user" and "password1"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "Assessments" which is located at "//*[normalize-space()='Assessments']/a" with xpath
         Then I wait 2 seconds

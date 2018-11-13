@@ -1,3 +1,4 @@
+@Feature
 Feature: Personal Edge Student Activity result after reviewing
 	As a student to the program
 	I want to login to the app
@@ -5,7 +6,7 @@ Feature: Personal Edge Student Activity result after reviewing
 
     Scenario: Test Personal Edge Student Activity result after reviewing
         Given I go to PE
-        When "PE" I login with username "selenium.20180508013454@practera.com" and a predefined password "password1"
+        When "PE" I login with "user" and "password1"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "1" position with title "Creative Thinker"
         Then "PE" I can see an activity locating at "1" position with "4" tick
