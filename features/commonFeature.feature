@@ -4,4 +4,4 @@ Feature: Common steps definition
 	so that I would not need to write same definition multiple times
 
     Scenario: Common steps definition initialisation
-        Then I wait 2 seconds
+        Given I wait 2 seconds
