@@ -49,13 +49,13 @@ Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/
     end
 end
 
-Then(/^"Practera" I should see the student ready to publish submission$/) do
-    studentName = $sharedData1.loadDataFromKey("studentName")
+Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) ready to publish submission$/) do |arg1|
+    studentName = getStudentFromData(arg1).name
     step("\"Practera\" I should see a student \"#{studentName}\" ready to publish submission")
 end
 
-Then(/^"Practera" I should see the student submission$/) do
-    studentName = $sharedData1.loadDataFromKey("studentName")
+Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) submission$/) do |arg1|
+    studentName = getStudentFromData(arg1).name
     step("\"Practera\" I should see a student \"#{studentName}\" submission")
 end
 
@@ -119,23 +119,23 @@ Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studen
     end
 end
 
-Then(/^"Practera" I can publish the student submission review$/) do
-    studentName = $sharedData1.loadDataFromKey("studentName")
+Then(/^"Practera" I can publish the student(|[1-9]+[0-9]*) submission review$/) do |arg1|
+    studentName = getStudentFromData(arg1).name
     step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
 end
 
-Then(/^"Practera" I can assign a mentor "([^"]*)" to the student submission$/) do |mentor|
-    studentName = $sharedData1.loadDataFromKey("studentName")
+Then(/^"Practera" I can assign a mentor "([^"]*)" to the student(|[1-9]+[0-9]*) submission$/) do |mentor, arg2|
+    studentName = getStudentFromData(arg2).name
     step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission")
 end
 
-Then(/^"Practera" I can see the student submission review with "([^"]*)" publisher$/) do |publisher|
-    studentName = $sharedData1.loadDataFromKey("studentName")
+Then(/^"Practera" I can see the student(|[1-9]+[0-9]*) submission review with "([^"]*)" publisher$/) do |arg1, publisher|
+    studentName = getStudentFromData(arg1).name
     step("\"Practera\" I can see a student \"#{studentName}\" submission review with \"#{publisher}\" publisher")
 end
 
-Then(/^"Practera" I can edit the student submission review$/) do
-    studentName = $sharedData1.loadDataFromKey("studentName")
+Then(/^"Practera" I can edit the student(|[1-9]+[0-9]*) submission review$/) do |arg1|
+    studentName = getStudentFromData(arg1).name
     step("\"Practera\" I can edit a student \"#{studentName}\" submission review")
 end
 
@@ -152,8 +152,8 @@ Then(/^"Practera" I can go to the review page with a student "([^"]*)" submissio
     end
 end
 
-Then(/^"Practera" I can go to the review page with the student submission and the assessment "([^"]*)"$/) do |assessmentName|
-    studentName = $sharedData1.loadDataFromKey("studentName")
+Then(/^"Practera" I can go to the review page with the student(|[1-9]+[0-9]*) submission and the assessment "([^"]*)"$/) do |arg1, assessmentName|
+    studentName = getStudentFromData(arg1).name
     step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
 
@@ -163,8 +163,9 @@ Then(/^I wait until the enrolment process percentage be 100 percent$/) do
 	end
 end
 
-Then(/^I input student name to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
-	waitForElement($driver, $wait, arg2).send_keys($sharedData1.loadDataFromKey("studentName"))
+Then(/^I input student(|[1-9]+[0-9]*) name to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
+    studentName = getStudentFromData(arg1).name
+	waitForElement($driver, $wait, arg3).send_keys(studentName)
 end
 
 Then("I wait the search result with locator {string}") do |arg1|
