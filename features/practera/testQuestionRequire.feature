@@ -6,7 +6,7 @@ Feature: Practera is_required file applies to different type of question
     Scenario: Test Practera is_required file applies to different type of question
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "barry_test_program.student6@practera.com" and a predefined password "password1"
+        Then "Practera" I login with "user" and "password1"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "assessments tag" which is located at "//*[text()='Assessments']/.." with xpath
         Then I wait 2 seconds

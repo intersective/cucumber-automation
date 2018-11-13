@@ -1,3 +1,4 @@
+@Feature
 Feature: Custom branding for app
     As an admin
     I want to customise the theme colour & card image for my program on App
@@ -22,7 +23,7 @@ Feature: Custom branding for app
     Scenario: Test Custom branding for a student in the AppV1
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with username "selenium.20180525145649@practera.com" and a predefined password "password1"
+        Then "Appv1" I login with "user" and "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I wait 5 seconds

@@ -1,3 +1,4 @@
+@Feature
 Feature: Practera Hide Activities on Calendar
 	As a program coordinator
 	I don't want to see the skills on the calendar
@@ -66,7 +67,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with a participant account
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "test_program_student_1@practera.com" and a predefined password "password1"
+        Then "Practera" I login with "user" and "password1"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "calendar" which is located at "//*[text()='Calendar']/.." with xpath
         Then I wait 2 seconds
@@ -87,7 +88,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with the same participant account
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with username "test_program_student_1@practera.com" and a predefined password "password1"
+        Then "Practera" I login with "user" and "password1"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "calendar" which is located at "//*[text()='Calendar']/.." with xpath
         Then I wait 2 seconds

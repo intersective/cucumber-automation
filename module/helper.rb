@@ -43,3 +43,13 @@ def getStudentFromData(suffix)
 	index = (suffix != "")? suffix : "1"
 	return $sharedData1.loadDataFromKey("students")[index]
 end
+
+def loadSharedData(key)
+	if $variableLoaded?
+		value = $sharedData1.loadDataFromKey($currentFeatureFile)[key]
+		if value == nil
+			return $sharedData1.loadDataFromKey(key)
+		end
+	end
+	return $sharedData1.loadDataFromKey(key)
+end

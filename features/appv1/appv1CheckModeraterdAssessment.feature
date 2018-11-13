@@ -1,3 +1,4 @@
+@Feature
 Feature: AppV1 Check Moderated Assessment Answer
 	As a student
 	I want to login to the app and check the marking from a reviewer
@@ -6,7 +7,7 @@ Feature: AppV1 Check Moderated Assessment Answer
     Scenario: Test Check Moderated Assessment Answer
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with username "selenium.20180614215353@practera.com" and a predefined password "password1"
+        Then "Appv1" I login with "user" and "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
