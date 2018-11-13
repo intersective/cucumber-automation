@@ -12,8 +12,9 @@ Then(/^"PE" I login with the student(|[1-9]+[0-9]*) and password "([^"]*)"$/) do
     step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 
-Then(/^"PE" I login with username "([^"]*)" and a predefined password "([^"]*)"$/) do |uPassword|
-    userPassword = $sharedData1.loadDataFromKey(uPassword)
+Then(/^"PE" I login with "([^"]*)" and "([^"]*)"$/) do |uName, uPassword|
+    studentAccount = loadSharedData(uName)
+    userPassword = loadSharedData(uPassword)
     step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 

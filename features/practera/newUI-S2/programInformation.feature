@@ -1,3 +1,4 @@
+@Feature
 Feature: Program information
     As a program admin
     I want to seek some program analysis information
@@ -5,7 +6,7 @@ Feature: Program information
 
     Scenario: Test project dashboard with Admin
         Given I go to Practera Platform
-        When "Practera" I login with username "admin_newuis2@practera.com" and a predefined password "password1"
+        When "Practera" I login with "user" and "password1"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard
@@ -15,7 +16,7 @@ Feature: Program information
     
     Scenario: Test project content with Admin
         Given I go to Practera Platform
-        When "Practera" I login with username "admin_newuis2@practera.com" and a predefined password "password1"
+        When "Practera" I login with "user" and "password1"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard
@@ -24,7 +25,7 @@ Feature: Program information
 
     Scenario: Test project annoucements with Admin
         Given I go to Practera Platform
-        When "Practera" I login with username "admin_newuis2@practera.com" and a predefined password "password1"
+        When "Practera" I login with "user" and "password1"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard
@@ -33,7 +34,7 @@ Feature: Program information
 
     Scenario: Test project calendar with Admin
         Given I go to Practera Platform
-        When "Practera" I login with username "admin_newuis2@practera.com" and a predefined password "password1"
+        When "Practera" I login with "user" and "password1"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard

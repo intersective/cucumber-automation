@@ -1,3 +1,4 @@
+@Feature
 Feature: AppV1 assessment and questions display logic
     As a student or mentor
     I want to login to the app and check my assessments
@@ -6,7 +7,7 @@ Feature: AppV1 assessment and questions display logic
     Scenario: Test the assessment visibility for a participant
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with username "selenium.20181110105448a3adf0db1691@practera.com" and a predefined password "studentPassword"
+        Then "Appv1" I login with "user" and "studentPassword"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then "Appv1" I go to the "Activity Four" activity page which has "1" items

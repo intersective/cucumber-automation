@@ -5,7 +5,7 @@ Feature: Personal Edge Student Ethical Leader Activity
 
     Scenario: Test Personal Edge Student Personal Edge Student Ethical Leader Activity
         Given I go to PE
-        When "PE" I login with username "selenium.20180508013454@practera.com" and a predefined password "password1"
+        When "PE" I login with "user" and "password1"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "3" position with title "Ethical Leader"
         Then "PE" I go to "3" activity
