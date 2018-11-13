@@ -45,7 +45,7 @@ def getStudentFromData(suffix)
 end
 
 def loadSharedData(key)
-	if $variableLoaded?
+	if $variableLoaded
 		value = $sharedData1.loadDataFromKey($currentFeatureFile)[key]
 		if value == nil
 			filePath = Dir.pwd + "/data/" + $currentFeatureFile.split("/")[0] + "/commons.json"
