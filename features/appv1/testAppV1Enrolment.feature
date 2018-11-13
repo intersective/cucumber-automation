@@ -14,7 +14,7 @@ Feature: AppV1 Enrolment
 		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I should be able to see "a form" which is located at "#EnrolmentAddForm"
 		Then I select "App V1 timeline 1" to "a selector" which is located at "#EnrolmentAddForm .timeline-select #EnrolmentTimelineId"
-		Then I input the enrolment information which is located at "textArea[name='data[Enrolment][csvtext]']"
+		Then I input 1 student enrolment information which is located at "textArea[name='data[Enrolment][csvtext]']"
 		Then I wait 2 seconds 
 		Then I click on "a button" which is located at "#EnrolmentAddForm .form-actions button"
 		Then I wait until the enrolment process percentage be 100 percent

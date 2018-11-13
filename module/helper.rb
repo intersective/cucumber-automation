@@ -21,6 +21,12 @@ def readJsonfile(filePath)
 	return dataHash
 end
 
+def writeJsonfile(hash, fileName)
+	File.open(fileName,"w") do |f|
+		f.write(hash.to_json)
+	end
+end
+
 def verifyValue(headerMessage, expectedValue, actualValue)
 	if expectedValue != actualValue
 		message = headerMessage + " [ " + expectedValue + " ] but found [ " + actualValue + " ]"
@@ -31,4 +37,9 @@ end
 
 def getUploadFileFullPath(fileName)
 	return File.join($configObj["uploadFilePath"], fileName)
+end
+
+def getStudentFromData(suffix)
+	index = (suffix != "")? suffix : "1"
+	return $sharedData1.loadDataFromKey("students")[index]
 end

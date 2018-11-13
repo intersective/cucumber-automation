@@ -7,8 +7,8 @@ Then(/^"PE" I login with username "([^"]*)" and password "([^"]*)"$/) do |userNa
     step("I click on \"login button\" which is located at \"form.general-form > button\"")
 end
 
-Then(/^"PE" I login with the student and password "([^"]*)"$/) do |userPassword|
-    studentAccount = $sharedData1.loadDataFromKey("studentAccount")
+Then(/^"PE" I login with the student(|[1-9]+[0-9]*) and password "([^"]*)"$/) do |arg1, userPassword|
+    studentAccount = getStudentFromData(arg1).account
     step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 
@@ -32,13 +32,14 @@ Then(/^"PE" I input the enrolment information which is located at "([^"]*)"$/) d
     studentId = generateUniId()
 	studentName = "selenium.%s" % [studentId]
     studentAccount = "%s@practera.com" % [studentName]
-    $sharedData1.putData("studentName", studentName)
-    $sharedData1.putData("studentAccount", studentAccount)
     csvtext = "\n%s,%s,%s,fullaccess" % [studentAccount, studentId, studentName]
     enrolmentFile = Dir.pwd + '/data/sandbox-pe-participant.csv'
     File.open(enrolmentFile, File::WRONLY | File::APPEND) do |f|
         f.write(csvtext)
     end
+    students = {}
+    students["1"] = Student.new(studentId, studentName, studentAccount)
+    $sharedData1.putData("students", students)
     step("I upload the file \"#{enrolmentFile}\" to \"Choose file\" which is located at \"#{arg1}\"")
 end
 
@@ -50,8 +51,8 @@ Then(/^"PE" I log out$/) do
     step("\"PE\" I wait for loading finished")
 end
 
-Then(/^"PE" I search email with title "([^"]*)" and the student as receiver$/) do |title|
-    studentAccount = $sharedData1.loadDataFromKey("studentAccount")
+Then(/^"PE" I search email with title "([^"]*)" and the student(|[1-9]+[0-9]*) as receiver$/) do |title, arg2|
+    studentAccount = getStudentFromData(arg2).account
     step("\"Mailtrap\" I search email with title \"#{title}\" and receiver \"#{studentAccount}\"")
 end
 

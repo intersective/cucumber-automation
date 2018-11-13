@@ -6,6 +6,7 @@ require_relative "../../module/sharedData"
 require_relative "../../module/sharedWebDriver"
 require_relative "../../module/actions/appv1"
 require_relative "../../module/networktools"
+require_relative "../../module/model/student"
 require 'httparty'
 require 'nokogiri'
 
