@@ -165,12 +165,12 @@ end
 
 Then("\"Appv1\" I can see the overall project progress") do
 	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
-	$sharedData1.putData("progress", progress)
+	$sharedData1.putData(Application.KEY_PROGRESS, progress)
 end
 
 Then("\"Appv1\" I should have the same overall project progress") do
 	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
-	progress1 = $sharedData1.loadDataFromKey("progress")
+	progress1 = $sharedData1.loadDataFromKey(Application.KEY_PROGRESS)
 	if progress != progress1
 		fail("I should have the same overall project progress")
 	end

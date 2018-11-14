@@ -36,12 +36,12 @@ def verifyValue(headerMessage, expectedValue, actualValue)
 end
 
 def getUploadFileFullPath(fileName)
-	return File.join($configObj["uploadFilePath"], fileName)
+	return File.join($configObj[Application.KEY_UPLOADFILEPATH], fileName)
 end
 
 def getStudentFromData(suffix)
 	index = (suffix != "")? suffix : "1"
-	return $sharedData1.loadDataFromKey("students")[index]
+	return $sharedData1.loadDataFromKey(Application.KEY_STUDENTS)[index]
 end
 
 def loadSharedData(key)

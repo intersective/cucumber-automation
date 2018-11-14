@@ -171,11 +171,11 @@ end
 
 Then(/^I get the registration url at "([^"]*)"$/) do |arg1|
     regHref = waitForElement($driver, $wait, arg1).attribute("href")
-    $sharedData1.putData("regUrl", regHref)
+    $sharedData1.putData(Application.KEY_REGURL, regHref)
 end
 
 Then(/^I use the registration link$/) do
-	regLink = $sharedData1.loadDataFromKey("regUrl")
+	regLink = $sharedData1.loadDataFromKey(Application.KEY_REGURL)
 	$driver.get(regLink)
 end
 
@@ -343,7 +343,7 @@ Then(/^"Practera" I can create an event today$/) do
     waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog textarea#description").send_keys(evevtDescription)
     waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#capacity").send_keys("100")
     waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog .modal-footer > button:nth-of-type(1)").click()
-    $sharedData1.putData("currentEvent", evevtName)
+    $sharedData1.putData(Application.KEY_CURRENTEVENT, evevtName)
     sleep 5
     locator = "//*[@class='fc-title'][text()='%s']" % [evevtName]
     waitForElementVisibleXpath($driver, $wait, locator).click()
