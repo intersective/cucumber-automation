@@ -1,7 +1,7 @@
 
 
 Then(/^I input ([1-9]+[0-9]*) student enrolment information which is located at "([^"]*)"$/) do |arg1, arg2|
-	counter = arg1.to_i 
+	counter = arg1.to_i
 	students = {}
 	temp = []
 	hash = {}
@@ -15,6 +15,6 @@ Then(/^I input ([1-9]+[0-9]*) student enrolment information which is located at 
 	end
 	csvtext = temp.join("\n")
 	writeJsonfile(hash, Dir.pwd + "/data/students.json")
-	$sharedData1.putData("students", students)
+	$sharedData1.putData(Application.KEY_STUDENTS, students)
 	waitForElement($driver, $wait, arg2).send_keys(csvtext)
 end

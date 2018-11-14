@@ -164,19 +164,26 @@ Then(/^I input student(|[1-9]+[0-9]*) name to "([^"]*)" which is located at "([^
 end
 
 Then("I wait the search result with locator {string}") do |arg1|
-	while waitForElements($driver, $listWait, arg1).length != 1
+    while waitForElement($driver, $shortWait, "#indextbl_processing").attribute("style").index("display: block;") != nil
+		sleep 1
+	end
+	while waitForElements($driver, $listWait, arg1).length == 0
 		sleep 1
 	end
 end
 
-Then(/^I get the registration url at "([^"]*)"$/) do |arg1|
-    regHref = waitForElement($driver, $wait, arg1).attribute("href")
-    $sharedData1.putData(Application.KEY_REGURL, regHref)
-end
-
-Then(/^I use the registration link$/) do
-	regLink = $sharedData1.loadDataFromKey(Application.KEY_REGURL)
-	$driver.get(regLink)
+Then(/^I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) student(|s)$/) do |arg1, arg2, arg3|
+    counter = arg2.to_i
+    for i in 1..counter
+        step("I input student#{i} name to \"the box\" which is located at \"#indextbl_filter input\"")
+        step("I wait 2 seconds")
+        step("I wait the search result with locator \"table#indextbl tbody tr\"")
+        regHref = waitForElement($driver, $wait, arg1).attribute("href")
+        student = getStudentFromData(i.to_s)
+        student.regUrl = regHref
+        waitForElement($driver, $wait, "#indextbl_filter input").clear
+        step("I wait 2 seconds")
+    end
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|
