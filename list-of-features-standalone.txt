@@ -1,1 +1,1 @@
-features/appv1/testAppV1AssessmentStatus.feature
+features/appv1/appV1AssessmentStatus.feature

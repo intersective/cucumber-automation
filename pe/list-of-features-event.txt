@@ -1,2 +1,2 @@
-features/practera/testCreateEvent.feature
-features/pe/testEvent.feature
+features/practera/createEvent.feature
+features/pe/event.feature

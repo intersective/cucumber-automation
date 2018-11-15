@@ -1,1 +1,1 @@
-features/pe/testStudentPortfolio.feature
+features/pe/studentPortfolio.feature

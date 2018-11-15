@@ -1,1 +1,1 @@
-features/pe/testCompletedNewbie.feature
+features/pe/completedNewbie.feature

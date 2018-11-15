@@ -1,2 +1,2 @@
-features/casefree/testLogin.feature
-features/casefree/testSignup.feature
+features/casefree/login.feature
+features/casefree/signup.feature
