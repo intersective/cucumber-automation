@@ -16,9 +16,9 @@ Feature: AppV1 Moderated Team Assessment
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active'] .activities"
 		Then "Appv1" I do the text question locating at "1" with answer "This is the text from Selenium text automation"
 		Then I wait 2 seconds
-		Then "Appv1" I do the oneof question locating at "2" with answer "2"
+		Then "Appv1" I do the oneof question locating at "1" of group "2" with answer "Normal"
 		Then I wait 2 seconds
-		Then "Appv1" I do the multiple question locating at "3" with answer "2,3"
+		Then "Appv1" I do the multiple question locating at "1" of group "3" with answer "Choice 0.8,Choice 0.6"
 		Then I wait 2 seconds
 		Then I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
 		Then I should be able to see "a submit confirmation" which is located at ".popup"
