@@ -55,24 +55,34 @@ Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) submission$/) do |arg1
 end
 
 Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentor, studentName|
+    mentorName = $sharedData1.loadDataFromKey(mentor)
+    step("\"Practera\" I can assign \"#{mentorName}\" to \"#{studentName}\" submission")
+end
+
+Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, arg2|
     editableform = nil
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
-        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if arg2 == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             findElementWithParent(uas, "td:nth-of-type(4) > a").click()
             editableform = waitElementWithParent($wait, uas, "td:nth-of-type(4) .editableform")
             break
         end
         index = index + 1
     end
-    mentorName = $sharedData1.loadDataFromKey(mentor)
-    findElementWithParent(editableform, ".editable-input input").send_keys(mentorName)
+    findElementWithParent(editableform, ".editable-input input").send_keys(arg1)
     waitForElement($driver, $wait, "ul.select2-results > li > div").click()
     findElementWithParent(editableform, ".editable-buttons button.editable-submit").click()
     while waitForElement($driver, $shortWait, "#tblUnassigned > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(4) .editableform") != nil
         sleep 1
     end
+end
+
+Then(/^"Practera" I can assign student(|[1-9]+[0-9]*) to student(|[1-9]+[0-9]*) submission$/) do |arg1, arg2|
+    studentName1 = getStudentFromData(arg1).name
+    studentName2 = getStudentFromData(arg2).name
+    step("\"Practera\" I can assign \"#{studentName1}\" to \"#{studentName2}\" submission")
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
@@ -164,19 +174,26 @@ Then(/^I input student(|[1-9]+[0-9]*) name to "([^"]*)" which is located at "([^
 end
 
 Then("I wait the search result with locator {string}") do |arg1|
-	while waitForElements($driver, $listWait, arg1).length != 1
+    while waitForElement($driver, $shortWait, "#indextbl_processing").attribute("style").index("display: block;") != nil
+		sleep 1
+	end
+	while waitForElements($driver, $listWait, arg1).length == 0
 		sleep 1
 	end
 end
 
-Then(/^I get the registration url at "([^"]*)"$/) do |arg1|
-    regHref = waitForElement($driver, $wait, arg1).attribute("href")
-    $sharedData1.putData("regUrl", regHref)
-end
-
-Then(/^I use the registration link$/) do
-	regLink = $sharedData1.loadDataFromKey("regUrl")
-	$driver.get(regLink)
+Then(/^I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) student(|s)$/) do |arg1, arg2, arg3|
+    counter = arg2.to_i
+    for i in 1..counter
+        step("I input student#{i} name to \"the box\" which is located at \"#indextbl_filter input\"")
+        step("I wait 2 seconds")
+        step("I wait the search result with locator \"table#indextbl tbody tr\"")
+        regHref = waitForElement($driver, $wait, arg1).attribute("href")
+        student = getStudentFromData(i.to_s)
+        student.regUrl = regHref
+        waitForElement($driver, $wait, "#indextbl_filter input").clear
+        step("I wait 2 seconds")
+    end
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|
@@ -343,7 +360,7 @@ Then(/^"Practera" I can create an event today$/) do
     waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog textarea#description").send_keys(evevtDescription)
     waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#capacity").send_keys("100")
     waitForElement($driver, $wait, "div.modal[role=dialog] > .modal-dialog .modal-footer > button:nth-of-type(1)").click()
-    $sharedData1.putData("currentEvent", evevtName)
+    $sharedData1.putData(Application.KEY_CURRENTEVENT, evevtName)
     sleep 5
     locator = "//*[@class='fc-title'][text()='%s']" % [evevtName]
     waitForElementVisibleXpath($driver, $wait, locator).click()

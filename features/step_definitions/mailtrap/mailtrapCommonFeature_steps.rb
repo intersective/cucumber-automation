@@ -69,14 +69,14 @@ end
 
 Then(/^"Mailtrap" I go into the email content$/) do
     currentWindow = $driver.window_handle
-    $sharedData1.putData("previousWindow", currentWindow)
+    $sharedData1.putData(Application.KEY_PREVIOUSWINDOW, currentWindow)
     $driver.switch_to.frame(0)
 end
 
 Then(/^"Mailtrap" I go back to previous frame$/) do
     # back to the main document
     $driver.switch_to.default_content
-    previousWindow = $sharedData1.loadDataFromKey("previousWindow")
+    previousWindow = $sharedData1.loadDataFromKey(Application.KEY_PREVIOUSWINDOW)
     $driver.switch_to.window(previousWindow)
 end
 
@@ -114,7 +114,7 @@ Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {strin
 end
 
 Then("\"Mailtrap Api\" I can see {string} in the email content") do |contentStr|
-    message = $sharedData1.loadDataFromKey("mailMessage")
+    message = $sharedData1.loadDataFromKey(Application.KEY_MAILMESSAGE)
     doc =  Nokogiri::HTML(message["html_body"])
     if doc.xpath("//*[text()='" + contentStr + "']").first == nil
         fail("I cannot see the email content")
@@ -142,7 +142,7 @@ private def checkMails(mails, counter, tries)
     else
         puts("found the email with the receiver and subject")
         noFound = false
-        $sharedData1.putData("mailMessage", mails[0])
+        $sharedData1.putData(Application.KEY_MAILMESSAGE, mails[0])
     end
     return noFound
 end

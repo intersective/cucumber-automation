@@ -4,7 +4,7 @@ Feature: AppV1 student registration
 	so that I can log in to the app and experience the program content
 	
 	Scenario: Test AppV1 student registration
-		Given I use the registration link
+		Given I use the registration link for student 1
 		When I wait 5 seconds
 		Then I type my own password "studentPassword" for registration
 		Then I wait 2 seconds
