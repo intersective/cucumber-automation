@@ -55,24 +55,34 @@ Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) submission$/) do |arg1
 end
 
 Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentor, studentName|
+    mentorName = $sharedData1.loadDataFromKey(mentor)
+    step("\"Practera\" I can assign \"#{mentorName}\" to \"#{studentName}\" submission")
+end
+
+Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, arg2|
     editableform = nil
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
-        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if arg2 == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             findElementWithParent(uas, "td:nth-of-type(4) > a").click()
             editableform = waitElementWithParent($wait, uas, "td:nth-of-type(4) .editableform")
             break
         end
         index = index + 1
     end
-    mentorName = $sharedData1.loadDataFromKey(mentor)
-    findElementWithParent(editableform, ".editable-input input").send_keys(mentorName)
+    findElementWithParent(editableform, ".editable-input input").send_keys(arg1)
     waitForElement($driver, $wait, "ul.select2-results > li > div").click()
     findElementWithParent(editableform, ".editable-buttons button.editable-submit").click()
     while waitForElement($driver, $shortWait, "#tblUnassigned > tbody > tr:nth-of-type(" + index.to_s + ") td:nth-of-type(4) .editableform") != nil
         sleep 1
     end
+end
+
+Then(/^"Practera" I can assign student(|[1-9]+[0-9]*) to student(|[1-9]+[0-9]*) submission$/) do |arg1, arg2|
+    studentName1 = getStudentFromData(arg1).name
+    studentName2 = getStudentFromData(arg2).name
+    step("\"Practera\" I can assign \"#{studentName1}\" to \"#{studentName2}\" submission")
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|

@@ -10,7 +10,7 @@ Feature: AppV1 assessment and questions display logic
         Then "Appv1" I login with "user" and "studentPassword"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
-        Then "Appv1" I go to the "Activity Four" activity page which has "1" items
+        Then "Appv1" I go to the "Activity Four" activity page which has "2" items
         Then "Appv1" I can see the "assessment" locating at "1" with title "Comprehensive Moderated 2" and category "assessment"
         Then "Appv1" I go to the assessment locating at "1"
         Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
@@ -30,7 +30,7 @@ Feature: AppV1 assessment and questions display logic
         Then "Appv1" I login with "mentor2Account" and "mentor2AccountPassword"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
-        Then "Appv1" I go to the "Activity Four" activity page which has "1" items
+        Then "Appv1" I go to the "Activity Four" activity page which has "2" items
         Then "Appv1" I can see the "assessment" locating at "1" with title "Comprehensive Moderated 3" and category "assessment"
         Then "Appv1" I go to the assessment locating at "1"
         Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
