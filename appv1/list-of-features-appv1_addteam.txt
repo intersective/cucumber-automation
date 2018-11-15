@@ -1,1 +1,1 @@
-features/practera/testAddTeam.feature
+features/practera/addTeam.feature

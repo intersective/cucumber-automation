@@ -1,2 +1,2 @@
-features/pe/testLogin.feature
-features/pe/testNewbie.feature
+features/pe/login.feature
+features/pe/newbie.feature

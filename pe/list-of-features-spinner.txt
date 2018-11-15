@@ -1,1 +1,1 @@
-features/pe/testSpinner.feature
+features/pe/spinner.feature
