@@ -1,6 +1,6 @@
-features/pe/testStudentActivity1.1.feature
-features/pe/testStudentActivity2.1.feature
-features/pe/testStudentActivity3.1.feature
-features/pe/testStudentActivity4.1.feature
-features/pe/testStudentActivity5.1.feature
-features/pe/testStudentActivity6.1.feature
+features/pe/studentActivity1.1.feature
+features/pe/studentActivity2.1.feature
+features/pe/studentActivity3.1.feature
+features/pe/studentActivity4.1.feature
+features/pe/studentActivity5.1.feature
+features/pe/studentActivity6.1.feature

@@ -1,6 +1,6 @@
-features/practera/testAddTeam.feature
-features/appv1/testAppV1TeamEvaluation.feature
-features/appv1/testAppV1TeamAssessment.feature
-features/appv1/testAppV1CheckTeamAssesment.feature
-features/appv1/testAppv1FastFeedback.feature
-features/appv1/testAppV1TeamPage.feature
+features/practera/addTeam.feature
+features/appv1/appV1TeamEvaluation.feature
+features/appv1/appV1TeamAssessment.feature
+features/appv1/appV1CheckTeamAssesment.feature
+features/appv1/appv1FastFeedback.feature
+features/appv1/appV1TeamPage.feature

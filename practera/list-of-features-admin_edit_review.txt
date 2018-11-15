@@ -1,8 +1,8 @@
-features/appv1/testAppV1Enrolment.feature
-features/appv1/testAppV1StudentRegistration.feature
-features/appv1/testAppV1Moderated.feature
-features/practera/testAssignMentors.feature
-features/practera/testMentorReview.feature
+features/appv1/appV1Enrolment.feature
+features/appv1/appV1StudentRegistration.feature
+features/appv1/appV1Moderated.feature
+features/practera/assignMentors.feature
+features/practera/mentorReview.feature
 features/practera/adminModifyReview.feature
-features/practera/testPublishReview.feature
+features/practera/publishReview.feature
 features/appv1/appv1CheckModeraterdReview.feature

@@ -1,1 +1,1 @@
-features/pe/testCheckActivityResult.1.feature
+features/pe/checkActivityResult.1.feature
