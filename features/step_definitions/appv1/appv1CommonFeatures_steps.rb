@@ -81,22 +81,20 @@ Then(/^"Appv1" I do the text question locating at "([^"]*)" with answer "([^"]*)
 	answerContainer.find_element(:css => "textarea").send_keys(questionAnswer)
 end
 
-Then(/^"Appv1" I do the (oneof|team member selector) question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionType, questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
-	scrollIfNotVisible($driver, answerContainer)
-	selectOption = answerContainer.find_element(:css => ".list > label:nth-of-type(" + questionAnswer + ")")
-	scrollIfNotVisible($driver, selectOption)
-	selectOption.click()
+Then(/^"Appv1" I do the oneof question locating at "([^"]*)" of group "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, groupIndex, questionAnswer|
+	selectPath = "//*[@ng-repeat='group in groupQuestion'][%s]/*[@ng-repeat='question in group.questions'][%s]//label//span[normalize-space()='%s']/../../.." % [groupIndex, questionIndex, questionAnswer]
+	option = waitForElementXpath($driver, $wait, selectPath)
+	scrollIfNotVisible($driver, option)
+	option.click()
 end
 
-Then(/^"Appv1" I do the multiple question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
-	scrollIfNotVisible($driver, answerContainer)
+Then(/^"Appv1" I do the multiple question locating at "([^"]*)" of group "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, groupIndex, questionAnswer|
 	answers = questionAnswer.split(",")
 	answers.each do |ans|
-		selectOption = answerContainer.find_element(:css => ".list > label:nth-of-type(" + ans + ")")
-		scrollIfNotVisible($driver, selectOption)
-		selectOption.click()
+		selectPath = "//*[@ng-repeat='group in groupQuestion'][%s]/*[@ng-repeat='question in group.questions'][%s]//label//span[normalize-space()='%s']/../.." % [groupIndex, questionIndex, ans]
+		option = waitForElementXpath($driver, $wait, selectPath)
+		scrollIfNotVisible($driver, option)
+		option.click()
 	end
 end
 
