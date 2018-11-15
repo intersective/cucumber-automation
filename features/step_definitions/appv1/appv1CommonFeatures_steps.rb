@@ -179,3 +179,20 @@ end
 Then("\"Appv1\" I wait unitl the splash disappear") do
 	sleep 10
 end
+
+Then(/^"Appv1" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
+	toReviews = waitForElements($driver, $listWait, "div[ng-repeat^='review']")
+	toReviews.each do |row|
+		aName = findElementWithParent(row, ".review-text").attribute("innerText").split("\n")[0].strip
+		sName = refineElementTextContent(findElementWithParent(row, ".review-card-details > div"))
+		if assessmentName == aName && studentName == sName
+			row.click()
+			break
+		end
+	end
+end
+
+Then(/^"Appv1" I can go to the review page with the student(|[1-9]+[0-9]*) submission and the assessment "([^"]*)"$/) do |arg1, assessmentName|
+	studentName = getStudentFromData(arg1).name
+	step("\"Appv1\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
+end

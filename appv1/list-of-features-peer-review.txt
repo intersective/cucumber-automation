@@ -1,4 +1,5 @@
 features/appv1/appV1MultiEnrolment.feature
 features/appv1/appV1MultipleStudentRegistration.feature
-features/appv1/AppV1PeerModerated.feature
-features/practera/AssignPeerMentors.feature
+features/appv1/appV1PeerModerated.feature
+features/practera/assignPeerMentors.feature
+features/appv1/appv1PeerReview.feature
