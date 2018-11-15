@@ -3,7 +3,7 @@ Feature: AppV1 multiple students enrolment
 	I want to enrol students
 	so that I can allow them to experience the program contents
 
-	Scenario: Test AppV1 multiple enrolment Scenario
+	Scenario: Test AppV1 multiple enrolment
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
