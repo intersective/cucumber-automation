@@ -1,4 +1,4 @@
-class Student
+class User
 
     attr_reader :id
     attr_reader :name

@@ -45,12 +45,12 @@ Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/
 end
 
 Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) ready to publish submission$/) do |arg1|
-    studentName = getStudentFromData(arg1).name
+    studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
     step("\"Practera\" I should see a student \"#{studentName}\" ready to publish submission")
 end
 
 Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) submission$/) do |arg1|
-    studentName = getStudentFromData(arg1).name
+    studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
     step("\"Practera\" I should see a student \"#{studentName}\" submission")
 end
 
@@ -79,10 +79,15 @@ Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, ar
     end
 end
 
-Then(/^"Practera" I can assign student(|[1-9]+[0-9]*) to student(|[1-9]+[0-9]*) submission$/) do |arg1, arg2|
-    studentName1 = getStudentFromData(arg1).name
-    studentName2 = getStudentFromData(arg2).name
-    step("\"Practera\" I can assign \"#{studentName1}\" to \"#{studentName2}\" submission")
+Then(/^"Practera" I can assign (mentor|student)(|[1-9]+[0-9]*) to the student(|[1-9]+[0-9]*) submission$/) do |arg1, arg2, arg3|
+    userName1 = getUserFromData(arg2, arg1).name
+    userName2 = getUserFromData(arg3, Application.KEY_ROLE_STUDENT).name
+    step("\"Practera\" I can assign \"#{userName1}\" to \"#{userName2}\" submission")
+end
+
+Then(/^"Practera" I can assign a mentor "([^"]*)" to the student(|[1-9]+[0-9]*) submission$/) do |mentor, arg2|
+    studentName = getUserFromData(arg2, Application.KEY_ROLE_STUDENT).name
+    step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission")
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
@@ -125,22 +130,17 @@ Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studen
 end
 
 Then(/^"Practera" I can publish the student(|[1-9]+[0-9]*) submission review$/) do |arg1|
-    studentName = getStudentFromData(arg1).name
+    studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
     step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
 end
 
-Then(/^"Practera" I can assign a mentor "([^"]*)" to the student(|[1-9]+[0-9]*) submission$/) do |mentor, arg2|
-    studentName = getStudentFromData(arg2).name
-    step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission")
-end
-
 Then(/^"Practera" I can see the student(|[1-9]+[0-9]*) submission review with "([^"]*)" publisher$/) do |arg1, publisher|
-    studentName = getStudentFromData(arg1).name
+    studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
     step("\"Practera\" I can see a student \"#{studentName}\" submission review with \"#{publisher}\" publisher")
 end
 
 Then(/^"Practera" I can edit the student(|[1-9]+[0-9]*) submission review$/) do |arg1|
-    studentName = getStudentFromData(arg1).name
+    studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
     step("\"Practera\" I can edit a student \"#{studentName}\" submission review")
 end
 
@@ -158,7 +158,7 @@ Then(/^"Practera" I can go to the review page with a student "([^"]*)" submissio
 end
 
 Then(/^"Practera" I can go to the review page with the student(|[1-9]+[0-9]*) submission and the assessment "([^"]*)"$/) do |arg1, assessmentName|
-    studentName = getStudentFromData(arg1).name
+    studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
     step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
 
@@ -168,9 +168,9 @@ Then(/^I wait until the enrolment process percentage be 100 percent$/) do
 	end
 end
 
-Then(/^I input student(|[1-9]+[0-9]*) name to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
-    studentName = getStudentFromData(arg1).name
-	waitForElement($driver, $wait, arg3).send_keys(studentName)
+Then(/^I input (mentor|student)(|[1-9]+[0-9]*) name to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3, arg4|
+    studentName = getUserFromData(arg2, arg1).name
+	waitForElement($driver, $wait, arg4).send_keys(studentName)
 end
 
 Then("I wait the search result with locator {string}") do |arg1|
@@ -182,15 +182,15 @@ Then("I wait the search result with locator {string}") do |arg1|
 	end
 end
 
-Then(/^I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) student(|s)$/) do |arg1, arg2, arg3|
+Then(/^I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) (mentor|student)(|s)$/) do |arg1, arg2, arg3, arg4|
     counter = arg2.to_i
     for i in 1..counter
-        step("I input student#{i} name to \"the box\" which is located at \"#indextbl_filter input\"")
+        step("I input #{arg3}#{i} name to \"the box\" which is located at \"#indextbl_filter input\"")
         step("I wait 2 seconds")
         step("I wait the search result with locator \"table#indextbl tbody tr\"")
         regHref = waitForElement($driver, $wait, arg1).attribute("href")
-        student = getStudentFromData(i.to_s)
-        student.regUrl = regHref
+        user = getUserFromData(i.to_s, arg3)
+        user.regUrl = regHref
         waitForElement($driver, $wait, "#indextbl_filter input").clear
         step("I wait 2 seconds")
     end

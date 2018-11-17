@@ -10,7 +10,7 @@ Then(/^I use the registration link$/) do
     $driver.get(regLink)
 end
 
-Then(/^I use the registration link for student ([1-9]+[0-9]*)$/) do |arg1|
-    student = getStudentFromData(arg1)
-    $driver.get(student.regUrl)
+Then(/^I use the registration link for (mentor|student) ([1-9]+[0-9]*)$/) do |arg1, arg2|
+    user = getUserFromData(arg2, arg1)
+    $driver.get(user.regUrl)
 end
