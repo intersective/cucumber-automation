@@ -248,7 +248,7 @@ Then(/^"PE" I go to an event "([^"]*)" page$/) do |eventName|
 end
 
 Then(/^"PE" I go to the event page$/) do
-    event = $sharedData1.loadDataFromKey(Application.KEY_CURRENTEVENT)
+    event = loadSharedData(Application.KEY_CURRENTEVENT)
     step("\"PE\" I go to an event \"#{event}\" page")
 end
 
@@ -266,14 +266,14 @@ Then(/^"PE" I check an event "([^"]*)" is still here$/) do |eventName|
     end
     script = "var t = document.querySelector('%s:nth-of-type(%s) ion-card > ion-list').style['background-image'].split('cdn.filestackcontent.com/')[1]; return t.slice(0,-2);" % ["events-list-page ion-list event", position]
     eventIdentifier = $driver.execute_script(script)
-    pEventIdentifier = $sharedData1.loadDataFromKey(Application.KEY_EVENTIDENTIFIER)
+    pEventIdentifier = loadSharedData(Application.KEY_EVENTIDENTIFIER)
     if eventIdentifier != pEventIdentifier
         fail("the event %s is not here" % [eventName])
     end
 end
 
 Then(/^"PE" I check the event is still here$/) do
-    event = $sharedData1.loadDataFromKey(Application.KEY_CURRENTEVENT)
+    event = loadSharedData(Application.KEY_CURRENTEVENT)
     step("\"PE\" I check an event \"#{event}\" is still here")
 end
 
@@ -300,7 +300,7 @@ Then(/^"PE" I click on the spinner wheel$/) do
     step("I should be able to see \"a pop up\" which is located at \"ion-alert[role=dialog]\"")
     step("I should be able to see \"Congratulations\" which is located at \"//ion-alert[@role='dialog']//h2[@class='alert-title'][text()='Congratulations']\" with xpath assert")
     
-    spinChances = $sharedData1.loadDataFromKey(Application.KEY_SPINCHANCES)
+    spinChances = loadSharedData(Application.KEY_SPINCHANCES)
     aSpinChances = refineElementTextContent(waitForElement($driver, $wait, "#spinChances")).to_i
     tabSpinChance = refineElementTextContent(waitForElement($driver, $wait, "#tab-t0-3 ion-badge")).to_i
     verifyValue("expected spin chance decrement", "1", (spinChances - aSpinChances).to_s)
@@ -319,7 +319,7 @@ Then(/^"PE" I check that the points on the dashboard equal to points on the spin
     waitForElement($driver, $wait, "#tab-t0-0").click()
     step("\"PE\" I wait for loading finished")
     step("I should be able to see \"activity list page\" which is located at \"activities-list-page\"")
-    spinEP = $sharedData1.loadDataFromKey(Application.KEY_SPINEP)
+    spinEP = loadSharedData(Application.KEY_SPINEP)
     points = refineElementTextContent(waitForElement($driver, $wait, ".dashboard-data > li:nth-of-type(2) .number")).to_i
     if spinEP != points
         fail("points on the dashboard does not equal to points on the spinner page")

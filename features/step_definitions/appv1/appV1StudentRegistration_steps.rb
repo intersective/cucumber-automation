@@ -6,7 +6,7 @@ Then(/^I move to "([^"]*)" which is located at "([^"]*)" and click$/) do |arg1, 
 end
 
 Then(/^I type my own password "([^"]*)" for registration$/) do |regPassword|
-	userPassword = $sharedData1.loadDataFromKey(regPassword)
+	userPassword = loadSharedData(regPassword, regPassword)
 	waitForElement($driver, $wait, "input[name='uPassword']").send_keys(userPassword)
 	waitForElement($driver, $wait, "input[name='uVerifyPassword']").send_keys(userPassword)
 end
