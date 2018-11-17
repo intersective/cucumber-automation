@@ -79,10 +79,15 @@ Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, ar
     end
 end
 
-Then(/^"Practera" I can assign student(|[1-9]+[0-9]*) to student(|[1-9]+[0-9]*) submission$/) do |arg1, arg2|
-    studentName1 = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
-    studentName2 = getUserFromData(arg2, Application.KEY_ROLE_STUDENT).name
-    step("\"Practera\" I can assign \"#{studentName1}\" to \"#{studentName2}\" submission")
+Then(/^"Practera" I can assign (mentor|student)(|[1-9]+[0-9]*) to the student(|[1-9]+[0-9]*) submission$/) do |arg1, arg2, arg3|
+    userName1 = getUserFromData(arg2, arg1).name
+    userName2 = getUserFromData(arg3, Application.KEY_ROLE_STUDENT).name
+    step("\"Practera\" I can assign \"#{userName1}\" to \"#{userName2}\" submission")
+end
+
+Then(/^"Practera" I can assign a mentor "([^"]*)" to the student(|[1-9]+[0-9]*) submission$/) do |mentor, arg2|
+    studentName = getUserFromData(arg2, Application.KEY_ROLE_STUDENT).name
+    step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission")
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
@@ -127,11 +132,6 @@ end
 Then(/^"Practera" I can publish the student(|[1-9]+[0-9]*) submission review$/) do |arg1|
     studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
     step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
-end
-
-Then(/^"Practera" I can assign a mentor "([^"]*)" to the student(|[1-9]+[0-9]*) submission$/) do |mentor, arg2|
-    studentName = getUserFromData(arg2, Application.KEY_ROLE_STUDENT).name
-    step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission")
 end
 
 Then(/^"Practera" I can see the student(|[1-9]+[0-9]*) submission review with "([^"]*)" publisher$/) do |arg1, publisher|
