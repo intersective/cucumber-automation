@@ -36,5 +36,5 @@ end
 Then("\"Appv1 Team Chats\" I can see team member {string} name") do |student|
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
-    step("I should be able to see \"member name\" which is located at \"//*[@ng-if='chat.name'][normalize-space()='#{studentName}']\" with xpath assert")
+    step("I should be able to see \"member name\" which is located at \"//*[@class='chat-name'][normalize-space()='#{studentName}']\" with xpath assert")
 end
