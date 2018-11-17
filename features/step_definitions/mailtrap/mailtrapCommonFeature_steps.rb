@@ -51,8 +51,8 @@ Then(/^"Mailtrap" I login with username "([^"]*)" and password "([^"]*)"$/) do |
 end
 
 Then(/^"Mailtrap" I login with "([^"]*)" and "([^"]*)"$/) do |user, password|
-    userName = $sharedData1.loadDataFromKey(user)
-    userPassword = $sharedData1.loadDataFromKey(password)
+    userName = loadSharedData(user, user)
+    userPassword = loadSharedData(password ,password)
     step("\"Mailtrap\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
 end
 
@@ -76,7 +76,7 @@ end
 Then(/^"Mailtrap" I go back to previous frame$/) do
     # back to the main document
     $driver.switch_to.default_content
-    previousWindow = $sharedData1.loadDataFromKey(Application.KEY_PREVIOUSWINDOW)
+    previousWindow = loadSharedData(Application.KEY_PREVIOUSWINDOW)
     $driver.switch_to.window(previousWindow)
 end
 
@@ -114,7 +114,7 @@ Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {strin
 end
 
 Then("\"Mailtrap Api\" I can see {string} in the email content") do |contentStr|
-    message = $sharedData1.loadDataFromKey(Application.KEY_MAILMESSAGE)
+    message = loadSharedData(Application.KEY_MAILMESSAGE)
     doc =  Nokogiri::HTML(message["html_body"])
     if doc.xpath("//*[text()='" + contentStr + "']").first == nil
         fail("I cannot see the email content")
