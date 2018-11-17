@@ -39,9 +39,13 @@ def getUploadFileFullPath(fileName)
 	return File.join($configObj[Application.KEY_UPLOADFILEPATH], fileName)
 end
 
-def getStudentFromData(suffix)
+def getUserFromData(suffix, role)
 	index = (suffix != "")? suffix : "1"
-	return $sharedData1.loadDataFromKey(Application.KEY_STUDENTS)[index]
+	if role == Application.KEY_ROLE_MENTOR
+		return $sharedData1.loadDataFromKey(Application.KEY_MENTORS)[index]
+	else
+		return $sharedData1.loadDataFromKey(Application.KEY_STUDENTS)[index]
+	end
 end
 
 def loadSharedData(key)

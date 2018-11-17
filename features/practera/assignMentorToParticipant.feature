@@ -1,9 +1,9 @@
-Feature: Practera assign peer reviewers
+Feature: Practera Assign reviewers to participants
 	As a program admin
 	I want to login to Practera platform
-	so that I can assign a mentor to review the assessments from students
+	so that I can assign a reviewer to review the assessments from participants
 
-    Scenario: Test Practera assign peer reviewers
+    Scenario: Test Practera Assign reviewers to participants
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
@@ -15,7 +15,7 @@ Feature: Practera assign peer reviewers
 		Then I wait 2 seconds
 		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see the student submission
-		Then "Practera" I can assign student2 to the student1 submission
+		Then "Practera" I can assign mentor1 to the student submission
 		Then I should be able to see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top

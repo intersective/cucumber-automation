@@ -191,6 +191,6 @@ Then(/^"Appv1" I can go to the review page with a student "([^"]*)" submission a
 end
 
 Then(/^"Appv1" I can go to the review page with the student(|[1-9]+[0-9]*) submission and the assessment "([^"]*)"$/) do |arg1, assessmentName|
-	studentName = getStudentFromData(arg1).name
+	studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
 	step("\"Appv1\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end

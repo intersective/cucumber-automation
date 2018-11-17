@@ -8,7 +8,7 @@ Then(/^"PE" I login with username "([^"]*)" and password "([^"]*)"$/) do |userNa
 end
 
 Then(/^"PE" I login with the student(|[1-9]+[0-9]*) and password "([^"]*)"$/) do |arg1, userPassword|
-    studentAccount = getStudentFromData(arg1).account
+    studentAccount = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).account
     step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 
@@ -39,7 +39,7 @@ Then(/^"PE" I input the enrolment information which is located at "([^"]*)"$/) d
         f.write(csvtext)
     end
     students = {}
-    students["1"] = Student.new(studentId, studentName, studentAccount)
+    students["1"] = User.new(studentId, studentName, studentAccount)
     $sharedData1.putData(Application.KEY_STUDENTS, students)
     step("I upload the file \"#{enrolmentFile}\" to \"Choose file\" which is located at \"#{arg1}\"")
 end
@@ -53,7 +53,7 @@ Then(/^"PE" I log out$/) do
 end
 
 Then(/^"PE" I search email with title "([^"]*)" and the student(|[1-9]+[0-9]*) as receiver$/) do |title, arg2|
-    studentAccount = getStudentFromData(arg2).account
+    studentAccount = getUserFromData(arg2, Application.KEY_ROLE_STUDENT).account
     step("\"Mailtrap\" I search email with title \"#{title}\" and receiver \"#{studentAccount}\"")
 end
 
