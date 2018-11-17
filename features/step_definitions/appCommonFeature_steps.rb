@@ -6,7 +6,7 @@ Then(/^I get the registration url at "([^"]*)"$/) do |arg1|
 end
 
 Then(/^I use the registration link$/) do
-	regLink = $sharedData1.loadDataFromKey(Application.KEY_REGURL)
+	regLink = loadSharedData(Application.KEY_REGURL)
     $driver.get(regLink)
 end
 

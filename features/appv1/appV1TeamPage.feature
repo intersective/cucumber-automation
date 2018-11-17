@@ -9,7 +9,7 @@ Feature: AppV1 team chats page
         Then "Appv1 Team" I login with team member "student1" and password "studentPassword" and domain "practera.com"
         Then "Appv1" I should see the app home screen
         Then I wait until the loading finished
-        Then "Appv1" I go to the "Chats" tab page
+        Then "Appv1" I go to the "Chat" tab page
         Then I wait until the loading finished
         Then "Appv1 Team Chats" I can see team member "student2" name
         Then "Appv1" I log out

@@ -163,7 +163,7 @@ Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)" with xpath s
 end
 
 Then(/^I input predefined values "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
-    values = $sharedData1.loadDataFromKey(arg1)
+    values = loadSharedData(arg1, arg1)
     step("I input \"#{values}\" to \"#{arg2}\" which is located at \"#{arg3}\"")
 end
 

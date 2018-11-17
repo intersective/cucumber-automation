@@ -48,7 +48,7 @@ def getUserFromData(suffix, role)
 	end
 end
 
-def loadSharedData(key)
+def loadSharedData(key, default="")
 	if $variableLoaded
 		value = $sharedData1.loadDataFromKey($currentFeatureFile)[key]
 		if value == nil
@@ -63,5 +63,5 @@ def loadSharedData(key)
 	else
 		value = $sharedData1.loadDataFromKey(key)
 	end
-	return value
+	return (value == nil)? default : value
 end

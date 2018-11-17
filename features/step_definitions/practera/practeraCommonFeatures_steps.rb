@@ -55,7 +55,7 @@ Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) submission$/) do |arg1
 end
 
 Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentor, studentName|
-    mentorName = $sharedData1.loadDataFromKey(mentor)
+    mentorName = loadSharedData(mentor, mentor)
     step("\"Practera\" I can assign \"#{mentorName}\" to \"#{studentName}\" submission")
 end
 
