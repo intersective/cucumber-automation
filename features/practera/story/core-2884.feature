@@ -12,8 +12,8 @@ Feature: Practera is_required file applies to file type question
         Then I click on "Assessments" which is located at "//*[normalize-space()='Assessments']/a" with xpath
         Then I wait 2 seconds
         Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
-        Then I should be able to see "an assessment" which is located at "//td/a[text()='Test file question required field']" with xpath assert
-        Then I should be able to see "an assessment" which is located at "//td/a[text()='Test file question required field 2']" with xpath assert
+        Then I should see "an assessment" which is located at "//td/a[text()='Test file question required field']" with xpath
+        Then I should see "an assessment" which is located at "//td/a[text()='Test file question required field 2']" with xpath
         Then I click on "one assessment" which is located at "//td/a[text()='Test file question required field']/../../td[5]/a" with xpath
         Then I click on "begin/continue button" which is located at "button#take"
         Then I can see a group of "questions" with total "2" which is located at ".question"
@@ -37,7 +37,7 @@ Feature: Practera is_required file applies to file type question
         Then I wait 2 seconds
         Then "Practera" I upload the file "Video Upload issue 2.mp4" to file picker
         Then I click on "submit button" which is located at "button#submit"
-        Then I should be able to see "this field is required" which is located at "//div[@class='row question'][3]//div[text()='This field is required.']" with xpath
+        Then I can see "this field is required" which is located at "//div[@class='row question'][3]//div[text()='This field is required.']" with xpath
         Then I input "http://www.youtube.com/watch?v=9bZkp7q19f0" to "video url input box" which is located at "//div[@class='row question'][3]//input" with xpath scroll
         Then I move to "submit button" which is located at "button#submit"
         Then I should be able to see "a video" which is located at "#choice-video-embed > iframe"

@@ -10,7 +10,7 @@ Feature: Practera users timezone
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to profile
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
-        Then I should be able to see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Australia/Sydney']" with xpath assert
+        Then I should see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Australia/Sydney']" with xpath
         Then I click on "timezone dropdown menu" which is located at "//*[text()='Timezone']/..//*[@class='select2-choice']" with xpath
         Then I input "Asia/Hong_Kong" to "timezone select input box" which is located at "#s2id_autogen1_search"
         Then I click on "the select result" which is located at "#select2-results-1 > li span"
@@ -18,7 +18,7 @@ Feature: Practera users timezone
         Then I should see "successfully save message" which is located at ".toast-title" containing text "Your profile has been updated"
         Then The "message" which is located at ".toast-message" should be disappear
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
-        Then I should be able to see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Asia/Hong_Kong']" with xpath assert
+        Then I should see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Asia/Hong_Kong']" with xpath
         Then I click on "timezone dropdown menu" which is located at "//*[text()='Timezone']/..//*[@class='select2-choice']" with xpath
         Then I input "local" to "timezone select input box" which is located at "#s2id_autogen1_search"
         Then I click on "the select result" which is located at "#select2-results-1 > li span"
@@ -26,7 +26,7 @@ Feature: Practera users timezone
         Then I should see "successfully save message" which is located at ".toast-title" containing text "Your profile has been updated"
         Then The "message" which is located at ".toast-message" should be disappear
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
-        Then I should be able to see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Australia/Sydney']" with xpath assert
+        Then I should see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Australia/Sydney']" with xpath
         Then "Practera" I log out
 
     Scenario: Test scheduled a communication email in response to the user timezone changes
@@ -35,7 +35,7 @@ Feature: Practera users timezone
         Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
         Then I should be able to see "a side bar" which is located at "#sidebar"
         Then I click on "communications button" which is located at "//*[text()='Communications']/.." with xpath
-        Then I should be able to see "view comm button" which is located at "//*[normalize-space()='View Comm Activities']/button" with xpath
+        Then I can see "view comm button" which is located at "//*[normalize-space()='View Comm Activities']/button" with xpath
         Then I click on "add comm button" which is located at "//*[normalize-space()='Add Comm']" with xpath
         Then I input "barry test comm - 20181107041900" to "title field" which is located at "#intitle input"
         Then I click on "Learners" which is located at "//label[@for='CommVisibilityParticipant']" with xpath

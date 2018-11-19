@@ -7,7 +7,7 @@ Feature: AppV1 mentor login
 		Given I go to App V1
 		When "Appv1" I wait unitl the splash disappear
 		Then "Appv1" I login with the mentor account and password "studentPassword"
-		Then I should be able to see "Invalid Login Details pop up" which is located at "//*[@class='popup-title'][text()='Invalid Login Details']" with xpath assert
+		Then I should see "Invalid Login Details pop up" which is located at "//*[@class='popup-title'][text()='Invalid Login Details']" with xpath
 		Then I click on "a button" which is located at ".popup > .popup-buttons > button"
 		Then I wait 2 seconds
 		Then "Appv1" I login with the mentor account and password "mentor2AccountPassword"

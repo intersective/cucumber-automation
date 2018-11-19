@@ -12,8 +12,8 @@ Feature: Custom branding for app
         Then I click on "set-up tag" which is located at "//*[text()='Set-up']/.." with xpath
         Then I wait 2 seconds
         When I click on "branding tag" which is located at "//*[text()='Set-up']/../..//*[normalize-space()='Branding']/a" with xpath
-        Then I should be able to see "program title" which is located at "//*[normalize-space()='Edit ProgramSave']" with xpath assert
-        Then I should be able to see "program name" which is located at "//input[@name='data[Program][name]'][@value='App V1 Selenium Program']" with xpath assert
+        Then I should see "program title" which is located at "//*[normalize-space()='Edit ProgramSave']" with xpath
+        Then I should see "program name" which is located at "//input[@name='data[Program][name]'][@value='App V1 Selenium Program']" with xpath
         Then I input "#113d91" to "theme color input field" which is located at "#theme-color" with scroll
         When I click on "save button" which is located at "//button[normalize-space()='Save']" with xpath
         Then I should see "successfully save message" which is located at ".toast-title" containing text "The program has been saved"

@@ -13,7 +13,7 @@ Feature: Practera Mentor Review
 		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
 		Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
 		Then "Practera" I can go to the review page with the student submission and the assessment "Comprehensive Moderated"
-		Then I should be able to see "Files uploaded in submission" which is located at "//*[text()='Files uploaded in submission']" with xpath assert
+		Then I should see "Files uploaded in submission" which is located at "//*[text()='Files uploaded in submission']" with xpath
 		Then "Practera" I check the assessment uploaded file with:
 			| file position | file name |
 			| 1 | WhatsAppVideo2017-11-30at11.27.14.mp4 |
@@ -22,7 +22,7 @@ Feature: Practera Mentor Review
 			| 4 | 2017-Scrum-Guide-US.pdf |
 		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
-		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
+		Then I should see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active"
 		Then I input "your works are excellent, thank you for submissions" to "Free text review" which is located at "//span[normalize-space()='Free text review']/../textarea" with xpath scroll
 		Then I should not see "Reviewer comments" which is located at "//span[normalize-space()='Reviewer Comments']" with xpath assert
 		Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll

@@ -9,7 +9,7 @@ Feature: AppV1 mark moderated assessment feedback as read
         Then "Appv1" I login with the student account and password "studentPassword"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
-        Then I should be able to see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Comprehensive Moderated']" with xpath assert
+        Then I should see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Comprehensive Moderated']" with xpath
         Then I click on "the feedback item" which is located at "//*[contains(@class, 'feedback-item')][1]" with xpath
         Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
         Then I wait until the loading finished

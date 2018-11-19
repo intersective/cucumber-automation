@@ -66,7 +66,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated (Team)"
 		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
-		Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
+		Then I should see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active"
 		Then I input "your works are excellent, thank you for submissions" to "Free text review" which is located at "//span[normalize-space()='Free text review']/../textarea" with xpath scroll
 		Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
 		Then I wait 2 seconds
@@ -133,6 +133,6 @@ Feature: AppV1 Moderated Team Assessment
 		Then "Appv1" I go to the "Activity Three" activity page which has "1" items
 		Then "Appv1" I go to the assessment locating at "1"
 		Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
-		Then I should be able to see "the review marked as read" which is located at "[ng-click='markAsDone()'][disabled='disabled']" with scroll assert
+		Then I should see "the review marked as read" which is located at "[ng-click='markAsDone()'][disabled='disabled']" with scroll
 		When "Appv1" I go back from assessment page
 		Then "Appv1" I log out

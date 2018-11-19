@@ -11,17 +11,17 @@ Feature: Practera is_required file applies to different type of question
         Then I click on "assessments tag" which is located at "//*[text()='Assessments']/.." with xpath
         Then I wait 2 seconds
         Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
-        Then I should be able to see "an assessment" which is located at "//td/a[text()='Test question required field']" with xpath assert
+        Then I should see "an assessment" which is located at "//td/a[text()='Test question required field']" with xpath
         Then I click on "one assessment" which is located at "//td/a[text()='Test question required field']/../../td[5]/a" with xpath
         Then I click on "begin/continue button" which is located at "button#take"
         Then I click on "next button" which is located at "button#next" with scroll
-        Then I should be able to see "this field is required" which is located at "//div[@class='row question'][1]//div[text()='This field is required.']" with xpath assert
+        Then I should see "this field is required" which is located at "//div[@class='row question'][1]//div[text()='This field is required.']" with xpath
         Then I input "I am feeling happy now - Text question 1" to "Free text answer" which is located at "//span[normalize-space()='Text question 1']/../..//span[normalize-space()='Free text answer']/../textarea" with xpath scroll
         Then I click on "next button" which is located at "button#next" with scroll
         Then I wait 2 seconds
         Then I should be able to see "step 2" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active"
         Then I click on "next button" which is located at "button#next" with scroll
-        Then I should be able to see "this field is required" which is located at "//div[@class='row question'][1]//div[text()='This field is required.']" with xpath assert
+        Then I should see "this field is required" which is located at "//div[@class='row question'][1]//div[text()='This field is required.']" with xpath
         Then I click on "Choice 3" which is located at "//span[normalize-space()='Multiple Choice Question 1']/../..//span[normalize-space()='Choice 3']" with xpath
         Then I click on "next button" which is located at "button#next" with scroll
         Then I wait 2 seconds
@@ -47,7 +47,7 @@ Feature: Practera is_required file applies to different type of question
         Then I wait 2 seconds
         Then I should be able to see "step 4" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(4).active"
         Then I click on "submit button" which is located at "button#submit" with scroll
-        Then I should be able to see "this field is required" which is located at "//div[@class='row question'][1]//div[text()='This field is required.']" with xpath assert
+        Then I should see "this field is required" which is located at "//div[@class='row question'][1]//div[text()='This field is required.']" with xpath
         Then I input "http://www.youtube.com/watch?v=9bZkp7q19f0" to "video url input box" which is located at "//div[@class='row question'][1]//input" with xpath scroll
         Then I move to "Video Question 1" which is located at "//*[text()='Video Question 1']" with xpath
         Then I should be able to see "a video" which is located at "#choice-video-embed > iframe"
@@ -90,7 +90,7 @@ Feature: Practera is_required file applies to different type of question
         Then "Practera" I can go to the review page with a student "barry_test_program.student6" submission and the assessment "Test question required field"
         Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
         Then I wait 2 seconds
-        Then I should be able to see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active" with assert
+        Then I should see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active"
         Then I input "your works are excellent, thank you for submissions - text question 1" to "Free text review" which is located at "//span[normalize-space()='Text question 1']/../..//span[normalize-space()='Free text review']/../textarea" with xpath scroll
         Then I input "your works are excellent, thank you for submissions - text question 2" to "Free text review" which is located at "//span[normalize-space()='Text question 2']/../..//span[normalize-space()='Free text review']/../textarea" with xpath scroll
         Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
@@ -107,7 +107,7 @@ Feature: Practera is_required file applies to different type of question
         Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
         Then I wait 2 seconds
         Then I should be able to see "step 4" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(4).active"
-        Then I should be able to see "a video url" which is located at "//*[normalize-space()='Video Question 1']/../..//input[@value='http://www.youtube.com/watch?v=9bZkp7q19f0']" with xpath assert
+        Then I should see "a video url" which is located at "//*[normalize-space()='Video Question 1']/../..//input[@value='http://www.youtube.com/watch?v=9bZkp7q19f0']" with xpath
         Then I input "your works are excellent, thank you for submissions - Video Question 1" to "Reviewer comments" which is located at "//span[normalize-space()='Video Question 1']/../..//span[normalize-space()='Reviewer Comments']/../textarea" with xpath scroll
         Then I input "your works are excellent, thank you for submissions - Video Question 2" to "Reviewer comments" which is located at "//span[normalize-space()='Video Question 2']/../..//span[normalize-space()='Reviewer Comments']/../textarea" with xpath scroll
         Then I wait 2 seconds
