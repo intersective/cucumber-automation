@@ -12,7 +12,7 @@ Feature: AppV1 Check Moderated Assessment Answer
         When I wait until the loading finished
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
         Then "Appv1" I go to the assessment locating at "4"
-        Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
+        Then I can see "assessment page" which is located at ".pane[nav-view='active']"
 
         Then I should see "Comprehensive Moderated Text Questions Group description" which is located at "//*[text()='Text Questions']/../*[text()='Comprehensive Moderated Text Questions Group description']" with xpath scroll
         Then I should see "this is text question 1 description" which is located at "//*[text()='Text Question 1']/../..//*[text()='this is text question 1 description']" with xpath scroll

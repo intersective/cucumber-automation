@@ -7,7 +7,7 @@ Feature: Practera Mentor Review
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
-		Then I should be able to see "a side bar" which is located at "#sidebar"
+		Then I can see "a side bar" which is located at "#sidebar"
 		Then I click on "reviews and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds
 		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
@@ -27,24 +27,24 @@ Feature: Practera Mentor Review
 		Then I should not see "Reviewer comments" which is located at "//span[normalize-space()='Reviewer Comments']" with xpath assert
 		Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
 		Then I wait 2 seconds
-		Then I should be able to see "step 2" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active"
+		Then I can see "step 2" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active"
 		Then I click on "Good" which is located at "//span[normalize-space()='Good']" with xpath scroll
 		Then I input "your works are excellent, thank you for submissions" to "Reviewer comments" which is located at "//span[normalize-space()='Reviewer Comments']/../textarea" with xpath scroll
 		Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
 		Then I wait 2 seconds
-		Then I should be able to see "step 3" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(3).active"
+		Then I can see "step 3" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(3).active"
 		Then I click on "Choice 1" which is located at "//span[normalize-space()='Choice 1']" with xpath scroll
 		Then I click on "Choice 0.4" which is located at "//span[normalize-space()='Choice 0.4']" with xpath scroll
 		Then I input "your work is good" to "Reviewer comments" which is located at "//span[normalize-space()='Reviewer Comments']/../textarea" with xpath scroll
 		Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
 		Then I wait 2 seconds
-		Then I should be able to see "step 4" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(4).active"
+		Then I can see "step 4" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(4).active"
 		Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
 		Then I wait 2 seconds
-		Then I should be able to see "step 5" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(5).active"
+		Then I can see "step 5" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(5).active"
 		Then I wait 2 seconds
 		Then I click on "submit button" which is located at "div#assessment-buttons button#submit" with scroll
-		Then I should be able to see "message" which is located at ".toast-message"
+		Then I can see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I wait 2 seconds
 		Then "Practera" I log out

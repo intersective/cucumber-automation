@@ -8,7 +8,7 @@ Feature: Custom branding for app
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
-        Then I should be able to see "a side bar" which is located at "#sidebar"
+        Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "set-up tag" which is located at "//*[text()='Set-up']/.." with xpath
         Then I wait 2 seconds
         When I click on "branding tag" which is located at "//*[text()='Set-up']/../..//*[normalize-space()='Branding']/a" with xpath
@@ -27,5 +27,5 @@ Feature: Custom branding for app
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I wait 5 seconds
-        Then I should be able to see "tab" which is located at ".tabs" has color "113d91"
+        Then I can see "tab" which is located at ".tabs" has color "113d91"
         Then "Appv1" I log out

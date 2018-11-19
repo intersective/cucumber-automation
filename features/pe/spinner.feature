@@ -9,7 +9,7 @@ Feature: Personal Edge Spin Wheel
         Then "PE" I wait for loading finished
         Then I should see "activity list page" which is located at "activities-list-page"
         Then I click on "spinner tab" which is located at "#tab-t0-3"
-        Then I should be able to see "spinner page" which is located at "#tabpanel-t0-3[aria-hidden=false]"
+        Then I can see "spinner page" which is located at "#tabpanel-t0-3[aria-hidden=false]"
         Then I should see "a wheel" which is located at "canvas#spinwheel"
         Then "PE" I check that the spin chances on the page should equal to the number on the tab
         Then "PE" I click on the spinner wheel

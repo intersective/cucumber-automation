@@ -7,7 +7,7 @@ Feature: Practera add a team
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
-		Then I should be able to see "a side bar" which is located at "#sidebar"
+		Then I can see "a side bar" which is located at "#sidebar"
 		Then I click on "people tag" which is located at "//*[text()='People']/.." with xpath
 		Then I wait 2 seconds
 		Then I click on "teams tag" which is located at "//*[text()='People']/../..//*[normalize-space()='Teams']" with xpath
@@ -18,7 +18,7 @@ Feature: Practera add a team
 		Then "Practera Team" I add "student1" as a team member
 		Then "Practera Team" I add "student2" as a team member
 		Then I click on "save button" which is located at "#TeamAdminAddForm > .form-actions button:nth-of-type(1)"
-		Then I should be able to see "message" which is located at ".toast-message"
+		Then I can see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I wait 2 seconds
 		Then "Practera" I log out

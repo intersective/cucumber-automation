@@ -7,7 +7,7 @@ Feature: Practera users timezone
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
-        Then I should be able to see "a side bar" which is located at "#sidebar"
+        Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to profile
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
         Then I should see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Australia/Sydney']" with xpath
@@ -33,7 +33,7 @@ Feature: Practera users timezone
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
-        Then I should be able to see "a side bar" which is located at "#sidebar"
+        Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "communications button" which is located at "//*[text()='Communications']/.." with xpath
         Then I can see "view comm button" which is located at "//*[normalize-space()='View Comm Activities']/button" with xpath
         Then I click on "add comm button" which is located at "//*[normalize-space()='Add Comm']" with xpath
@@ -49,7 +49,7 @@ Feature: Practera users timezone
         Then I click on "send now" which is located at "//td[text()='barry test comm - 20181107041900']/..//a[@title='Send Now']" with xpath
         Then I select "test automation timeline - barry test project - 20180208150200" to "timeline selection" which is located at "select[name='data[Event][timeline_id]']"
         Then I click on "save button" which is located at "button[type='submit']"
-        Then I should be able to see "message" which is located at ".toast-message"
+        Then I can see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I log out
         Given I go to Mailtrap

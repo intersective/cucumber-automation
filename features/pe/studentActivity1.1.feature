@@ -50,7 +50,7 @@ Feature: Personal Edge Student Creative Thinker Activity
         Then "PE" I wait for loading finished
         Then I wait 2 seconds
         Then I click on "submit button" which is located at "assessments-page ion-header ion-navbar.toolbar button.btn-submit"
-        Then I should be able to see "a dialog" which is located at "ion-alert[role=dialog]"
+        Then I can see "a dialog" which is located at "ion-alert[role=dialog]"
         Then I wait 2 seconds
         Then I click on "confirm button" which is located at "ion-alert[role=dialog] .alert-wrapper .alert-button-group button:nth-of-type(1)"
         Then "PE" I wait for loading finished

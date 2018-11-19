@@ -22,10 +22,10 @@ Feature: AppV1 mentor review moderated assessment
         Then I input "This is the text from Selenium text automation" to "checkbox review answer" which is located at "//*[@class='question-group'][3]/question[1]//textarea[1]" with xpath scroll
         Then I wait 2 seconds
 		When I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
-		Then I should be able to see "a submit confirmation" which is located at ".popup"
+		Then I can see "a submit confirmation" which is located at ".popup"
 		Then I click on "the ok button" which is located at ".popup .popup-buttons > button:nth-of-type(2)"
 		Then I wait 3 seconds
-		Then I should be able to see "a submission notification" which is located at ".popup"
+		Then I can see "a submission notification" which is located at ".popup"
 		Then I wait 3 seconds
 		Then I click on "the continue button" which is located at ".popup > .popup-buttons > button"
 		Then I wait 3 seconds

@@ -11,7 +11,7 @@ Feature: AppV1 Check Moderated Assessment Review After an admin edit
         When I wait until the loading finished
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
         Then "Appv1" I go to the assessment locating at "4"
-        Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
+        Then I can see "assessment page" which is located at ".pane[nav-view='active']"
         Then I should see "reviewer answer for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Answer']/../*[text()='your works are excellent, thank you for submissions from admin_selenium']" with xpath scroll
         Then I should see "expert feedback choice" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='Normal']" with xpath scroll
         Then I should see "expert feedback text" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='your works are excellent, thank you for submissions from admin_selenium']" with xpath scroll
