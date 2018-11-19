@@ -1,9 +1,9 @@
-Feature: AppV1 mark moderated assessment feadback as read
+Feature: AppV1 mark moderated assessment feedback as read
 	As a student
-	I want to login to the app and check the feadback from the reviewers
+	I want to login to the app and check the feedback from the reviewers
 	so that I can improve my work
 
-    Scenario: Test AppV1 mark moderated assessment feadback as read
+    Scenario: Test AppV1 mark moderated assessment feedback as read
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with the student account and password "studentPassword"
