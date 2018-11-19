@@ -41,24 +41,6 @@ Then("I click on {string} which is located at {string} with scroll") do |arg1, a
     ele.click()
 end
 
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
-	waitForElementVisible($driver, $wait, arg2)
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
-    if waitForElementVisible($driver, $wait, arg2) == nil
-        fail("something wrong")
-    end
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with scroll assert$/) do |arg1, arg2|
-    ele = waitForElement($driver, $wait, arg2)
-    if ele == nil
-        fail("something wrong")
-    end
-    scrollIfNotVisible($driver, ele)
-end
-
 Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
     if waitForElement($driver, $wait, arg2) != nil
         fail("something wrong")
@@ -117,24 +99,6 @@ When("I click on {string} which is located at {string} with xpath scroll") do |a
     ele = waitForElementXpath($driver, $wait, arg2)
     scrollIfNotVisible($driver, ele)
     ele.click()
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
-    waitForElementVisibleXpath($driver, $wait, arg2)
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
-    if waitForElementVisibleXpath($driver, $wait, arg2) == nil
-        fail("something wrong")
-    end
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath scroll assert$/) do |arg1, arg2|
-    ele = waitForElementXpath($driver, $wait, arg2)
-    if ele == nil
-        fail("something wrong")
-    end
-    scrollIfNotVisible($driver, ele)
 end
 
 Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
@@ -243,15 +207,15 @@ end
 Then(/^I (should|can) see "([^"]*)" which is located at "([^"]*)"(| with)(| xpath)(| scroll)$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
     if arg5 == " xpath"
         if arg6 == " scroll"
-            ele = waitForElementVisibleXpath($driver, $wait, arg3)
+            ele = waitForElementsXpath($driver, $wait, arg3)
         else
-            ele = waitForElementXpath($driver, $wait, arg3)
+            ele = waitForElementVisibleXpath($driver, $wait, arg3)
         end
     else
         if arg6 == " scroll"
-            ele = waitForElementVisible($driver, $wait, arg3)
-        else
             ele = waitForElement($driver, $wait, arg3)
+        else
+            ele = waitForElementVisible($driver, $wait, arg3)
         end
     end
     if ele == nil
