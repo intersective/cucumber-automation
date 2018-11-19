@@ -1,7 +1,7 @@
 
 
 Then(/^"PE" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
-    step("I should be able to see \"login form\" which is located at \"form.general-form\"")
+    step("I can see \"login form\" which is located at \"form.general-form\"")
 	step("I input \"#{userName}\" to \"email input box\" which is located at \"form.general-form ion-input[name=email] input\"")
     step("I input \"#{userPassword}\" to \"email input box\" which is located at \"form.general-form ion-input[name=password] input\"")
     step("I click on \"login button\" which is located at \"form.general-form > button\"")
@@ -297,7 +297,7 @@ Then(/^"PE" I click on the spinner wheel$/) do
     previousEP = refineElementTextContent(waitForElement($driver, $wait, "#spinEP")).to_i
 
     step("I click on \"the wheel\" which is located at \"canvas#spinwheel\"")
-    step("I should be able to see \"a pop up\" which is located at \"ion-alert[role=dialog]\"")
+    step("I can see \"a pop up\" which is located at \"ion-alert[role=dialog]\"")
     step("I should see \"Congratulations\" which is located at \"//ion-alert[@role='dialog']//h2[@class='alert-title'][text()='Congratulations']\" with xpath")
     
     spinChances = loadSharedData(Application.KEY_SPINCHANCES)
@@ -318,7 +318,7 @@ end
 Then(/^"PE" I check that the points on the dashboard equal to points on the spinner page$/) do
     waitForElement($driver, $wait, "#tab-t0-0").click()
     step("\"PE\" I wait for loading finished")
-    step("I should be able to see \"activity list page\" which is located at \"activities-list-page\"")
+    step("I can see \"activity list page\" which is located at \"activities-list-page\"")
     spinEP = loadSharedData(Application.KEY_SPINEP)
     points = refineElementTextContent(waitForElement($driver, $wait, ".dashboard-data > li:nth-of-type(2) .number")).to_i
     if spinEP != points
