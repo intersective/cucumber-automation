@@ -24,7 +24,7 @@ Feature: AppV1 assessment review and feedback
         Then I click on "submit button" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] button" with scroll
         Then The "feedback rating" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']" should be disappear
         When "Appv1" I go back from assessment page
-        Then I should not see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Moderated 4 - participant no file and video url']" with xpath assert
+        Then I should not see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Moderated 4 - participant no file and video url']" with xpath
         Then "Appv1" I go to the "Activity Four" activity page which has "2" items
         Then "Appv1" I can see the "Moderated 4 - participant no file and video url" with status "Assessment published"
         Then I wait 2 seconds

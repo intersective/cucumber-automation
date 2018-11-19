@@ -41,20 +41,6 @@ Then("I click on {string} which is located at {string} with scroll") do |arg1, a
     ele.click()
 end
 
-Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
-    if waitForElement($driver, $wait, arg2) != nil
-        fail("something wrong")
-    end
-end
-
-Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with scroll assert$/) do |arg1, arg2|
-    ele = waitForElement($driver, $wait, arg2)
-    if ele != nil
-        fail("something wrong")
-    end
-    scrollIfNotVisible($driver, ele)
-end
-
 Then(/^I will see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
     elements = waitForElements($driver, $listWait, arg3)
 	while elements.length != arg2.to_i
@@ -94,8 +80,13 @@ When("I click on {string} which is located at {string} with xpath scroll") do |a
     ele.click()
 end
 
-Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
-    if waitForElementXpath($driver, $wait, arg2) != nil
+Then(/^I should not see "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |arg1, arg2, arg3|
+    if arg3 == " with xpath"
+        elements = waitForElementXpath($driver, $wait, arg2)
+    else
+        elements = waitForElement($driver, $wait, arg2)
+    end
+    if elements != nil
         fail("something wrong")
     end
 end
@@ -200,7 +191,7 @@ end
 Then(/^I (should|can) see "([^"]*)" which is located at "([^"]*)"(| with)(| xpath)(| scroll)$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
     if arg5 == " xpath"
         if arg6 == " scroll"
-            ele = waitForElementsXpath($driver, $wait, arg3)
+            ele = waitForElementXpath($driver, $wait, arg3)
         else
             ele = waitForElementVisibleXpath($driver, $wait, arg3)
         end

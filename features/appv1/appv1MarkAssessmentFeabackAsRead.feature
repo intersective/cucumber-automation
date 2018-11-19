@@ -24,7 +24,7 @@ Feature: AppV1 mark moderated assessment feedback as read
         Then I click on "submit button" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] button" with scroll
         Then The "feedback rating" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']" should be disappear
         When "Appv1" I go back from assessment page
-        Then I should not see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Comprehensive Moderated']" with xpath assert
+        Then I should not see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Comprehensive Moderated']" with xpath
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
         Then "Appv1" I can see the "Comprehensive Moderated" with status "Assessment done"
         Then I wait 3 seconds

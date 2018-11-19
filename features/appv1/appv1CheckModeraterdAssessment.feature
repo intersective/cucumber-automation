@@ -18,7 +18,7 @@ Feature: AppV1 Check Moderated Assessment Answer
         Then I should see "this is text question 1 description" which is located at "//*[text()='Text Question 1']/../..//*[text()='this is text question 1 description']" with xpath scroll
         Then I should see "text question answer for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='This is the text from Selenium text automation']" with xpath scroll
         Then I should see "reviewer answer for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Answer']/../*[text()='your works are excellent, thank you for submissions']" with xpath scroll
-        # Then I should not see "reviewer comments for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Comments']" with xpath assert
+        # Then I should not see "reviewer comments for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Comments']" with xpath
 
         Then I should see "Comprehensive Moderated Oneof Questions Group description" which is located at "//*[text()='Oneof Questions']/../*[text()='Comprehensive Moderated Oneof Questions Group description']" with xpath scroll
         Then I should see "this is text Oneof Question 1 description" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='this is text Oneof Question 1 description']" with xpath scroll

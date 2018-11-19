@@ -45,7 +45,7 @@ Feature: Appv1 slider type questions
         Then "Appv1" I login with "user" and "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
-        Then I should not see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath assert
+        Then I should not see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath
         Then "Appv1" I log out
 
     Scenario: Test Appv1 slider type questions for students who are in a team

@@ -24,7 +24,7 @@ Feature: Practera Mentor Review
 		Then I wait 2 seconds
 		Then I should see "wizard steps" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active"
 		Then I input "your works are excellent, thank you for submissions" to "Free text review" which is located at "//span[normalize-space()='Free text review']/../textarea" with xpath scroll
-		Then I should not see "Reviewer comments" which is located at "//span[normalize-space()='Reviewer Comments']" with xpath assert
+		Then I should not see "Reviewer comments" which is located at "//span[normalize-space()='Reviewer Comments']" with xpath
 		Then I click on "next button" which is located at "div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary" with scroll
 		Then I wait 2 seconds
 		Then I can see "step 2" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active"
