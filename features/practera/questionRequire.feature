@@ -10,7 +10,7 @@ Feature: Practera is_required file applies to different type of question
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "assessments tag" which is located at "//*[text()='Assessments']/.." with xpath
         Then I wait 2 seconds
-        Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
+        Then I will see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then I should see "an assessment" which is located at "//td/a[text()='Test question required field']" with xpath
         Then I click on "one assessment" which is located at "//td/a[text()='Test question required field']/../../td[5]/a" with xpath
         Then I click on "begin/continue button" which is located at "button#take"
@@ -54,7 +54,7 @@ Feature: Practera is_required file applies to different type of question
         Then I click on "submit button" which is located at "button#submit" with scroll
         Then I can see "message" which is located at ".toast-message"
         Then The "message" which is located at ".toast-message" should be disappear
-        Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
+        Then I will see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then "Practera" I log out
 
     Scenario: Test Practera is_required file applies to different type of question assign a mentor
@@ -63,11 +63,11 @@ Feature: Practera is_required file applies to different type of question
         Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "submissions tab" which is located at "//*[text()='Submissions']/.." with xpath
-        Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+        Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
         Then I click on "Test question required field" which is located at "//*[text()='Test question required field']/../../td[3]/a" with xpath
         Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
-		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
+		Then I will see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see a student "barry_test_program.student6" submission
 		Then "Practera" I can assign a mentor "testprogram1Mentor" to a student "barry_test_program.student6" submission
 		Then I can see "message" which is located at ".toast-message"
@@ -86,7 +86,7 @@ Feature: Practera is_required file applies to different type of question
         Then I click on "reviews & feedback" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
         Then I wait 2 seconds
         Then I click on "my reviews" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
-        Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
+        Then I should see a group of "to review submission" which is located at "#toreview tbody tr"
         Then "Practera" I can go to the review page with a student "barry_test_program.student6" submission and the assessment "Test question required field"
         Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
         Then I wait 2 seconds

@@ -11,7 +11,7 @@ Feature: Practera add a team
 		Then I click on "people tag" which is located at "//*[text()='People']/.." with xpath
 		Then I wait 2 seconds
 		Then I click on "teams tag" which is located at "//*[text()='People']/../..//*[normalize-space()='Teams']" with xpath
-		Then I should be able to see a group of "team lists" which is located at "#indextbl > tbody > tr"
+		Then I will see a group of "team lists" which is located at "#indextbl > tbody > tr"
 		Then I click on "add team button" which is located at ".page-header a"
 		Then "Practera Team" I see the add team page
 		Then "Practera Team" I input team name

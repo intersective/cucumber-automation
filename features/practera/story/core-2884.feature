@@ -11,7 +11,7 @@ Feature: Practera is_required file applies to file type question
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "Assessments" which is located at "//*[normalize-space()='Assessments']/a" with xpath
         Then I wait 2 seconds
-        Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
+        Then I will see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then I should see "an assessment" which is located at "//td/a[text()='Test file question required field']" with xpath
         Then I should see "an assessment" which is located at "//td/a[text()='Test file question required field 2']" with xpath
         Then I click on "one assessment" which is located at "//td/a[text()='Test file question required field']/../../td[5]/a" with xpath
@@ -25,7 +25,7 @@ Feature: Practera is_required file applies to file type question
         Then I click on "submit button" which is located at "button#submit"
         Then I can see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
-        Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
+        Then I will see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then I click on "one assessment" which is located at "//td/a[text()='Test file question required field 2']/../../td[5]/a" with xpath
         Then I click on "begin/continue button" which is located at "button#take"
         Then I will see a group of "questions" with total "2" which is located at ".question"
@@ -44,5 +44,5 @@ Feature: Practera is_required file applies to file type question
         Then I click on "submit button" which is located at "button#submit"
         Then I can see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
-        Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
+        Then I will see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then "Practera" I log out

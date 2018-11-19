@@ -210,7 +210,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
 		step("I click on \"review tab\" which is located at \"#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)\"")
 	    step("I wait 2 seconds")
         students.each do |student|
-            step("I should be able to see a group of \"unassigned submissions\" which is located at \"#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr\"")
+            step("I will see a group of \"unassigned submissions\" which is located at \"#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr\"")
             step("\"Practera\" I should see a student \"#{student}\" submission")
             step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{student}\" submission")
             step("I can see \"message\" which is located at \".toast-message\"")
@@ -288,7 +288,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
 		step("I click on \"submit button\" which is located at \"div#assessment-buttons button#submit\" with scroll")
 		step("I can to see \"message\" which is located at \".toast-message\"")
 		step("The \"message\" which is located at \".toast-message\" should be disappear")
-		step("I should be able to see a group of \"to review submission\" which is located at \"#toreview tbody tr\"")
+		step("I will see a group of \"to review submission\" which is located at \"#toreview tbody tr\"")
     end
 end
 
@@ -303,7 +303,7 @@ Then(/^"Practera" I can publish the submission reviews with:$/) do |table|
             if assessmentName == data[i][0]
                 assessment.find_element(:css => "td:nth-of-type(5) > a").click()
                 step("I wait 2 seconds")
-                step("I should be able to see a group of \"reviewed submissions\" which is located at \"#tblReady-to-publish > tbody > tr\"")
+                step("I will see a group of \"reviewed submissions\" which is located at \"#tblReady-to-publish > tbody > tr\"")
                 break
             end
         end

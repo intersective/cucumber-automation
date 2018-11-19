@@ -11,7 +11,7 @@ Feature: Practera Mentor Review for Personal Edge
 		Then I click on "reviews and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds
 		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
-		Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr"
+		Then I will see a group of "to review submission" which is located at "#toreview tbody tr"
 		
 		Then "Practera" I can do the review with:
 			| assessment name | student name |

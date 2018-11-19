@@ -40,11 +40,11 @@ Feature: AppV1 Moderated Team Assessment
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
-		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
 		Then I click on "team moderated(team) unassigned" which is located at "//*[text()='Team Moderated (team)']/../../td[3]/a" with xpath
 		Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
 		Then I wait 2 seconds
-		Then I should be able to see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
+		Then I will see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera Team" I should see team student "student1" submission
 		Then "Practera Team" I can assign a mentor "mentor2" to a team student "student1" submission
 		Then I can see "message" which is located at ".toast-message"
@@ -62,7 +62,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "review and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds
 		Then I click on "my reviews tag" which is located at "//*[normalize-space()='My Reviews']/a" with xpath
-		Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
+		Then I should see a group of "to review submission" which is located at "#toreview tbody tr"
 		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated (Team)"
 		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
 		Then I wait 2 seconds
@@ -91,10 +91,10 @@ Feature: AppV1 Moderated Team Assessment
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
-		Then I should be able to see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr" with assert
+		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
 		Then I click on "ready to publish on team moderated assessment" which is located at "//*[text()='Team Moderated (team)']/../../td[5]/a" with xpath
 		Then I wait 2 seconds
-		Then I should be able to see a group of "reviewed submissions" which is located at "#tblReady-to-publish > tbody > tr"
+		Then I will see a group of "reviewed submissions" which is located at "#tblReady-to-publish > tbody > tr"
 		Then "Practera Team" I should see team student "student1" ready to publish submission
 		Then "Practera Team" I can publish a team student "student1" submission review
 		Then I can see "message" which is located at ".toast-message"

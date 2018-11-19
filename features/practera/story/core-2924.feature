@@ -17,7 +17,7 @@ Feature: Practera Hide Activities on Calendar
         Then "Practera" I wait for spinner loading finished
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
         Then "Practera" I wait for spinner loading finished
-        Then I should be able to see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath assert
+        Then I should see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath
         Then I click on "hidden milestone" which is located at "input[value='milestone']"
         Then "Practera" I wait the event toggler spinner disappear
         Then "Practera" I wait for spinner loading finished
@@ -39,7 +39,7 @@ Feature: Practera Hide Activities on Calendar
         Then "Practera" I wait for spinner loading finished
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
         Then "Practera" I wait for spinner loading finished
-        Then I should be able to see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath assert
+        Then I should see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath
         Then "Practera" I log out
     
     Scenario: Test Practera Hide Activities on Calendar with the same coordinator
@@ -61,7 +61,7 @@ Feature: Practera Hide Activities on Calendar
         Then "Practera" I wait for spinner loading finished
         Then I click on "today button" which is located at "div#calendar button.fc-today-button"
         Then "Practera" I wait for spinner loading finished
-        Then I should be able to see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath assert
+        Then I should see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath
         Then "Practera" I log out
 
     Scenario: Test Practera Hide Activities on Calendar with a participant account
@@ -73,7 +73,7 @@ Feature: Practera Hide Activities on Calendar
         Then I wait 2 seconds
         Then I can see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished
-        Then I should be able to see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath assert
+        Then I should see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath
         Then I should see "an activity" which is located at "//span[text()='barry test activity 1']" with xpath
         Then I click on "hidden milestone" which is located at "input[value='milestone']"
         Then "Practera" I wait the event toggler spinner disappear
@@ -99,7 +99,7 @@ Feature: Practera Hide Activities on Calendar
         Then I click on "hidden milestone" which is located at "input[value='milestone']"
         Then "Practera" I wait the event toggler spinner disappear
         Then "Practera" I wait for spinner loading finished
-        Then I should be able to see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath assert
+        Then I should see a group of "milestones" which is located at "//span[text()='barry test milestone 1']" with xpath
         Then I click on "hidden activity" which is located at "input[value='activity']"
         Then "Practera" I wait the event toggler spinner disappear
         Then "Practera" I wait for spinner loading finished

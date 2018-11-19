@@ -11,7 +11,7 @@ Feature: Practera Mentor Review
 		Then I click on "reviews and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
 		Then I wait 2 seconds
 		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
-		Then I should be able to see a group of "to review submission" which is located at "#toreview tbody tr" with assert
+		Then I should see a group of "to review submission" which is located at "#toreview tbody tr"
 		Then "Practera" I can go to the review page with the student submission and the assessment "Comprehensive Moderated"
 		Then I should see "Files uploaded in submission" which is located at "//*[text()='Files uploaded in submission']" with xpath
 		Then "Practera" I check the assessment uploaded file with:
