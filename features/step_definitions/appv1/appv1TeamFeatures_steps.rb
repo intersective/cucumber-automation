@@ -7,7 +7,7 @@ Then("\"Appv1 Team\" I login with team member {string} and password {string} and
     step("\"Appv1\" I login with username \"#{studentName}\" and password \"#{password}\"")
 end
 
-Then("\"Appv1 Team\" I should be able to see the team name with assert") do
+Then("\"Appv1 Team\" I should see the team name") do
     teamObj = loadSharedData(Application.KEY_TEAM)
     teamName = teamObj["name"].capitalize
     step("I should see \"team title\" which is located at \"//*[text()='#{teamName}']\" with xpath")
