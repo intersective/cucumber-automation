@@ -31,9 +31,9 @@ end
 
 Then(/^I (should|will) see a group of "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |arg1, arg2, arg3, arg4|
     if arg4 == " with xpath"
-        elements = waitForElements($driver, $listWait, arg3)
-    else
         elements = waitForElementsXpath($driver, $listWait, arg3)
+    else
+        elements = waitForElements($driver, $listWait, arg3)
     end
     if elements == nil
         if arg1 == "should"
@@ -130,7 +130,7 @@ Then(/^I (should|can) see "([^"]+)" which is located at "([^"]+)" (|with xpath )
     end
     text = refineElementTextContent(ele)
     if arg1 == "should"
-        if text != arg3
+        if text != arg5
             fail("expected text %s, but found %s" % [arg5, text])
         end
     else
