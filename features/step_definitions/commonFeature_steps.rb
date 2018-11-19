@@ -210,14 +210,6 @@ Then(/^I (should|can) see "([^"]+)" which is located at "([^"]+)" (|with xpath )
     end
 end
 
-Then("I should be able to see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|
-    ele = waitForElement($driver, $listWait, arg2)
-    text = refineElementTextContent(ele)
-    if text != arg3
-        fail("expected text %s, but found %s" % [arg3, text])
-    end
-end
-
 Then("I should be able to see {string} which is located at {string} has color {string}") do |arg1, arg2, arg3|
     color = $driver.execute_script("return window.getComputedStyle(document.querySelector('%s')).getPropertyValue('color')" % [arg2])
     rgb = color[4..-2].split(",")

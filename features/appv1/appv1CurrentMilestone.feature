@@ -11,5 +11,5 @@ Feature: AppV1 current activty
         Then "Appv1" I should see the app home screen
         When I wait 6 seconds
         Then I should be able to see "current activty category" which is located at "//p[text()='Activity']" with xpath assert
-        Then I should be able to see "current activity title" which is located at ".activity-name" containing text "Comprehensive Activity"
+        Then I should see "current activity title" which is located at ".activity-name" containing text "Comprehensive Activity"
         Then "Appv1" I log out

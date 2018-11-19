@@ -15,7 +15,7 @@ Feature: Practera users timezone
         Then I input "Asia/Hong_Kong" to "timezone select input box" which is located at "#s2id_autogen1_search"
         Then I click on "the select result" which is located at "#select2-results-1 > li span"
         Then I click on "the save button" which is located at "#UserProfileEditForm > .form-actions button:nth-of-type(1)" with scroll
-        Then I should be able to see "successfully save message" which is located at ".toast-title" containing text "Your profile has been updated"
+        Then I should see "successfully save message" which is located at ".toast-title" containing text "Your profile has been updated"
         Then The "message" which is located at ".toast-message" should be disappear
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
         Then I should be able to see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Asia/Hong_Kong']" with xpath assert
@@ -23,7 +23,7 @@ Feature: Practera users timezone
         Then I input "local" to "timezone select input box" which is located at "#s2id_autogen1_search"
         Then I click on "the select result" which is located at "#select2-results-1 > li span"
         Then I click on "the save button" which is located at "#UserProfileEditForm > .form-actions button:nth-of-type(1)" with scroll
-        Then I should be able to see "successfully save message" which is located at ".toast-title" containing text "Your profile has been updated"
+        Then I should see "successfully save message" which is located at ".toast-title" containing text "Your profile has been updated"
         Then The "message" which is located at ".toast-message" should be disappear
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
         Then I should be able to see "user local timezone" which is located at "//*[@id='select2-chosen-1'][text()='Australia/Sydney']" with xpath assert

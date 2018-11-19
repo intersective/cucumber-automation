@@ -16,7 +16,7 @@ Feature: Custom branding for app
         Then I should be able to see "program name" which is located at "//input[@name='data[Program][name]'][@value='App V1 Selenium Program']" with xpath assert
         Then I input "#113d91" to "theme color input field" which is located at "#theme-color" with scroll
         When I click on "save button" which is located at "//button[normalize-space()='Save']" with xpath
-        Then I should be able to see "successfully save message" which is located at ".toast-title" containing text "The program has been saved"
+        Then I should see "successfully save message" which is located at ".toast-title" containing text "The program has been saved"
         Then The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I log out
         
