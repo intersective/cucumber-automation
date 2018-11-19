@@ -240,13 +240,29 @@ Then("I move the slider {string} to the {string} which is located at {string} by
     end
 end
 
-Then(/^I can see "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |arg1, arg2, arg3|
-    if arg3 == " with xpath"
-        ele = waitForElementXpath($driver, $wait, arg2)
+Then(/^I (should|can) see "([^"]*)" which is located at "([^"]*)"(| with)(| xpath)(| scroll)$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
+    if arg5 == " xpath"
+        if arg6 == " scroll"
+            ele = waitForElementVisibleXpath($driver, $wait, arg3)
+        else
+            ele = waitForElementXpath($driver, $wait, arg3)
+        end
     else
-        ele = waitForElement($driver, $wait, arg2)
+        if arg6 == " scroll"
+            ele = waitForElementVisible($driver, $wait, arg3)
+        else
+            ele = waitForElement($driver, $wait, arg3)
+        end
     end
     if ele == nil
-        verifyValue("expected element exist", arg2, "nil")
+        if arg1 == "can"
+            verifyValue("expected element exist", arg3, "nil")
+        else
+            fail("expected %s, but found %s" % [arg3, "nil"])
+        end
+    else
+        if arg6 == " scroll"
+            scrollIfNotVisible($driver, ele)
+        end
     end
 end
