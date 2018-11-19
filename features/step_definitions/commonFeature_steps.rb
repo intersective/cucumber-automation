@@ -194,10 +194,20 @@ Then(/^I move to "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1,
     $driver.action.move_to(element).click.perform
 end
 
-Then("I can see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|
-    ele = waitForElement($driver, $wait, arg2)
+Then(/^I (should|can) see "([^"]+)" which is located at "([^"]+)" (|with xpath )containing text "([^"]+)"$/) do |arg1, arg2, arg3, arg4, arg5|
+    if arg4 == "with xpath "
+        ele = waitForElementXpath($driver, $wait, arg3)
+    else
+        ele = waitForElement($driver, $wait, arg3)
+    end
     text = refineElementTextContent(ele)
-    verifyValue("expected text", text, arg3)
+    if arg1 == "should"
+        if text != arg3
+            fail("expected text %s, but found %s" % [arg5, text])
+        end
+    else
+        verifyValue("expected text", text, arg5)
+    end
 end
 
 Then("I should be able to see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|
@@ -246,7 +256,5 @@ Then(/^I can see "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |ar
     end
     if ele == nil
         verifyValue("expected element exist", arg2, "nil")
-    else
-        scrollIfNotVisible($driver, ele)
     end
 end
