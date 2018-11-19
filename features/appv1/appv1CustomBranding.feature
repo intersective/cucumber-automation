@@ -27,5 +27,5 @@ Feature: Custom branding for app
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I wait 5 seconds
-        Then I can see "tab" which is located at ".tabs" has color "113d91"
+        Then I should see "tab" which is located at ".tabs" has color "113d91"
         Then "Appv1" I log out
