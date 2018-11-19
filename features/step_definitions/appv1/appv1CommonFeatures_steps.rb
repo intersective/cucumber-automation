@@ -154,13 +154,6 @@ Then(/^"Appv1" I should be able to select "([^"]*)" from selector options which 
 	selectorOption.click()
 end
 
-Then(/^"Appv1" I should be able to see "([^"]*)" which is located at "([^"]*)"$/) do |questionAnswer, selectorPath|
-	aQuestionAnswer = waitForElementXpath($driver, $wait, selectorPath)
-	if refineElementTextContent(aQuestionAnswer) != questionAnswer
-		fail("I can not see the answers")
-	end
-end
-
 Then("\"Appv1\" I can see the overall project progress") do
 	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
 	$sharedData1.putData(Application.KEY_PROGRESS, progress)
