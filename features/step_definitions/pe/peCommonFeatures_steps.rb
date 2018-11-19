@@ -298,7 +298,7 @@ Then(/^"PE" I click on the spinner wheel$/) do
 
     step("I click on \"the wheel\" which is located at \"canvas#spinwheel\"")
     step("I should be able to see \"a pop up\" which is located at \"ion-alert[role=dialog]\"")
-    step("I should be able to see \"Congratulations\" which is located at \"//ion-alert[@role='dialog']//h2[@class='alert-title'][text()='Congratulations']\" with xpath assert")
+    step("I should see \"Congratulations\" which is located at \"//ion-alert[@role='dialog']//h2[@class='alert-title'][text()='Congratulations']\" with xpath")
     
     spinChances = loadSharedData(Application.KEY_SPINCHANCES)
     aSpinChances = refineElementTextContent(waitForElement($driver, $wait, "#spinChances")).to_i

@@ -419,6 +419,6 @@ Then("\"Practera\" I check the assessment uploaded file with:") do |table|
     for i in 1..rows
         filePosition = data[i][0].strip()
         fileName = data[i][1].strip()
-        step("I should be able to see \"a file link\" which is located at \"//*[@id='assessment']//ul/li[#{filePosition}]/a[text()='#{fileName}']\" with xpath assert")
+        step("I should see \"a file link\" which is located at \"//*[@id='assessment']//ul/li[#{filePosition}]/a[text()='#{fileName}']\" with xpath")
     end
 end
