@@ -12,7 +12,7 @@ Feature: Appv1 slider type questions
         Then I should see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath
         Then I should see "the feedback description" which is located at "//*[text()='Before you continue, please spend 10 seconds to answer these questions.']" with xpath
         
-        Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
+        Then I will see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
 
         When I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
         Then I can see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']"
@@ -54,7 +54,7 @@ Feature: Appv1 slider type questions
         Then "Appv1" I login with "user2" and "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
-        Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
+        Then I will see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
         Then I click on "Yes for the third question" which is located at "//*[@ng-repeat='question in modal.questions'][3]//span[normalize-space()='Yes']/../../.." with xpath scroll
         Then I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
         Then I can see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']"
@@ -72,7 +72,7 @@ Feature: Appv1 slider type questions
         Then "Appv1" I login with "user3" and "password1"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
-        Then I can see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
+        Then I will see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
         Then I click on "Yes for the first question" which is located at "//*[@ng-repeat='question in modal.questions'][1]//span[normalize-space()='Yes']/../../.." with xpath scroll
         Then I click on "No for the second question" which is located at "//*[@ng-repeat='question in modal.questions'][2]//span[normalize-space()='No']/../../.." with xpath scroll
         Then I click on "Yes for the third question" which is located at "//*[@ng-repeat='question in modal.questions'][3]//span[normalize-space()='Yes']/../../.." with xpath scroll

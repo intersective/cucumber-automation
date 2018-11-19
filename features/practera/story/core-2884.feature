@@ -16,7 +16,7 @@ Feature: Practera is_required file applies to file type question
         Then I should see "an assessment" which is located at "//td/a[text()='Test file question required field 2']" with xpath
         Then I click on "one assessment" which is located at "//td/a[text()='Test file question required field']/../../td[5]/a" with xpath
         Then I click on "begin/continue button" which is located at "button#take"
-        Then I can see a group of "questions" with total "2" which is located at ".question"
+        Then I will see a group of "questions" with total "2" which is located at ".question"
         Then I click on "submit button" which is located at "button#submit"
         Then I can see an alert contain "One or more question is missing file upload!"
         Then I click on "Upload Files" which is located at "//a[text()='Upload Files']" with xpath
@@ -28,7 +28,7 @@ Feature: Practera is_required file applies to file type question
         Then I should be able to see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then I click on "one assessment" which is located at "//td/a[text()='Test file question required field 2']/../../td[5]/a" with xpath
         Then I click on "begin/continue button" which is located at "button#take"
-        Then I can see a group of "questions" with total "2" which is located at ".question"
+        Then I will see a group of "questions" with total "2" which is located at ".question"
         Then I click on "next button" which is located at "button#next" with scroll
         Then I can see "step 2" which is located at "div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active"
         Then I click on "submit button" which is located at "button#submit"

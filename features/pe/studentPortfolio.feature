@@ -25,7 +25,7 @@ Feature: Personal Edge Student Portfolio
         Then "PE" I can see "2" question group with description "Please share your feedback on the overall program"
         Then "PE" I can go to "1" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "26" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "26" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | oneof | I can generate a lot of new ideas to approach a challenge | Strongly agree |
@@ -62,7 +62,7 @@ Feature: Personal Edge Student Portfolio
         Then I wait 2 seconds
         Then "PE" I can go to "2" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "9" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "9" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | oneof | The format (registration/ workshop/ evidence submission) of the program was understandable | Strongly agree |

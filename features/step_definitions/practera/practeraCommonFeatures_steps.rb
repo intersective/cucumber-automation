@@ -197,7 +197,7 @@ Then(/^I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) (mentor|studen
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|
-    step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
+    step("I will see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
 
     data = table.raw
     rows = data.length - 1
@@ -220,7 +220,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         step("I scroll to the top")
 		step("I wait 2 seconds")
 		step("I click on \"a tag\" which is located at \".page-header span > a\"")
-		step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
+		step("I will see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
     end    
 end
 

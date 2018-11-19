@@ -14,7 +14,7 @@ Feature: Personal Edge Student Creative Thinker Activity
         Then "PE" I can see "4" question groups
         Then "PE" I can go to "1" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | text | What is the title of your experience? | I am really into the assessment part |
@@ -25,7 +25,7 @@ Feature: Personal Edge Student Creative Thinker Activity
         Then I wait 2 seconds
         Then "PE" I can go to "2" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "5" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "5" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | text | Situation | I am really into the assessment part |
@@ -40,7 +40,7 @@ Feature: Personal Edge Student Creative Thinker Activity
         Then I wait 2 seconds
         Then "PE" I can go to "3" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | file | File upload | medium-size-dogs-a-medium.jpg |

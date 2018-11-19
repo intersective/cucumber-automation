@@ -11,7 +11,7 @@ Feature: Personal Edge studfent book and cancel event
 		Then I can see "activity list page" which is located at "activities-list-page"
 		Then I click on "Event tab" which is located at "#tab-t0-1"
 		Then "PE" I wait for loading finished
-		Then I can see a group of "buttons" with total "3" which is located at "events-list-page ion-grid ion-row:nth-of-type(1) ion-segment-button"
+		Then I will see a group of "buttons" with total "3" which is located at "events-list-page ion-grid ion-row:nth-of-type(1) ion-segment-button"
 		Then I click on "Browse" which is located at "events-list-page ion-grid ion-row:nth-of-type(1) ion-segment-button:nth-of-type(1)"
 		Then I wait 2 seconds
 		Then "PE" I go to the event page

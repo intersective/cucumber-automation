@@ -22,7 +22,7 @@ Feature: Personal Edge Newbie
         Then I wait 2 seconds
         Then "PE" I can see an assessment with title "MY SELF-ASSESSMENT" in the assessment detail page
         Then "PE" I can see an assessment with description "This is a self-assessment exercise about employability skills. Take the time to reflect on the skills you currently have:" in the assessment detail page 
-        Then I can see a group of "questions" with total "28" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "28" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | oneof | I can generate a lot of new ideas to approach a challenge | Strongly agree |
@@ -73,7 +73,7 @@ Feature: Personal Edge Newbie
         Then "PE" I can see "1" question groups
         Then "PE" I can go to "1" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "28" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "28" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the "oneof" question which is located at "2" with title "I can see opportunities in the marketplace and generate entrepreneurial ideas" and answer "Agree"
         Then I wait 2 seconds
         Then I click on "save button" which is located at "assessments-group-page ion-navbar.toolbar ion-buttons button.btn-save"

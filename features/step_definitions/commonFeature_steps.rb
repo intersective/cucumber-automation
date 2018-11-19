@@ -69,7 +69,7 @@ Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)
     end
 end
 
-Then(/^I can see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
+Then(/^I will see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
     elements = waitForElements($driver, $listWait, arg3)
 	while elements.length != arg2.to_i
 		sleep 1
