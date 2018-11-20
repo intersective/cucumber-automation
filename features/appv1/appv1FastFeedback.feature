@@ -15,7 +15,7 @@ Feature: Appv1 slider type questions
         Then I will see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
 
         When I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
-        Then I can see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']"
+        Then I can see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']" with xpath
         Then I click on "close button" which is located at ".popup-container button"
 
         Then I should see "the first slider question title" which is located at "//*[@ng-repeat='question in modal.questions'][1]//*[text()='Q1. Have you personally engaged with your mentor within the last two weeks?']" with xpath scroll
@@ -57,7 +57,7 @@ Feature: Appv1 slider type questions
         Then I will see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
         Then I click on "Yes for the third question" which is located at "//*[@ng-repeat='question in modal.questions'][3]//span[normalize-space()='Yes']/../../.." with xpath scroll
         Then I click on "submit button" which is located at "ion-modal-view button[type='submit']" with scroll
-        Then I can see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']"
+        Then I can see "submission fail message" which is located at "//*[@class='popup']//*[normalize-space()='Please answer all the feedback questions.']" with xpath
         Then I click on "close button" which is located at ".popup-container button"
         Then I click on "Yes for the first question" which is located at "//*[@ng-repeat='question in modal.questions'][1]//span[normalize-space()='Yes']/../../.." with xpath scroll
         Then I click on "Yes for the second question" which is located at "//*[@ng-repeat='question in modal.questions'][2]//span[normalize-space()='Yes']/../../.." with xpath scroll
