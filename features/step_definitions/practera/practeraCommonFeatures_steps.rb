@@ -1,11 +1,11 @@
 
 
 Then(/^"Practera" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
-    step("I should be able to see \"a form\" which is located at \"form#login\"")
+    step("I can see \"a form\" which is located at \"form#login\"")
     step("I input \"#{userName}\" to \"email input field\" which is located at \"form#login input#UserEmail\"")
     step("I input \"#{userPassword}\" to \"password input field\" which is located at \"form#login input#UserPassword\"")
     step("I click on \"a button\" which is located at \"form#login button\"")
-    step("I should be able to see \"message\" which is located at \".toast-message\"")
+    step("I can see \"message\" which is located at \".toast-message\"")
     step("The \"message\" which is located at \".toast-message\" should be disappear")
     step("I wait 2 seconds")
 end
@@ -197,7 +197,7 @@ Then(/^I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) (mentor|studen
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|
-    step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
+    step("I will see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
 
     data = table.raw
     rows = data.length - 1
@@ -210,17 +210,17 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
 		step("I click on \"review tab\" which is located at \"#reviewContainer > div#assessments > ul#reviewTab > li:nth-of-type(2)\"")
 	    step("I wait 2 seconds")
         students.each do |student|
-            step("I should be able to see a group of \"unassigned submissions\" which is located at \"#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr\"")
+            step("I will see a group of \"unassigned submissions\" which is located at \"#reviewContainer > div#assessments > div > div#unassigned > div > table > tbody > tr\"")
             step("\"Practera\" I should see a student \"#{student}\" submission")
             step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{student}\" submission")
-            step("I should be able to see \"message\" which is located at \".toast-message\"")
+            step("I can see \"message\" which is located at \".toast-message\"")
             step("The \"message\" which is located at \".toast-message\" should be disappear")
             step("I wait 2 seconds")
         end
         step("I scroll to the top")
 		step("I wait 2 seconds")
 		step("I click on \"a tag\" which is located at \".page-header span > a\"")
-		step("I can see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
+		step("I will see a group of \"assessments\" with total \"6\" which is located at \".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr\"")
     end    
 end
 
@@ -237,7 +237,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
 		step("I click on \"the start button\" which is located at \"//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button\" with xpath")
 		step("I wait 2 seconds")
 
-		step("I should be able to see \"wizard steps\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active\"")
+		step("I can see \"wizard steps\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(1).active\"")
         for i in 1..2 do
             locator = ".content-container > .row:nth-of-type(%s)" % [i]
             if findElement($driver, locator) != nil
@@ -254,7 +254,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
         step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 		step("I wait 2 seconds")
 		
-		step("I should be able to see \"step 2\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active\"")
+		step("I can see \"step 2\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(2).active\"")
         step("I wait 2 seconds")
         for i in 1..10 do
             locator = ".content-container > .row:nth-of-type(%s)" % [i]
@@ -272,23 +272,23 @@ Then(/^"Practera" I can do the review with:$/) do |table|
 		step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 		step("I wait 2 seconds")
 
-		step("I should be able to see \"step 3\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(3).active\"")
+		step("I can see \"step 3\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(3).active\"")
 		step("I wait 2 seconds")
 		step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 
-		step("I should be able to see \"step 4\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(4).active\"")
+		step("I can see \"step 4\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(4).active\"")
 		step("I wait 2 seconds")
 		step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
 
-		step("I should be able to see \"step 5\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(5).active\"")
+		step("I can see \"step 5\" which is located at \"div#assessment > div.page-header > div > ul.wizard-steps > li:nth-of-type(5).active\"")
 		step("I click on \"outstanding\" which is located at \"//span[normalize-space()='Outstanding (4)']\" with xpath scroll")
 		step("I input \"your works are excellent, thank you for submissions\" to \"Reviewer Comments\" which is located at \"//span[normalize-space()='Reviewer Comments']/../textarea\" with xpath scroll")
 
 		step("I wait 2 seconds")
 		step("I click on \"submit button\" which is located at \"div#assessment-buttons button#submit\" with scroll")
-		step("I should be able to see \"message\" which is located at \".toast-message\"")
+		step("I can to see \"message\" which is located at \".toast-message\"")
 		step("The \"message\" which is located at \".toast-message\" should be disappear")
-		step("I should be able to see a group of \"to review submission\" which is located at \"#toreview tbody tr\"")
+		step("I will see a group of \"to review submission\" which is located at \"#toreview tbody tr\"")
     end
 end
 
@@ -303,7 +303,7 @@ Then(/^"Practera" I can publish the submission reviews with:$/) do |table|
             if assessmentName == data[i][0]
                 assessment.find_element(:css => "td:nth-of-type(5) > a").click()
                 step("I wait 2 seconds")
-                step("I should be able to see a group of \"reviewed submissions\" which is located at \"#tblReady-to-publish > tbody > tr\"")
+                step("I will see a group of \"reviewed submissions\" which is located at \"#tblReady-to-publish > tbody > tr\"")
                 break
             end
         end
@@ -311,7 +311,7 @@ Then(/^"Practera" I can publish the submission reviews with:$/) do |table|
         students.each do |student|
             step("\"Practera\" I should see a student \"#{student}\" ready to publish submission")
             step("\"Practera\" I can publish a student \"#{student}\" submission review")
-            step("I should be able to see \"message\" which is located at \".toast-message\"")
+            step("I can see \"message\" which is located at \".toast-message\"")
             step("The \"message\" which is located at \".toast-message\" should be disappear")
         end
 
@@ -419,6 +419,6 @@ Then("\"Practera\" I check the assessment uploaded file with:") do |table|
     for i in 1..rows
         filePosition = data[i][0].strip()
         fileName = data[i][1].strip()
-        step("I should be able to see \"a file link\" which is located at \"//*[@id='assessment']//ul/li[#{filePosition}]/a[text()='#{fileName}']\" with xpath assert")
+        step("I should see \"a file link\" which is located at \"//*[@id='assessment']//ul/li[#{filePosition}]/a[text()='#{fileName}']\" with xpath")
     end
 end

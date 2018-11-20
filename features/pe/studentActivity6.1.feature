@@ -14,7 +14,7 @@ Feature: Personal Edge Student Digital Citizen Activity
         Then "PE" I can see "4" question groups
         Then "PE" I can go to "1" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | text | What is the title of your experience? | I am really into the Digital Citizen assessment part |
@@ -25,7 +25,7 @@ Feature: Personal Edge Student Digital Citizen Activity
         Then I wait 2 seconds
         Then "PE" I can go to "2" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "5" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "5" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | text | Situation | I am really into the Digital Citizen assessment part |
@@ -40,7 +40,7 @@ Feature: Personal Edge Student Digital Citizen Activity
         Then I wait 2 seconds
         Then "PE" I can go to "3" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "1" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | file | File upload | medium-size-dogs-a-medium.jpg |
@@ -50,7 +50,7 @@ Feature: Personal Edge Student Digital Citizen Activity
         Then "PE" I wait for loading finished
         Then I wait 2 seconds
         Then I click on "submit button" which is located at "assessments-page ion-header ion-navbar.toolbar button.btn-submit"
-        Then I should be able to see "a dialog" which is located at "ion-alert[role=dialog]"
+        Then I can see "a dialog" which is located at "ion-alert[role=dialog]"
         Then I wait 2 seconds
         Then I click on "confirm button" which is located at "ion-alert[role=dialog] .alert-wrapper .alert-button-group button:nth-of-type(1)"
         Then "PE" I wait for loading finished

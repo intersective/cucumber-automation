@@ -8,11 +8,11 @@ Feature: Personal Edge Student Portfolio
         When "PE" I login with "user" and "password1"
         Then "PE" I wait for loading finished
         Then I click on "Request Portfolio" which is located at ".dashboard-data > li:nth-of-type(3) .number > .badge"
-        Then I should be able to see "confirm window" which is located at "ion-action-sheet .action-sheet-container"
+        Then I can see "confirm window" which is located at "ion-action-sheet .action-sheet-container"
         Then I click on "cancel button" which is located at "ion-action-sheet .action-sheet-container .action-sheet-group:nth-of-type(2) > button"
         Then The "confirm window" which is located at "ion-action-sheet .action-sheet-container" should be disappear
         Then I click on "Request Portfolio" which is located at ".dashboard-data > li:nth-of-type(3) .number > .badge"
-        Then I should be able to see "confirm window" which is located at "ion-action-sheet .action-sheet-container"
+        Then I can see "confirm window" which is located at "ion-action-sheet .action-sheet-container"
         Then I click on "confirm button" which is located at "ion-action-sheet .action-sheet-container .action-sheet-group:nth-of-type(1) > button"
         Then I wait 3 seconds
         Then "PE" I wait for loading finished
@@ -25,7 +25,7 @@ Feature: Personal Edge Student Portfolio
         Then "PE" I can see "2" question group with description "Please share your feedback on the overall program"
         Then "PE" I can go to "1" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "26" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "26" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | oneof | I can generate a lot of new ideas to approach a challenge | Strongly agree |
@@ -62,7 +62,7 @@ Feature: Personal Edge Student Portfolio
         Then I wait 2 seconds
         Then "PE" I can go to "2" question group
         Then I wait 2 seconds
-        Then I can see a group of "questions" with total "9" which is located at ".groups-question div.assessments-group-text"
+        Then I will see a group of "questions" with total "9" which is located at ".groups-question div.assessments-group-text"
         Then "PE" I do the questions with:
             | questionType | questionTitle | questionAnswer |
             | oneof | The format (registration/ workshop/ evidence submission) of the program was understandable | Strongly agree |
@@ -82,12 +82,12 @@ Feature: Personal Edge Student Portfolio
         Then I wait 2 seconds
         Then "PE" I can see "2" question groups
         Then I click on "submit button" which is located at "assessments-page ion-header ion-navbar.toolbar button.btn-submit"
-        Then I should be able to see "a dialog" which is located at "ion-alert[role=dialog]"
+        Then I can see "a dialog" which is located at "ion-alert[role=dialog]"
         Then I wait 2 seconds
         Then I click on "YES" which is located at "ion-alert[role=dialog] .alert-wrapper .alert-button-group button:nth-of-type(1)"
         Then "PE" I wait for loading finished
         Then I wait 3 seconds
-        Then I should be able to see "a dialog" which is located at "ion-alert[role=dialog]"
+        Then I can see "a dialog" which is located at "ion-alert[role=dialog]"
         Then I wait 2 seconds
         Then I click on "OK" which is located at "ion-alert[role=dialog] .alert-wrapper .alert-button-group button:nth-of-type(1)"
         Then "PE" I wait for loading finished

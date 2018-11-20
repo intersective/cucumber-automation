@@ -13,7 +13,7 @@ Feature: AppV1 assessment and questions display logic
         Then "Appv1" I go to the "Activity Four" activity page which has "2" items
         Then "Appv1" I can see the "assessment" locating at "1" with title "Comprehensive Moderated 2" and category "assessment"
         Then "Appv1" I go to the assessment locating at "1"
-        Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
+        Then I can see "assessment page" which is located at ".pane[nav-view='active']"
         Then "Appv1" I can see the assessment with name "Comprehensive Moderated 2" and description "This is a comprehensive moderated 2"
         Then I can see "question group description" which is located at "//*[text()='Text Questions']/../*[text()='Comprehensive Moderated 2 Text Questions Group description']" with xpath
         Then I can see "question group description" which is located at "//*[text()='Oneof Questions']/../*[text()='Comprehensive Moderated 2 Oneof Questions Group description']" with xpath
@@ -33,7 +33,7 @@ Feature: AppV1 assessment and questions display logic
         Then "Appv1" I go to the "Activity Four" activity page which has "2" items
         Then "Appv1" I can see the "assessment" locating at "1" with title "Comprehensive Moderated 3" and category "assessment"
         Then "Appv1" I go to the assessment locating at "1"
-        Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
+        Then I can see "assessment page" which is located at ".pane[nav-view='active']"
         Then "Appv1" I can see the assessment with name "Comprehensive Moderated 3" and description "This is a comprehensive moderated 3"
         Then I can see "question group description" which is located at "//*[text()='Text Questions']/../*[text()='Comprehensive Moderated 3 Text Questions Group description']" with xpath
         Then I can see "question group description" which is located at "//*[text()='Oneof Questions']/../*[text()='Comprehensive Moderated 3 Oneof Questions Group description']" with xpath

@@ -6,7 +6,7 @@ Feature: Case Freemium Signup
 	Scenario: Test Case Freemium Signup
 		Given I go to "http://localhost:4200/home"
 		When I click on "the signup button" which is located at "//*[text()='Signup']/.." with xpath
-		Then I should be able to see "the signup form" which is located at "app-signup > form"
+		Then I can see "the signup form" which is located at "app-signup > form"
 		Then I wait 2 seconds
 		Then I input "user_1" to "name input box" which is located at "app-signup > form input[ng-reflect-name='name']"
 		Then I input "user_1@practera.com" to "email input box" which is located at "app-signup > form input[ng-reflect-name='email']"

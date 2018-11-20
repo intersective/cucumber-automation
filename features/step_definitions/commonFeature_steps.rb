@@ -4,26 +4,6 @@ Given(/^I go to "([^"]*)"$/) do |arg1|
 	$driver.get(arg1)
 end
 
-Given(/^I go to App V1$/) do
-    appV1Link = $configObj["appv1Url"]
-    step("I go to \"#{appV1Link}\"")
-end
-
-Given(/^I go to Practera Platform$/) do
-    practeraLink = $configObj["practeraUrl"]
-    step("I go to \"#{practeraLink}\"")
-end
-
-Given(/^I go to Mailtrap$/) do
-    mailtrapLink = $configObj["mailtrap"]
-    step("I go to \"#{mailtrapLink}\"")
-end
-
-Given(/^I go to PE$/) do
-    peLink = $configObj["peUrl"]
-    step("I go to \"#{peLink}\"")
-end
-
 When(/^The "([^"]*)" which is located at "([^"]*)" should be disappear$/) do |arg1, arg2|
 	sleep 1
 	while waitForElement($driver, $shortWait, arg2) != nil
@@ -41,53 +21,7 @@ Then("I click on {string} which is located at {string} with scroll") do |arg1, a
     ele.click()
 end
 
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
-	waitForElementVisible($driver, $wait, arg2)
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
-    if waitForElementVisible($driver, $wait, arg2) == nil
-        fail("something wrong")
-    end
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with scroll assert$/) do |arg1, arg2|
-    ele = waitForElement($driver, $wait, arg2)
-    if ele == nil
-        fail("something wrong")
-    end
-    scrollIfNotVisible($driver, ele)
-end
-
-Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
-    if waitForElement($driver, $wait, arg2) != nil
-        fail("something wrong")
-    end
-end
-
-Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with scroll assert$/) do |arg1, arg2|
-    ele = waitForElement($driver, $wait, arg2)
-    if ele != nil
-        fail("something wrong")
-    end
-    scrollIfNotVisible($driver, ele)
-end
-
-Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2|
-	waitForElements($driver, $listWait, arg2)
-end
-
-Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
-	waitForElementsXpath($driver, $listWait, arg2)
-end
-
-Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
-    if waitForElementsXpath($driver, $listWait, arg2) == nil
-        fail("something wrong")
-    end
-end
-
-Then(/^I can see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
+Then(/^I will see a group of "([^"]*)" with total "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
     elements = waitForElements($driver, $listWait, arg3)
 	while elements.length != arg2.to_i
 		sleep 1
@@ -95,9 +29,16 @@ Then(/^I can see a group of "([^"]*)" with total "([^"]*)" which is located at "
 	end
 end
 
-Then(/^I should be able to see a group of "([^"]*)" which is located at "([^"]*)" with assert$/) do |arg1, arg2|
-	if waitForElements($driver, $listWait, arg2) == nil
-        fail("something wrong")
+Then(/^I (should|will) see a group of "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |arg1, arg2, arg3, arg4|
+    if arg4 == " with xpath"
+        elements = waitForElementsXpath($driver, $listWait, arg3)
+    else
+        elements = waitForElements($driver, $listWait, arg3)
+    end
+    if elements == nil
+        if arg1 == "should"
+            fail("something wrong")
+        end
     end
 end
 
@@ -119,26 +60,13 @@ When("I click on {string} which is located at {string} with xpath scroll") do |a
     ele.click()
 end
 
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath$/) do |arg1, arg2|
-    waitForElementVisibleXpath($driver, $wait, arg2)
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
-    if waitForElementVisibleXpath($driver, $wait, arg2) == nil
-        fail("something wrong")
+Then(/^I should not see "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |arg1, arg2, arg3|
+    if arg3 == " with xpath"
+        elements = waitForElementXpath($driver, $wait, arg2)
+    else
+        elements = waitForElement($driver, $wait, arg2)
     end
-end
-
-Then(/^I should be able to see "([^"]*)" which is located at "([^"]*)" with xpath scroll assert$/) do |arg1, arg2|
-    ele = waitForElementXpath($driver, $wait, arg2)
-    if ele == nil
-        fail("something wrong")
-    end
-    scrollIfNotVisible($driver, ele)
-end
-
-Then(/^I should not see "([^"]*)" which is located at "([^"]*)" with xpath assert$/) do |arg1, arg2|
-    if waitForElementXpath($driver, $wait, arg2) != nil
+    if elements != nil
         fail("something wrong")
     end
 end
@@ -202,7 +130,7 @@ Then(/^I (should|can) see "([^"]+)" which is located at "([^"]+)" (|with xpath )
     end
     text = refineElementTextContent(ele)
     if arg1 == "should"
-        if text != arg3
+        if text != arg5
             fail("expected text %s, but found %s" % [arg5, text])
         end
     else
@@ -210,15 +138,7 @@ Then(/^I (should|can) see "([^"]+)" which is located at "([^"]+)" (|with xpath )
     end
 end
 
-Then("I should be able to see {string} which is located at {string} containing text {string}") do |arg1, arg2, arg3|
-    ele = waitForElement($driver, $listWait, arg2)
-    text = refineElementTextContent(ele)
-    if text != arg3
-        fail("expected text %s, but found %s" % [arg3, text])
-    end
-end
-
-Then("I should be able to see {string} which is located at {string} has color {string}") do |arg1, arg2, arg3|
+Then("I should see {string} which is located at {string} has color {string}") do |arg1, arg2, arg3|
     color = $driver.execute_script("return window.getComputedStyle(document.querySelector('%s')).getPropertyValue('color')" % [arg2])
     rgb = color[4..-2].split(",")
     color1 = arg3[0,2].hex.to_s
@@ -229,7 +149,7 @@ Then("I should be able to see {string} which is located at {string} has color {s
     end
 end
 
-Then("I should be able to see {string} which is located at {string} with xpath has class {string}") do |arg1, arg2, arg3|
+Then("I should see {string} which is located at {string} with xpath has class {string}") do |arg1, arg2, arg3|
     ele = waitForElementXpath($driver, $wait, arg2)
     if ele.attribute("class").index(arg3) == nil
         fail("%s should have %s for the class" % [arg2, arg3])
@@ -248,13 +168,29 @@ Then("I move the slider {string} to the {string} which is located at {string} by
     end
 end
 
-Then(/^I can see "([^"]*)" which is located at "([^"]*)"(| with xpath)$/) do |arg1, arg2, arg3|
-    if arg3 == " with xpath"
-        ele = waitForElementXpath($driver, $wait, arg2)
+Then(/^I (should|can) see "([^"]*)" which is located at "([^"]*)"(| with)(| xpath)(| scroll)$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
+    if arg5 == " xpath"
+        if arg6 == " scroll"
+            ele = waitForElementXpath($driver, $wait, arg3)
+        else
+            ele = waitForElementVisibleXpath($driver, $wait, arg3)
+        end
     else
-        ele = waitForElement($driver, $wait, arg2)
+        if arg6 == " scroll"
+            ele = waitForElement($driver, $wait, arg3)
+        else
+            ele = waitForElementVisible($driver, $wait, arg3)
+        end
     end
     if ele == nil
-        verifyValue("expected element exist", arg2, "nil")
+        if arg1 == "can"
+            verifyValue("expected element exist", arg3, "nil")
+        else
+            fail("expected %s, but found %s" % [arg3, "nil"])
+        end
+    else
+        if arg6 == " scroll"
+            scrollIfNotVisible($driver, ele)
+        end
     end
 end
