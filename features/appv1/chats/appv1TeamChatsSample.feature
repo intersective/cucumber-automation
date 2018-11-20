@@ -11,12 +11,12 @@ Feature: AppV1 Team Chats Page
         Then "Appv1" I should see the app home screen
         Then I wait until the loading finished
         Then "Appv1" I go to the "Chats" tab page
-        Then I should be able to see "Team Message Channel" which is located at "//*[@ng-if='chat.name'][normalize-space()='Team']" with xpath assert
+        Then I should see "Team Message Channel" which is located at "//*[@ng-if='chat.name'][normalize-space()='Team']" with xpath
         Then I click on "Team Message Channel" which is located at "//*[@ng-if='chat.name'][normalize-space()='Team']" with xpath
         Then I wait until the loading finished
-        Then I should be able to see "Team Message channel Title" which is located at "//*[@class='nav-bar-title'][normalize-space()='Team']" with xpath assert
+        Then I should see "Team Message channel Title" which is located at "//*[@class='nav-bar-title'][normalize-space()='Team']" with xpath
         Then I input "selenium.20180724145400 messages one" to "message input box" which is located at "//input[@ng-model='chatMessage']" with xpath scroll
         Then I click on "send message button" which is located at "//button[@ng-click='sendMessage()']" with xpath
-        Then I should be able to see "the messages" which is located at "//*[@class='message-text'][text()='selenium.20180724145400 messages one']" with xpath assert
+        Then I should see "the messages" which is located at "//*[@class='message-text'][text()='selenium.20180724145400 messages one']" with xpath
         Then "Appv1" I go back from chat page
         Then "Appv1" I log out

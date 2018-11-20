@@ -9,13 +9,13 @@ Feature: AppV1 assessment review and feedback
         Then "Appv1" I login with the student account and password "studentPassword"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
-        Then I should be able to see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Moderated 4 - participant no file and video url']" with xpath assert
+        Then I should see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Moderated 4 - participant no file and video url']" with xpath
         Then I click on "the feedback item" which is located at "//*[contains(@class, 'feedback-item')][1]" with xpath
-        Then I should be able to see "assessment page" which is located at ".pane[nav-view='active']"
+        Then I can see "assessment page" which is located at ".pane[nav-view='active']"
         Then I wait until the loading finished
         Then I click on "mark review as read button" which is located at "//*[text()='Mark review as read']/../../label" with xpath scroll
         Then I wait until the loading finished
-        Then I should be able to see "rating pop up" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']"
+        Then I can see "rating pop up" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']"
         Then I move the slider "feedback rating" to the "right" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] input[type='range']" by "3" times
         Then I wait 2 seconds
         Then I click on "quick response" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] .quick-response > a[ng-click=\"addOrRemoveQuickMessage('You are awesome!')\"]"
@@ -24,7 +24,7 @@ Feature: AppV1 assessment review and feedback
         Then I click on "submit button" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] button" with scroll
         Then The "feedback rating" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']" should be disappear
         When "Appv1" I go back from assessment page
-        Then I should not see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Moderated 4 - participant no file and video url']" with xpath assert
+        Then I should not see "feeback notification item" which is located at "//*[contains(@class, 'feedback-item')]/*[text()='Moderated 4 - participant no file and video url']" with xpath
         Then "Appv1" I go to the "Activity Four" activity page which has "2" items
         Then "Appv1" I can see the "Moderated 4 - participant no file and video url" with status "Assessment published"
         Then I wait 2 seconds

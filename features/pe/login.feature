@@ -7,5 +7,5 @@ Feature: Personal Edge login
         Given I go to PE
         When "PE" I login with "user" and "password1"
         Then "PE" I wait for loading finished
-        Then I should be able to see "activity list page" which is located at "activities-list-page" with assert
+        Then I should see "activity list page" which is located at "activities-list-page"
         Then "PE" I log out

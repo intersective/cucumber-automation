@@ -10,7 +10,7 @@ Feature: Program information
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard
-        Then I should be able to see project milestones
+        Then I should see project milestones
         When I click on one of the milestones
         Then I can see the milestone's information on the project content page
     

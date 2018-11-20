@@ -7,7 +7,7 @@ Feature: Practera Assign reviewers for Personal Edge assessment
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "peprogramAdminAccount" and "peprogramAdminAccountPassword"
-		Then I should be able to see "a side bar" which is located at "#sidebar"
+		Then I can see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 
 		Then "Practera" I can assign a mentor to student submissions with:
