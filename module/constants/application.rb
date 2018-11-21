@@ -14,6 +14,7 @@ class Application
     @KEY_SPINCHANCES = "spinChances".freeze
     @KEY_SPINEP = "spinEP".freeze
     @KEY_REGURL = "regUrl".freeze
+    @KEY_CHATMESSAGE = "chatmess_".freeze
 
     def self.KEY_STUDENTS
         return @KEY_STUDENTS
@@ -69,6 +70,10 @@ class Application
 
     def self.KEY_REGURL
         return @KEY_REGURL
+    end
+
+    def self.KEY_CHATMESSAGE
+        return @KEY_CHATMESSAGE
     end
 
 end

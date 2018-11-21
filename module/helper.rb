@@ -65,3 +65,13 @@ def loadSharedData(key, default="")
 	end
 	return (value == nil)? default : value
 end
+
+# if it is pattern for defining a paramter then load the data, else we return default value.
+def extractParameter(parameter, defaultValue="")
+	mresult = parameter.match(/^#[(]{1}[a-zA-Z0-9_]+\)$/)
+	if mresult == nil
+		return defaultValue
+	else
+		return loadSharedData(parameter[2..-2], defaultValue)
+	end
+end
