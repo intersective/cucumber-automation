@@ -6,17 +6,16 @@ Feature: AppV1 Team Chats Page
 
     Scenario: Test Team Chats Page load successfully and send messages
         Given I go to App V1
-        Then "Appv1" I wait unitl the splash disappear
+        When "Appv1" I wait unitl the splash disappear
         Then "Appv1" I login with "user" and "password1"
         Then "Appv1" I should see the app home screen
-        Then I wait until the loading finished
+        When I wait until the loading finished
         Then "Appv1" I go to the "Chat" tab page
-        Then I should see "Team Message Channel" which is located at "//*[@class='chat-name'][normalize-space()='Test review notification team 3']" with xpath
-        Then I click on "Team Message Channel" which is located at "//*[@class='chat-name'][normalize-space()='Test review notification team 3']/../.." with xpath
-        Then I wait until the loading finished
-        Then I should see "Team Message channel Title" which is located at "//*[@class='nav-bar-title'][normalize-space()='Test review notification team 3']" with xpath
-        Then I input "selenium.20180724145400 messages one" to "message input box" which is located at "//textarea[@ng-model='chatMessage']" with xpath scroll
-        Then I click on "send message button" which is located at "//button[@ng-click='sendMessage()']" with xpath
-        Then I should see "the messages" which is located at "//*[@class='message-text'][text()='selenium.20180724145400 messages one']" with xpath
+        Then "Appv1 Chats" I should see the channel "#(teamname)"
+        Then "Appv1 Chats" I go to the channel "#(teamname)"
+        When I wait until the loading finished
+        Then "Appv1 Chats" I can see the channel name "#(teamname)"
+        Then "Appv1 Chats" I send messages within the channel "#(teamname)"
+        Then "Appv1 Chats" I can see the messages within the channel "#(teamname)"
         Then "Appv1" I go back from chat page
         Then "Appv1" I log out
