@@ -27,5 +27,5 @@ Then(/^"Appv1 Chats" I can see the messages within the channel "([^"]*)"$/) do |
     channelName = extractParameter(channel, channel)
     kchannelName = Application.KEY_CHATMESSAGE + channelName
     message = loadSharedData(kchannelName)
-    step("I should see \"the messages\" which is located at \"//*[@class='message-text'][text()='#{message}']\" with xpath")
+    step("I can see \"the messages\" which is located at \"//*[@class='message-text'][text()='#{message}']\" with xpath")
 end
