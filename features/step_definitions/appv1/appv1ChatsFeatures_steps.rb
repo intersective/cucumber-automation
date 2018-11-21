@@ -2,12 +2,12 @@
 
 Then(/^"Appv1 Chats" I should see the channel "([^"]*)"$/) do |channel|
     channelName = extractParameter(channel, channel)
-    step("I should see \"the message channel\" which is located at \"//*[@class='chat-name'][normalize-space()='#{channelName}']\" with xpath")
+    step("I should see \"the message channel\" which is located at \"//*[@ng-if='chat.name || chat.team_name'][normalize-space()='#{channelName}']\" with xpath")
 end
 
 Then(/^"Appv1 Chats" I go to the channel "([^"]*)"$/) do |channel|
     channelName = extractParameter(channel, channel)
-    step("I click on \"the message channel\" which is located at \"//*[@class='chat-name'][normalize-space()='#{channelName}']/../..\" with xpath")
+    step("I click on \"the message channel\" which is located at \"//*[@ng-if='chat.name || chat.team_name'][normalize-space()='#{channelName}']/../..\" with xpath")
 end
 
 Then(/^"Appv1 Chats" I can see the channel name "([^"]*)"$/) do |channel|
