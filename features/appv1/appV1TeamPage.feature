@@ -11,5 +11,5 @@ Feature: AppV1 team chats page
         Then I wait until the loading finished
         Then "Appv1" I go to the "Chat" tab page
         Then I wait until the loading finished
-        Then "Appv1 Team Chats" I can see team member "student2" name
+        Then "Appv1 Team" I can see team member "student2" name
         Then "Appv1" I log out
