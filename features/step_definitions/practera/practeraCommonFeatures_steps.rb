@@ -123,7 +123,7 @@ Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studen
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
             $driver.execute_script("window.confirm = function(){return true;}")
             sleep 2
-            findElementWithParent(uas, "td:nth-of-type(5) > span:nth-of-type(2) > a:nth-of-type(3)").click()
+            findElementWithParent(uas, "//a[@title='edit review']", selectorType=Application.KEY_XPATH).click()
             break
         end
     end
@@ -248,7 +248,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
                 end
             end
         end
-        if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType="xpath") != nil
+        if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType=Application.KEY_XPATH) != nil
             verifyValue("expected reviewer comments", "nil", "something")
         end
         step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
@@ -266,7 +266,7 @@ Then(/^"Practera" I can do the review with:$/) do |table|
                 end
             end
         end
-        if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType="xpath") != nil
+        if findElement($driver, "//span[normalize-space()='Reviewer Comments']", selectorType=Application.KEY_XPATH) != nil
             verifyValue("expected reviewer comments", "nil", "something")
         end
 		step("I click on \"next button\" which is located at \"div.content-container > div#assessment-buttons > div > div:nth-of-type(2) > button.btn-primary\" with scroll")
