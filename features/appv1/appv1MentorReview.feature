@@ -29,4 +29,10 @@ Feature: AppV1 mentor review moderated assessment
 		Then I wait 3 seconds
 		Then I click on "the continue button" which is located at ".popup > .popup-buttons > button"
 		Then I wait 3 seconds
+		Then "Appv1 Reviews" I go to Done section
+		When I wait until the loading finished
+		Then "Appv1 Reviews" I can go to the review page with the student1 submission and the assessment "Moderated 4 - participant no file and video url"
+		When I wait until the loading finished
+		Then I wait 5 seconds
+		Then "Appv1" I go back from assessment page
 		Then "Appv1" I log out

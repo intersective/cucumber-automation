@@ -16,3 +16,7 @@ Then(/^"Appv1 Reviews" I can go to the review page with the student(|[1-9]+[0-9]
 	studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
 	step("\"Appv1 Reviews\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
+
+Then(/^"Appv1 Reviews" I go to (Todo|Done) section$/) do |header|
+	step("I click on \"section button\" which is located at \"//button[normalize-space()='#{header}']\" with xpath")
+end
