@@ -145,15 +145,6 @@ Then(/^I wait until the loading finished$/) do
 	waitForLoadFinished($driver, $wait)
 end
 
-Then(/^"Appv1" I should be able to select "([^"]*)" from selector options which is located at "([^"]*)"$/) do |selectOption, selectorPath|
-	selectorOption = waitForElementXpath($driver, $wait, selectorPath)
-	if refineElementTextContent(findElementWithParent(selectorOption, ".item-content")).split(" ", 2)[1] != selectOption
-		fail("I can not see the team member")
-	end
-	scrollIfNotVisible($driver, selectorOption)
-	selectorOption.click()
-end
-
 Then("\"Appv1\" I can see the overall project progress") do
 	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
 	$sharedData1.putData(Application.KEY_PROGRESS, progress)
@@ -169,21 +160,4 @@ end
 
 Then("\"Appv1\" I wait unitl the splash disappear") do
 	sleep 10
-end
-
-Then(/^"Appv1" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
-	toReviews = waitForElements($driver, $listWait, "div[ng-repeat^='review']")
-	toReviews.each do |row|
-		aName = findElementWithParent(row, ".review-text").attribute("innerText").split("\n")[0].strip
-		sName = refineElementTextContent(findElementWithParent(row, ".review-card-details > div"))
-		if assessmentName == aName && studentName == sName
-			row.click()
-			break
-		end
-	end
-end
-
-Then(/^"Appv1" I can go to the review page with the student(|[1-9]+[0-9]*) submission and the assessment "([^"]*)"$/) do |arg1, assessmentName|
-	studentName = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).name
-	step("\"Appv1\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
