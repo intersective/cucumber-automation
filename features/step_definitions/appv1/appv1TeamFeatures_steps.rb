@@ -10,7 +10,7 @@ end
 Then("\"Appv1 Team\" I should be able to select {string} from selector options") do |student|
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
-    step("\"Appv1\" I should be able to select \"#{studentName}\" from selector options which is located at \"//*[@ng-repeat='question in group.questions'][1]//label[1]\"")
+    step("\"Appv1\" I do the oneof question locating at \"1\" of group \"1\" with answer \"#{studentName}\"")
 end
 
 Then("\"Appv1 Team\" I can see team member {string} name") do |student|
