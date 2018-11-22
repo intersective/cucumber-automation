@@ -13,3 +13,4 @@ features/appv1/appV1ModeratedAssessmentStatus2.feature
 features/practera/publishReview.feature
 features/appv1/appV1AssessmentStatus.feature
 features/appv1/appv1MarkAssessmentFeabackAsRead.feature
+features/appv1/appv1CheckModeraterdAssessment.feature
