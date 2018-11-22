@@ -15,6 +15,8 @@ class Application
     @KEY_SPINEP = "spinEP".freeze
     @KEY_REGURL = "regUrl".freeze
     @KEY_CHATMESSAGE = "chatmess_".freeze
+    @KEY_XPATH = "xpath".freeze
+    @KEY_CSS = "css".freeze
 
     def self.KEY_STUDENTS
         return @KEY_STUDENTS
@@ -74,6 +76,14 @@ class Application
 
     def self.KEY_CHATMESSAGE
         return @KEY_CHATMESSAGE
+    end
+
+    def self.KEY_XPATH
+        return @KEY_XPATH
+    end
+
+    def self.KEY_CSS
+        return @KEY_CSS
     end
 
 end

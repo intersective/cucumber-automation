@@ -12,10 +12,10 @@ Feature: AppV1 Check Moderated Assessment Review After an admin edit
         Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items
         Then "Appv1" I go to the assessment locating at "4"
         Then I can see "assessment page" which is located at ".pane[nav-view='active']"
-        Then I should see "reviewer answer for question 1" which is located at "//*[text()='Text Question 1']/../..//*[text()='Reviewer Answer']/../*[text()='your works are excellent, thank you for submissions from admin_selenium']" with xpath scroll
-        Then I should see "expert feedback choice" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='Normal']" with xpath scroll
-        Then I should see "expert feedback text" which is located at "//*[text()='Oneof Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='your works are excellent, thank you for submissions from admin_selenium']" with xpath scroll
-        Then I should see "expert feedback choice" which is located at "//*[text()='Multiple Choice Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='Choice 0.8, Choice 0.6']" with xpath scroll
-        Then I should see "expert feedback text" which is located at "//*[text()='Multiple Choice Question 1']/../..//*[text()='Expert Feedback']/..//*[text()='your work is good from admin_selenium']" with xpath scroll
+        Then I can see "reviewer answer for question 1" which is located at "//*[normalize-space()='Q1. Text Question 1']/..//*[text()='Reviewer']/..//*[text()='Answer']/../*[text()='your works are excellent, thank you for submissions from admin_selenium']" with xpath scroll
+        Then I can see "expert feedback choice" which is located at "//*[normalize-space()='Q1. Oneof Question 1']/..//*[text()='Reviewer']/..//*[text()='Answer']/../*[text()='Normal']" with xpath scroll
+        Then I can see "expert feedback comment" which is located at "//*[normalize-space()='Q1. Oneof Question 1']/..//*[text()='Reviewer']/..//*[text()='Comment']/../*[text()='your works are excellent, thank you for submissions from admin_selenium']" with xpath scroll
+        Then I can see "expert feedback choices" which is located at "//*[normalize-space()='Q1. Multiple Choice Question 1']/..//*[text()='Reviewer']/..//*[text()='Answer']/../*[text()='Choice 1, Choice 0.8, Choice 0.6, Choice 0.4']" with xpath scroll
+        Then I can see "expert feedback comment" which is located at "//*[normalize-space()='Q1. Multiple Choice Question 1']/..//*[text()='Reviewer']/..//*[text()='Comment']/../*[text()='your work is good from admin_selenium']" with xpath scroll
         When "Appv1" I go back from assessment page
         Then "Appv1" I log out

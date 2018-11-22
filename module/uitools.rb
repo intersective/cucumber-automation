@@ -1,6 +1,6 @@
-private def findElement(webDriver, selectorPath, selectorType="css")
+private def findElement(webDriver, selectorPath, selectorType=Application.KEY_CSS)
 	begin
-		if selectorType == "xpath"
+		if selectorType == Application.KEY_XPATH
 			return webDriver.find_element(:xpath => selectorPath)
 		end
 		return webDriver.find_element(:css => selectorPath)
@@ -10,9 +10,9 @@ private def findElement(webDriver, selectorPath, selectorType="css")
 	return nil
 end
 
-def findElementWithParent(parentEle, selectorPath, selectorType="css")
+def findElementWithParent(parentEle, selectorPath, selectorType=Application.KEY_CSS)
 	begin
-		if selectorType == "xpath"
+		if selectorType == Application.KEY_XPATH
 			return parentEle.find_element(:xpath => selectorPath)
 		end
 		return parentEle.find_element(:css => selectorPath)
@@ -22,9 +22,9 @@ def findElementWithParent(parentEle, selectorPath, selectorType="css")
 	return nil
 end
 
-def waitElementWithParent(waitor, parentEle, selectorPath, selectorType="css")
+def waitElementWithParent(waitor, parentEle, selectorPath, selectorType=Application.KEY_CSS)
 	begin
-		if selectorType == "xpath"
+		if selectorType == Application.KEY_XPATH
 			return waitor.until { parentEle.find_element(:xpath => selectorPath) }
 		end
 		return waitor.until { parentEle.find_element(:css => selectorPath) }
@@ -91,7 +91,7 @@ def waitForElementVisibleXpath(webDriver, waitor, selectorPath)
 		end
 		sleep 1
 	end
-	return findElement(webDriver, selectorPath, "xpath")
+	return findElement(webDriver, selectorPath, Application.KEY_XPATH)
 end
 
 def waitToastMessageDisappear(webDriver, waitor)
