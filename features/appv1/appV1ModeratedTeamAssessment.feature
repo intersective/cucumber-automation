@@ -37,7 +37,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
+		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
@@ -88,7 +88,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
+		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
@@ -127,6 +127,15 @@ Feature: AppV1 Moderated Team Assessment
 		Then I can see "assessment page" which is located at ".pane[nav-view='active']"
 		Then I wait until the loading finished
 		Then I click on "mark review as read button" which is located at "//*[text()='Mark review as read']/../../label" with xpath scroll
+		Then I wait until the loading finished
+		Then I can see "rating pop up" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']"
+		Then I move the slider "feedback rating" to the "right" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] input[type='range']" by "3" times
+		Then I wait 2 seconds
+		Then I click on "quick response" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] .quick-response > a[ng-click=\"addOrRemoveQuickMessage('You are awesome!')\"]"
+		Then I input "very informative" to "rating comment" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] input[ng-model='reviewRating.comment']" with scroll
+		Then I wait 2 seconds
+		Then I click on "submit button" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl'] button" with scroll
+		Then The "feedback rating" which is located at "ion-modal-view.active > [ng-controller='reviewRatingCtrl']" should be disappear
 		Then "Appv1" I go back from assessment page
 		Then "Appv1" I go to the "Home" tab page
 		Then I wait until the loading finished
