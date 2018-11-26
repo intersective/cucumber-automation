@@ -10,6 +10,7 @@ Then(/^"Appv1 Reviews" I can go to the review page with a student "([^"]*)" subm
 			break
 		end
 	end
+	step("I wait until the loading finished")
 end
 
 Then(/^"Appv1 Reviews" I can go to the review page with the student(|[1-9]+[0-9]*) submission and the assessment "([^"]*)"$/) do |arg1, assessmentName|
@@ -19,4 +20,13 @@ end
 
 Then(/^"Appv1 Reviews" I go to (Todo|Done) section$/) do |header|
 	step("I click on \"section button\" which is located at \"//button[normalize-space()='#{header}']\" with xpath")
+	step("I wait until the loading finished")
+end
+
+Then(/^"Appv1 Reviews" I can see reviewer answer "([^"]*)" of question "([^"]*)"$/) do |answer, question|
+	step("I can see \"reviewer answer\" which is located at \"//*[normalize-space()='#{question}']/..//*[text()='Reviewer']/..//*[text()='Answer']/../*[text()='#{answer}']\" with xpath scroll")
+end
+
+Then(/^"Appv1 Reviews" I can see reviewer comment "([^"]*)" of question "([^"]*)"$/) do |answer, question|
+	step("I can see \"reviewer comment\" which is located at \"//*[normalize-space()='#{question}']/..//*[text()='Reviewer']/..//*[text()='Comment']/../*[text()='#{answer}']\" with xpath scroll")
 end
