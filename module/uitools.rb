@@ -73,22 +73,26 @@ def waitForElements(webDriver, waitor, selectorPath)
 end
 
 def waitForElementVisible(webDriver, waitor, selectorPath)
-	loop do
+	counter = 0
+	while counter < $visibleWait
 		ele = waitForElement(webDriver, waitor, selectorPath)
 		if ele == nil || ele.displayed?
 			break
 		end
+		counter = counter + 1
 		sleep 1
 	end
 	return findElement(webDriver, selectorPath)
 end
 
 def waitForElementVisibleXpath(webDriver, waitor, selectorPath)
-	loop do
+	counter = 0
+	while counter < $visibleWait
 		ele = waitForElementXpath(webDriver, waitor, selectorPath)
 		if ele == nil || ele.displayed?
 			break
 		end
+		counter = counter + 1
 		sleep 1
 	end
 	return findElement(webDriver, selectorPath, Application.KEY_XPATH)
@@ -120,10 +124,12 @@ def waitForLoadFinished(webDriver, waitor)
 end
 
 def waitForElementVisibleWithInAGroup(webDriver, waitor, selectorPath, index)
+	counter = 0
 	i = index.to_i - 1
 	elements = waitForElements(webDriver, waitor, selectorPath)
-	while !elements[i].displayed?
-		sleep 2
+	while counter < $visibleWait && !elements[i].displayed?
+		counter = counter + 1
+		sleep 1
 		elements = waitForElements($driver, $wait, selectorPath)
 	end
 	return elements[i]
