@@ -9,18 +9,18 @@ Feature: AppV1 mentor review moderated assessment
 		Then "Appv1" I login with the mentor account and password "mentor2AccountPassword"
 		Then "Appv1" I should see the app home screen
 		When I wait until the loading finished
-        Then I click on "reviews tab button" which is located at "//*[text()='Reviews']/.." with xpath
+        Then "Appv1" I go to the "Reviews" tab page
 		When I wait until the loading finished
         Then "Appv1 Reviews" I can go to the review page with the student1 submission and the assessment "Moderated 4 - participant no file and video url"
         When I wait until the loading finished
         Then I can see "the review page" which is located at "*[name='reviews'][nav-view='active']"
-        Then I input "This is the text from Selenium text automation" to "text review answer" which is located at "//*[@class='question-group'][1]/question[1]//textarea[1]" with xpath scroll
-        Then I input "This is the text from Selenium text automation" to "text review comment" which is located at "//*[@class='question-group'][1]/question[1]//textarea[2]" with xpath scroll
-        Then I click on "Good option" which is located at "//*[@class='question-group'][2]/question[1]//label//span[normalize-space()='Good']/../../.." with xpath scroll
-        Then I input "This is the text from Selenium text automation" to "oneof review comment" which is located at "//*[@class='question-group'][2]/question[1]//textarea[1]" with xpath scroll
-        Then I click on "Choice 1 option" which is located at "//*[@class='question-group'][3]/question[1]//label//span[normalize-space()='Choice 1']/../.." with xpath scroll
-        Then I click on "Choice 0.4 option" which is located at "//*[@class='question-group'][3]/question[1]//label//span[normalize-space()='Choice 0.4']/../.." with xpath scroll
-        Then I input "This is the text from Selenium text automation" to "checkbox review comment" which is located at "//*[@class='question-group'][3]/question[1]//textarea[1]" with xpath scroll
+        Then "Appv1 Reviews" I input review answer "This is the text from Selenium text automation" of question "Q1. Text Question 1"
+		Then "Appv1 Reviews" I input review comment "This is the text from Selenium text automation" of question "Q1. Text Question 1"
+		Then "Appv1 Reviews" I choose review answer "Good" of question "Q1. Oneof Question 1"
+		Then "Appv1 Reviews" I input review comment "This is the text from Selenium text automation" of question "Q1. Oneof Question 1"
+		Then "Appv1 Reviews" I choose review answer "Choice 1" of question "Q1. Multiple Choice Question 1"
+		Then "Appv1 Reviews" I choose review answer "Choice 0.4" of question "Q1. Multiple Choice Question 1"
+		Then "Appv1 Reviews" I input review comment "This is the text from Selenium text automation" of question "Q1. Multiple Choice Question 1"
         Then I wait 2 seconds
 		When I click on "submit button" which is located at "//button[text()='Submit']" with xpath scroll
 		Then I can see "a submit confirmation" which is located at ".popup"
