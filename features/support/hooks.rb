@@ -31,6 +31,7 @@ AfterConfiguration do |config|
     $testLogger1 = Twplogger.instance
     $variableLoaded = false
     $currentFeatureFile = ""
+    $visibleWait = $configObj["visibleWait"].to_i
     if $configObj["mode"] != "apiTest"
         $sharedWebDriver1 = SharedWebDriver.instance
         $sharedData1 = SharedData.instance

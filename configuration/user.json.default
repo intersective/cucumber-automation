@@ -7,5 +7,6 @@
 	"peUrl" : "https://pe-stage.practera.com/",
 	"mode" : "ui",
 	"mailtrapPracteraInboxId" : {practera inbox id},
-    "mailtrapApiToken" : {mailtrap api token}
+	"mailtrapApiToken" : {mailtrap api token},
+	"visibleWait" : "60"
 }
