@@ -2,3 +2,4 @@ features/appv1/appV1MultiEnrolment.feature
 features/appv1/appV1MultipleStudentRegistration.feature
 features/practera/addParticipantsToTeam.feature
 features/appv1/appV1TeamQuizAssessment.feature
+features/practera/achievement/achievementStatus.feature
