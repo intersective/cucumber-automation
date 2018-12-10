@@ -20,7 +20,7 @@ Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName
     found = false
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
-        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1)"))
             found = true
             break
         end
@@ -34,7 +34,7 @@ Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/
     found = false
     readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
-        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1)"))
             found = true
             break
         end
@@ -64,7 +64,7 @@ Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, ar
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
     unassigneds.each do |uas|
-        if arg2 == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if arg2 == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1)"))
             findElementWithParent(uas, "td:nth-of-type(4) > a").click()
             editableform = waitElementWithParent($wait, uas, "td:nth-of-type(4) .editableform")
             break
@@ -93,10 +93,10 @@ end
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
     readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
-        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1)"))
             $driver.execute_script("window.confirm = function(){return true;}")
             sleep 2
-            findElementWithParent(uas, "td:nth-of-type(6) > a").click()
+            findElementWithParent(uas, "td:nth-of-type(7) > a").click()
             break
         end
     end
@@ -105,7 +105,7 @@ end
 Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)" publisher$/) do |studentName, publisher|
     readytopublishes = waitForElements($driver, $listWait, "#tblPublished > tbody > tr")
     readytopublishes.each do |uas|
-        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1)"))
             sleep 2
             pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("title").split(",")[-1,].strip()
             if pubPerosn.index(publisher) == nil
@@ -120,7 +120,7 @@ end
 Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studentName|
     readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
     readytopublishes.each do |uas|
-        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1) > span"))
+        if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1)"))
             $driver.execute_script("window.confirm = function(){return true;}")
             sleep 2
             findElementWithParent(uas, "//a[@title='edit review']", selectorType=Application.KEY_XPATH).click()
