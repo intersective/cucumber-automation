@@ -46,6 +46,14 @@ Then(/^"Appv1" I go to the (topic|assessment) locating at "([^"]*)"$/) do |itemN
 	waitForLoadFinished($driver, $wait)
 end
 
+Then(/^"Appv1" I go to the (topic|assessment) "([^"]*)"$/) do |itemName, itemTitle|
+	waitForLoadFinished($driver, $wait)
+	toDoThing = waitForElementXpath($driver, $wait, "//*[contains(@class,'jsmbp-detail-items')]//*[normalize-space()='#{itemTitle}']/.././../../..")
+	scrollIfNotVisible($driver, toDoThing)
+	toDoThing.click()
+	waitForLoadFinished($driver, $wait)
+end
+
 Then(/^"Appv1" I can see the topic with title "([^"]*)" and content "([^"]*)"$/) do |topicTitle, topicContent|
 	aTopicTitle = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities h3"))
 	aTopicContent = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities .item-body"))

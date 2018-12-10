@@ -10,8 +10,8 @@ Feature: AppV1 Check Team Assessment
 		Then "Appv1" I should see the app home screen
 		When I wait until the loading finished
 		Then "Appv1" I go to the "Activity 2" activity page which has "3" items
-		Then "Appv1" I can see the "assessment" locating at "3" with title "Appv1 test automation team assessment" and category "assessment"
-		Then "Appv1" I go to the assessment locating at "3"
+		Then "Appv1" I can see the "assessment" locating at "2" with title "Appv1 test automation team assessment" and category "assessment"
+		Then "Appv1" I go to the assessment "Appv1 test automation team assessment"
 		Then I can see "assessment page" which is located at ".pane[nav-view='active'] .activities"
 		Then I should see "text answers" which is located at "//*[@ng-repeat='question in group.questions'][1]//*[@ng-if='isDone']/*[text()='we are working well']" with xpath scroll
 		Then I should see "choice answer" which is located at "//*[@ng-repeat='question in group.questions'][2]//*[@ng-if='isDone']//*[text()='Choice Two']" with xpath scroll
