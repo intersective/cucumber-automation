@@ -134,7 +134,7 @@ def waitForElementVisibleWithInAGroup(webDriver, waitor, selectorPath, index)
 	while counter < $visibleWait && !elements[i].displayed?
 		counter = counter + 1
 		sleep 1
-		elements = waitForElements($driver, $wait, selectorPath)
+		elements = waitForElements(webDriver, waitor, selectorPath)
 	end
 	return elements[i]
 end
