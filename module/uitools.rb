@@ -109,6 +109,10 @@ def refineElementTextContent(ele)
 	return ele.attribute("innerText").gsub("\n", "").strip
 end
 
+def refineElementHtmlTextContent(ele)
+	return ele.attribute("textContent").gsub("\n", "").strip
+end
+
 def waitForLoadFinished(webDriver, waitor)
 	while waitForElement(webDriver, waitor, ".loading-container").attribute("class").index("active") != nil
 		sleep 1
@@ -140,4 +144,17 @@ def scrollIfNotVisible(webDriver, ele)
 		webDriver.action.move_to(ele).perform
 		sleep 1
 	end
+end
+
+def getValueIndex(value, selectorPath)
+	index = 1
+	elements = waitForElements(webDriver, waitor, selectorPath)
+	elements.each do |ele|
+		if value == refineElementHtmlTextContent(ele)
+			break
+		else
+			index = index + 1
+		end
+	end
+	return index
 end
