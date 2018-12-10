@@ -146,7 +146,7 @@ def scrollIfNotVisible(webDriver, ele)
 	end
 end
 
-def getValueIndex(value, selectorPath)
+def getValueIndex(webDriver, waitor, value, selectorPath)
 	index = 1
 	elements = waitForElements(webDriver, waitor, selectorPath)
 	elements.each do |ele|

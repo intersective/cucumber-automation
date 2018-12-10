@@ -19,7 +19,7 @@ end
 Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName|
     found = false
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
-    pIndex = getValueIndex("Participant", "#tblUnassigned > thead > tr > th")
+    pIndex = getValueIndex($driver, $wait, "Participant", "#tblUnassigned > thead > tr > th")
     plocator = "td:nth-of-type(%s)" % [pIndex]
     unassigneds.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, plocator))
@@ -35,7 +35,7 @@ end
 Then(/^"Practera" I should see a student "([^"]*)" ready to publish submission$/) do |studentName|
     found = false
     readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
-    pIndex = getValueIndex("Participant", "#tblReady-to-publish > thead > tr > th")
+    pIndex = getValueIndex($driver, $wait, "Participant", "#tblReady-to-publish > thead > tr > th")
     plocator = "td:nth-of-type(%s)" % [pIndex]
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, plocator))
@@ -67,9 +67,9 @@ Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, ar
     editableform = nil
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
-    pIndex = getValueIndex("Participant", "#tblUnassigned > thead > tr > th")
+    pIndex = getValueIndex($driver, $wait, "Participant", "#tblUnassigned > thead > tr > th")
     plocator = "td:nth-of-type(%s)" % [pIndex]
-    reviewerIndex = getValueIndex("Reviewer(s)", "#tblUnassigned > thead > tr > th")
+    reviewerIndex = getValueIndex($driver, $wait, "Reviewer(s)", "#tblUnassigned > thead > tr > th")
     reviewerlocator = "td:nth-of-type(%s)" % [reviewerIndex]
     unassigneds.each do |uas|
         if arg2 == refineElementTextContent(findElementWithParent(uas, plocator))
@@ -100,9 +100,9 @@ end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
     readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
-    pIndex = getValueIndex("Participant", "#tblReady-to-publish > thead > tr > th")
+    pIndex = getValueIndex($driver, $wait, "Participant", "#tblReady-to-publish > thead > tr > th")
     plocator = "td:nth-of-type(%s)" % [pIndex]
-    aIndex = getValueIndex("Actions", "#tblReady-to-publish > thead > tr > th")
+    aIndex = getValueIndex($driver, $wait, "Actions", "#tblReady-to-publish > thead > tr > th")
     actionslocator = "td:nth-of-type(%s)" % [aIndex]
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, plocator))
@@ -116,7 +116,7 @@ end
 
 Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)" publisher$/) do |studentName, publisher|
     readytopublishes = waitForElements($driver, $listWait, "#tblPublished > tbody > tr")
-    pIndex = getValueIndex("Participant", "#tblPublished > thead > tr > th")
+    pIndex = getValueIndex($driver, $wait, "Participant", "#tblPublished > thead > tr > th")
     plocator = "td:nth-of-type(%s)" % [pIndex]
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, plocator))
@@ -133,7 +133,7 @@ end
 
 Then(/^"Practera" I can edit a student "([^"]*)" submission review$/) do |studentName|
     readytopublishes = waitForElements($driver, $listWait, "#tblReady-to-publish > tbody > tr")
-    pIndex = getValueIndex("Participant", "#tblReady-to-publish > thead > tr > th")
+    pIndex = getValueIndex($driver, $wait, "Participant", "#tblReady-to-publish > thead > tr > th")
     plocator = "td:nth-of-type(%s)" % [pIndex]
     readytopublishes.each do |uas|
         if studentName == refineElementTextContent(findElementWithParent(uas, "td:nth-of-type(1)"))
