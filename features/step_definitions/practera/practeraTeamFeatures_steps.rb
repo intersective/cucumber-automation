@@ -38,39 +38,30 @@ end
 Then("\"Practera Team\" I should see team student {string} submission") do |student|
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
-    teamName = teamObj["name"]
-    teamStudentName = "%s (%s)" % [teamName, studentName]
-    step("\"Practera\" I should see a student \"#{teamStudentName}\" submission")
+    step("\"Practera\" I should see a student \"#{studentName}\" submission")
 end
 
 Then("\"Practera Team\" I can assign a mentor {string} to a team student {string} submission") do |mentor, student|
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
-    teamName = teamObj["name"]
-    teamStudentName = "%s (%s)" % [teamName, studentName]
     mentorName = loadSharedData(mentor, mentor)
-    step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{teamStudentName}\" submission")
+    step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
 end
 
 Then("\"Practera Team\" I can go to the review page with a team student {string} submission and the assessment {string}") do |student, assessment|
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
-    teamName = teamObj["name"]
     step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessment}\"")
 end
 
 Then("\"Practera Team\" I should see team student {string} ready to publish submission") do |student|
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
-    teamName = teamObj["name"]
-    teamStudentName = "%s (%s)" % [teamName, studentName]
-    step("\"Practera\" I should see a student \"#{teamStudentName}\" ready to publish submission")
+    step("\"Practera\" I should see a student \"#{studentName}\" ready to publish submission")
 end
 
 Then("\"Practera Team\" I can publish a team student {string} submission review") do |student|
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
-    teamName = teamObj["name"]
-    teamStudentName = "%s (%s)" % [teamName, studentName]
-    step("\"Practera\" I can publish a student \"#{teamStudentName}\" submission review")
+    step("\"Practera\" I can publish a student \"#{studentName}\" submission review")
 end
