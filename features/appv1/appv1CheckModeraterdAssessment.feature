@@ -32,15 +32,15 @@ Feature: AppV1 Check Moderated Assessment Answer
 
         Then I can see "File Questions Group description" which is located at "//*[text()='File Questions']/../*[text()='Comprehensive Moderated File Questions Group description']" with xpath scroll
         Then I can see "File Question 1 -any description" which is located at "//*[normalize-space()='Q1. File Question 1 - any']/..//*[text()='Comprehensive Moderated File Question 1 -any description']" with xpath scroll
-        Then I can see "pdf file" which is located at "//*[normalize-space()='Q1. File Question 1 - any']/..//*[@ng-click='previewFile(answer._raw.answer)']" with xpath containing text "2017-Scrum-Guide-US.pdf"
+        Then I can see "pdf file" which is located at "//*[normalize-space()='Q1. File Question 1 - any']/..//*[@class='file-name']" with xpath containing text "2017-Scrum-Guide-US.pdf"
         Then I can see "File Question 2 - video description" which is located at "//*[normalize-space()='Q2. File Question 2 - video']/..//*[text()='Comprehensive Moderated File Question 2 - video description']" with xpath scroll
-        Then I can see "video file" which is located at "//*[normalize-space()='Q2. File Question 2 - video']/..//*[@ng-click='previewFile(answer._raw.answer)']" with xpath containing text "Video Upload issue 2.mp4"
+        Then I can see "video file" which is located at "//*[normalize-space()='Q2. File Question 2 - video']/..//*[@class='file-name']" with xpath containing text "Video Upload issue 2.mp4"
         Then I can see "File Question 3 - image description" which is located at "//*[normalize-space()='Q3. File Question 3 - image']/..//*[text()='Comprehensive Moderated File Question 3 - image description']" with xpath scroll
-        Then I can see "file question 3 - image" which is located at "//*[normalize-space()='Q3. File Question 3 - image']/..//*[@ng-click='previewFile(answer._raw.answer)']" with xpath containing text "medium-size-dogs-a-medium.jpg"
+        Then I can see "file question 3 - image" which is located at "//*[normalize-space()='Q3. File Question 3 - image']/..//*[@class='file-name']" with xpath containing text "medium-size-dogs-a-medium.jpg"
         
         Then I can see "Video Questions Group description" which is located at "//*[text()='Video Questions']/../*[text()='Comprehensive Moderated Video Questions Group description']" with xpath scroll
         Then I can see "Video Question 1 description" which is located at "//*[normalize-space()='Q1. Video Question 1']/..//*[text()='Comprehensive Moderated Video Question 1 description']" with xpath scroll
-        Then I can see "Video Question 1" which is located at "//*[normalize-space()='Q1. Video Question 1']/..//*[@ng-click='previewFile(answer._raw.answer)']" with xpath containing text "WhatsApp Video 2017-11-30 at 11.27.14.mp4"
+        Then I can see "Video Question 1" which is located at "//*[normalize-space()='Q1. Video Question 1']/..//*[@class='file-name']" with xpath containing text "WhatsApp Video 2017-11-30 at 11.27.14.mp4"
         
         When "Appv1" I go back from assessment page
         Then "Appv1" I log out
