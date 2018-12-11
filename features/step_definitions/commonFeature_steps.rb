@@ -134,7 +134,7 @@ Then(/^I (should|can) see "([^"]+)" which is located at "([^"]+)" (|with xpath )
             fail("expected text %s, but found %s" % [arg5, text])
         end
     else
-        verifyValue("expected text", text, arg5)
+        verifyValue("expected text", arg5, text)
     end
 end
 
