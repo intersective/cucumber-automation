@@ -64,9 +64,8 @@ Feature: Practera is_required file applies to different type of question
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "submissions tab" which is located at "//*[text()='Submissions']/.." with xpath
         Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
-        Then I click on "Test question required field" which is located at "//*[text()='Test question required field']/../../td[3]/a" with xpath
-        Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
-		Then I wait 2 seconds
+        Then I click on "test question required field" which is located at "//*[text()='Test question required field']/../../td[3]/a" with xpath
+		Then I wait 3 seconds
 		Then I will see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see a student "barry_test_program.student6" submission
 		Then "Practera" I can assign a mentor "testprogram1Mentor" to a student "barry_test_program.student6" submission
