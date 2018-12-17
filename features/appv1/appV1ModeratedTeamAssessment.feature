@@ -42,8 +42,7 @@ Feature: AppV1 Moderated Team Assessment
 		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
 		Then I click on "team moderated(team) unassigned" which is located at "//*[text()='Team Moderated (team)']/../../td[3]/a" with xpath
-		Then I click on "review tab" which is located at "#assessTab > li:nth-of-type(2)"
-		Then I wait 2 seconds
+		Then I wait 3 seconds
 		Then I will see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera Team" I should see team student "student1" submission
 		Then "Practera Team" I can assign a mentor "mentor2" to a team student "student1" submission
