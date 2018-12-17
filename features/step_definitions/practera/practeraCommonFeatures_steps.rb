@@ -223,8 +223,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         mentor = data[i][1].strip()
         students = data[i][2].strip().split(";")
         step("I click on \"unassigned button\" which is located at \"//*[text()='#{assessmentName}']/../../td[3]/a\" with xpath")
-        step("I click on \"review tab\" which is located at \"#assessTab > li:nth-of-type(2)\"")
-	    step("I wait 2 seconds")
+	    step("I wait 3 seconds")
         students.each do |student|
             step("I will see a group of \"unassigned submissions\" which is located at \"#tblUnassigned > tbody > tr\"")
             step("\"Practera\" I should see a student \"#{student}\" submission")

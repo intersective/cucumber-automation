@@ -33,12 +33,12 @@ end
 
 Then(/^"Appv1 Reviews" I input review (answer|comment) "([^"]*)" of question "([^"]*)"$/) do |type, content, question|
 	if type == "answer"
-		step("I input \"#{content}\" to \"review answer\" which is located at \"//question//*[normalize-space()='#{question}']/../..//textarea[@placeholder='Reviewer Answer']\" with xpath scroll")
+		step("I input \"#{content}\" to \"review answer\" which is located at \"//*[normalize-space()='#{question}']/../..//textarea[@placeholder='Reviewer Answer']\" with xpath scroll")
 	else
-		step("I input \"#{content}\" to \"review answer\" which is located at \"//question//*[normalize-space()='#{question}']/../..//textarea[@placeholder='Reviewer Comment']\" with xpath scroll")
+		step("I input \"#{content}\" to \"review answer\" which is located at \"//*[normalize-space()='#{question}']/../..//textarea[@placeholder='Reviewer Comment']\" with xpath scroll")
 	end
 end
 
 Then(/^"Appv1 Reviews" I choose review answer "([^"]*)" of question "([^"]*)"$/) do |choice, question|
-	step("I click on \"a choice\" which is located at \"//question//*[normalize-space()='#{question}']/../..//*[starts-with(@ng-if, '!thisReview.is_done')]//span[normalize-space()='#{choice}']/../..\" with xpath scroll")
+	step("I click on \"a choice\" which is located at \"//*[normalize-space()='#{question}']/../..//*[starts-with(@ng-if, '!thisReview.is_done')]//span[normalize-space()='#{choice}']/../..\" with xpath scroll")
 end
