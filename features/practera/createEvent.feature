@@ -12,7 +12,7 @@ Feature: Practera create an event in a timeline
 		Then I select "Automation Timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
 		Then I can see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
-		Then I click on "calendar tab" which is located at "//*[normalize-space()='Calendar']/../a" with xpath
+		Then "Practera" I go to the "Calendar" page
 		Then I click on "today button" which is located at "div#calendar button.fc-today-button"
 		Then I wait 2 seconds
 		Then "Practera" I can create an event today

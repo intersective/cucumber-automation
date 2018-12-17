@@ -69,7 +69,7 @@ Feature: Practera Hide Activities on Calendar
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "user" and "password1"
         Then I can see "a side bar" which is located at "#sidebar"
-        Then I click on "calendar" which is located at "//*[text()='Calendar']/.." with xpath
+        Then "Practera" I go to the "Calendar" page
         Then I wait 2 seconds
         Then I can see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished
@@ -90,7 +90,7 @@ Feature: Practera Hide Activities on Calendar
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "user" and "password1"
         Then I can see "a side bar" which is located at "#sidebar"
-        Then I click on "calendar" which is located at "//*[text()='Calendar']/.." with xpath
+        Then "Practera" I go to the "Calendar" page
         Then I wait 2 seconds
         Then I can see "the calenar" which is located at "#calendar"
         Then "Practera" I wait for spinner loading finished

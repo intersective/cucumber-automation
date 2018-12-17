@@ -34,7 +34,7 @@ Feature: Practera users timezone
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
         Then I can see "a side bar" which is located at "#sidebar"
-        Then I click on "communications button" which is located at "//*[text()='Communications']/.." with xpath
+        Then "Practera" I go to the "Communications" page
         Then I can see "view comm button" which is located at "//*[normalize-space()='View Comm Activities']/button" with xpath
         Then I click on "add comm button" which is located at "//*[normalize-space()='Add Comm']" with xpath
         Then I input "barry test comm - 20181107041900" to "title field" which is located at "#intitle input"
