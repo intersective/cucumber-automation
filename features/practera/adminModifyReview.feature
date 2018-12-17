@@ -8,7 +8,7 @@ Feature: Practera Admin Edit Review
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
+		Then "Practera" I go to the "Submissions" page
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
 		Then I click on "ready to publish on moderated assessment" which is located at "//*[text()='Comprehensive Moderated']/../../td[5]/a" with xpath
 		Then I will see a group of "reviewed submissions" which is located at "#tblReady-to-publish > tbody > tr"

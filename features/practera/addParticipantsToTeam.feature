@@ -8,9 +8,9 @@ Feature: Practera add participants to a team
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then I click on "people tag" which is located at "//*[text()='People']/.." with xpath
+		Then "Practera" I go to the "People" page
 		Then I wait 2 seconds
-		Then I click on "teams tag" which is located at "//*[text()='People']/../..//*[normalize-space()='Teams']" with xpath
+		Then "Practera" I go to the "Teams" page
 		Then I will see a group of "team lists" which is located at "#indextbl > tbody > tr"
 		Then I click on "add team button" which is located at ".page-header a"
 		Then "Practera Team" I see the add team page

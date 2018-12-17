@@ -8,7 +8,7 @@ Feature: Practera is_required file applies to different type of question
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "user" and "password1"
         Then I can see "a side bar" which is located at "#sidebar"
-        Then I click on "assessments tag" which is located at "//*[text()='Assessments']/.." with xpath
+        Then "Practera" I go to the "Assessments" page
         Then I wait 2 seconds
         Then I will see a group of "todo assessments" which is located at "#todo tbody > tr"
         Then I should see "an assessment" which is located at "//td/a[text()='Test question required field']" with xpath
