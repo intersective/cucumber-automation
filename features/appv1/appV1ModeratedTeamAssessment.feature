@@ -39,7 +39,7 @@ Feature: AppV1 Moderated Team Assessment
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
+		Then "Practera" I go to the "Submissions" page
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
 		Then I click on "team moderated(team) unassigned" which is located at "//*[text()='Team Moderated (team)']/../../td[3]/a" with xpath
 		Then I wait 3 seconds
@@ -58,9 +58,9 @@ Feature: AppV1 Moderated Team Assessment
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then I click on "review and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
+		Then "Practera" I go to the "Reviews & Feedback" page
 		Then I wait 2 seconds
-		Then I click on "my reviews tag" which is located at "//*[normalize-space()='My Reviews']/a" with xpath
+		Then "Practera" I go to the "My Reviews" page
 		Then I should see a group of "to review submission" which is located at "#toreview tbody tr"
 		Then "Practera Team" I can go to the review page with a team student "student1" submission and the assessment "Team Moderated (Team)"
 		Then I click on "the start button" which is located at "//*[@id='start-page']/../*[contains(@class, 'form-actions')]/button" with xpath
@@ -89,7 +89,7 @@ Feature: AppV1 Moderated Team Assessment
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then I click on "submissions tag" which is located at "//*[text()='Submissions']/../.." with xpath
+		Then "Practera" I go to the "Submissions" page
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
 		Then I click on "ready to publish on team moderated assessment" which is located at "//*[text()='Team Moderated (team)']/../../td[5]/a" with xpath
 		Then I wait 2 seconds

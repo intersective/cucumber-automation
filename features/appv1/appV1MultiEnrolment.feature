@@ -8,9 +8,9 @@ Feature: AppV1 multiple students enrolment
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a bar" which is located at "#sidebar"
-		Then I click on "people tab button" which is located at "//*[text()='People']/.." with xpath
+		Then "Practera" I go to the "People" page
 		Then I wait 2 seconds
-		Then I click on "enrolments tab" which is located at "//*[text()='People']/../..//*[normalize-space()='Enrolments']/a" with xpath
+		Then "Practera" I go to the "Enrolments" page
 		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I can see "a form" which is located at "#EnrolmentAddForm"
 		Then I select "App V1 timeline 1" to "a selector" which is located at "#EnrolmentAddForm .timeline-select #EnrolmentTimelineId"

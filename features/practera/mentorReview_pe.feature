@@ -8,9 +8,9 @@ Feature: Practera Mentor Review for Personal Edge
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "mentorAccount" and "mentorAccountPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then I click on "reviews and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
+		Then "Practera" I go to the "Reviews & Feedback" page
 		Then I wait 2 seconds
-		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
+		Then "Practera" I go to the "My Reviews" page
 		Then I will see a group of "to review submission" which is located at "#toreview tbody tr"
 		
 		Then "Practera" I can do the review with:
