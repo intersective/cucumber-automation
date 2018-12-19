@@ -8,9 +8,9 @@ Feature: Practera Mentor Review
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then I click on "reviews and feedback tag" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
+		Then "Practera" I go to the "Reviews & Feedback" page
 		Then I wait 2 seconds
-		Then I click on "my reviews tag" which is located at "//*[text()='Reviews & Feedback']/../..//*[normalize-space()='My Reviews']" with xpath
+		Then "Practera" I go to the "My Reviews" page
 		Then I should see a group of "to review submission" which is located at "#toreview tbody tr"
 		Then "Practera" I can go to the review page with the student submission and the assessment "Comprehensive Moderated"
 		Then I should see "Files uploaded in submission" which is located at "//*[text()='Files uploaded in submission']" with xpath

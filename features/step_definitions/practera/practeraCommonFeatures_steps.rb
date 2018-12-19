@@ -437,3 +437,7 @@ Then("\"Practera\" I check the assessment uploaded file with:") do |table|
         step("I should see \"a file link\" which is located at \"//*[@id='assessment']//ul/li[#{filePosition}]/a[text()='#{fileName}']\" with xpath")
     end
 end
+
+Then(/^"Practera" I go to the "([^"]*)" page$/) do |tabName|
+    step("I click on \"a menu tab\" which is located at \"//a[normalize-space()='#{tabName}']\" with xpath")
+end

@@ -8,10 +8,9 @@ Feature: AppV1 participant and mentors enrolment
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
 		Then I can see "a bar" which is located at "#sidebar"
-		Then I click on "people tab button" which is located at "//*[text()='People']/.." with xpath
+		Then "Practera" I go to the "People" page
 		Then I wait 2 seconds
-		Then I click on "enrolments tab" which is located at "//*[text()='People']/../..//*[normalize-space()='Enrolments']/a" with xpath
-
+		Then "Practera" I go to the "Enrolments" page
 		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I can see "a form" which is located at "#EnrolmentAddForm"
 		Then I select "participant" to "a selector" which is located at "#EnrolmentAddForm #EnrolmentRole"
@@ -34,5 +33,4 @@ Feature: AppV1 participant and mentors enrolment
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at ".page-header a"
 		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a" for 1 mentor
-
 		Then "Practera" I log out

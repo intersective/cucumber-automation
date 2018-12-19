@@ -8,7 +8,7 @@ Feature: Practera achievement status
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
         Then I can see "a side bar" which is located at "#sidebar"
-        Then I click on "achievements tag" which is located at "//*[text()='Achievements']/.." with xpath
+        Then "Practera" I go to the "Achievements" page
         Then I wait 2 seconds
         Then I can see "visible badge table" which is located at "#tblVisible"
         Then "Practera Achieve" I will go to No Badge section
