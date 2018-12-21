@@ -1,3 +1,4 @@
+@Feature
 Feature: Personal Edge Student Cross-Cultural Team Player Activity
 	As a student to the program
 	I want to login to the app

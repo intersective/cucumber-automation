@@ -1,3 +1,4 @@
+@Feature
 Feature: Personal Edge Newbie
 	As a new student to the program
 	I want to login to the app
