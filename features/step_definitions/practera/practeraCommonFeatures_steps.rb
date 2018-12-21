@@ -178,6 +178,12 @@ Then(/^"Practera" I can go to the review page with the student(|[1-9]+[0-9]*) su
     step("\"Practera\" I can go to the review page with a student \"#{studentName}\" submission and the assessment \"#{assessmentName}\"")
 end
 
+Then("\"Practera\" I click the enrolment save button") do
+    $driver.execute_script("window.confirm = function(){return true;}")
+    sleep 2
+    step("I click on \"a button\" which is located at \"#EnrolmentAdminAddForm .form-actions button\"")
+end
+
 Then(/^I wait until the enrolment process percentage be 100 percent$/) do
 	while "100% Complete" != waitForElement($driver, $wait, "div.progress > #process-percentage").attribute("innerText")
 		sleep 1
