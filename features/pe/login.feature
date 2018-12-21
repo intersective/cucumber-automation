@@ -1,3 +1,4 @@
+@Feature
 Feature: Personal Edge login
 	As a student
 	I want to login to the app
