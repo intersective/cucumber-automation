@@ -52,13 +52,7 @@ def loadSharedData(key, default="")
 	if $variableLoaded
 		value = $sharedData1.loadDataFromKey($currentFeatureFile)[key]
 		if value == nil
-			filePath = Dir.pwd + "/data/" + $currentFeatureFile.split("/")[0] + "/commons.json"
-			if File.exist?(filePath)
-				value = readJsonfile(filePath)[key]
-			end
-			if value == nil
-				value =  $sharedData1.loadDataFromKey(key)
-			end
+			value =  $sharedData1.loadDataFromKey(key)
 		end
 	else
 		value = $sharedData1.loadDataFromKey(key)
