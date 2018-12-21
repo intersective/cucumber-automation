@@ -1,3 +1,4 @@
+@Feature
 Feature: Personal Edge Student Portfolio
 	As a student to the program
 	I want to login to the app

@@ -1,3 +1,4 @@
+@Feature
 Feature: Personal Edge Student Digital Citizen Activity
 	As a student to the program
 	I want to login to the app

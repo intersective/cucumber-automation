@@ -109,7 +109,7 @@ Then(/^"PE" I go to the in progress submission$/) do
 end
 
 Then(/^"PE" I can add a new submission$/) do
-    step("I click on \"add new submission button\" which is located at \"ion-content.activity-detail button.add-submission\"")
+    step("I click on \"add new submission button\" which is located at \"ion-header.activity-detail button.add-submission\"")
     sleep 2
     step("\"PE\" I wait for loading finished")
     sleep 2
