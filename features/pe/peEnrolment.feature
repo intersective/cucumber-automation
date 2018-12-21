@@ -12,11 +12,11 @@ Feature: Personal Edge Enrolment
 		Then I wait 2 seconds
 		Then "Practera" I go to the "Enrolments" page
 		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
-		Then I can see "a form" which is located at "#EnrolmentAddForm"
-		Then I select "Automation Timeline" to "a selector" which is located at "#EnrolmentAddForm .timeline-select #EnrolmentTimelineId"
+		Then I can see "a form" which is located at "#EnrolmentAdminAddForm"
+		Then I select "Automation Timeline" to "a selector" which is located at "#EnrolmentAdminAddForm .timeline-select #EnrolmentTimelineId"
 		Then "PE" I input the enrolment information which is located at "input#fileupload[name='data[Enrolment][upload]']"
 		Then I wait 2 seconds 
-		Then I click on "a button" which is located at "#EnrolmentAddForm .form-actions button"
+		Then "Practera" I click the enrolment save button
 		Then I wait until the enrolment process percentage be 100 percent
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at ".page-header a"
