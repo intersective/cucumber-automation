@@ -17,7 +17,7 @@ Feature: AppV1 multiple students enrolment
 		Then I input 2 student enrolment information which is located at "textArea[name='data[Enrolment][csvtext]']"
 		Then I wait 2 seconds
 		Then "Practera" I click the enrolment save button
-		Then I wait until the enrolment process percentage be 100 percent
+		Then I wait until the process percentage be 100 percent
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at ".page-header a"
 		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a" for 2 students

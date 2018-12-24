@@ -184,7 +184,7 @@ Then("\"Practera\" I click the enrolment save button") do
     step("I click on \"a button\" which is located at \"#EnrolmentAdminAddForm .form-actions button\"")
 end
 
-Then(/^I wait until the enrolment process percentage be 100 percent$/) do
+Then(/^I wait until the process percentage be 100 percent$/) do
 	while "100% Complete" != waitForElement($driver, $wait, "div.progress > #process-percentage").attribute("innerText")
 		sleep 1
 	end
