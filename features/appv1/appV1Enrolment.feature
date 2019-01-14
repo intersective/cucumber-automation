@@ -20,5 +20,5 @@ Feature: AppV1 enrolment
 		Then I wait until the process percentage be 100 percent
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at ".page-header a"
-		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a" for 1 student
+		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a:nth-of-type(1)" for 1 student
 		Then "Practera" I log out
