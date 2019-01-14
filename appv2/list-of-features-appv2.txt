@@ -1,2 +1,2 @@
-features/appv1/appV1Enrolment.feature
+features/appv2/appV2Enrolment.feature
 features/appv2/appV2StudentRegistration.feature
