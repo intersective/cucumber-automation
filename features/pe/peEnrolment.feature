@@ -23,7 +23,7 @@ Feature: Personal Edge Enrolment
 		Then I input student name to "the box" which is located at "#indextbl_filter input"
 		Then I wait 2 seconds
 		Then I wait the search result with locator "table#indextbl tbody tr"
-		Then I click on "send invite" which is located at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(8) > div > a:nth-of-type(2)"
+		Then I click on "send invite" which is located at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(2) a"
 		Then I wait until the process percentage be 100 percent
 		Then I wait 2 seconds
 		Then "Practera" I log out
