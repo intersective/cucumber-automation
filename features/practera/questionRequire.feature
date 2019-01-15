@@ -62,7 +62,7 @@ Feature: Practera is_required file applies to different type of question
         When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
         Then I can see "a side bar" which is located at "#sidebar"
-        Then "Practera" I go to the "Submissions" page
+        Then "Practera" I go to the "Assessments" page
         Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
         Then I click on "test question required field" which is located at "//*[text()='Test question required field']/../../td[3]/a" with xpath
 		Then I wait 3 seconds
