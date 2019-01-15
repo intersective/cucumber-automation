@@ -21,7 +21,7 @@ Feature: AppV1 participant and mentors enrolment
 		Then I wait until the process percentage be 100 percent
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at ".page-header a"
-		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a" for 1 student
+		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(3) a:nth-of-type(2)" for 1 student
 		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I can see "a form" which is located at "#EnrolmentAdminAddForm"
 		Then I select "mentor" to "a selector" which is located at "#EnrolmentAdminAddForm #EnrolmentRole"
@@ -32,5 +32,5 @@ Feature: AppV1 participant and mentors enrolment
 		Then I wait until the process percentage be 100 percent
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at ".page-header a"
-		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a" for 1 mentor
+		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(3) a:nth-of-type(2)" for 1 mentor
 		Then "Practera" I log out
