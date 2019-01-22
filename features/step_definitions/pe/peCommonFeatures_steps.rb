@@ -52,11 +52,6 @@ Then(/^"PE" I log out$/) do
     step("\"PE\" I wait for loading finished")
 end
 
-Then(/^"PE" I search email with title "([^"]*)" and the student(|[1-9]+[0-9]*) as receiver$/) do |title, arg2|
-    studentAccount = getUserFromData(arg2, Application.KEY_ROLE_STUDENT).account
-    step("\"Mailtrap\" I search email with title \"#{title}\" and receiver \"#{studentAccount}\"")
-end
-
 Then(/^"PE" I can see an activity locating at "([^"]*)" position with title "([^"]*)"$/) do |actLocation, actTitle|
     act = waitForElementVisibleWithInAGroup($driver, $listWait, "activities-list-page .activity-list", actLocation)
     aActTitle = act.find_element(:css => "p.activity-title")

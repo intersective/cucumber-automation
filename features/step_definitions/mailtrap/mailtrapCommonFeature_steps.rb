@@ -1,3 +1,5 @@
+
+
 Then(/^"Mailtrap" I search email with receiver "([^"]*)" and filter "([^"]*)"$/) do |receiver, filter|
     noResult = true
     while noResult
@@ -119,6 +121,11 @@ Then("\"Mailtrap Api\" I can see {string} in the email content") do |contentStr|
     if doc.xpath("//*[text()='" + contentStr + "']").first == nil
         fail("I cannot see the email content")
     end
+end
+
+Then(/^"Mailtrap" I search email with title "([^"]*)" and the (mentor|student)(|[1-9]+[0-9]*) as receiver$/) do |title, arg2, arg3|
+    studentAccount = getUserFromData(arg3, arg2).account
+    step("\"Mailtrap\" I search email with title \"#{title}\" and receiver \"#{studentAccount}\"")
 end
 
 private def buildMailTrapApiPara(searchStr)
