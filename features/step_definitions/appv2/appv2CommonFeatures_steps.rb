@@ -13,7 +13,7 @@ Then(/^"Appv2" I choose a program "([^"]*)"$/) do |programName|
     waitForElementVisibleXpath($driver, $wait, "//ion-card[normalize-space()='#{programName}']").click()
 end
 
-Then(/^"Appv2" I log out $/) do
+Then(/^"Appv2" I log out$/) do
     waitForElement($driver, $wait, "ion-tab-button[tab='settings']").click()
     waitForElementVisibleXpath($driver, $wait, "//app-tabs//ion-card[normalize-space()='Logout']").click()
 end
