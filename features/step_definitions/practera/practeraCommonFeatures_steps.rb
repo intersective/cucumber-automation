@@ -204,18 +204,22 @@ Then("I wait the search result with locator {string}") do |arg1|
 	end
 end
 
-Then(/^I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) (mentor|student)(|s)$/) do |arg1, arg2, arg3, arg4|
+Then(/^"Practera" I get the registration url at "([^"]*)" for ([1-9]+[0-9]*) (mentor|student)(|s)$/) do |arg1, arg2, arg3, arg4|
     counter = arg2.to_i
     for i in 1..counter
         step("I input #{arg3}#{i} name to \"the box\" which is located at \"#indextbl_filter input\"")
         step("I wait 2 seconds")
         step("I wait the search result with locator \"table#indextbl tbody tr\"")
-        regHref = waitForElement($driver, $wait, arg1).attribute("href")
-        user = getUserFromData(i.to_s, arg3)
-        user.regUrl = regHref
+        step("I get the registration url at \"#{arg1}\" for #{arg3} #{arg2}")
         waitForElement($driver, $wait, "#indextbl_filter input").clear
         step("I wait 2 seconds")
     end
+end
+
+Then(/^I get the registration url at "([^"]*)" for (mentor|student) ([1-9]+[0-9]*)$/) do |arg1, arg2, arg3|
+    regHref = waitForElement($driver, $wait, arg1).attribute("href")
+    user = getUserFromData(arg3.to_s, arg2)
+    user.regUrl = regHref
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|
