@@ -8,7 +8,7 @@ Feature: Practera Assign reviewers for Personal Edge assessment
 		When The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I login with "peprogramAdminAccount" and "peprogramAdminAccountPassword"
 		Then I can see "a side bar" which is located at "#sidebar"
-		Then "Practera" I go to the "Submissions" page
+		Then "Practera" I go to the "Assessments" page
 
 		Then "Practera" I can assign a mentor to student submissions with:
 			| assessment name | mentor name | students |

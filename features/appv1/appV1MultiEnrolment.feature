@@ -20,5 +20,31 @@ Feature: AppV1 multiple students enrolment
 		Then I wait until the process percentage be 100 percent
 		Then I wait 2 seconds
 		Then I click on "a button" which is located at ".page-header a"
-		Then I get the registration url at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(5) a" for 2 students
+		Then I input student name to "the box" which is located at "#indextbl_filter input"
+		Then I wait 2 seconds
+		Then I wait the search result with locator "table#indextbl tbody tr"
+		Then I click on "send invite" which is located at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(2) a"
+		Then I wait until the process percentage be 100 percent
+		Then I wait 2 seconds
+		Then I click on "a button" which is located at ".page-header a"
+		Then I input student2 name to "the box" which is located at "#indextbl_filter input"
+		Then I wait 2 seconds
+		Then I wait the search result with locator "table#indextbl tbody tr"
+		Then I click on "send invite" which is located at "table#indextbl tbody tr:nth-of-type(1) td:nth-of-type(2) a"
+		Then I wait until the process percentage be 100 percent
+		Then I wait 2 seconds
 		Then "Practera" I log out
+
+		Given I go to Mailtrap
+		When "Mailtrap" I login with "mailtrapUser" and "mailtrapUserPassword"
+		Then "Mailtrap" I go to practera inbox
+		Then "Mailtrap" I search email with title "App V1 Selenium Program - Welcome and Register" and the student as receiver
+		Then "Mailtrap" I go into the email content
+		Then I get the registration url at "#btn_registration" for student 1
+		Then "Mailtrap" I go back to previous frame
+		Then I wait 2 seconds
+		Then "Mailtrap" I search email with title "App V1 Selenium Program - Welcome and Register" and the student2 as receiver
+		Then "Mailtrap" I go into the email content
+		Then I get the registration url at "#btn_registration" for student 2
+		Then "Mailtrap" I go back to previous frame
+        Then "Mailtrap" I log out
