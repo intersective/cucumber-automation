@@ -157,10 +157,16 @@ def scrollIfNotVisible(webDriver, ele)
 	end
 end
 
-def scrollIfNotVisibleByKeyBoard(webDriver, ele)
-	while !isElementInViewpport(webDriver, ele)
-		webDriver.action.send_keys(:arrow_down).perform
-		sleep 1
+def scrollIfNotVisibleByKeyBoard(webDriver, parentEle, ele)
+	inViewport = isElementInViewpport(webDriver, ele)
+	if !inViewport
+		$driver.action.move_to(parentEle, 15, 15).perform
+		$driver.action.click().perform
+		while !inViewport
+			webDriver.action.send_keys(:arrow_down).perform
+			sleep 1
+			inViewport = isElementInViewpport(webDriver, ele)
+		end
 	end
 end
 
