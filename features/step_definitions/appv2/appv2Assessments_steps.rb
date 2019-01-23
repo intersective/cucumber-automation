@@ -44,12 +44,12 @@ Then(/^"Appv2" I answer "([^"]*)" for ([1-9]+[0-9]*) question with question type
         when "text"
             answerContainer = waitForElementXpath($driver, $wait, "(//app-assessment//ion-card//ion-textarea)[#{qindex}]")
             scrollIfNotVisible($driver, answerContainer)
-            answerContainer.click()
+            focusElement(answerContainer)
             answerContainer.send_keys(answer)
         else
             nswerContainer = waitForElementXpath($driver, $wait, "(//app-assessment//ion-card//ion-textarea)[#{qindex}]")
             scrollIfNotVisible($driver, answerContainer)
-            answerContainer.click()
+            focusElement(answerContainer)
             answerContainer.send_keys(answer)
     end
 end

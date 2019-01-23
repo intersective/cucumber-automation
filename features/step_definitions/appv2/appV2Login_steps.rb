@@ -8,10 +8,10 @@ end
 
 Then(/^"Appv2" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
     emaile = waitForElementVisible($driver, $wait, "ion-input[name='email']")
-    emaile.click()
+    focusElement(emaile)
     emaile.send_keys(userName)
     passworde = waitForElementVisible($driver, $wait, "ion-input[name='password']")
-    passworde.click()
+    focusElement(passworde)
     passworde.send_keys(userPassword)
     waitForElementVisible($driver, $wait, "form ion-button[type=submit]").click()
 end

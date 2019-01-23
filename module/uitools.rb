@@ -158,3 +158,7 @@ def getValueIndex(webDriver, waitor, value, selectorPath)
 	end
 	return index
 end
+
+def focusElement(ele)
+	ele.click()
+end
