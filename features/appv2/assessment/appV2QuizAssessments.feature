@@ -16,6 +16,13 @@ Feature: AppV2 quiz assessment
         Then "Appv2" I can see 1 question group name "Text Questions" and description "Comprehensive Quiz Text Questions Group description"
         Then "Appv2" I can see 1 question name "Text Question 1" and description "Comprehensive Quiz Text Question 1 description"
         Then "Appv2" I answer "ohhh gogoggoo" for 1 question with question type "text"
+        Then "Appv2" I can see 2 question group name "Oneof Questions" and description "Comprehensive Quiz Oneof Questions Group description"
+        Then "Appv2" I can see 2 question name "Oneof Question 1" and description "Comprehensive Quiz Oneof Question description"
+        Then "Appv2" I answer "Bad" for 2 question with question type "multiple choice"
+        Then "Appv2" I can see 3 question group name "Multiple Choice Questions" and description "Comprehensive Quiz checkbox Question Groups description"
+        Then "Appv2" I can see 3 question name "Multiple Choice Question 1" and description "Comprehensive Quiz checkbox Question 1 description"
+        Then "Appv2" I answer "Choice 0.6" for 3 question with question type "checkbox"
+        Then I wait 10 seconds
         Then "Appv2" I go back from assessment page
         Then "Appv2" I wait for loading finished
         Then "Appv2" I log out

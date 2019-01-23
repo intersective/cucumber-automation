@@ -42,13 +42,21 @@ end
 Then(/^"Appv2" I answer "([^"]*)" for ([1-9]+[0-9]*) question with question type "([^"]*)"$/) do |answer, qindex, qtype|
     case qtype
         when "text"
-            answerContainer = waitForElementXpath($driver, $wait, "(//app-assessment//ion-card//ion-textarea)[#{qindex}]")
-            scrollIfNotVisible($driver, answerContainer)
+            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea")
+            scrollIfNotVisibleByKeyBoard($driver, answerContainer)
             focusElement(answerContainer)
             answerContainer.send_keys(answer)
+        when "multiple choice"
+            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-oneof//ion-item[normalize-space()='#{answer}']/.")
+            scrollIfNotVisibleByKeyBoard($driver, answerContainer)
+            answerContainer.click()
+        when "checkbox"
+            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-multiple//ion-item[normalize-space()='#{answer}']/ion-checkbox")
+            scrollIfNotVisibleByKeyBoard($driver, answerContainer)
+            answerContainer.click()
         else
-            nswerContainer = waitForElementXpath($driver, $wait, "(//app-assessment//ion-card//ion-textarea)[#{qindex}]")
-            scrollIfNotVisible($driver, answerContainer)
+            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea")
+            scrollIfNotVisibleByKeyBoard($driver, answerContainer)
             focusElement(answerContainer)
             answerContainer.send_keys(answer)
     end
