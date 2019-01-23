@@ -20,6 +20,11 @@ Given(/^I go to App V1$/) do
     step("I go to \"#{appV1Link}\"")
 end
 
+Given(/^I go to App V2$/) do
+    appV2Link = $configObj["appv2Url"]
+    step("I go to \"#{appV2Link}\"")
+end
+
 Given(/^I go to Practera Platform$/) do
     practeraLink = $configObj["practeraUrl"]
     step("I go to \"#{practeraLink}\"")
