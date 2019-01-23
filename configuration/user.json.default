@@ -2,6 +2,7 @@
 	"driverPath" : "{/chrome/driver/path}",
 	"uploadFilePath" : "{Users/username/workspace/project-name/uploadFile}",
 	"appv1Url" : "https://appdev.practera.com",
+	"appv2Url": "https://dev.app-v2.practera.com",
 	"practeraUrl" : "https://sandbox.practera.com",
 	"mailtrap" : "http://mailtrap.io/",
 	"peUrl" : "https://pe-stage.practera.com/",

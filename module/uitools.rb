@@ -1,3 +1,14 @@
+VIEWPORTSCRIPTS = "var elem = arguments[0],                 " +
+      "  box = elem.getBoundingClientRect(),    " +
+      "  cx = box.left + box.width / 2,         " +
+      "  cy = box.top + box.height / 2,         " +
+      "  e = document.elementFromPoint(cx, cy); " +
+      "for (; e; e = e.parentElement) {         " +
+      "  if (e === elem)                        " +
+      "    return true;                         " +
+      "}                                        " +
+      "return false;"
+
 private def findElement(webDriver, selectorPath, selectorType=Application.KEY_CSS)
 	begin
 		if selectorType == Application.KEY_XPATH
@@ -146,6 +157,23 @@ def scrollIfNotVisible(webDriver, ele)
 	end
 end
 
+def scrollIfNotVisibleByKeyBoard(webDriver, parentEle, ele)
+	inViewport = isElementInViewpport(webDriver, ele)
+	if !inViewport
+		$driver.action.move_to(parentEle, 15, 15).perform
+		$driver.action.click().perform
+		while !inViewport
+			webDriver.action.send_keys(:arrow_down).perform
+			sleep 1
+			inViewport = isElementInViewpport(webDriver, ele)
+		end
+	end
+end
+
+def isElementInViewpport(webDriver, ele)
+	return webDriver.execute_script(VIEWPORTSCRIPTS, ele)
+end
+
 def getValueIndex(webDriver, waitor, value, selectorPath)
 	index = 1
 	elements = waitForElements(webDriver, waitor, selectorPath)
@@ -157,4 +185,8 @@ def getValueIndex(webDriver, waitor, value, selectorPath)
 		end
 	end
 	return index
+end
+
+def focusElement(ele)
+	ele.click()
 end

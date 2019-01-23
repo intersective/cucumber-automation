@@ -1,2 +1,4 @@
 features/appv2/appV2Enrolment.feature
 features/appv2/appV2StudentRegistration.feature
+features/appv2/topic/appV2Topics.feature
+features/appv2/assessment/appV2QuizAssessments.feature
