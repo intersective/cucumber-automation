@@ -31,4 +31,10 @@ Feature: AppV2 reflection assessment
         Then "Appv2" I answer "medium-size-dogs-a-medium.jpg" for question 6 with question type "file"
         Then "Appv2" I submit the assessment
         Then "Appv2" I can see the submisison success messages
+        Then "Appv2" I can see the fast feedback questions
+        Then "Appv2" I can see the fast feedback question 1 with title "Have you personally engaged with your mentor within the last two weeks?(participant)" and description "You should engage with your mentor at least once every fortnight."
+        Then "Appv2" I can see the fast feedback question 2 with title "Do you feel that your team is on track (participant)?" and description "Do you feel that your team is on track?"
+        Then "Appv2" I answer "Yes" for the fast feedback question "1"
+        Then "Appv2" I answer "Yes" for the fast feedback question "2"
+        Then "Appv2" I submit the fast feedback
         Then "Appv2" I log out
