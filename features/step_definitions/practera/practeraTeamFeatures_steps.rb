@@ -45,7 +45,7 @@ Then("\"Practera Team\" I can assign a mentor {string} to a team student {string
     teamObj = loadSharedData(Application.KEY_TEAM)
     studentName = teamObj[student]
     mentorName = loadSharedData(mentor, mentor)
-    step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission")
+    step("\"Practera\" I can assign a mentor \"#{mentorName}\" to a student \"#{studentName}\" submission with role \"mentor\"")
 end
 
 Then("\"Practera Team\" I can go to the review page with a team student {string} submission and the assessment {string}") do |student, assessment|

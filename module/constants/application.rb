@@ -3,6 +3,7 @@ class Application
     @KEY_STUDENTS = "students".freeze
     @KEY_MENTORS = "mentors".freeze
     @KEY_ROLE_STUDENT = "student".freeze
+    @KEY_ROLE_SYSADMIN = "sysadmin".freeze
     @KEY_ROLE_MENTOR = "mentor".freeze
     @KEY_UPLOADFILEPATH = "uploadFilePath".freeze
     @KEY_PROGRESS = "progress".freeze
@@ -32,6 +33,10 @@ class Application
 
     def self.KEY_ROLE_MENTOR
         return @KEY_ROLE_MENTOR
+    end
+
+    def self.KEY_ROLE_SYSADMIN
+        return @KEY_ROLE_SYSADMIN
     end
 
     def self.KEY_UPLOADFILEPATH

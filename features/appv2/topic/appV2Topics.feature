@@ -18,6 +18,7 @@ Feature: AppV2 topics
 		Given "Appv2" I go to the topic "Topic 1"
 		When "Appv2" I wait for loading finished
 		Then I click on "mark topic as read" which is located at "//span[normalize-space()='Mark topic as read']/../ion-toggle" with xpath
+		Then I wait 3 seconds
 		Then "Appv2" I go back from topic page
 		Then "Appv2" I wait for loading finished
 		Then "Appv2" I can see the "Topic 1" with status "Topic done"

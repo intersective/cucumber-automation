@@ -4,3 +4,5 @@ features/appv2/topic/appV2Topics.feature
 features/appv2/assessment/appV2QuizAssessments.feature
 features/appv2/assessment/appV2ReflectionAssessments.feature
 features/appv2/assessment/appV2ModeratedAssessments.feature
+features/practera/assignMentors_appv2.feature
+features/appv2/review/appV2MentorReview.feature
