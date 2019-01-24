@@ -58,12 +58,20 @@ Then(/^"Practera" I should see the student(|[1-9]+[0-9]*) submission$/) do |arg1
     step("\"Practera\" I should see a student \"#{studentName}\" submission")
 end
 
-Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission$/) do |mentor, studentName|
+Then(/^"Practera" I can assign a mentor "([^"]*)" to a student "([^"]*)" submission with role "mentor"$/) do |mentor, studentName|
     mentorName = loadSharedData(mentor, mentor)
-    step("\"Practera\" I can assign \"#{mentorName}\" to \"#{studentName}\" submission")
+    step("\"Practera\" I can assign \"#{mentorName}\" to \"#{studentName}\" submission with role \"mentor\"")
 end
 
-Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, arg2|
+Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission with role "([^"]*)"$/) do |arg1, arg2, arg3|
+    suffix = nil
+    if arg3 == Application.KEY_ROLE_MENTOR
+        suffix = " (Mentor)"
+    elsif arg3 == Application.KEY_ROLE_SYSADMIN
+        suffix = " (Sysadmin)"
+    else
+        suffix = ""
+    end
     editableform = nil
     index = 1
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")
@@ -80,7 +88,7 @@ Then(/^"Practera" I can assign "([^"]*)" to "([^"]*)" submission$/) do |arg1, ar
         index = index + 1
     end
     findElementWithParent(editableform, ".editable-input input").send_keys(arg1)
-    waitForElement($driver, $wait, "ul.select2-results > li > div").click()
+    waitForElementXpath($driver, $wait, "//ul[@class='select2-results']/li/div[normalize-space()='#{arg1}#{suffix}']").click()
     findElementWithParent(editableform, ".editable-buttons button.editable-submit").click()
     while waitForElement($driver, $shortWait, "#tblUnassigned > tbody > tr:nth-of-type(" + index.to_s + ") " + reviewerlocator + " .editableform") != nil
         sleep 1
@@ -90,12 +98,12 @@ end
 Then(/^"Practera" I can assign (mentor|student)(|[1-9]+[0-9]*) to the student(|[1-9]+[0-9]*) submission$/) do |arg1, arg2, arg3|
     userName1 = getUserFromData(arg2, arg1).name
     userName2 = getUserFromData(arg3, Application.KEY_ROLE_STUDENT).name
-    step("\"Practera\" I can assign \"#{userName1}\" to \"#{userName2}\" submission")
+    step("\"Practera\" I can assign \"#{userName1}\" to \"#{userName2}\" submission with role \"#{arg1}\"")
 end
 
 Then(/^"Practera" I can assign a mentor "([^"]*)" to the student(|[1-9]+[0-9]*) submission$/) do |mentor, arg2|
     studentName = getUserFromData(arg2, Application.KEY_ROLE_STUDENT).name
-    step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission")
+    step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{studentName}\" submission with role \"mentor\"")
 end
 
 Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |studentName|
@@ -237,7 +245,7 @@ Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |tabl
         students.each do |student|
             step("I will see a group of \"unassigned submissions\" which is located at \"#tblUnassigned > tbody > tr\"")
             step("\"Practera\" I should see a student \"#{student}\" submission")
-            step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{student}\" submission")
+            step("\"Practera\" I can assign a mentor \"#{mentor}\" to a student \"#{student}\" submission with role \"mentor\"")
             step("I can see \"message\" which is located at \".toast-message\"")
             step("The \"message\" which is located at \".toast-message\" should be disappear")
             step("I wait 2 seconds")
