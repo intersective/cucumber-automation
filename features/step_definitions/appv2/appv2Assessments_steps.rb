@@ -34,9 +34,32 @@ end
 Then(/^"Appv2" I can see question ([1-9]+[0-9]*) name "([^"]*)" and description "([^"]*)"$/) do |qindex, qname, qdes|
     aqheaders = waitForElementXpath($driver, $wait, "(//app-assessment//ion-card/ion-card-header)[#{qindex}]").attribute("innerText").split("\n")
     aqname = aqheaders[0].strip()
-    aqdes = aqheaders[1].strip()
+    aqdes = (aqheaders[1] == nil)? "" : aqheaders[1].strip()
     verifyValue("expected question name", qname, aqname)
     verifyValue("expected question description", qdes, aqdes)
+end
+
+Then(/^"Appv2" I click the question ([1-9]+[0-9]*) choices descriptions button$/) do |qindex|
+    contentPage = waitForElement($driver, $wait, "app-assessment ion-content")
+    btn = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-header/ion-icon")
+    scrollIfNotVisibleByKeyBoard($driver, contentPage, btn)
+    btn.click()
+end
+
+Then(/^"Appv2" I can see the question ([1-9]+[0-9]*) choices descriptions with:$/) do |qindex, table|
+    contentPage = waitForElement($driver, $wait, "app-pop-up ion-content")
+    choicesDes = waitForElements($driver, $wait, "app-pop-up p")
+    data = table.raw
+    rows = data.length - 1
+
+    for i in 0..rows
+        verifyValue("expected question choice descriptions", data[i][0], refineElementTextContent(choicesDes[i + 1]))
+    end
+
+    btn = waitForElement($driver, $wait, "app-pop-up ion-button")
+    scrollIfNotVisibleByKeyBoard($driver, contentPage, btn)
+    btn.click()
+    sleep 3
 end
 
 Then(/^"Appv2" I answer "([^"]*)" for question ([1-9]+[0-9]*) with question type "([^"]*)"$/) do |answer, qindex, qtype|
