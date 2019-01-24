@@ -34,7 +34,7 @@ end
 Then(/^"Appv2" I can see question ([1-9]+[0-9]*) name "([^"]*)" and description "([^"]*)"$/) do |qindex, qname, qdes|
     aqheaders = waitForElementXpath($driver, $wait, "(//app-assessment//ion-card/ion-card-header)[#{qindex}]").attribute("innerText").split("\n")
     aqname = aqheaders[0].strip()
-    aqdes = aqheaders[1].strip()
+    aqdes = (aqheaders[1] == nil)? "" : aqheaders[1].strip()
     verifyValue("expected question name", qname, aqname)
     verifyValue("expected question description", qdes, aqdes)
 end
