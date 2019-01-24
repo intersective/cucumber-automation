@@ -71,13 +71,13 @@ Then(/^"Appv2" I answer "([^"]*)" for question ([1-9]+[0-9]*) with question type
             focusElement(answerContainer)
             answerContainer.send_keys(answer)
         when "multiple choice"
-            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-oneof//ion-item[normalize-space()='#{answer}']/.")
+            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-oneof//ion-item[normalize-space()='#{answer}'][not(@color='light')]/.")
             scrollIfNotVisibleByKeyBoard($driver, contentPage, answerContainer)
             answerContainer.click()
         when "checkbox"
             ans = answer.split(",")
             ans.each do |a|
-                answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-multiple//ion-item[normalize-space()='#{a}']/ion-checkbox")
+                answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-multiple//ion-item[normalize-space()='#{a}'][not(@color='light')]/ion-checkbox")
                 scrollIfNotVisibleByKeyBoard($driver, contentPage, answerContainer)
                 answerContainer.click()
             end
@@ -102,7 +102,7 @@ Then(/^"Appv2" I answer "([^"]*)" for question ([1-9]+[0-9]*) with question type
     end
 end
 
-Then(/^"Appv2" I submit the assessment$/) do
+Then(/^"Appv2" I submit the (assessment|review)$/) do |type|
     contentPage = waitForElement($driver, $wait, "app-assessment ion-content")
     ele = waitForElementXpath($driver, $wait, "//app-assessment//ion-button[normalize-space()='Submit']")
     scrollIfNotVisibleByKeyBoard($driver, contentPage, ele)
@@ -114,6 +114,7 @@ Then(/^"Appv2" I can see the submisison success messages$/) do
     if ele == nil
         verifyValue("expected submission success", "Submitted Successful!", "nil")
     else
+        sleep 3
         waitForElementXpath($driver, $wait, "//ion-alert//button[normalize-space()='OK']").click()
     end
 end
