@@ -68,7 +68,7 @@ Feature: Practera is_required file applies to different type of question
 		Then I wait 3 seconds
 		Then I will see a group of "unassigned submissions" which is located at "#tblUnassigned > tbody > tr"
 		Then "Practera" I should see a student "barry_test_program.student6" submission
-		Then "Practera" I can assign a mentor "testprogram1Mentor" to a student "barry_test_program.student6" submission
+		Then "Practera" I can assign a mentor "testprogram1Mentor" to a student "barry_test_program.student6" submission with role "mentor"
 		Then I can see "message" which is located at ".toast-message"
 		Then The "message" which is located at ".toast-message" should be disappear
 		Then I scroll to the top
