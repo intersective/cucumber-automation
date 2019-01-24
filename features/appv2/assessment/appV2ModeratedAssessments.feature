@@ -18,9 +18,21 @@ Feature: AppV2 moderated assessment
         Then "Appv2" I answer "good good" for question 1 with question type "text"
         Then "Appv2" I can see question group 2 name "Oneof Questions" and description "Comprehensive Moderated Oneof Questions Group description"
         Then "Appv2" I can see question 2 name "Oneof Question 1" and description "this is text Oneof Question 1 description"
+        Then "Appv2" I click the question 2 choices descriptions button
+        Then "Appv2" I can see the question 2 choices descriptions with:
+            | Good - Good choice description |
+            | Normal - Normal choice description |
+            | Bad - Bad choice description |
         Then "Appv2" I answer "Normal" for question 2 with question type "multiple choice"
         Then "Appv2" I can see question group 3 name "Multiple Choice Questions" and description "Comprehensive Moderated checkbox Questions Group description"
         Then "Appv2" I can see question 3 name "Multiple Choice Question 1" and description "Comprehensive Moderated checkbox Question 1 description"
+        Then "Appv2" I click the question 3 choices descriptions button
+        Then "Appv2" I can see the question 3 choices descriptions with:
+            | Choice 1 - Choice 1 descriptions |
+            | Choice 0.8 - Choice 0.8 descriptions |
+            | Choice 0.6 - Choice 0.6 descriptions |
+            | Choice 0.4 - Choice 0.4 descriptions |
+            | Choice 0.2 - Choice 0.2 descriptions |
         Then "Appv2" I answer "Choice 0.2,Choice 0.6" for question 3 with question type "checkbox"
         Then "Appv2" I can see question group 4 name "File Questions" and description "Comprehensive Moderated File Questions Group description"
         Then "Appv2" I can see question 4 name "File Question 1 - any" and description "Comprehensive Moderated File Question 1 -any description"
