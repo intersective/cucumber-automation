@@ -18,6 +18,11 @@ class Application
     @KEY_CHATMESSAGE = "chatmess_".freeze
     @KEY_XPATH = "xpath".freeze
     @KEY_CSS = "css".freeze
+    @KEY_Q_TEXT = "text".freeze
+    @KEY_Q_ONEOF = "oneof".freeze
+    @KEY_Q_MULT = "multiple choice".freeze
+    @KEY_Q_CHECKBOX = "checkbox".freeze
+    @KEY_Q_FILE = "file".freeze
 
     def self.KEY_STUDENTS
         return @KEY_STUDENTS
@@ -89,6 +94,26 @@ class Application
 
     def self.KEY_CSS
         return @KEY_CSS
+    end
+
+    def self.KEY_Q_TEXT
+        return @KEY_Q_TEXT
+    end
+
+    def self.KEY_Q_MULT
+        return @KEY_Q_MULT
+    end
+
+    def self.KEY_Q_CHECKBOX
+        return @KEY_Q_CHECKBOX
+    end
+
+    def self.KEY_Q_FILE
+        return @KEY_Q_FILE
+    end
+
+    def self.KEY_Q_ONEOF
+        return @KEY_Q_ONEOF
     end
 
 end

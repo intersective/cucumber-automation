@@ -65,23 +65,23 @@ end
 Then(/^"Appv2" I answer "([^"]*)" for question ([1-9]+[0-9]*) with question type "([^"]*)"$/) do |answer, qindex, qtype|
     contentPage = waitForElement($driver, $wait, "app-assessment ion-content")
     case qtype
-        when "text"
+        when Application.KEY_Q_TEXT
             answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea")
             scrollIfNotVisibleByKeyBoard($driver, contentPage, answerContainer)
             focusElement(answerContainer)
             answerContainer.send_keys(answer)
-        when "multiple choice"
+        when Application.KEY_Q_MULT
             answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-oneof//ion-item[normalize-space()='#{answer}'][not(@color='light')]/.")
             scrollIfNotVisibleByKeyBoard($driver, contentPage, answerContainer)
             answerContainer.click()
-        when "checkbox"
+        when Application.KEY_Q_CHECKBOX
             ans = answer.split(",")
             ans.each do |a|
                 answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-multiple//ion-item[normalize-space()='#{a}'][not(@color='light')]/ion-checkbox")
                 scrollIfNotVisibleByKeyBoard($driver, contentPage, answerContainer)
                 answerContainer.click()
             end
-        when "file"
+        when Application.KEY_Q_FILE
             answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-button")
             scrollIfNotVisibleByKeyBoard($driver, contentPage, answerContainer)
             answerContainer.click()

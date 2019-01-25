@@ -174,7 +174,7 @@ Then(/^"PE" I do the "([^"]*)" question which is located at "([^"]*)" with title
     temp = ".groups-question div.assessments-group-text:nth-of-type(%s) :nth-child(1) :nth-child(1)" % [i]
     aTitle = refineElementTextContent(waitForElement($driver, $wait, temp))
     verifyValue("expected question title", title, aTitle)
-    if type == "oneof"
+    if type == Application.KEY_Q_ONEOF
         temp1 = ".groups-question div.assessments-group-text:nth-of-type(%s) oneof-question" % [i]
         oneof = waitForElement($driver, $wait, temp1)
         choices  = oneof.find_elements(:css => ".choice")
@@ -188,12 +188,12 @@ Then(/^"PE" I do the "([^"]*)" question which is located at "([^"]*)" with title
             end
             z = z + 1
         end
-    elsif type == "text"
+    elsif type == Application.KEY_Q_TEXT
         temp1 = ".groups-question div.assessments-group-text:nth-of-type(%s) text-question" % [i]
         textQuestion = waitForElement($driver, $wait, temp1).find_element(:css => "ion-textarea.input textarea")
         scrollIfNotVisible($driver, textQuestion)
         textQuestion.send_keys(answer)
-    elsif type == "file"
+    elsif type == Application.KEY_Q_FILE
         currentWindow = $driver.window_handle
         temp1 = ".groups-question div.assessments-group-text:nth-of-type(%s) file-question" % [i]
         uploadBtn = waitForElement($driver, $wait, temp1).find_element(:css => "button.upload-button")
