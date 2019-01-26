@@ -119,6 +119,7 @@ Then(/^"Practera" I can publish a student "([^"]*)" submission review$/) do |stu
 end
 
 Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)" publisher$/) do |studentName, publisher|
+    p = extractParameter(publisher, publisher)
     readytopublishes = waitForElements($driver, $listWait, "#tblPublished > tbody > tr")
     pIndex = getValueIndex($driver, $wait, "Participant", "#tblPublished > thead > tr > th")
     plocator = "td:nth-of-type(%s)" % [pIndex]
@@ -126,8 +127,8 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
         if studentName == refineElementTextContent(findElementWithParent(uas, plocator))
             sleep 2
             pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("title").split(",")[-1,].strip()
-            if pubPerosn.index(publisher) == nil
-                message = "expected publisher %s, but found %s" % [publisher, pubPerosn]
+            if pubPerosn.index(p) == nil
+                message = "expected publisher %s, but found %s" % [p, pubPerosn]
                 $testLogger1.logCase(message)
                 @collectedErrors.push(message)
             end
