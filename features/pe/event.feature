@@ -6,7 +6,7 @@ Feature: Personal Edge studfent book and cancel event
 
     Scenario: Test ractera create an event in a timeline
 		Given I go to PE
-		When "PE" I login with "user" and "password1"
+		When "PE" I login with username "#(user)" and password "#(password1)"
         Then "PE" I wait for loading finished
 		Then I can see "activity list page" which is located at "activities-list-page"
 		Then I click on "Event tab" which is located at "#tab-t0-1"

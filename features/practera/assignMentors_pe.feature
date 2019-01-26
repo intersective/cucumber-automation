@@ -6,7 +6,7 @@ Feature: Practera Assign reviewers for Personal Edge assessment
     Scenario: Test Practera Assign reviewers Personal Edge assessment
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "peprogramAdminAccount" and "peprogramAdminAccountPassword"
+        Then "Practera" I login with username "#(peprogramAdminAccount)" and password "#(peprogramAdminAccountPassword)"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then "Practera" I go to the "Assessments" page
 

@@ -6,7 +6,7 @@ Feature: Appv1 slider type questions
     Scenario: Test Appv1 slider type questions for a student who is not in a team
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user" and "password1"
+        Then "Appv1" I login with username "#(user)" and password "#(password1)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I should see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath
@@ -42,7 +42,7 @@ Feature: Appv1 slider type questions
 
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user" and "password1"
+        Then "Appv1" I login with username "#(user)" and password "#(password1)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I should not see "Fast Feedback title" which is located at "//*[@class='title'][text()='Fast Feedback']" with xpath
@@ -51,7 +51,7 @@ Feature: Appv1 slider type questions
     Scenario: Test Appv1 slider type questions for students who are in a team
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user2" and "password1"
+        Then "Appv1" I login with username "#(user2)" and password "#(password1)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I will see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"
@@ -69,7 +69,7 @@ Feature: Appv1 slider type questions
 
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user3" and "password1"
+        Then "Appv1" I login with username "#(user3)" and password "#(password1)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I will see a group of "fast feedback questions" with total "4" which is located at "[ng-repeat='question in modal.questions']"

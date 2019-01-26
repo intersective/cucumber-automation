@@ -7,7 +7,7 @@ Feature: Custom branding for app
     Scenario: Test Custom branding configuration page for admin
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
+        Then "Practera" I login with username "#(programAdminAccount)" and password "#(programAdminPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to the "Set-up" page
         Then I wait 2 seconds
@@ -23,7 +23,7 @@ Feature: Custom branding for app
     Scenario: Test Custom branding for a student in the AppV1
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user" and "password1"
+        Then "Appv1" I login with username "#(user)" and password "#(password1)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then I wait 5 seconds

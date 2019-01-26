@@ -6,7 +6,7 @@ Feature: Personal Edge Enrolment
 	Scenario: Test Personal Edge Enrolment
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-		Then "Practera" I login with "peprogramAdminAccount" and "peprogramAdminAccountPassword"
+		Then "Practera" I login with username "#(peprogramAdminAccount)" and password "#(peprogramAdminAccountPassword)"
 		Then I can see "a bar" which is located at "#sidebar"
 		Then "Practera" I go to the "People" page
 		Then I wait 2 seconds

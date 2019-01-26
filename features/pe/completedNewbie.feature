@@ -6,7 +6,7 @@ Feature: Personal Edge Student After Newbie Activity
 
     Scenario: Test Personal Edge Student After Newbie Activity
         Given I go to PE
-        When "PE" I login with "user" and "password1"
+        When "PE" I login with username "#(user)" and password "#(password1)"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "7" position with title "Newbie"
         Then "PE" I can see an activity locating at "7" position with "4" tick

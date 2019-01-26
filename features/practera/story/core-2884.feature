@@ -7,7 +7,7 @@ Feature: Practera is_required file applies to file type question
     Scenario: Test Practera is_required file applies to file type question
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "user" and "password1"
+        Then "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to the "Assessments" page
         Then I wait 2 seconds

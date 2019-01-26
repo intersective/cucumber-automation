@@ -6,7 +6,7 @@ Feature: Practera Mentor Review
     Scenario: Test Practera Mentor Review
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
+        Then "Practera" I login with username "#(mentor2Account)" and password "#(mentor2AccountPassword)"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then "Practera" I go to the "Reviews & Feedback" page
 		Then I wait 2 seconds

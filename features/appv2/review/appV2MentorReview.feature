@@ -5,7 +5,7 @@ Feature: AppV2 mentor review moderated assessment
 
     Scenario: Test AppV2 mentor review moderated assessment
         Given I go to App V2
-		Then "Appv2" I login with "appv2MentorAccount" and "mentorAccountPassword"
+		Then "Appv2" I login with username "#(appv2MentorAccount)" and password "#(mentorAccountPassword)"
 		Then "Appv2" I choose a program "App V2 Automation Program"
 		When "Appv2" I wait for loading finished
         Then "Appv2" I go to the "Review" tab page

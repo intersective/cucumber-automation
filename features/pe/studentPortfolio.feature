@@ -6,7 +6,7 @@ Feature: Personal Edge Student Portfolio
 
     Scenario: Test Personal Edge Student Portfolio
         Given I go to PE
-        When "PE" I login with "user" and "password1"
+        When "PE" I login with username "#(user)" and password "#(password1)"
         Then "PE" I wait for loading finished
         Then I click on "Request Portfolio" which is located at ".dashboard-data > li:nth-of-type(3) .number > .badge"
         Then I can see "confirm window" which is located at "ion-action-sheet .action-sheet-container"
