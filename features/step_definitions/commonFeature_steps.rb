@@ -84,15 +84,11 @@ Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)" with scroll$
 end
 
 Then(/^I input "([^"]*)" to "([^"]*)" which is located at "([^"]*)" with xpath scroll$/) do |arg1, arg2, arg3|
+    value = extractParameter(arg1, arg1)
     ele = waitForElementXpath($driver, $wait, arg3)
     scrollIfNotVisible($driver, ele)
     ele.clear
-    ele.send_keys(arg1)
-end
-
-Then(/^I input predefined values "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
-    values = loadSharedData(arg1, arg1)
-    step("I input \"#{values}\" to \"#{arg2}\" which is located at \"#{arg3}\"")
+    ele.send_keys(value)
 end
 
 Then(/^I upload the file "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|
