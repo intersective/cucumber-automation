@@ -9,11 +9,8 @@ end
 
 def initTestUserData(filePath, key)
     if File.exist?(filePath)
-        users = {}
-        temp = readJsonfile(filePath)
-        temp.each do |key, value|
-            users[key] = $userService1.hashToObj(value)
-        end
+        hash = readJsonfile(filePath)
+        users = $userService1.createUsers(hash)
         $sharedData1.putData(key, users)
         return true
     end
