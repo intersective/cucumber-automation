@@ -8,6 +8,8 @@ require_relative "../../module/actions/appv1"
 require_relative "../../module/networktools"
 require_relative "../../module/model/student"
 require_relative "../../module/constants/application"
+require_relative "../../module/service/userService"
+require_relative "../../module/initDataHelper"
 require 'httparty'
 require 'nokogiri'
 
