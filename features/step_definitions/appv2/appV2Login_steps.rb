@@ -18,12 +18,6 @@ Then(/^"Appv2" I login with username "([^"]*)" and password "([^"]*)"$/) do |use
     waitForElementVisible($driver, $wait, "form ion-button[type=submit]").click()
 end
 
-Then(/^"Appv2" I login with "([^"]*)" and "([^"]*)"$/) do |uName, uPassword|
-	userName = loadSharedData(uName)
-	userPassword = loadSharedData(uPassword)
-	step("\"Appv2\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
-end
-
 Then(/^"Appv2" I log out$/) do
     waitForElement($driver, $wait, "ion-tab-button[tab='settings']").click()
     waitForElementVisibleXpath($driver, $wait, "//app-tabs//ion-card[normalize-space()='Logout']").click()

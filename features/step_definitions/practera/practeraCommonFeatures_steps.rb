@@ -12,12 +12,6 @@ Then(/^"Practera" I login with username "([^"]*)" and password "([^"]*)"$/) do |
     step("I wait 2 seconds")
 end
 
-Then(/^"Practera" I login with "([^"]*)" and "([^"]*)"$/) do |userNameKey, userPasswordKey|
-    userName = loadSharedData(userNameKey)
-    userPassword = loadSharedData(userPasswordKey)
-    step("\"Practera\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
-end
-
 Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName|
     found = false
     unassigneds = waitForElements($driver, $listWait, "#tblUnassigned > tbody > tr")

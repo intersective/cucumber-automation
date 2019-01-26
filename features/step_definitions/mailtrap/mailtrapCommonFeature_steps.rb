@@ -54,12 +54,6 @@ Then(/^"Mailtrap" I login with username "([^"]*)" and password "([^"]*)"$/) do |
     waitForElementVisible($driver, $wait, "#new_user input[type=submit]").click()
 end
 
-Then(/^"Mailtrap" I login with "([^"]*)" and "([^"]*)"$/) do |user, password|
-    userName = loadSharedData(user, user)
-    userPassword = loadSharedData(password ,password)
-    step("\"Mailtrap\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
-end
-
 Then(/^"Mailtrap" I go to practera inbox$/) do
     waitForElementVisibleXpath($driver, $wait, "//*[@class='initial']/strong/a/span[text()='practera']/..").click()
     sleep 2
