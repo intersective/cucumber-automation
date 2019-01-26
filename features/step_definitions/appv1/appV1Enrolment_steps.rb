@@ -10,11 +10,11 @@ Then(/^I input ([1-9]+[0-9]*) (student|mentor) enrolment information which is lo
 		userName = "selenium.%s.%s" % [arg2, userId]
 		userAccount = "%s@practera.com" % [userName]
 		temp.push("%s,%s,%s" % [userAccount, userId, userName])
-		hash[i.to_s] = {"userId" => userId, "userName" => userName, "userAccount" => userAccount}
-		users[i.to_s] = User.new(userId, userName, userAccount)
+		hash[i.to_s] = $userService1.generateHash(userId, userName, userAccount)
+		users[i.to_s] = $userService1.create(userId, userName, userAccount)
 	end
 	csvtext = temp.join("\n")
-	writeJsonfile(hash, Dir.pwd + "/data/" + arg2 + "s.json")
+	$userService1.write(hash, arg2)
 	if arg2 == Application.KEY_ROLE_MENTOR
 		$sharedData1.putData(Application.KEY_MENTORS, users)
 	else

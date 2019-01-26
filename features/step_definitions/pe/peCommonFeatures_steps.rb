@@ -35,7 +35,7 @@ Then(/^"PE" I input the enrolment information which is located at "([^"]*)"$/) d
         f.write(csvtext)
     end
     students = {}
-    students["1"] = User.new(studentId, studentName, studentAccount)
+    students["1"] = $userService1.create(studentId, studentName, studentAccount)
     $sharedData1.putData(Application.KEY_STUDENTS, students)
     step("I upload the file \"#{enrolmentFile}\" to \"Choose file\" which is located at \"#{arg1}\"")
 end
