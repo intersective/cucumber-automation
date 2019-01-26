@@ -5,26 +5,6 @@ private def getScenarioName(sobj)
     return scenarioFullTitle
 end
 
-private def initTestData(filePath, key)
-    if File.exist?(filePath)
-        testObj = readJsonfile(filePath)
-        $sharedData1.putData(key, testObj)
-        return true
-    end
-    return false
-end
-
-private def initTestDataWithKey(filePath)
-    if File.exist?(filePath)
-        testObj = readJsonfile(filePath)
-        testObj.each do |key, value|
-            $sharedData1.putData(key, value)
-        end
-        return true
-    end
-    return false
-end
-
 AfterConfiguration do |config|
     puts("should only happen once")
     $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
@@ -41,13 +21,16 @@ AfterConfiguration do |config|
         $normalWait = $sharedWebDriver1.getNormalWaitor()
         $listWait = $sharedWebDriver1.getListWaitor()
         $appv1PageActions = Appv1PageActions.new
+        $userService1 = UserService.instance
         if $configObj["mode"] == "hub" || $configObj["mode"] == "browserstack"
             $driver.file_detector = lambda do |args|
                 str = args.first.to_s
                 str if File.exist?(str)
             end
         end
-        initTestData(Dir.pwd + "/data/team.json", "team")
+        initTestData(Dir.pwd + "/data/team.json", Application.KEY_TEAM)
+        initTestUserData(Dir.pwd + "/data/students.json", Application.KEY_STUDENTS)
+        initTestUserData(Dir.pwd + "/data/mentors.json", Application.KEY_MENTORS)
         initTestDataWithKey(Dir.pwd + "/data/commons.json")
     end
 end
