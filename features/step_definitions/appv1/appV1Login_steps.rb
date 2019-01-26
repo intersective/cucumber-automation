@@ -1,7 +1,9 @@
 
 
-Then(/^"Appv1" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
-	$appv1PageActions.login($driver, $wait, userName, userPassword)
+Then(/^"Appv1" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
+	u = extractParameter(username, username)
+	p = extractParameter(userPassword, userPassword)
+	$appv1PageActions.login($driver, $wait, u, p)
 end
 
 Then(/^"Appv1" I login with "([^"]*)" and "([^"]*)"$/) do |uName, uPassword|

@@ -45,10 +45,12 @@ Then(/^"Mailtrap" I wait for loading finished$/) do
     end
 end
 
-Then(/^"Mailtrap" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, password|
+Then(/^"Mailtrap" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
+    u = extractParameter(username, username)
+    p = extractParameter(userPassword, userPassword)
     waitForElementVisible($driver, $wait, ".signin_block > a:nth-of-type(1)").click()
-    waitForElementVisible($driver, $wait, "#new_user #user_email").send_keys(userName)
-    waitForElementVisible($driver, $wait, "#new_user #user_password").send_keys(password)
+    waitForElementVisible($driver, $wait, "#new_user #user_email").send_keys(u)
+    waitForElementVisible($driver, $wait, "#new_user #user_password").send_keys(p)
     waitForElementVisible($driver, $wait, "#new_user input[type=submit]").click()
 end
 

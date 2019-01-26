@@ -1,9 +1,11 @@
 
 
-Then(/^"PE" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
+Then(/^"PE" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
+    u = extractParameter(username, username)
+    p = extractParameter(userPassword, userPassword)
     step("I can see \"login form\" which is located at \"form.general-form\"")
-	step("I input \"#{userName}\" to \"email input box\" which is located at \"form.general-form ion-input[name=email] input\"")
-    step("I input \"#{userPassword}\" to \"email input box\" which is located at \"form.general-form ion-input[name=password] input\"")
+	step("I input \"#{u}\" to \"email input box\" which is located at \"form.general-form ion-input[name=email] input\"")
+    step("I input \"#{p}\" to \"email input box\" which is located at \"form.general-form ion-input[name=password] input\"")
     step("I click on \"login button\" which is located at \"form.general-form > button\"")
 end
 
