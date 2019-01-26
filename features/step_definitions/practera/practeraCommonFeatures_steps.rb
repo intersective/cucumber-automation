@@ -127,7 +127,7 @@ Then(/^"Practera" I can see a student "([^"]*)" submission review with "([^"]*)"
         if studentName == refineElementTextContent(findElementWithParent(uas, plocator))
             sleep 2
             pubPerosn = findElementWithParent(uas, "[data-type='Published on']").attribute("title").split(",")[-1,].strip()
-            if pubPerosn.index(publisher) == nil
+            if pubPerosn.index(p) == nil
                 message = "expected publisher %s, but found %s" % [p, pubPerosn]
                 $testLogger1.logCase(message)
                 @collectedErrors.push(message)
