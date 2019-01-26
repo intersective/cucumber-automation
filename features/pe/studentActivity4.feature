@@ -6,7 +6,7 @@ Feature: Personal Edge Student Career Strategist Activity
 
     Scenario: Test Personal Edge Student Personal Edge Student Career Strategist Activity
         Given I go to PE
-        When "PE" I login with "user" and "password1"
+        When "PE" I login with username "#(user)" and password "#(password1)"
         Then "PE" I wait for loading finished
         Then "PE" I can see an activity locating at "4" position with title "Career Strategist"
         Then "PE" I can see an activity locating at "4" position with "0" tick

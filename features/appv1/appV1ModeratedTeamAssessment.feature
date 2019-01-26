@@ -37,7 +37,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
+		Then "Practera" I login with username "#(programAdminAccount)" and password "#(programAdminPassword)"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then "Practera" I go to the "Assessments" page
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
@@ -56,7 +56,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-		Then "Practera" I login with "mentor2Account" and "mentor2AccountPassword"
+		Then "Practera" I login with username "#(mentor2Account)" and password "#(mentor2AccountPassword)"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then "Practera" I go to the "Reviews & Feedback" page
 		Then I wait 2 seconds
@@ -87,7 +87,7 @@ Feature: AppV1 Moderated Team Assessment
 
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
+		Then "Practera" I login with username "#(programAdminAccount)" and password "#(programAdminPassword)"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then "Practera" I go to the "Assessments" page
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"

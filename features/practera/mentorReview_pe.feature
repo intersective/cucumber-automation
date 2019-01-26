@@ -6,7 +6,7 @@ Feature: Practera Mentor Review for Personal Edge
     Scenario: Test Practera Mentor Review for Personal Edge
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "mentorAccount" and "mentorAccountPassword"
+        Then "Practera" I login with username "#(mentorAccount)" and password "#(mentorAccountPassword)"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then "Practera" I go to the "Reviews & Feedback" page
 		Then I wait 2 seconds

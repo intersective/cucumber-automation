@@ -6,7 +6,7 @@ Feature: AppV1 multiple students enrolment
 	Scenario: Test AppV1 multiple enrolment
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-		Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
+		Then "Practera" I login with username "#(programAdminAccount)" and password "#(programAdminPassword)"
 		Then I can see "a bar" which is located at "#sidebar"
 		Then "Practera" I go to the "People" page
 		Then I wait 2 seconds
@@ -36,7 +36,7 @@ Feature: AppV1 multiple students enrolment
 		Then "Practera" I log out
 
 		Given I go to Mailtrap
-		When "Mailtrap" I login with "mailtrapUser" and "mailtrapUserPassword"
+		When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
 		Then "Mailtrap" I go to practera inbox
 		Then "Mailtrap" I search email with title "App V1 Selenium Program - Welcome and Register" and the student as receiver
 		Then "Mailtrap" I go into the email content

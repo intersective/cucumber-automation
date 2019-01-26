@@ -6,7 +6,7 @@ Feature: Personal Edge Spin Wheel
 
     Scenario: Test Personal Edge Spin Wheel
         Given I go to PE
-        When "PE" I login with "user" and "password1"
+        When "PE" I login with username "#(user)" and password "#(password1)"
         Then "PE" I wait for loading finished
         Then I should see "activity list page" which is located at "activities-list-page"
         Then I click on "spinner tab" which is located at "#tab-t0-3"

@@ -6,7 +6,7 @@ Feature: Practera is_required file applies to different type of question
     Scenario: Test Practera is_required file applies to different type of question
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "user" and "password1"
+        Then "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to the "Assessments" page
         Then I wait 2 seconds
@@ -60,7 +60,7 @@ Feature: Practera is_required file applies to different type of question
     Scenario: Test Practera is_required file applies to different type of question assign a mentor
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
+        Then "Practera" I login with username "#(testprogram1AdminAccount)" and password "#(testprogram1AdminAccountPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to the "Assessments" page
         Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div> table > tbody > tr"
@@ -80,7 +80,7 @@ Feature: Practera is_required file applies to different type of question
     Scenario: Test Practera is_required file applies to different type of question mentor review
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "testprogram1MentorAccount" and "testprogram1MentorAccountPassword"
+        Then "Practera" I login with username "#(testprogram1MentorAccount)" and password "#(testprogram1MentorAccountPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "reviews & feedback" which is located at "//*[text()='Reviews & Feedback']/.." with xpath
         Then I wait 2 seconds
