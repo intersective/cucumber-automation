@@ -26,5 +26,5 @@ Feature: Practera Publish Reviews
 		Then I click on "published on moderated assessment" which is located at "//*[text()='Comprehensive Moderated']/../../td[6]/a" with xpath
 		Then I wait 2 seconds
 		Then I will see a group of "published submissions" which is located at "#tblPublished > tbody > tr"
-		Then "Practera" I can see the student submission review with "Admin Selenium" publisher
+		Then "Practera" I can see the student submission review with "#(programAdmin)" publisher
 		Then "Practera" I log out
