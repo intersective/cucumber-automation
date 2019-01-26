@@ -25,4 +25,12 @@ class UserService
         return User.new(hashObj["id"], hashObj["name"], hashObj["account"])
     end
 
+    def createUsers(hashObj)
+        users = {}
+        hashObj.each do |key, value|
+            users[key] = User.new(value["id"], value["name"], value["account"])
+        end
+        return users
+    end
+
 end
