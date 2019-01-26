@@ -5,7 +5,7 @@ Feature: Personal Edge Registration
 
 	Scenario: Test Personal Edge Registration
 		Given I go to Mailtrap
-        When "Mailtrap" I login with "mailtrapUser" and "mailtrapUserPassword"
+        When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
         Then "Mailtrap" I go to practera inbox
 		Then "Mailtrap" I search email with title "Personal Edge 1.0 - Welcome and Register" and the student as receiver
 		Then "Mailtrap" I go into the email content
@@ -19,9 +19,9 @@ Feature: Personal Edge Registration
 		Then I click on "agree check box" which is located at "ion-checkbox[value=Agree]"
 		Then I click on "next button" which is located at ".register-next button"
 		Then I should see "login form" which is located at ".general-form"
-		Then I input predefined values "password1" to "password filed" which is located at ".general-form ion-input[type=password] input"
+		Then I input "#(password1)" to "password filed" which is located at ".general-form ion-input[type=password] input"
 		Then I wait 2 seconds
-		Then I input predefined values "password1" to "password filed" which is located at ".general-form ion-input[name=verify_password] input"
+		Then I input "#(password1)" to "password filed" which is located at ".general-form ion-input[name=verify_password] input"
 		Then I wait 2 seconds
 		Then I click on "submit button" which is located at ".general-form button"
 		Then "PE" I wait for loading finished

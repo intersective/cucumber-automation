@@ -6,7 +6,7 @@ Feature: Practera users timezone
     Scenario: Test change timezone in the user profile page
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
+        Then "Practera" I login with username "#(testprogram1AdminAccount)" and password "#(testprogram1AdminAccountPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to profile
         Then I click on "edit profile button" which is located at ".page-header a:nth-of-type(1)"
@@ -32,7 +32,7 @@ Feature: Practera users timezone
     Scenario: Test scheduled a communication email in response to the user timezone changes
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "testprogram1AdminAccount" and "testprogram1AdminAccountPassword"
+        Then "Practera" I login with username "#(testprogram1AdminAccount)" and password "#(testprogram1AdminAccountPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to the "Communications" page
         Then I can see "view comm button" which is located at "//*[normalize-space()='View Comm Activities']/button" with xpath
@@ -53,7 +53,7 @@ Feature: Practera users timezone
 		Then The "message" which is located at ".toast-message" should be disappear
         Then "Practera" I log out
         Given I go to Mailtrap
-        When "Mailtrap" I login with "mailtrapUser" and "mailtrapUserPassword"
+        When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
         Then "Mailtrap" I go to practera inbox
         Then "Mailtrap" I search email with title "barry test comm - 20181107041900" and receiver "barry_test_program1.admin@practera.com"
         Then "Mailtrap" I search email with title "barry test comm - 20181107041900" and receiver "test_program_student_1@practera.com"

@@ -1,19 +1,15 @@
 
 
-Then(/^"Practera" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
+Then(/^"Practera" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
+    u = extractParameter(username, username)
+    p = extractParameter(userPassword, userPassword)
     step("I can see \"a form\" which is located at \"form#login\"")
-    step("I input \"#{userName}\" to \"email input field\" which is located at \"form#login input#UserEmail\"")
-    step("I input \"#{userPassword}\" to \"password input field\" which is located at \"form#login input#UserPassword\"")
+    step("I input \"#{u}\" to \"email input field\" which is located at \"form#login input#UserEmail\"")
+    step("I input \"#{p}\" to \"password input field\" which is located at \"form#login input#UserPassword\"")
     step("I click on \"a button\" which is located at \"form#login button\"")
     step("I can see \"message\" which is located at \".toast-message\"")
     step("The \"message\" which is located at \".toast-message\" should be disappear")
     step("I wait 2 seconds")
-end
-
-Then(/^"Practera" I login with "([^"]*)" and "([^"]*)"$/) do |userNameKey, userPasswordKey|
-    userName = loadSharedData(userNameKey)
-    userPassword = loadSharedData(userPasswordKey)
-    step("\"Practera\" I login with username \"#{userName}\" and password \"#{userPassword}\"")
 end
 
 Then(/^"Practera" I should see a student "([^"]*)" submission$/) do |studentName|

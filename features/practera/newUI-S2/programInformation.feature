@@ -6,7 +6,7 @@ Feature: Program information
 
     Scenario: Test project dashboard with Admin
         Given I go to Practera Platform
-        When "Practera" I login with "user" and "password1"
+        When "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard
@@ -16,7 +16,7 @@ Feature: Program information
     
     Scenario: Test project content with Admin
         Given I go to Practera Platform
-        When "Practera" I login with "user" and "password1"
+        When "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard
@@ -25,7 +25,7 @@ Feature: Program information
 
     Scenario: Test project annoucements with Admin
         Given I go to Practera Platform
-        When "Practera" I login with "user" and "password1"
+        When "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard
@@ -34,7 +34,7 @@ Feature: Program information
 
     Scenario: Test project calendar with Admin
         Given I go to Practera Platform
-        When "Practera" I login with "user" and "password1"
+        When "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see a list of active projects
         When I can click one project
         Then I can see the project dashboard

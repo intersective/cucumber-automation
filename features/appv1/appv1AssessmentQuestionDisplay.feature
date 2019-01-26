@@ -7,7 +7,7 @@ Feature: AppV1 assessment and questions display logic
     Scenario: Test the assessment visibility for a participant
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user" and "studentPassword"
+        Then "Appv1" I login with username "#(user)" and password "#(studentPassword)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then "Appv1" I go to the "Activity Four" activity page which has "2" items
@@ -27,7 +27,7 @@ Feature: AppV1 assessment and questions display logic
     Scenario: Test the assessment visibility for a mentor
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "mentor2Account" and "mentor2AccountPassword"
+        Then "Appv1" I login with username "#(mentor2Account)" and password "#(mentor2AccountPassword)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then "Appv1" I go to the "Activity Four" activity page which has "2" items

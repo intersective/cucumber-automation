@@ -6,7 +6,7 @@ Feature: Practera Publish reviews from mentors
     Scenario: Test Publish reviews from mentors
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "programAdminAccount" and "programAdminPassword"
+        Then "Practera" I login with username "#(programAdminAccount)" and password "#(programAdminPassword)"
 		Then I can see "a side bar" which is located at "#sidebar"
 		Then "Practera" I go to the "Assessments" page
 		Then I should see a group of "assessments" which is located at ".content-container > div#assessments > .tab-content > #moderated div > table > tbody > tr"

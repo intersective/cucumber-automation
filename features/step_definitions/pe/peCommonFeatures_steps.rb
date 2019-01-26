@@ -1,20 +1,16 @@
 
 
-Then(/^"PE" I login with username "([^"]*)" and password "([^"]*)"$/) do |userName, userPassword|
+Then(/^"PE" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
+    u = extractParameter(username, username)
+    p = extractParameter(userPassword, userPassword)
     step("I can see \"login form\" which is located at \"form.general-form\"")
-	step("I input \"#{userName}\" to \"email input box\" which is located at \"form.general-form ion-input[name=email] input\"")
-    step("I input \"#{userPassword}\" to \"email input box\" which is located at \"form.general-form ion-input[name=password] input\"")
+	step("I input \"#{u}\" to \"email input box\" which is located at \"form.general-form ion-input[name=email] input\"")
+    step("I input \"#{p}\" to \"email input box\" which is located at \"form.general-form ion-input[name=password] input\"")
     step("I click on \"login button\" which is located at \"form.general-form > button\"")
 end
 
 Then(/^"PE" I login with the student(|[1-9]+[0-9]*) and password "([^"]*)"$/) do |arg1, userPassword|
     studentAccount = getUserFromData(arg1, Application.KEY_ROLE_STUDENT).account
-    step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
-end
-
-Then(/^"PE" I login with "([^"]*)" and "([^"]*)"$/) do |uName, uPassword|
-    studentAccount = loadSharedData(uName)
-    userPassword = loadSharedData(uPassword)
     step("\"PE\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 

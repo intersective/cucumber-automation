@@ -7,7 +7,7 @@ Feature: AppV1 chatting on multiple channel
     Scenario: Test AppV1 chatting on multiple channel
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user" and "password1"
+        Then "Appv1" I login with username "#(user)" and password "#(password1)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then "Appv1" I go to the "Chat" tab page
@@ -32,7 +32,7 @@ Feature: AppV1 chatting on multiple channel
 
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "mentor" and "mentor2AccountPassword"
+        Then "Appv1" I login with username "#(mentor)" and password "#(mentor2AccountPassword)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then "Appv1" I go to the "Chat" tab page
@@ -50,7 +50,7 @@ Feature: AppV1 chatting on multiple channel
 
         Given I go to App V1
         When "Appv1" I wait unitl the splash disappear
-        Then "Appv1" I login with "user3" and "password1"
+        Then "Appv1" I login with username "#(user3)" and password "#(password1)"
         Then "Appv1" I should see the app home screen
         When I wait until the loading finished
         Then "Appv1" I go to the "Chat" tab page

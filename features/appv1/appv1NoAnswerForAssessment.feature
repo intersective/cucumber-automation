@@ -7,7 +7,7 @@ Feature: No answer for an assessment
         Scenario: Test no answer for a quiz assessment
             Given I go to App V1
             When "Appv1" I wait unitl the splash disappear
-            Then "Appv1" I login with "user" and "password1"
+            Then "Appv1" I login with username "#(user)" and password "#(password1)"
             Then "Appv1" I should see the app home screen
             When I wait until the loading finished
             Then "Appv1" I go to the "Comprehensive Activity" activity page which has "9" items

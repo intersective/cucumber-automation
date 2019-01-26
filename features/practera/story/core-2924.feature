@@ -7,7 +7,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "testprogram1CoorAccount" and "testprogram1CoorAccountPassword"
+        Then "Practera" I login with username "#(testprogram1CoorAccount)" and password "#(testprogram1CoorAccountPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "Switch cohort" which is located at "//*[normalize-space()='Switch Cohort'][@class='select2-offscreen']/.." with xpath
 		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
@@ -29,7 +29,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with another coordinator account
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "testprogram1Coor2Account" and "testprogram1Coor2AccountPassword"
+        Then "Practera" I login with username "#(testprogram1Coor2Account)" and password "#(testprogram1Coor2AccountPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "Switch cohort" which is located at "//*[normalize-space()='Switch Cohort'][@class='select2-offscreen']/.." with xpath
 		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
@@ -45,7 +45,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with the same coordinator
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "testprogram1CoorAccount" and "testprogram1CoorAccountPassword"
+        Then "Practera" I login with username "#(testprogram1CoorAccount)" and password "#(testprogram1CoorAccountPassword)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then I click on "Switch cohort" which is located at "//*[normalize-space()='Switch Cohort'][@class='select2-offscreen']/.." with xpath
 		Then I select "test automation timeline" to "cohort" which is located at "select[data-placeholder='choose a timeline']"
@@ -67,7 +67,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with a participant account
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "user" and "password1"
+        Then "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to the "Calendar" page
         Then I wait 2 seconds
@@ -88,7 +88,7 @@ Feature: Practera Hide Activities on Calendar
     Scenario: Test Practera Hide Activities on Calendar with the same participant account
         Given I go to Practera Platform
         When The "message" which is located at ".toast-message" should be disappear
-        Then "Practera" I login with "user" and "password1"
+        Then "Practera" I login with username "#(user)" and password "#(password1)"
         Then I can see "a side bar" which is located at "#sidebar"
         Then "Practera" I go to the "Calendar" page
         Then I wait 2 seconds
