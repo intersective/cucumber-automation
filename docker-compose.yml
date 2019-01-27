@@ -1,0 +1,9 @@
+version: '2'
+services:
+    automation-app:
+        container_name: practera-ruby-automation-chrome
+        image: practera/automation-chrome:latest
+        ports:
+           - "127.0.0.1:10009-10010:10009-10010"
+        volumes:
+           - .:/app
