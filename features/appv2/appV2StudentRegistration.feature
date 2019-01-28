@@ -16,5 +16,6 @@ Feature: AppV2 student registration
 		When I wait 10 seconds
 		Then "Appv2" I choose a program "App V2 Automation Program"
 		Then "Appv2" I wait for loading finished
+		Then "Appv2" I can see progress 0
 		Then "Appv2" I log out
 		Then I wait 5 seconds
