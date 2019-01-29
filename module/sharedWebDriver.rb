@@ -7,7 +7,7 @@ class SharedWebDriver
 	include Singleton
 	
 	def initialize
-		tconfigObj = readJsonfile(Dir.pwd + "/configuration/user.json")
+		tconfigObj = loadConfig(Dir.pwd + "/configuration/user.json")
 		case tconfigObj["mode"]
 			when "ui"
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
@@ -24,7 +24,7 @@ class SharedWebDriver
 							args: [ "--headless" ]})
 				@driver = Selenium::WebDriver.for(:chrome, desired_capabilities: caps)
 			when "browserstack"
-				tconfigObjBrowserStack = readJsonfile(Dir.pwd + "/configuration/user_browserstack.json")
+				tconfigObjBrowserStack = loadConfig(Dir.pwd + "/configuration/user_browserstack.json")
 				caps = Selenium::WebDriver::Remote::Capabilities.new
 				caps["os"] = tconfigObjBrowserStack["browserstackOS"]
 				caps["os_version"] = tconfigObjBrowserStack["browserstackOSVersion"]
@@ -36,7 +36,7 @@ class SharedWebDriver
 				remoteHunUrl = "http://%s:%s@hub-cloud.browserstack.com/wd/hub" % [tconfigObjBrowserStack["browserstackUsername"], tconfigObjBrowserStack["browserstackAccessKey"]]
 				@driver = Selenium::WebDriver.for(:remote, :url => remoteHunUrl, :desired_capabilities => caps)
 			when "hub"
-				tconfigObjHub = readJsonfile(Dir.pwd + "/configuration/user_hub.json")
+				tconfigObjHub = loadConfig(Dir.pwd + "/configuration/user_hub.json")
 				caps = Selenium::WebDriver::Remote::Capabilities.new
 				caps["browserName"] = tconfigObjHub["nodeBrowserName"]
 				caps["browserVersion"] = tconfigObjHub["nodeBrowserVersion"]
