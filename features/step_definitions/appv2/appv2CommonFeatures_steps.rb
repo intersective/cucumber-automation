@@ -22,8 +22,11 @@ Then(/^"Appv2" I go to the "([^"]*)" tab page$/) do |tabName|
 end
 
 Then("\"Appv2\" I go to the {string} activity") do |activityTitle|
+    contentPage = waitForElement($driver, $wait, "app-project ion-content")
     actLocator = "//app-project//app-activity-card//*[@class='activity-name'][normalize-space()='#{activityTitle}']"
-    waitForElementVisibleXpath($driver, $wait, actLocator).click()
+    act = waitForElementVisibleXpath($driver, $wait, actLocator)
+    scrollIfNotVisibleByKeyBoard($driver, contentPage, act)
+    act.click()
     step("\"Appv2\" I wait for loading finished")
 end
 
