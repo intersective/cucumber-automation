@@ -3,6 +3,12 @@ services:
     automation-app:
         container_name: practera-ruby-automation-chrome
         image: practera/automation-chrome:latest
+        environment:
+           - mode=hub
+           - uploadFilePath=/app/uploadFile
+           - hubUrl=http://192.168.1.5:10009
+           - nodeBrowserVersion=71
+           - nodePlatform=MAC
         ports:
            - "127.0.0.1:10009-10010:10009-10010"
         volumes:
