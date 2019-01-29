@@ -72,11 +72,11 @@ Then(/^"Appv2 Reviews" I mark the feedback as read$/) do
 end
 
 Then(/^"Appv2 Reviews" I see the rating pop up$/) do
-	waitForElementXpath($driver, $wait, "//app-review-rating")
+	waitForElementVisibleXpath($driver, $wait, "//app-review-rating")
 end
 
 Then(/^"Appv2 Reviews" I move the rating slider by ([1-9]+[0-9]*) times$/) do |mtimes|
-	slider = waitForElement($driver, $wait, "app-review-rating ion-range")
+	slider = waitForElementVisible($driver, $wait, "app-review-rating ion-range")
 	focusElement(slider)
 	step("I move the slider \"feedback rating\" to the \"right\" which is located at \"app-review-rating ion-range\" by \"#{mtimes}\" times")
 	sleep 3
