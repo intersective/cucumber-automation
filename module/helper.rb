@@ -69,3 +69,18 @@ def extractParameter(parameter, defaultValue="")
 		return loadSharedData(parameter[2..-2], defaultValue)
 	end
 end
+
+
+def loadConfig(configFile)
+	temp = readJsonfile(configFile)
+	configObj = {}
+	temp.each do |key, value|
+		value = ENV[key]
+		if value == nil
+			configObj[key] = temp[key]
+		else
+			configObj[key] = value
+		end
+	end
+	return configObj
+end
