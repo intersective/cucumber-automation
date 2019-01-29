@@ -1,8 +1,8 @@
 
 
 Then(/^"Appv2" I go to the (topic|assessment) "([^"]*)"$/) do |itemCategory, itemName|
-    itemLocator = "//ion-item//*[@class='icon-item']/h4[normalize-space()='#{itemName}']"
-    waitForElementVisibleXpath($driver, $wait, itemLocator).click()
+    itemLocator = "//ion-item//*[@class='icon-item']/h4[normalize-space()='#{itemName}']/../.."
+    waitForElementXpath($driver, $wait, itemLocator).click()
 end
 
 
@@ -150,4 +150,24 @@ Then(/^"Appv2" I submit the fast feedback$/) do
     submitBtn.click()
     waitForElementXpath($driver, $wait, "//ion-alert//button").click()
     sleep 5
+end
+
+Then(/^"Appv2" I can see the answer "([^"]*)" for question ([1-9]+[0-9]*) with question type "([^"]*)"$/) do |answer, qindex, qtype|
+    aaswer = ""
+    case qtype
+        when Application.KEY_Q_TEXT
+            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-text/ion-text")
+            aaswer = refineElementTextContent(answerContainer)
+        when Application.KEY_Q_MULT
+            answerContainer = waitForElementXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-oneof//ion-item[contains(@class, 'item-radio-checked')]")
+            aaswer = refineElementTextContent(answerContainer)
+        when Application.KEY_Q_CHECKBOX
+            temp = []
+            answerContainer = waitForElementsXpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-multiple//ion-item[contains(@class, 'item-checkbox-checked')]")
+            answerContainer.each do |value|
+                temp.push(refineElementTextContent(value))
+            end
+            aaswer = temp.join(",")
+    end
+    verifyValue("expected answers", answer, aaswer)
 end

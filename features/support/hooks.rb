@@ -7,7 +7,7 @@ end
 
 AfterConfiguration do |config|
     puts("should only happen once")
-    $configObj = readJsonfile(Dir.pwd + "/configuration/user.json")
+    $configObj = loadConfig(Dir.pwd + "/configuration/user.json")
     $testLogger1 = Twplogger.instance
     $variableLoaded = false
     $currentFeatureFile = ""
