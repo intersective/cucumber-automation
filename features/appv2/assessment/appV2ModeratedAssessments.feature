@@ -49,4 +49,5 @@ Feature: AppV2 moderated assessment
         Then "Appv2" I answer "Yes" for the fast feedback question "1"
         Then "Appv2" I answer "Yes" for the fast feedback question "2"
         Then "Appv2" I submit the fast feedback
+        Then "Appv2" I can see progress 13
         Then "Appv2" I log out
