@@ -22,4 +22,7 @@ Feature: AppV2 topics
 		Then "Appv2" I go back from topic page
 		Then "Appv2" I wait for loading finished
 		Then "Appv2" I can see the "Topic 1" with status "Topic done"
+		Given "Appv2" I go to the "Home" tab page
+		When "Appv2" I wait for loading finished
+		Then "Appv2" I can see progress 9
 		Then "Appv2" I log out
