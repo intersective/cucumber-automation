@@ -6,15 +6,15 @@
 ## 1.4 headless-cancary(use google canary to drive the chrome headless)
 ## 1.5 browserstack(invoke the remote driver on the BrowserStack)
 ## 1.6 hub(invoke the remote driver on an ec2 windows intance)
-## 1.7 mailtrapPracteraInboxId can get from the url after we enter the practera inbox
-## 1.8 mailtrapApiToken can get from the mailtrap profile(settings) page
+## 1.7 MAILTRAP_PRACTERA_INBOXID can get from the url after we enter the practera inbox
+## 1.8 MAILTRAP_APITOKEN can get from the mailtrap profile(settings) page
 #
 # 2. AWS_ACCESS_KEY_ID_EC2_OPR_USER who has the ec2 instance related permission
 # 3. AWS_ACCESS_KEY_ID who has the s3 related permission
-# 4. driverPath defines the chrome driver path on your machine
+# 4. DRIVER_PATH defines the chrome driver path on your machine
 # 5. we may change the uploadFilePath if we run the test with the hub mode, and we want the driver to look for the files in the remote file system; no need now, we always look for the files in the local file system eventhough we are in the hub and browserstack mode
 # 6. we may change the hubUrl when it is in hub mode
 ## 6.1 currently, we only support the chrome browser
-## 6.2 nodeBrowserName, nodeBrowserVersion, nodePlatform and nodeSeleniumVersion are the parametes being sent to hun to decide which browser and driver to use
+## 6.2 NODE_BROWSER_NAME, NODE_BROWSER_VERSION, NODE_PLATFORM and NODE_SELENIUM_VERSION are the parametes being sent to hun to decide which browser and driver to use
 
 #7 we now have multiple configuarion files for different mode

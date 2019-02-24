@@ -5,7 +5,7 @@ class Application
     @KEY_ROLE_STUDENT = "student".freeze
     @KEY_ROLE_SYSADMIN = "sysadmin".freeze
     @KEY_ROLE_MENTOR = "mentor".freeze
-    @KEY_UPLOADFILEPATH = "uploadFilePath".freeze
+    @KEY_UPLOADFILEPATH = "UPLOAD_FILE_PATH".freeze
     @KEY_PROGRESS = "progress".freeze
     @KEY_TEAM = "team".freeze
     @KEY_PREVIOUSWINDOW = "previousWindow".freeze

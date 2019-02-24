@@ -11,8 +11,8 @@ AfterConfiguration do |config|
     $testLogger1 = Twplogger.instance
     $variableLoaded = false
     $currentFeatureFile = ""
-    $visibleWait = $configObj["visibleWait"].to_i
-    if $configObj["mode"] != "apiTest"
+    $visibleWait = $configObj["VISIBLE_WAIT"].to_i
+    if $configObj["MODE"] != "apiTest"
         $sharedWebDriver1 = SharedWebDriver.instance
         $sharedData1 = SharedData.instance
         $driver = $sharedWebDriver1.getDriver()
@@ -22,7 +22,7 @@ AfterConfiguration do |config|
         $listWait = $sharedWebDriver1.getListWaitor()
         $appv1PageActions = Appv1PageActions.new
         $userService1 = UserService.instance
-        if $configObj["mode"] == "hub" || $configObj["mode"] == "browserstack"
+        if $configObj["MODE"] == "hub" || $configObj["MODE"] == "browserstack"
             $driver.file_detector = lambda do |args|
                 str = args.first.to_s
                 str if File.exist?(str)

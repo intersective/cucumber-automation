@@ -8,17 +8,17 @@ class SharedWebDriver
 	
 	def initialize
 		tconfigObj = loadConfig(Dir.pwd + "/configuration/user.json")
-		case tconfigObj["mode"]
+		case tconfigObj["MODE"]
 			when "ui"
-				Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
+				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
 				@driver = Selenium::WebDriver.for(:chrome)
 			when "headless-chrome"
-				Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
+				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
 				options = Selenium::WebDriver::Chrome::Options.new
 				options.add_argument('--headless')
 				@driver = Selenium::WebDriver.for(:chrome, options: options)
 			when "headless-cancary"
-				Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
+				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
 				caps = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: {
 							binary: "/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary", 
 							args: [ "--headless" ]})
@@ -26,25 +26,25 @@ class SharedWebDriver
 			when "browserstack"
 				tconfigObjBrowserStack = loadConfig(Dir.pwd + "/configuration/user_browserstack.json")
 				caps = Selenium::WebDriver::Remote::Capabilities.new
-				caps["os"] = tconfigObjBrowserStack["browserstackOS"]
-				caps["os_version"] = tconfigObjBrowserStack["browserstackOSVersion"]
-				caps["browser"] = tconfigObjBrowserStack["browserstackBrowser"]
-				caps["browser_version"] = tconfigObjBrowserStack["browserstackBrowserVersion"]
-				caps["resolution"] = tconfigObjBrowserStack["browserstackResolution"]
-				caps["browserstack.local"] = tconfigObjBrowserStack["browserstackBrowserstackLocal"]
-				caps["browserstack.selenium_version"] = tconfigObjBrowserStack["browserstackBrowserstackSeleniumVersion"]
-				remoteHunUrl = "http://%s:%s@hub-cloud.browserstack.com/wd/hub" % [tconfigObjBrowserStack["browserstackUsername"], tconfigObjBrowserStack["browserstackAccessKey"]]
+				caps["os"] = tconfigObjBrowserStack["BROWSERSTACK_OS"]
+				caps["os_version"] = tconfigObjBrowserStack["BROWSERSTACK_OSVERSION"]
+				caps["browser"] = tconfigObjBrowserStack["BROWSERSTACK_BROWSER"]
+				caps["browser_version"] = tconfigObjBrowserStack["BROWSERSTACK_BROWSERVERSION"]
+				caps["resolution"] = tconfigObjBrowserStack["BROWSERSTACK_RESOLUTION"]
+				caps["browserstack.local"] = tconfigObjBrowserStack["BROWSERSTACK_LOCAL"]
+				caps["browserstack.selenium_version"] = tconfigObjBrowserStack["BROWSERSTACK_SELENIUMVERSION"]
+				remoteHunUrl = "http://%s:%s@hub-cloud.browserstack.com/wd/hub" % [tconfigObjBrowserStack["BROWSERSTACK_USERNAME"], tconfigObjBrowserStack["BROWSERSTACK_ACCESSKEY"]]
 				@driver = Selenium::WebDriver.for(:remote, :url => remoteHunUrl, :desired_capabilities => caps)
 			when "hub"
 				tconfigObjHub = loadConfig(Dir.pwd + "/configuration/user_hub.json")
 				caps = Selenium::WebDriver::Remote::Capabilities.new
-				caps["browserName"] = tconfigObjHub["nodeBrowserName"]
-				caps["browserVersion"] = tconfigObjHub["nodeBrowserVersion"]
-				caps["platform"] = tconfigObjHub["nodePlatform"]
-				caps["seleniumVersion"] = tconfigObjHub["nodeSeleniumVersion"]
-				@driver = Selenium::WebDriver.for(:remote, :url => "%s/wd/hub" % [tconfigObjHub["hubUrl"]], :desired_capabilities => caps)
+				caps["browserName"] = tconfigObjHub["NODE_BROWSER_NAME"]
+				caps["browserVersion"] = tconfigObjHub["NODE_BROWSER_VERSION"]
+				caps["platform"] = tconfigObjHub["NODE_PLATFORM"]
+				caps["seleniumVersion"] = tconfigObjHub["NODE_SELENIUM_VERSION"]
+				@driver = Selenium::WebDriver.for(:remote, :url => "%s/wd/hub" % [tconfigObjHub["HUB_URL"]], :desired_capabilities => caps)
 			else
-				Selenium::WebDriver::Chrome.driver_path=tconfigObj["driverPath"]
+				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
 				@driver = Selenium::WebDriver.for(:chrome)
 		end
 		@driver.manage.window.move_to(0, 0)
