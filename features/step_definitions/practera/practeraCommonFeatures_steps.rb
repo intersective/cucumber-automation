@@ -225,6 +225,12 @@ Then(/^I get the registration url at "([^"]*)" for (mentor|student) ([1-9]+[0-9]
     regHref = wait_for_element($driver, $wait, arg1).attribute("href")
     user = get_user_from_data(arg3.to_s, arg2)
     user.regUrl = regHref
+    users = $sharedData1.load_data_from_key(arg2 + "s")
+    hash = {}
+    users.each do |key, value|
+        hash[key] = $userService1.generate_hash(value.id, value.name, value.account, value.regUrl)
+    end
+    $userService1.write(hash, arg2)
 end
 
 Then(/^"Practera" I can assign a mentor to student submissions with:$/) do |table|

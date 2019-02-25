@@ -9,7 +9,7 @@ Then(/^I input ([1-9]+[0-9]*) (student|mentor) enrolment information which is lo
 		userName = "selenium.%s.%s" % [arg2, userId]
 		userAccount = "%s@practera.com" % [userName]
 		temp.push("%s,%s,%s" % [userAccount, userId, userName])
-		hash[i.to_s] = $userService1.generate_hash(userId, userName, userAccount)
+		hash[i.to_s] = $userService1.generate_hash(userId, userName, userAccount, "")
 	end
 	users = $userService1.create_users(hash)
 	csvtext = temp.join("\n")
