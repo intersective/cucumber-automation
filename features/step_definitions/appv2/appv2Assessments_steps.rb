@@ -66,9 +66,8 @@ Then(/^"Appv2" I answer "([^"]*)" for question ([1-9]+[0-9]*) with question type
     contentPage = wait_for_element($driver, $wait, "app-assessment ion-content")
     case qtype
         when Application.KEY_Q_TEXT
-            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea")
+            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea/textarea")
             scroll_by_keyboard_if_not_visible($driver, contentPage, answerContainer)
-            focus_element(answerContainer)
             answerContainer.send_keys(answer)
         when Application.KEY_Q_MULT
             answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//app-oneof//ion-item[normalize-space()='#{answer}'][not(@color='light')]/.")
@@ -95,9 +94,8 @@ Then(/^"Appv2" I answer "([^"]*)" for question ([1-9]+[0-9]*) with question type
             end
             sleep 3
         else
-            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea")
+            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea/textarea")
             scroll_by_keyboard_if_not_visible($driver, contentPage, answerContainer)
-            focus_element(answerContainer)
             answerContainer.send_keys(answer)
     end
 end
