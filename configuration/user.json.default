@@ -1,13 +1,13 @@
 {
-	"driverPath" : "{/chrome/driver/path}",
-	"uploadFilePath" : "{Users/username/workspace/project-name/uploadFile}",
-	"appv1Url" : "https://appdev.practera.com",
-	"appv2Url": "https://dev.app-v2.practera.com",
-	"practeraUrl" : "https://sandbox.practera.com",
-	"mailtrap" : "http://mailtrap.io/",
-	"peUrl" : "https://pe-stage.practera.com/",
-	"mode" : "ui",
-	"mailtrapPracteraInboxId" : {practera inbox id},
-	"mailtrapApiToken" : {mailtrap api token},
-	"visibleWait" : "60"
+	"DRIVER_PATH" : "{/chrome/driver/path}",
+	"UPLOAD_FILE_PATH" : "{Users/username/workspace/project-name/uploadFile}",
+	"APPV1URL" : "https://appdev.practera.com",
+	"APPV2URL": "https://dev.app-v2.practera.com",
+	"PRACTERAURL" : "https://sandbox.practera.com",
+	"MAILTRAP" : "http://mailtrap.io/",
+	"PEURL" : "https://pe-stage.practera.com/",
+	"MODE" : "ui",
+	"MAILTRAP_PRACTERA_INBOXID" : {practera inbox id},
+	"MAILTRAP_APITOKEN" : {mailtrap api token},
+	"VISIBLE_WAIT" : "60"
 }

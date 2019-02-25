@@ -1,11 +1,11 @@
 {
-	"browserstackUsername" : "{browserstack Username}",
-	"browserstackAccessKey" : "{browserstack Access Key}",
-	"browserstackOS": "Windows",
-    "browserstackOSVersion": "10",
-    "browserstackBrowser": "Chrome",
-    "browserstackBrowserVersion": "66.0",
-    "browserstackResolution": "1440x900",
-    "browserstackBrowserstackLocal": "false",
-    "browserstackBrowserstackSeleniumVersion": "3.11.0"
+    "BROWSERSTACK_ACCESSKEY": "{browserstack Access Key}", 
+    "BROWSERSTACK_BROWSER": "Chrome", 
+    "BROWSERSTACK_BROWSERVERSION": "71.0", 
+    "BROWSERSTACK_LOCAL": "false", 
+    "BROWSERSTACK_SELENIUMVERSION": "3.14.0", 
+    "BROWSERSTACK_OS": "Windows", 
+    "BROWSERSTACK_OSVERSION": "10", 
+    "BROWSERSTACK_RESOLUTION": "1440x900", 
+    "BROWSERSTACK_USERNAME": "{browserstack Username}" 
 }
