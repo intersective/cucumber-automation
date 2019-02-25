@@ -5,11 +5,11 @@ class User
     attr_reader :account
     attr_accessor :regUrl
 
-    def initialize(id, name, account)
+    def initialize(id, name, account, regUrl="")
         @id = id
         @name = name
         @account = account
-        @regUrl = ""
+        @regUrl = regUrl
     end
 
 end
