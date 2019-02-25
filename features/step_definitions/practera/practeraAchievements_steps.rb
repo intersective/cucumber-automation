@@ -13,7 +13,7 @@ Then(/^"Practera Achieve" I will go to recipients of "([^"]*)"$/) do |achieveNam
 end
 
 Then(/^"Practera Achieve" I (should|can) see (mentor|student)(|[1-9]+[0-9]*) has the ahievement$/) do |arg1, role, arg3|
-    userName = getUserFromData(arg3, role).name
+    userName = get_user_from_data(arg3, role).name
     step("\"Practera Achieve\" I #{arg1} see \"#{userName}\" has the ahievement")
 end
 
