@@ -3,7 +3,7 @@ Feature: AppV2 student registration
 	I want to regist to the app
 	so that I can log in to the app and experience the program content
 	
-	Scenario: Test AppV1 student registration
+	Scenario: Test AppV2 student registration
 		Given I use the registration link for student 1
 		When I wait 5 seconds
 		Then "Appv2" I type my own password "studentPassword" for registration
