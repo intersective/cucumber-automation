@@ -27,7 +27,7 @@ class TestLogger
 		@traceLog.debug(@logUUID + ' ' + message)
 	end
 
-	def logCase(message)
+	def log_case(message)
 		@caseLog.info(@logUUID + ' ' + message)
 	end
 

@@ -1,7 +1,7 @@
 require 'nokogiri'
 
 
-def addTestFinishedTime(reportFilePath)
+def add_test_finished_time((reportFilePath)
     modifedTime = File.ctime(reportFilePath)
     fileContent = File.read(reportFilePath)
     doc =  Nokogiri::HTML(fileContent)
@@ -14,4 +14,4 @@ def addTestFinishedTime(reportFilePath)
 end
 
 
-addTestFinishedTime(Dir.pwd + '/reports/report.html')
+add_test_finished_time((Dir.pwd + '/reports/report.html')

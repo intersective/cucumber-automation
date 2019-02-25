@@ -4,12 +4,12 @@ Then(/^"Mailtrap" I search email with receiver "([^"]*)" and filter "([^"]*)"$/)
     noResult = true
     while noResult
         sleep 3
-        waitForElement($driver, $wait, "#main .quick_filter").clear()
-        waitForElement($driver, $wait, "#main .quick_filter").send_keys(receiver)
+        wait_for_element($driver, $wait, "#main .quick_filter").clear()
+        wait_for_element($driver, $wait, "#main .quick_filter").send_keys(receiver)
         step("\"Mailtrap\" I wait for loading finished")
-        noResult = waitForElementXpath($driver, $normalWait, "//*[contains(@class, 'messages_list')]/li/p[text()='Nothing has been found for the filter']") != nil
+        noResult = wait_for_element_xpath($driver, $normalWait, "//*[contains(@class, 'messages_list')]/li/p[text()='Nothing has been found for the filter']") != nil
     end
-    email = waitForElementXpath($driver, $normalWait, "//*[contains(concat(' ', @class, ' '), 'messages_list')]/*[contains(concat(' ', @class, ' '), 'email')]/*[contains(text(),'" + filter + "')]")
+    email = wait_for_element_xpath($driver, $normalWait, "//*[contains(concat(' ', @class, ' '), 'messages_list')]/*[contains(concat(' ', @class, ' '), 'email')]/*[contains(text(),'" + filter + "')]")
     email.click()
     step("\"Mailtrap\" I wait for loading finished")
     sleep 2
@@ -19,16 +19,16 @@ Then(/^"Mailtrap" I search email with title "([^"]*)" and receiver "([^"]*)"$/) 
     noResult = true
     while noResult
         sleep 3
-        waitForElement($driver, $wait, "#main .quick_filter").clear()
-        waitForElement($driver, $wait, "#main .quick_filter").send_keys(title)
+        wait_for_element($driver, $wait, "#main .quick_filter").clear()
+        wait_for_element($driver, $wait, "#main .quick_filter").send_keys(title)
         step("\"Mailtrap\" I wait for loading finished")
-        noResult = waitForElementXpath($driver, $normalWait, "//*[contains(@class, 'messages_list')]/li/p[text()='Nothing has been found for the filter']") != nil
+        noResult = wait_for_element_xpath($driver, $normalWait, "//*[contains(@class, 'messages_list')]/li/p[text()='Nothing has been found for the filter']") != nil
     end
     
     email = nil
-    emails = waitForElementsXpath($driver, $normalWait, "//*[contains(concat(' ', @class, ' '), 'messages_list')]//*[@class='to']")
+    emails = wait_for_elements_xpath($driver, $normalWait, "//*[contains(concat(' ', @class, ' '), 'messages_list')]//*[@class='to']")
     emails.each do |ema|
-        if refineElementTextContent(ema) == "To: <" + receiver + ">"
+        if refine_element_text_content(ema) == "To: <" + receiver + ">"
             email = ema
             break
         end
@@ -40,46 +40,46 @@ end
 
 Then(/^"Mailtrap" I wait for loading finished$/) do
     sleep 1
-    while findElement($driver, "#nprogress") != nil
+    while find_element($driver, "#nprogress") != nil
         sleep 1
     end
 end
 
 Then(/^"Mailtrap" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
-    u = extractParameter(username, username)
-    p = extractParameter(userPassword, userPassword)
-    waitForElementVisible($driver, $wait, ".signin_block > a:nth-of-type(1)").click()
-    waitForElementVisible($driver, $wait, "#new_user #user_email").send_keys(u)
-    waitForElementVisible($driver, $wait, "#new_user #user_password").send_keys(p)
-    waitForElementVisible($driver, $wait, "#new_user input[type=submit]").click()
+    u = extract_parameter(username, username)
+    p = extract_parameter(userPassword, userPassword)
+    wait_for_element_visible($driver, $wait, ".signin_block > a:nth-of-type(1)").click()
+    wait_for_element_visible($driver, $wait, "#new_user #user_email").send_keys(u)
+    wait_for_element_visible($driver, $wait, "#new_user #user_password").send_keys(p)
+    wait_for_element_visible($driver, $wait, "#new_user input[type=submit]").click()
 end
 
 Then(/^"Mailtrap" I go to practera inbox$/) do
-    waitForElementVisibleXpath($driver, $wait, "//*[@class='initial']/strong/a/span[text()='practera']/..").click()
+    wait_for_element_visible_xpath($driver, $wait, "//*[@class='initial']/strong/a/span[text()='practera']/..").click()
     sleep 2
 end
 
 Then(/^"Mailtrap" I log out$/) do
-    waitForElementVisible($driver, $wait, ".account-name").click()
+    wait_for_element_visible($driver, $wait, ".account-name").click()
     sleep 2
-    waitForElementVisible($driver, $wait, ".account-dropdown > li:nth-of-type(4)").click()
+    wait_for_element_visible($driver, $wait, ".account-dropdown > li:nth-of-type(4)").click()
 end
 
 Then(/^"Mailtrap" I go into the email content$/) do
     currentWindow = $driver.window_handle
-    $sharedData1.putData(Application.KEY_PREVIOUSWINDOW, currentWindow)
+    $sharedData1.put_data(Application.KEY_PREVIOUSWINDOW, currentWindow)
     $driver.switch_to.frame(0)
 end
 
 Then(/^"Mailtrap" I go back to previous frame$/) do
     # back to the main document
     $driver.switch_to.default_content
-    previousWindow = loadSharedData(Application.KEY_PREVIOUSWINDOW)
+    previousWindow = load_shared_data(Application.KEY_PREVIOUSWINDOW)
     $driver.switch_to.window(previousWindow)
 end
 
 Then("\"Mailtrap\" I can see {string} in the email content") do |contentStr|
-    if waitForElementsXpath($driver, $wait, "//*[text()='" + contentStr + "']") == nil
+    if wait_for_elements_xpath($driver, $wait, "//*[text()='" + contentStr + "']") == nil
         fail("I cannot see the email content")
     end
 end
@@ -98,7 +98,7 @@ Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {strin
     end
     while noFound
         begin
-            result = fireRequestWithData("get", apiUrl, pheaders, pdata)
+            result = fire_request_with_data("get", apiUrl, pheaders, pdata)
             mails = result.select do |message|
                 message["to_email"] == receiver && message["subject"] == title
             end
@@ -112,7 +112,7 @@ Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {strin
 end
 
 Then("\"Mailtrap Api\" I can see {string} in the email content") do |contentStr|
-    message = loadSharedData(Application.KEY_MAILMESSAGE)
+    message = load_shared_data(Application.KEY_MAILMESSAGE)
     doc =  Nokogiri::HTML(message["html_body"])
     if doc.xpath("//*[text()='" + contentStr + "']").first == nil
         fail("I cannot see the email content")
@@ -120,7 +120,7 @@ Then("\"Mailtrap Api\" I can see {string} in the email content") do |contentStr|
 end
 
 Then(/^"Mailtrap" I search email with title "([^"]*)" and the (mentor|student)(|[1-9]+[0-9]*) as receiver$/) do |title, arg2, arg3|
-    studentAccount = getUserFromData(arg3, arg2).account
+    studentAccount = get_user_from_data(arg3, arg2).account
     step("\"Mailtrap\" I search email with title \"#{title}\" and receiver \"#{studentAccount}\"")
 end
 
@@ -145,7 +145,7 @@ private def checkMails(mails, counter, tries)
     else
         puts("found the email with the receiver and subject")
         noFound = false
-        $sharedData1.putData(Application.KEY_MAILMESSAGE, mails[0])
+        $sharedData1.put_data(Application.KEY_MAILMESSAGE, mails[0])
     end
     return noFound
 end

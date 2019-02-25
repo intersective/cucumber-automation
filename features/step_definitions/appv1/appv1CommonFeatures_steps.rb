@@ -2,15 +2,15 @@
 
 Then(/^"Appv1" I go to the "([^"]*)" tab page$/) do |tabName|
 	tabLocator = "//*[@class='tab-title'][normalize-space()='%s']/.." % [tabName]
-	waitForElementVisibleXpath($driver, $wait, tabLocator).click()
-	waitForLoadFinished($driver, $wait)
+	wait_for_element_visible_xpath($driver, $wait, tabLocator).click()
+	wait_for_load_finished($driver, $wait)
 end
 
 Then("\"Appv1\" I go to the {string} activity") do |activityTitle|
-	activities = waitForElements($driver, $listWait, ".view-container[nav-view='active'] .card")
+	activities = wait_for_elements($driver, $listWait, ".view-container[nav-view='active'] .card")
 	activities.each do |activity|
-		if activityTitle == refineElementTextContent(activity.find_element(:css => ".title"))
-			scrollIfNotVisible($driver, activity)
+		if activityTitle == refine_element_text_content(activity.find_element(:css => ".title"))
+			scroll_if_not_visible($driver, activity)
 			activity.click()
 			break
 		end
@@ -18,81 +18,81 @@ Then("\"Appv1\" I go to the {string} activity") do |activityTitle|
 end
 
 Then(/^"Appv1" I can see the activity name "([^"]*)" and description "([^"]*)"$/) do |actName, actDescription|
-	aActName = refineElementTextContent(waitForElement($driver, $wait, "jsmbp-detail-container > div > .item > h1"))
-	aActDescription = refineElementTextContent(waitForElement($driver, $wait, "jsmbp-detail-container > div > .item > p"))
-	verifyValue("expected activity name", actName, aActName)
-	verifyValue("expected activity description", actDescription, aActDescription)
+	aActName = refine_element_text_content(wait_for_element($driver, $wait, "jsmbp-detail-container > div > .item > h1"))
+	aActDescription = refine_element_text_content(wait_for_element($driver, $wait, "jsmbp-detail-container > div > .item > p"))
+	verify_value("expected activity name", actName, aActName)
+	verify_value("expected activity description", actDescription, aActDescription)
 end
 
 Then(/^"Appv1" I can see the "([^"]*)" locating at "([^"]*)" with title "([^"]*)" and category "([^"]*)"$/) do |itemName, itemLocation, itemTitle, itemCategory|
-	toDoThings = waitForElements($driver, $listWait, ".jsmbp-detail-items > div")
+	toDoThings = wait_for_elements($driver, $listWait, ".jsmbp-detail-items > div")
 	topicHeader = toDoThings[itemLocation.to_i - 1].find_element(:css => ".item")
 	aItemTitle = topicHeader.find_element(:css => "detail-title h2")
-	category = refineElementTextContent(topicHeader.find_element(:css => "detail-title p")).split(" ")[0].downcase
-	verifyValue("expected item title", itemTitle, refineElementTextContent(aItemTitle))
-	verifyValue("expected item category", itemCategory, category)
+	category = refine_element_text_content(topicHeader.find_element(:css => "detail-title p")).split(" ")[0].downcase
+	verify_value("expected item title", itemTitle, refine_element_text_content(aItemTitle))
+	verify_value("expected item category", itemCategory, category)
 end
 
 Then(/^"Appv1" I can see the "([^"]*)" with status "([^"]*)"$/) do |itemName, itemStatus|
-	aitemStatus = waitForElementXpath($driver, $wait, "//*[@class='title'][text()='" + itemName + "']/../p")
-	verifyValue("expected item status", itemStatus, refineElementTextContent(aitemStatus))
+	aitemStatus = wait_for_element_xpath($driver, $wait, "//*[@class='title'][text()='" + itemName + "']/../p")
+	verify_value("expected item status", itemStatus, refine_element_text_content(aitemStatus))
 end
 
 Then(/^"Appv1" I go to the (topic|assessment) locating at "([^"]*)"$/) do |itemName, itemLocation|
-	waitForLoadFinished($driver, $wait)
-	toDoThing = waitForElements($driver, $listWait, ".jsmbp-detail-items > div")[itemLocation.to_i - 1]
-	scrollIfNotVisible($driver, toDoThing)
+	wait_for_load_finished($driver, $wait)
+	toDoThing = wait_for_elements($driver, $listWait, ".jsmbp-detail-items > div")[itemLocation.to_i - 1]
+	scroll_if_not_visible($driver, toDoThing)
 	toDoThing.click()
-	waitForLoadFinished($driver, $wait)
+	wait_for_load_finished($driver, $wait)
 end
 
 Then(/^"Appv1" I go to the (topic|assessment) "([^"]*)"$/) do |itemName, itemTitle|
-	waitForLoadFinished($driver, $wait)
-	toDoThing = waitForElementXpath($driver, $wait, "//*[contains(@class,'jsmbp-detail-items')]//*[normalize-space()='#{itemTitle}']/.././../../..")
-	scrollIfNotVisible($driver, toDoThing)
+	wait_for_load_finished($driver, $wait)
+	toDoThing = wait_for_element_xpath($driver, $wait, "//*[contains(@class,'jsmbp-detail-items')]//*[normalize-space()='#{itemTitle}']/.././../../..")
+	scroll_if_not_visible($driver, toDoThing)
 	toDoThing.click()
-	waitForLoadFinished($driver, $wait)
+	wait_for_load_finished($driver, $wait)
 end
 
 Then(/^"Appv1" I can see the topic with title "([^"]*)" and content "([^"]*)"$/) do |topicTitle, topicContent|
-	aTopicTitle = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities h3"))
-	aTopicContent = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities .item-body"))
-	verifyValue("expected topic title", topicTitle, aTopicTitle)
-	verifyValue("expected topic content", topicContent, aTopicContent)
+	aTopicTitle = refine_element_text_content(wait_for_element($driver, $wait, ".pane[nav-view='active'] .activities h3"))
+	aTopicContent = refine_element_text_content(wait_for_element($driver, $wait, ".pane[nav-view='active'] .activities .item-body"))
+	verify_value("expected topic title", topicTitle, aTopicTitle)
+	verify_value("expected topic content", topicContent, aTopicContent)
 end
 
 Then(/^"Appv1" I go back from (topic|assessment|chat) page$/) do |itemName|
-	waitForElementVisible($driver, $wait, ".nav-bar-block[nav-bar=active] .back-button[ng-click]:not(.hide)").click()
-	waitForLoadFinished($driver, $wait)
+	wait_for_element_visible($driver, $wait, ".nav-bar-block[nav-bar=active] .back-button[ng-click]:not(.hide)").click()
+	wait_for_load_finished($driver, $wait)
 end
 
 Then(/^"Appv1" I can see the assessment with name "([^"]*)" and description "([^"]*)"$/) do |assessmentTitle, assessmentDescription|
-	aAssessmenTitle = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.name'] > h1"))
-	aAssessmenDescription = refineElementTextContent(waitForElement($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.description']"))
-	verifyValue("expected assessment title", assessmentTitle, aAssessmenTitle)
-	verifyValue("expected assessment description", assessmentDescription, aAssessmenDescription)
+	aAssessmenTitle = refine_element_text_content(wait_for_element($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.name'] > h1"))
+	aAssessmenDescription = refine_element_text_content(wait_for_element($driver, $wait, ".pane[nav-view='active'] .activities div[ng-if='assessment.description']"))
+	verify_value("expected assessment title", assessmentTitle, aAssessmenTitle)
+	verify_value("expected assessment description", assessmentDescription, aAssessmenDescription)
 end
 
 Then(/^"Appv1" I can see the question locating at "([^"]*)" with name "([^"]*)" and description "([^"]*)"$/) do |questionIndex, questionName, questionDescription|
-	one = waitForElements($driver, $listWait, "div[ng-repeat='question in group.questions']")[questionIndex.to_i - 1]
-	aQuestionName = refineElementTextContent(one.find_element(:css => ".item h2"))
-	aQuestionDescription = findElementWithParent(one, "div[ng-if='question.description']")
-	verifyValue("expected question name", questionName, aQuestionName)
+	one = wait_for_elements($driver, $listWait, "div[ng-repeat='question in group.questions']")[questionIndex.to_i - 1]
+	aQuestionName = refine_element_text_content(one.find_element(:css => ".item h2"))
+	aQuestionDescription = find_element_with_parent(one, "div[ng-if='question.description']")
+	verify_value("expected question name", questionName, aQuestionName)
 	if aQuestionDescription != nil
-		verifyValue("expected question description", questionDescription, refineElementTextContent(aQuestionDescription))
+		verify_value("expected question description", questionDescription, refine_element_text_content(aQuestionDescription))
 	end
 end
 
 Then(/^"Appv1" I do the text question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
-	scrollIfNotVisible($driver, answerContainer)
+	answerContainer = $appv1PageActions.get_question_answer_container($driver, $listWait, questionIndex)
+	scroll_if_not_visible($driver, answerContainer)
 	answerContainer.find_element(:css => "textarea").send_keys(questionAnswer)
 end
 
 Then(/^"Appv1" I do the oneof question locating at "([^"]*)" of group "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, groupIndex, questionAnswer|
 	selectPath = "//*[@ng-repeat='group in groupQuestion'][%s]/*[@ng-repeat='question in group.questions'][%s]//label//span[normalize-space()='%s']/../../.." % [groupIndex, questionIndex, questionAnswer]
-	option = waitForElementXpath($driver, $wait, selectPath)
-	scrollIfNotVisible($driver, option)
+	option = wait_for_element_xpath($driver, $wait, selectPath)
+	scroll_if_not_visible($driver, option)
 	option.click()
 end
 
@@ -100,37 +100,37 @@ Then(/^"Appv1" I do the multiple question locating at "([^"]*)" of group "([^"]*
 	answers = questionAnswer.split(",")
 	answers.each do |ans|
 		selectPath = "//*[@ng-repeat='group in groupQuestion'][%s]/*[@ng-repeat='question in group.questions'][%s]//label//span[normalize-space()='%s']/../.." % [groupIndex, questionIndex, ans]
-		option = waitForElementXpath($driver, $wait, selectPath)
-		scrollIfNotVisible($driver, option)
+		option = wait_for_element_xpath($driver, $wait, selectPath)
+		scroll_if_not_visible($driver, option)
 		option.click()
 	end
 end
 
 Then(/^"Appv1" I do the (file|image|video) question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionType, questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
-	scrollIfNotVisible($driver, answerContainer)
+	answerContainer = $appv1PageActions.get_question_answer_container($driver, $listWait, questionIndex)
+	scroll_if_not_visible($driver, answerContainer)
 	uploadBtn = answerContainer.find_element(:css => "div:nth-of-type(1) button:nth-of-type(1)")
-	scrollIfNotVisible($driver, uploadBtn)
+	scroll_if_not_visible($driver, uploadBtn)
 	uploadBtn.click()
 	sleep 5
-	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(getUploadFileFullPath(questionAnswer))
+	wait_for_element($driver, $wait, "#fsp-fileUpload").send_keys(get_upload_file_full_path(questionAnswer))
 	sleep 1
-	while waitForElement($driver, $shortWait, ".fsp-picker") != nil
+	while wait_for_element($driver, $shortWait, ".fsp-picker") != nil
 		sleep 1
 	end
 	sleep 4
 end
 
 Then(/^"Appv1" I do the video url question locating at "([^"]*)" with answer "([^"]*)"$/) do |questionIndex, questionAnswer|
-	answerContainer = $appv1PageActions.getQuestionAnswerContainer($driver, $listWait, questionIndex)
-	scrollIfNotVisible($driver, answerContainer)
+	answerContainer = $appv1PageActions.get_question_answer_container($driver, $listWait, questionIndex)
+	scroll_if_not_visible($driver, answerContainer)
 	uploadBtn = answerContainer.find_element(:css => "div:nth-of-type(1) button:nth-of-type(1)")
-	scrollIfNotVisible($driver, uploadBtn)
+	scroll_if_not_visible($driver, uploadBtn)
 	uploadBtn.click()
 	sleep 5
-	waitForElement($driver, $wait, "#fsp-fileUpload").send_keys(getUploadFileFullPath(questionAnswer))
+	wait_for_element($driver, $wait, "#fsp-fileUpload").send_keys(get_upload_file_full_path(questionAnswer))
 	sleep 1
-	while waitForElement($driver, $shortWait, ".fsp-picker") != nil
+	while wait_for_element($driver, $shortWait, ".fsp-picker") != nil
 		sleep 1
 	end
 	sleep 4
@@ -150,17 +150,17 @@ Then("\"Appv1\" I go to the {string} activity page which has {string} items") do
 end
 
 Then(/^I wait until the loading finished$/) do
-	waitForLoadFinished($driver, $wait)
+	wait_for_load_finished($driver, $wait)
 end
 
 Then("\"Appv1\" I can see the overall project progress") do
-	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
-	$sharedData1.putData(Application.KEY_PROGRESS, progress)
+	progress = refine_element_text_content(wait_for_element($driver, $wait, ".progress-title"))
+	$sharedData1.put_data(Application.KEY_PROGRESS, progress)
 end
 
 Then("\"Appv1\" I should have the same overall project progress") do
-	progress = refineElementTextContent(waitForElement($driver, $wait, ".progress-title"))
-	progress1 = loadSharedData(Application.KEY_PROGRESS)
+	progress = refine_element_text_content(wait_for_element($driver, $wait, ".progress-title"))
+	progress1 = load_shared_data(Application.KEY_PROGRESS)
 	if progress != progress1
 		fail("I should have the same overall project progress")
 	end

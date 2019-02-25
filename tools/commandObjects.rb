@@ -18,11 +18,11 @@ class CommandObjects
         }
     end
 
-    def isValidCmd(cmdName)
+    def is_valid_cmd(cmdName)
         return @commands.keys().include? cmdName
     end
 
-    def getCmdClass(cmdName)
+    def get_cmd_class(cmdName)
         return @commands[cmdName]
     end
 end
