@@ -85,7 +85,7 @@ Then("\"Mailtrap\" I can see {string} in the email content") do |contentStr|
 end
 
 Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {string} with {string} tries") do |type1, type1Value, type2, type2Value, tries|
-    apiUrl = "https://mailtrap.io/api/v1/inboxes/%s/messages" % [$configObj["mailtrapPracteraInboxId"]]
+    apiUrl = "https://mailtrap.io/api/v1/inboxes/%s/messages" % [$configObj["MAILTRAP_PRACTERA_INBOXID"]]
     pheaders, pdata = buildMailTrapApiPara(type1Value)
     noFound = true
     counter = tries.to_i
@@ -126,7 +126,7 @@ end
 
 private def buildMailTrapApiPara(searchStr)
     pheaders = {
-        "Api-Token" => $configObj["mailtrapApiToken"]
+        "Api-Token" => $configObj["MAILTRAP_APITOKEN"]
     }
     pdata = {
         "search" => searchStr

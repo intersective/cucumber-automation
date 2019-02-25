@@ -1,7 +1,7 @@
 {
-	"hubUrl" : "{http://hub/rul/in/the/remote/server:port}",
-	"nodeBrowserName" : "chrome",
-	"nodeBrowserVersion" : "67",
-	"nodePlatform" : "WINDOWS 10",
-	"nodeSeleniumVersion" : "3.11.0"
+	"HUB_URL" : "{http://hub/rul/in/the/remote/server:port}",
+	"NODE_BROWSER_NAME" : "chrome",
+	"NODE_BROWSER_VERSION" : "67",
+	"NODE_PLATFORM" : "WINDOWS 10",
+	"NODE_SELENIUM_VERSION" : "3.11.0"
 }

@@ -16,26 +16,26 @@ Then(/^I use the registration link for (mentor|student) ([1-9]+[0-9]*)$/) do |ar
 end
 
 Given(/^I go to App V1$/) do
-    appV1Link = $configObj["appv1Url"]
+    appV1Link = $configObj["APPV1URL"]
     step("I go to \"#{appV1Link}\"")
 end
 
 Given(/^I go to App V2$/) do
-    appV2Link = $configObj["appv2Url"]
+    appV2Link = $configObj["APPV2URL"]
     step("I go to \"#{appV2Link}\"")
 end
 
 Given(/^I go to Practera Platform$/) do
-    practeraLink = $configObj["practeraUrl"]
+    practeraLink = $configObj["PRACTERAURL"]
     step("I go to \"#{practeraLink}\"")
 end
 
 Given(/^I go to Mailtrap$/) do
-    mailtrapLink = $configObj["mailtrap"]
+    mailtrapLink = $configObj["MAILTRAP"]
     step("I go to \"#{mailtrapLink}\"")
 end
 
 Given(/^I go to PE$/) do
-    peLink = $configObj["peUrl"]
+    peLink = $configObj["PEURL"]
     step("I go to \"#{peLink}\"")
 end
