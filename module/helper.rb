@@ -42,20 +42,20 @@ end
 def get_user_from_data(suffix, role)
 	index = (suffix != "")? suffix : "1"
 	if role == Application.KEY_ROLE_MENTOR
-		return $sharedData1.load_data_from_keyApplication.KEY_MENTORS)[index]
+		return $sharedData1.load_data_from_key(Application.KEY_MENTORS)[index]
 	else
-		return $sharedData1.load_data_from_keyApplication.KEY_STUDENTS)[index]
+		return $sharedData1.load_data_from_key(Application.KEY_STUDENTS)[index]
 	end
 end
 
 def load_shared_data(key, default="")
 	if $variableLoaded
-		value = $sharedData1.load_data_from_key$currentFeatureFile)[key]
+		value = $sharedData1.load_data_from_key($currentFeatureFile)[key]
 		if value == nil
-			value =  $sharedData1.load_data_from_keykey)
+			value =  $sharedData1.load_data_from_key(key)
 		end
 	else
-		value = $sharedData1.load_data_from_keykey)
+		value = $sharedData1.load_data_from_key(key)
 	end
 	return (value == nil)? default : value
 end

@@ -9,7 +9,7 @@ class SharedData
 		@content = Hash.new
 	end
 	
-	def load_data_from_keykey)
+	def load_data_from_key(key)
 		return @content[key]
 	end
 	
