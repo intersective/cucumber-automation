@@ -1,8 +1,8 @@
 
 
 Then(/^"Appv1" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
-	u = extractParameter(username, username)
-	p = extractParameter(userPassword, userPassword)
+	u = extract_parameter(username, username)
+	p = extract_parameter(userPassword, userPassword)
 	$appv1PageActions.login($driver, $wait, u, p)
 end
 
@@ -11,16 +11,16 @@ Then(/^"Appv1" I log out$/) do
 end
 
 Then(/^"Appv1" I login with the (mentor|student)(|[1-9]+[0-9]*) account and password "([^"]*)"$/) do |arg1, arg2, uPassword|
-	studentAccount = getUserFromData(arg2, arg1).account
-	userPassword = loadSharedData(uPassword)
+	studentAccount = get_user_from_data(arg2, arg1).account
+	userPassword = load_shared_data(uPassword)
 	step("\"Appv1\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 
 Then(/^"Appv1" I should see desired program "([^"]*)"$/) do |programName|
-	programs = waitForElements($driver, $listWait, ".item-content")
+	programs = wait_for_elements($driver, $listWait, ".item-content")
 	found = false
 	programs.each do |opg|
-		if programName == refineElementTextContent(opg)
+		if programName == refine_element_text_content(opg)
 			found = true
 			break
 		end
@@ -31,26 +31,26 @@ Then(/^"Appv1" I should see desired program "([^"]*)"$/) do |programName|
 end
 
 Then(/^"Appv1" I choose a program "([^"]*)"$/) do |programName|
-	programs = waitForElements($driver, $listWait, ".item-content")
+	programs = wait_for_elements($driver, $listWait, ".item-content")
 	i = 0
 	programs.each do |opg|
 		i = i + 1
-		if programName == refineElementTextContent(opg)
-			waitForElementVisible($driver, $wait, ".jsmbp-switch-item:nth-of-type(" + i.to_s + ")").click()
+		if programName == refine_element_text_content(opg)
+			wait_for_element_visible($driver, $wait, ".jsmbp-switch-item:nth-of-type(" + i.to_s + ")").click()
 			break
 		end
 	end
 end
 
 Then(/^"Appv1" I should see the app home screen$/) do
-	waitForLoadFinished($driver, $wait)
-	if "active" != waitForElement($driver, $wait, "ion-nav-view[name='home']").attribute("nav-view")
+	wait_for_load_finished($driver, $wait)
+	if "active" != wait_for_element($driver, $wait, "ion-nav-view[name='home']").attribute("nav-view")
 		fail("something wrong in the home screen")
 	end
 end
 
 Then(/^"Appv1" I can see the current activity "([^"]*)"$/) do |activityName|
-	activity = waitForElementXpath($driver, $wait, "//*[text()='Current Activity']/..//following-sibling::div")
-	aActivityName = refineElementTextContent(activity.find_element(:css => ".activity-name"))
-	verifyValue("expected activity title", activityName, aActivityName)
+	activity = wait_for_element_xpath($driver, $wait, "//*[text()='Current Activity']/..//following-sibling::div")
+	aActivityName = refine_element_text_content(activity.find_element(:css => ".activity-name"))
+	verify_value("expected activity title", activityName, aActivityName)
 end

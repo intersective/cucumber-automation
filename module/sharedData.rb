@@ -9,11 +9,11 @@ class SharedData
 		@content = Hash.new
 	end
 	
-	def loadDataFromKey(key)
+	def load_data_from_key(key)
 		return @content[key]
 	end
 	
-	def putData(key, value)
+	def put_data(key, value)
 		@content[key] = value
 	end
 

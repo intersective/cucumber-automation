@@ -1,27 +1,27 @@
-def initTestData(filePath, key)
+def init_test_data(filePath, key)
     if File.exist?(filePath)
-        testObj = readJsonfile(filePath)
-        $sharedData1.putData(key, testObj)
+        testObj = read_json_file(filePath)
+        $sharedData1.put_data(key, testObj)
         return true
     end
     return false
 end
 
-def initTestUserData(filePath, key)
+def init_test_user_data(filePath, key)
     if File.exist?(filePath)
-        hash = readJsonfile(filePath)
-        users = $userService1.createUsers(hash)
-        $sharedData1.putData(key, users)
+        hash = read_json_file(filePath)
+        users = $userService1.create_users(hash)
+        $sharedData1.put_data(key, users)
         return true
     end
     return false
 end
 
-def initTestDataWithKey(filePath)
+def init_test_data_with_key(filePath)
     if File.exist?(filePath)
-        testObj = readJsonfile(filePath)
+        testObj = read_json_file(filePath)
         testObj.each do |key, value|
-            $sharedData1.putData(key, value)
+            $sharedData1.put_data(key, value)
         end
         return true
     end

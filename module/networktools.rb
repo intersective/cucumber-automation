@@ -1,15 +1,15 @@
-def fireRequest(apiMethod, apiUrl, pheaders, data, cols, i)
+def fire_request(apiMethod, apiUrl, pheaders, data, cols, i)
     pquery = {}
     response = nil
     for j in 0..cols
         pquery[data[0][j].to_s] = data[i][j]
     end
     
-    result = fireRequestWithData(apiMethod, apiUrl, pheaders, pquery)
+    result = fire_request_with_data(apiMethod, apiUrl, pheaders, pquery)
     return result
 end
 
-def fireRequestWithData(apiMethod, apiUrl, pheaders, pdata)
+def fire_request_with_data(apiMethod, apiUrl, pheaders, pdata)
     if (apiMethod == "post")
         response = HTTParty.post(apiUrl, :body => pdata, :headers => pheaders)
     else
@@ -19,7 +19,7 @@ def fireRequestWithData(apiMethod, apiUrl, pheaders, pdata)
     return result
 end
 
-def buildHeader(headersStr)
+def build_header(headersStr)
     t = headersStr.split(";")
     pheaders = {}
     t.each do |o|

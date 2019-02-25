@@ -25,7 +25,7 @@ class CommandNotSupportError < StandardError
     
 end
 
-private def readJsonfile(filePath)
+private def read_json_file(filePath)
 	fileContent = File.read(filePath)
 	dataHash = JSON.parse(fileContent)
 	return dataHash
@@ -44,7 +44,7 @@ end
 class MyAWSAction
 
     private def setup()
-        userJson = readJsonfile(Dir.pwd + "/configuration/user_aws.json")
+        userJson = read_json_file(Dir.pwd + "/configuration/user_aws.json")
         Aws.config.update({
             credentials: Aws::Credentials.new(userJson["AWS_ACCESS_KEY_ID"], userJson["AWS_SECRET_ACCESS_KEY"])
         })
@@ -59,7 +59,7 @@ end
 class MyAWSEC2Action
 
     private def setup()
-        userJson = readJsonfile(Dir.pwd + "/configuration/user_aws.json")
+        userJson = read_json_file(Dir.pwd + "/configuration/user_aws.json")
         Aws.config.update({
             credentials: Aws::Credentials.new(userJson["AWS_ACCESS_KEY_ID_EC2_OPR_USER"], userJson["AWS_SECRET_ACCESS_KEY_EC2_OPR_USER"])
         })
@@ -265,7 +265,7 @@ class UpdateSecRule
 
     def perform()
         args1 = [@groupdId, @regionName, @fromIp, "-deleteSecRule"]
-        cmdObject = parseCommand(args1)
+        cmdObject = parse_command(args1)
         cmdObject.perform()
         ippermission = cmdObject.getIppermission()
         if ippermission == nil
@@ -273,7 +273,7 @@ class UpdateSecRule
         end
         sleep 1
         args1 = [@groupdId, @regionName, @toIp, ippermission["ip_protocol"], ippermission["from_port"], ippermission["to_port"], "-createSecRule"]
-        parseCommand(args1).perform()
+        parse_command(args1).perform()
     end
 
 end
@@ -288,7 +288,7 @@ def wait_for_instances(state, ids, myRegion)
     end
 end
 
-def parseCommand(args)
+def parse_command(args)
     cmdName = nil
     if ARGV.length == 3 || ARGV.length == 4 || ARGV.length == 5 || ARGV.length == 7
         cmdName = args[-1]
@@ -296,8 +296,8 @@ def parseCommand(args)
         raise CommandNotSupportError.new("do not support this command")
     end
     cmdObjects = CommandObjects.instance
-    if cmdObjects.isValidCmd(cmdName)
-        cmdClass = cmdObjects.getCmdClass(cmdName)
+    if cmdObjects.is_valid_cmd(cmdName)
+        cmdClass = cmdObjects.get_cmd_class(cmdName)
         case cmdClass
             when "UploadFileAction"
                 t = args[0].split("@")
@@ -344,7 +344,7 @@ if ARGV.length == 0 || (ARGV.length == 1 && ARGV[0] == "-h")
     puts("update a AWS security inbound rule within a region: securitygroupid myRegion fromcidrip tocidrip -updateSecRule")
 else
     begin
-        parseCommand(ARGV).perform()
+        parse_command(ARGV).perform()
     rescue CommandExecutionError, CommandNotSupportError => e
         puts(e.message)
         puts(e.stacktrace)
