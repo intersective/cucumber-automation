@@ -32,9 +32,9 @@ Then(/^"Appv2" I can see question group ([1-9]+[0-9]*) name "([^"]*)" and descri
 end
 
 Then(/^"Appv2" I can see question ([1-9]+[0-9]*) name "([^"]*)" and description "([^"]*)"$/) do |qindex, qname, qdes|
-    aqheaders = wait_for_element_xpath($driver, $wait, "(//app-assessment//ion-card/ion-card-header)[#{qindex}]").attribute("innerText").split("\n")
-    aqname = aqheaders[0].strip()
-    aqdes = (aqheaders[1] == nil)? "" : aqheaders[1].strip()
+    qheaders = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-header")
+    aqname = qheaders.attribute("innerText").split("\n")[0].strip()
+    aqdes = refine_element_text_content(qheaders.find_element(:css => "app-description"))
     verify_value("expected question name", qname, aqname)
     verify_value("expected question description", qdes, aqdes)
 end
@@ -127,9 +127,9 @@ Then(/^"Appv2" I can see the fast feedback questions$/) do
 end
 
 Then(/^"Appv2" I can see the fast feedback question ([1-9]+[0-9]*) with title "([^"]*)" and description "([^"]*)"$/) do |qindex, fftitle, ffdes|
-    ffheaders = wait_for_element_xpath($driver, $wait, "//app-fast-feedback//question[#{qindex}]//ion-card-header").attribute("innerText").split("\n")
-    afftitle = ffheaders[0].strip()
-    affdes = ffheaders[1].strip()
+    ffheaders = wait_for_element_xpath($driver, $wait, "//app-fast-feedback//question[#{qindex}]//ion-card-header")
+    afftitle = ffheaders.attribute("innerText").split("\n")[0].strip()
+    affdes = refine_element_text_content(ffheaders.find_element(:css => "p > i"))
     verify_value("expected fast feedback question name", fftitle, afftitle)
     verify_value("expected fast feedback question description", ffdes, affdes)
 end
