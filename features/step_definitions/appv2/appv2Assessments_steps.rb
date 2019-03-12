@@ -162,7 +162,7 @@ Then(/^"Appv2" I can see the answer "([^"]*)" for question ([1-9]+[0-9]*) with q
     aaswer = ""
     case qtype
         when Application.KEY_Q_TEXT
-            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-text/ion-text")
+            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-text/p")
             aaswer = refine_element_text_content(answerContainer)
         when Application.KEY_Q_MULT
             answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-oneof//ion-item[contains(@class, 'item-radio-checked')]")
