@@ -23,7 +23,7 @@ end
 
 Then(/^"Appv2" I click on not right now$/) do
     contentPage = wait_for_element($driver, $wait, "go-mobile ion-content")
-    b = wait_for_element_xpath($driver, $wait, "//go-mobile//*[text()='not right now...']/../ion-button")
+    b = wait_for_element_xpath($driver, $wait, "//go-mobile//*[text()='not right now...']")
     scroll_by_keyboard_if_not_visible($driver, contentPage, b)
     b.click()
 end
