@@ -3,8 +3,8 @@
 Then(/^"Appv2 Reviews" I can go to the review page with a student "([^"]*)" submission and the assessment "([^"]*)"$/) do |studentName, assessmentName|
 	toReviews = wait_for_elements($driver, $listWait, "app-reviews ion-card")
 	toReviews.each do |row|
-		aName = refine_element_text_content(find_element_with_parent(row, "h4"))
-		sName = refine_element_text_content(find_element_with_parent(row, "h2"))
+		aName = refine_element_text_content(find_element_with_parent(row, "ion-card-content :nth-child(1)"))
+		sName = refine_element_text_content(find_element_with_parent(row, "ion-card-content :nth-child(2)"))
 		if assessmentName == aName && studentName == sName
 			row.click()
 			break
@@ -27,12 +27,11 @@ Then(/^"Appv2 Reviews" I input review (answer|comment) "([^"]*)" to question ([1
 	contentPage = wait_for_element($driver, $wait, "app-assessment ion-content")
 	eleContainer = nil
 	if type == "answer"
-		eleContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea[@placeholder='Please put your answer here']")
+		eleContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea[@placeholder='Please put your answer here']/textarea")
     else
-		eleContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea[@placeholder='Please put your feedback here']")
+		eleContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//ion-textarea[@placeholder='Please put your feedback here']/textarea")
 	end
 	scroll_by_keyboard_if_not_visible($driver, contentPage, eleContainer)
-	focus_element(eleContainer)
 	eleContainer.send_keys(content)
 end
 
@@ -92,7 +91,7 @@ end
 
 Then(/^"Appv2 Reviews" I add "([^"]*)" to personal comments$/) do |comments|
 	contentPage = wait_for_element($driver, $wait, "app-review-rating ion-content")
-	inputBox = wait_for_element_xpath($driver, $wait, "//app-review-rating//ion-input[@placeholder='Add a personal thank you'] > input")
+	inputBox = wait_for_element_xpath($driver, $wait, "//app-review-rating//ion-input[@placeholder='Add a personal thank you']/input")
 	scroll_by_keyboard_if_not_visible($driver, contentPage, inputBox)
 	inputBox.send_keys(comments)
 end
