@@ -61,6 +61,7 @@ Feature: AppV2 team moderated assessment
         When "Appv2" I go to the "Comprehensive Activity" activity
         Then "Appv2" I go to the assessment "Comprehensive Reflection"
         Then "Appv2" I wait for loading finished
+        Then "Appv2" I answer "Good" for question 2 with question type "multiple choice"
         Then "Appv2" I submit the assessment
         Then "Appv2" I can see the submisison success messages
         Then "Appv2" I can see the fast feedback questions
