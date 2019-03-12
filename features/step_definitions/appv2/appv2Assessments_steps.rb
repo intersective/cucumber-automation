@@ -152,7 +152,9 @@ Then(/^"Appv2" I submit the fast feedback$/) do
     contentPage = wait_for_element($driver, $wait, "app-fast-feedback ion-content")
     scroll_by_keyboard_if_not_visible($driver, contentPage, submitBtn)
     submitBtn.click()
-    wait_for_element_xpath($driver, $wait, "//ion-alert//button").click()
+    b = wait_for_element_xpath($driver, $wait, "//ion-alert//button")
+    sleep 2
+    b.click()
     sleep 5
 end
 
