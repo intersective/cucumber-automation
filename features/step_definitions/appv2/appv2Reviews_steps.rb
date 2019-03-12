@@ -91,7 +91,7 @@ end
 
 Then(/^"Appv2 Reviews" I add "([^"]*)" to personal comments$/) do |comments|
 	contentPage = wait_for_element($driver, $wait, "app-review-rating ion-content")
-	inputBox = wait_for_element_xpath($driver, $wait, "//app-review-rating//ion-input[@placeholder='Add a personal thank you'] > input")
+	inputBox = wait_for_element_xpath($driver, $wait, "//app-review-rating//ion-input[@placeholder='Add a personal thank you']/input")
 	scroll_by_keyboard_if_not_visible($driver, contentPage, inputBox)
 	inputBox.send_keys(comments)
 end
