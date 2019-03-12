@@ -7,6 +7,7 @@ Feature: AppV2 assessment review and feedback
         Given I go to App V2
         When "Appv2" I login with the student account and password "studentPassword"
         Then "Appv2" I choose a program "App V2 Automation Program"
+        Then "Appv2" I click on not right now
         Then "Appv2" I wait for loading finished
         Then I should see "feedback notification" which is located at "//app-todo-card/ion-card//*[normalize-space()='Comprehensive Moderated']" with xpath
         When I click on "the notification" which is located at "//app-todo-card/ion-card//*[normalize-space()='Comprehensive Moderated']/../.." with xpath

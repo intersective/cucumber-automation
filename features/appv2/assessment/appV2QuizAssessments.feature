@@ -7,6 +7,7 @@ Feature: AppV2 quiz assessment
         Given I go to App V2
         When "Appv2" I login with the student account and password "studentPassword"
         Then "Appv2" I choose a program "App V2 Automation Program"
+        Then "Appv2" I click on not right now
         Then "Appv2" I wait for loading finished
         Given "Appv2" I go to the "Activities" tab page
         When "Appv2" I go to the "Comprehensive Activity" activity
