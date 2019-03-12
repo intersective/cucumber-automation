@@ -20,3 +20,10 @@ Then(/^"Appv2" I log out$/) do
     wait_for_element($driver, $wait, "ion-tab-button[tab='settings']").click()
     wait_for_element_visible_xpath($driver, $wait, "//app-tabs//ion-card[normalize-space()='Logout']").click()
 end
+
+Then(/^"Appv2" I click on not right now$/) do
+    contentPage = wait_for_element($driver, $wait, "go-mobile ion-content")
+    b = wait_for_element_xpath($driver, $wait, "//go-mobile//*[text()='not right now...']/../ion-button")
+    scroll_by_keyboard_if_not_visible($driver, contentPage, b)
+    b.click()
+end
