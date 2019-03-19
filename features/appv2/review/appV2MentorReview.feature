@@ -7,7 +7,6 @@ Feature: AppV2 mentor review moderated assessment
         Given I go to App V2
 		Then "Appv2" I login with username "#(appv2MentorAccount)" and password "#(mentorAccountPassword)"
 		Then "Appv2" I choose a program "App V2 Automation Program"
-		Then "Appv2" I click on not right now
 		When "Appv2" I wait for loading finished
         Then "Appv2" I go to the "Review" tab page
 		Then I can see "the review list page" which is located at "app-reviews ion-content"

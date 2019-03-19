@@ -15,7 +15,6 @@ Feature: AppV2 student registration
 		Then I click on "an ok button" which is located at "app-pop-up ion-button"
 		When I wait 10 seconds
 		Then "Appv2" I choose a program "App V2 Automation Program"
-		Then "Appv2" I click on not right now
 		Then "Appv2" I wait for loading finished
 		Then "Appv2" I can see progress 0
 		Then "Appv2" I log out
@@ -32,7 +31,6 @@ Feature: AppV2 student registration
 		Then I click on "an ok button" which is located at "app-pop-up ion-button"
 		When I wait 10 seconds
 		Then "Appv2" I choose a program "App V2 Automation Program"
-		Then "Appv2" I click on not right now
 		Then "Appv2" I wait for loading finished
 		Then "Appv2" I can see progress 0
 		Then "Appv2" I log out
