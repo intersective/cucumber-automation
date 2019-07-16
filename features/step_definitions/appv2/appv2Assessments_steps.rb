@@ -26,7 +26,10 @@ end
 
 Then(/^"Appv2" I can see question group ([1-9]+[0-9]*) name "([^"]*)" and description "([^"]*)"$/) do |qgindex, qgname, qgdes|
     aqgname = refine_element_text_content(wait_for_element_xpath($driver, $wait, "(//app-assessment//form/h3)[#{qgindex}]"))
-    aqgdes = refine_element_text_content(wait_for_element_xpath($driver, $wait, "(//app-assessment//form/h3/following-sibling::ion-text/app-description)[#{qgindex}]"))
+    aqgdes = "" 
+    if qgdes != ""
+        aqgdes = refine_element_text_content(wait_for_element_xpath($driver, $wait, "(//app-assessment//form/h3/following-sibling::ion-text/app-description)[#{qgindex}]"))
+    end
     verify_value("expected question group name", qgname, aqgname)
     verify_value("expected question group description", qgdes, aqgdes)
 end
@@ -34,7 +37,10 @@ end
 Then(/^"Appv2" I can see question ([1-9]+[0-9]*) name "([^"]*)" and description "([^"]*)"$/) do |qindex, qname, qdes|
     qheaders = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-header")
     aqname = qheaders.attribute("innerText").split("\n")[0].strip()
-    aqdes = refine_element_text_content(qheaders.find_element(:css => "app-description"))
+    aqdes = ""
+    if qdes != ""
+        aqdes = refine_element_text_content(qheaders.find_element(:css => "app-description"))
+    end
     verify_value("expected question name", qname, aqname)
     verify_value("expected question description", qdes, aqdes)
 end
@@ -146,7 +152,9 @@ Then(/^"Appv2" I submit the fast feedback$/) do
     contentPage = wait_for_element($driver, $wait, "app-fast-feedback ion-content")
     scroll_by_keyboard_if_not_visible($driver, contentPage, submitBtn)
     submitBtn.click()
-    wait_for_element_xpath($driver, $wait, "//ion-alert//button").click()
+    b = wait_for_element_xpath($driver, $wait, "//ion-alert//button")
+    sleep 2
+    b.click()
     sleep 5
 end
 
@@ -154,7 +162,7 @@ Then(/^"Appv2" I can see the answer "([^"]*)" for question ([1-9]+[0-9]*) with q
     aaswer = ""
     case qtype
         when Application.KEY_Q_TEXT
-            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-text/ion-text")
+            answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-text/p")
             aaswer = refine_element_text_content(answerContainer)
         when Application.KEY_Q_MULT
             answerContainer = wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]/ion-card-content/app-oneof//ion-item[contains(@class, 'item-radio-checked')]")

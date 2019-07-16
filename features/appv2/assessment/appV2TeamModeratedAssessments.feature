@@ -6,7 +6,7 @@ Feature: AppV2 team moderated assessment
     Scenario: Test AppV2 team moderated assessment
         Given I go to App V2
         When "Appv2" I login with the student account and password "studentPassword"
-        Then "Appv2" I choose a program "App V2 Automation Program"
+        Then "Appv2" I choose a program "App Automation Program"
         Then "Appv2" I wait for loading finished
         Given "Appv2" I go to the "Activities" tab page
         When "Appv2" I go to the "Activity Three" activity
@@ -47,7 +47,7 @@ Feature: AppV2 team moderated assessment
     Scenario: Test team member review team work
         Given I go to App V2
         When "Appv2" I login with the student2 account and password "studentPassword"
-        Then "Appv2" I choose a program "App V2 Automation Program"
+        Then "Appv2" I choose a program "App Automation Program"
         Then "Appv2" I wait for loading finished
         Then "Appv2" I can see the fast feedback questions
         Then "Appv2" I can see the fast feedback question 1 with title "Have you personally engaged with your mentor within the last two weeks?(participant)" and description "You should engage with your mentor at least once every fortnight."
@@ -59,6 +59,7 @@ Feature: AppV2 team moderated assessment
         When "Appv2" I go to the "Comprehensive Activity" activity
         Then "Appv2" I go to the assessment "Comprehensive Reflection"
         Then "Appv2" I wait for loading finished
+        Then "Appv2" I answer "Good" for question 2 with question type "multiple choice"
         Then "Appv2" I submit the assessment
         Then "Appv2" I can see the submisison success messages
         Then "Appv2" I can see the fast feedback questions
@@ -71,7 +72,7 @@ Feature: AppV2 team moderated assessment
         
         Given I go to App V2
         When "Appv2" I login with the student2 account and password "studentPassword"
-        Then "Appv2" I choose a program "App V2 Automation Program"
+        Then "Appv2" I choose a program "App Automation Program"
         Then "Appv2" I wait for loading finished
         Given "Appv2" I go to the "Activities" tab page
         When "Appv2" I go to the "Activity Three" activity
