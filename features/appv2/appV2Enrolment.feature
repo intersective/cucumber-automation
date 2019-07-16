@@ -13,7 +13,7 @@ Feature: AppV2 enrolment
 		Then "Practera" I go to the "Enrolments" page
 		Then I click on "add enrolments button" which is located at ".content-container .row:nth-of-type(1) a:nth-of-type(4)"
 		Then I can see "a form" which is located at "#EnrolmentAdminAddForm"
-		Then I select "automation timeline" to "a selector" which is located at "#EnrolmentAdminAddForm .timeline-select #EnrolmentTimelineId"
+		Then I select "test timeline 1" to "a selector" which is located at "#EnrolmentAdminAddForm .timeline-select #EnrolmentTimelineId"
 		Then I input 2 student enrolment information which is located at "textArea[name='data[Enrolment][csvtext]']"
 		Then I wait 2 seconds
 		Then "Practera" I click the enrolment save button
