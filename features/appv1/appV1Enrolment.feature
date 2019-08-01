@@ -30,7 +30,7 @@ Feature: AppV1 enrolment
 
 		Given I go to Mailtrap
 		When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
-		Then "Mailtrap" I go to practera inbox
+		Then "Mailtrap" I go to "practera" inbox
 		Then "Mailtrap" I search email with title "App V1 Selenium Program - Welcome and Register" and the student as receiver
 		Then "Mailtrap" I go into the email content
 		Then I get the registration url at "#btn_registration" for student 1

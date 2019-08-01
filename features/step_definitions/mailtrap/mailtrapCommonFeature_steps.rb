@@ -54,8 +54,8 @@ Then(/^"Mailtrap" I login with username "([^"]*)" and password "([^"]*)"$/) do |
     wait_for_element_visible($driver, $wait, "#new_user input[type=submit]").click()
 end
 
-Then(/^"Mailtrap" I go to practera inbox$/) do
-    wait_for_element_visible_xpath($driver, $wait, "//*[@class='initial']/strong/a/span[text()='practera']/..").click()
+Then(/^"Mailtrap" I go to "([^"]*)" inbox$/) do |inbox_name|
+    wait_for_element_visible_xpath($driver, $wait, "//*[@class='initial']/strong/a/span[text()='#{inbox_name}']/..").click()
     sleep 2
 end
 
