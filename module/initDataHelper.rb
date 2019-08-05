@@ -17,6 +17,16 @@ def init_test_user_data(filePath, key)
     return false
 end
 
+def init_test_event_data(filePath, key)
+    if File.exist?(filePath)
+        hash = read_json_file(filePath)
+        events = $eventService1.create_events(hash)
+        $sharedData1.put_data(key, events)
+        return true
+    end
+    return false
+end
+
 def init_test_data_with_key(filePath)
     if File.exist?(filePath)
         testObj = read_json_file(filePath)

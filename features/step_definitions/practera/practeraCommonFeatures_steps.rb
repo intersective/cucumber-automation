@@ -394,7 +394,11 @@ Then(/^"Practera" I can create an event today with activity "([^"]*)" and assess
     wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog textarea#description").send_keys(evevtDescription)
     wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#capacity").send_keys(seat)
     wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog .modal-footer > button:nth-of-type(1)").click()
-    $sharedData1.put_data(Application.KEY_CURRENTEVENT, evevtName)
+    hash = {}
+    hash["1"] = $eventService1.generate_hash(eventId, evevtName, evevtDescription, "Sydney city", activity, assessment, seat)
+    $eventService1.write(hash)
+    events = $eventService1.create_events(hash)
+    $sharedData1.put_data(Application.KEY_CURRENTEVENT, events)
     sleep 5
     locator = "//*[@class='fc-title'][text()='%s']" % [evevtName]
     wait_for_element_visible_xpath($driver, $wait, locator).click()
