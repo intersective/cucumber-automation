@@ -22,6 +22,7 @@ AfterConfiguration do |config|
         $listWait = $sharedWebDriver1.get_list_waitor()
         $appv1PageActions = Appv1PageActions.new
         $userService1 = UserService.instance
+        $eventService1 = EventService.instance
         if $configObj["MODE"] == "hub" || $configObj["MODE"] == "browserstack"
             $driver.file_detector = lambda do |args|
                 str = args.first.to_s
@@ -29,6 +30,7 @@ AfterConfiguration do |config|
             end
         end
         init_test_data(Dir.pwd + "/data/team.json", Application.KEY_TEAM)
+        init_test_event_data(Dir.pwd + "/data/events.json", Application.KEY_CURRENTEVENT)
         init_test_user_data(Dir.pwd + "/data/students.json", Application.KEY_STUDENTS)
         init_test_user_data(Dir.pwd + "/data/mentors.json", Application.KEY_MENTORS)
         init_test_data_with_key(Dir.pwd + "/data/commons.json")

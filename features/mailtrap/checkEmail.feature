@@ -6,7 +6,7 @@ Feature: Mailtrap check emails
     Scenario: Test Mailtrap team email
         Given I go to Mailtrap
         When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
-        Then "Mailtrap" I go to practera inbox
+        Then "Mailtrap" I go to "practera" inbox
         Then "Mailtrap" I search email with receiver "selenium.20180703232357@practera.com" and filter "[ App V1 Selenium  ] You are now part of a team"
         Then "Mailtrap" I go into the email content
         Then "Mailtrap" I can see "Hi selenium.20180703232357," in the email content
@@ -17,7 +17,7 @@ Feature: Mailtrap check emails
     Scenario: Test Mailtrap custom branding notification email
         Given I go to Mailtrap
         When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
-        Then "Mailtrap" I go to practera inbox
+        Then "Mailtrap" I go to "practera" inbox
         Then "Mailtrap" I search email with title "Custom Branding Changes" and receiver "help@practera.com"
         Then I wait 2 seconds
         Then "Mailtrap" I log out

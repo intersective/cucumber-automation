@@ -54,7 +54,7 @@ Feature: Practera users timezone
         Then "Practera" I log out
         Given I go to Mailtrap
         When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
-        Then "Mailtrap" I go to practera inbox
+        Then "Mailtrap" I go to "practera" inbox
         Then "Mailtrap" I search email with title "barry test comm - 20181107041900" and receiver "barry_test_program1.admin@practera.com"
         Then "Mailtrap" I search email with title "barry test comm - 20181107041900" and receiver "test_program_student_1@practera.com"
         Then "Mailtrap" I log out

@@ -239,8 +239,8 @@ Then(/^"PE" I go to an event "([^"]*)" page$/) do |eventName|
 end
 
 Then(/^"PE" I go to the event page$/) do
-    event = load_shared_data(Application.KEY_CURRENTEVENT)
-    step("\"PE\" I go to an event \"#{event}\" page")
+    eventName = load_shared_data(Application.KEY_CURRENTEVENT)["1"].name
+    step("\"PE\" I go to an event \"#{eventName}\" page")
 end
 
 Then(/^"PE" I check an event "([^"]*)" is still here$/) do |eventName|
@@ -264,8 +264,8 @@ Then(/^"PE" I check an event "([^"]*)" is still here$/) do |eventName|
 end
 
 Then(/^"PE" I check the event is still here$/) do
-    event = load_shared_data(Application.KEY_CURRENTEVENT)
-    step("\"PE\" I check an event \"#{event}\" is still here")
+    eventName = load_shared_data(Application.KEY_CURRENTEVENT)["1"].name
+    step("\"PE\" I check an event \"#{eventName}\" is still here")
 end
 
 Then(/^"PE" I can see the event check in button being not disabled$/) do

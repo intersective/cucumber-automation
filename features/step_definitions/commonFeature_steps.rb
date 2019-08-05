@@ -43,7 +43,7 @@ Then(/^I (should|will) see a group of "([^"]*)" which is located at "([^"]*)"(| 
 end
 
 Then(/^I wait (.*?) seconds$/) do |arg1|
-	sleep arg1.to_i
+    sleep arg1.to_i
 end
 
 Then(/^I select "([^"]*)" to "([^"]*)" which is located at "([^"]*)"$/) do |arg1, arg2, arg3|

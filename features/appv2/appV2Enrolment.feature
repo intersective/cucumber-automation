@@ -37,13 +37,13 @@ Feature: AppV2 enrolment
 
 		Given I go to Mailtrap
 		When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"
-		Then "Mailtrap" I go to practera inbox
-		Then "Mailtrap" I search email with title "App Automation Program - Welcome and Register" and the student as receiver
+		Then "Mailtrap" I go to "practera-stage" inbox
+		Then "Mailtrap" I search email with title "Welcome and Register" and the student as receiver
 		Then "Mailtrap" I go into the email content
 		Then I get the registration url at "#btn_registration" for student 1
 		Then "Mailtrap" I go back to previous frame
 		Then I wait 2 seconds
-		Then "Mailtrap" I search email with title "App Automation Program - Welcome and Register" and the student2 as receiver
+		Then "Mailtrap" I search email with title "Welcome and Register" and the student2 as receiver
 		Then "Mailtrap" I go into the email content
 		Then I get the registration url at "#btn_registration" for student 2
 		Then "Mailtrap" I go back to previous frame
