@@ -15,6 +15,6 @@ Feature: Practera create an event in a timeline
 		Then "Practera" I go to the "Calendar" page
 		Then I click on "today button" which is located at "div#calendar button.fc-today-button"
 		Then I wait 2 seconds
-		Then "Practera" I can create an event today
+		Then "Practera" I can create an event today with activity "newbie" and assessment "generic barry checkin assessment" for "100" seat
 		Then I wait 2 seconds
 		Then "Practera" I log out

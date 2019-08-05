@@ -363,7 +363,7 @@ Then(/^"Practera" I can choose a timeline "([^"]*)" calendar$/) do |timeline|
     wait_for_element_visible_xpath($driver, $wait, xapth).click()
 end
 
-Then(/^"Practera" I can create an event today$/) do
+Then(/^"Practera" I can create an event today with activity "([^"]*)" and assessment "([^"]*)" for "([^"]*)" seat$/) do |activity, assessment, seat|
     localNow = Time.now
     today = "%s-%s-%s" % [localNow.year.to_s, prepend_zero(localNow.month), prepend_zero(localNow.day)]
     locator = "div#calendar tbody td[data-date='%s']" % [today]
@@ -371,15 +371,13 @@ Then(/^"Practera" I can create an event today$/) do
     sleep 2
     activityType = Selenium::WebDriver::Support::Select.new(wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog select#className"))
     activityType.select_by(:index, 1)
-    isOriginalSelect = Selenium::WebDriver::Support::Select.new(wait_for_element($driver, $wait, "select#is_original"))
-    isOriginalSelect.select_by(:index, 0)
     sleep 2
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fkey #s2id_foreign_key").click()
-    wait_for_element($driver, $wait, "#select2-drop > .select2-search > input").send_keys("newbie")
+    wait_for_element($driver, $wait, "#select2-drop > .select2-search > input").send_keys(activity)
     wait_for_element_visible($driver, $wait, ".select2-results > li > div > span").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fhas_assessment input[type=checkbox]").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fassessment #s2id_assessment").click()
-    wait_for_element($driver, $wait, "#select2-drop > .select2-search > input").send_keys("generic barry checkin assessment")
+    wait_for_element($driver, $wait, "#select2-drop > .select2-search > input").send_keys(assessment)
     wait_for_element_visible($driver, $wait, ".select2-results > li > div > span").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityParticipant").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityMentor").click()
@@ -394,7 +392,7 @@ Then(/^"Practera" I can create an event today$/) do
     wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#title").send_keys(evevtName)
     wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#location").send_keys("Sydney city")
     wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog textarea#description").send_keys(evevtDescription)
-    wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#capacity").send_keys("100")
+    wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#capacity").send_keys(seat)
     wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog .modal-footer > button:nth-of-type(1)").click()
     $sharedData1.put_data(Application.KEY_CURRENTEVENT, evevtName)
     sleep 5
