@@ -33,7 +33,7 @@ AfterConfiguration do |config|
         init_test_event_data(Dir.pwd + "/data/events.json", Application.KEY_CURRENTEVENT)
         init_test_user_data(Dir.pwd + "/data/students.json", Application.KEY_STUDENTS)
         init_test_user_data(Dir.pwd + "/data/mentors.json", Application.KEY_MENTORS)
-        init_test_data_with_key(Dir.pwd + "/data/commons.json")
+        init_test_data_into_key(Dir.pwd + "/data/commons.json")
     end
 end
 
