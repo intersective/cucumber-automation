@@ -35,7 +35,7 @@ Feature: AppV2 team moderated assessment
             | Choice 0.2 - Choice 0.2 description |
         Then "Appv2" I answer "Choice 0.6,Choice 0.2" for question 3 with question type "checkbox"
         Then "Appv2" I submit the assessment
-        Then "Appv2" I can see the submisison success messages
+        Then "Appv2" I can see the activity completion messages
         Then "Appv2" I can see the fast feedback questions
         Then "Appv2" I can see the fast feedback question 1 with title "Have you personally engaged with your mentor within the last two weeks?(participant)" and description "You should engage with your mentor at least once every fortnight."
         Then "Appv2" I can see the fast feedback question 2 with title "Do you feel that your team is on track (participant)?" and description "Do you feel that your team is on track?"
@@ -55,25 +55,7 @@ Feature: AppV2 team moderated assessment
         Then "Appv2" I answer "Yes" for the fast feedback question "1"
         Then "Appv2" I answer "Yes" for the fast feedback question "2"
         Then "Appv2" I submit the fast feedback
-        Given "Appv2" I go to the "Activities" tab page
-        When "Appv2" I go to the "Comprehensive Activity" activity
-        Then "Appv2" I go to the assessment "Comprehensive Reflection"
-        Then "Appv2" I wait for loading finished
-        Then "Appv2" I answer "Good" for question 2 with question type "multiple choice"
-        Then "Appv2" I submit the assessment
-        Then "Appv2" I can see the submisison success messages
-        Then "Appv2" I can see the fast feedback questions
-        Then "Appv2" I can see the fast feedback question 1 with title "Have you personally engaged with your mentor within the last two weeks?(participant)" and description "You should engage with your mentor at least once every fortnight."
-        Then "Appv2" I can see the fast feedback question 2 with title "Do you feel that your team is on track (participant)?" and description "Do you feel that your team is on track?"
-        Then "Appv2" I answer "Yes" for the fast feedback question "1"
-        Then "Appv2" I answer "Yes" for the fast feedback question "2"
-        Then "Appv2" I submit the fast feedback
-        Then "Appv2" I log out
-        
-        Given I go to App V2
-        When "Appv2" I login with the student2 account and password "studentPassword"
-        Then "Appv2" I choose a program "App Automation Program"
-        Then "Appv2" I wait for loading finished
+
         Given "Appv2" I go to the "Activities" tab page
         When "Appv2" I go to the "Activity Three" activity
         Then "Appv2" I go to the assessment "Team Moderated"
