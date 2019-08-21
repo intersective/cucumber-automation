@@ -7,8 +7,13 @@ end
 
 
 Then(/^"Appv2" I go back from (topic|assessment) page$/) do |itemName|
-    backBtnLocator = "app-%s ion-icon[name='arrow-back']" % [itemName]
-	wait_for_element_visible($driver, $wait, backBtnLocator).click()
+    canGoBack = wait_for_elements($driver, $wait, ".can-go-back")
+    canGoBack.each do |cgb|
+        if !cgb.attribute("class").split(" ").include?('ion-page-hidden')
+            cgb.find_element(:css => "ion-icon[name='arrow-back']").click()
+            break
+        end
+    end
 end
 
 Then(/^"Appv2" I can see the "([^"]*)" with status "([^"]*)"$/) do |itemName, itemStatus|
@@ -120,6 +125,16 @@ Then(/^"Appv2" I can see the submisison success messages$/) do
     else
         sleep 3
         wait_for_element_xpath($driver, $wait, "//ion-alert//button[normalize-space()='OK']").click()
+    end
+end
+
+Then(/^"Appv2" I can see the activity completion messages$/) do
+    ele = wait_for_element_xpath($driver, $wait, "//ion-alert//*[normalize-space()='Congratulations!']")
+    if ele == nil
+        verify_value("expected activity completion", "Congratulations!", "nil")
+    else
+        sleep 3
+        wait_for_element_xpath($driver, $wait, "//ion-alert//button[normalize-space()='Ok']").click()
     end
 end
 

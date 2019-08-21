@@ -27,7 +27,7 @@ def init_test_event_data(filePath, key)
     return false
 end
 
-def init_test_data_with_key(filePath)
+def init_test_data_into_key(filePath)
     if File.exist?(filePath)
         testObj = read_json_file(filePath)
         testObj.each do |key, value|
