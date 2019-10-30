@@ -36,6 +36,7 @@ Feature: AppV2 quiz assessment
         Then "Appv2" I answer "Yes" for the fast feedback question "1"
         Then "Appv2" I answer "Yes" for the fast feedback question "2"
         Then "Appv2" I submit the fast feedback
+        Then I wait 5 seconds
         Then "Appv2" I go back from assessment page
         Then I wait 3 seconds
         Then "Appv2" I go to the "Home" tab page
