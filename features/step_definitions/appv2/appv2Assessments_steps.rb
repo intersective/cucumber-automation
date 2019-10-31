@@ -167,7 +167,10 @@ Then(/^"Appv2" I submit the fast feedback$/) do
     contentPage = wait_for_element($driver, $wait, "app-fast-feedback ion-content")
     scroll_by_keyboard_if_not_visible($driver, contentPage, submitBtn)
     submitBtn.click()
-    sleep 3
+    while wait_for_element_xpath($driver, $shortWait, "//app-fast-feedback") != nil
+        sleep 1
+    end
+    sleep 1
 end
 
 Then(/^"Appv2" I can see the answer "([^"]*)" for question ([1-9]+[0-9]*) with question type "([^"]*)"$/) do |answer, qindex, qtype|
