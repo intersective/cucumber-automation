@@ -36,7 +36,7 @@ Feature: AppV2 reflection assessment
         Then "Appv2" I answer "Yes" for the fast feedback question "1"
         Then "Appv2" I answer "Yes" for the fast feedback question "2"
         Then "Appv2" I submit the fast feedback
-        Then I wait 5 seconds
+        Then I should see "Assessment" which is located at "//ion-title[normalize-space()='Assessment']" with xpath
         Then "Appv2" I go back from assessment page
         Then I wait 3 seconds
         Then "Appv2" I go to the "Home" tab page
