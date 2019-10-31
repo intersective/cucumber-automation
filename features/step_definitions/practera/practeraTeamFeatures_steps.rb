@@ -35,6 +35,18 @@ Then("\"Practera Team\" I create a team name") do
     step("I input \"#{teamName}\" to \"Team Name\" which is located at \"#TeamAdminAddForm #TeamName\"")
 end
 
+Then(/^"Practera Team" I create team data for ([1-9]+[0-9]*) students$/) do |numOfStudents|
+    teamName = "selenium.team.%s" % [generate_uni_id()]
+    hashObj = {"name" => teamName}
+    numOfStudents = numOfStudents.to_i
+    for i in 1..numOfStudents
+        index = i.to_s
+        key = "student%s" % [index]
+        hashObj[key] = get_user_from_data(index, "student").name
+    end
+    write_json_file(hashObj, Dir.pwd + "/data/team.json")
+end
+
 Then("\"Practera Team\" I should see team student {string} submission") do |student|
     teamObj = load_shared_data(Application.KEY_TEAM)
     studentName = teamObj[student]
