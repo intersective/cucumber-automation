@@ -34,6 +34,7 @@ Feature: AppV2 enrolment
 		Then I wait until the process percentage be 100 percent
 		Then I wait 2 seconds
 		Then "Practera" I log out
+		Then "Practera Team" I create team data for 2 students
 
 		Given I go to Mailtrap
 		When "Mailtrap" I login with username "#(mailtrapUser)" and password "#(mailtrapUserPassword)"

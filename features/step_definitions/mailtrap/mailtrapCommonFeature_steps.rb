@@ -55,14 +55,14 @@ Then(/^"Mailtrap" I login with username "([^"]*)" and password "([^"]*)"$/) do |
 end
 
 Then(/^"Mailtrap" I go to "([^"]*)" inbox$/) do |inbox_name|
-    wait_for_element_visible_xpath($driver, $wait, "//*[@class='initial']/strong/a/span[text()='#{inbox_name}']/..").click()
+    wait_for_element_visible_xpath($driver, $wait, "//a/strong[normalize-space()='#{inbox_name}']/..").click()
     sleep 2
 end
 
 Then(/^"Mailtrap" I log out$/) do
-    wait_for_element_visible($driver, $wait, ".account-name").click()
+    wait_for_element_visible($driver, $wait, ".show_hide_menu_link").click()
     sleep 2
-    wait_for_element_visible($driver, $wait, ".account-dropdown > li:nth-of-type(4)").click()
+    wait_for_element_visible($driver, $wait, ".show_hide_menu_link + ul > li:nth-of-type(4)").click()
 end
 
 Then(/^"Mailtrap" I go into the email content$/) do
