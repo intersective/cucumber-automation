@@ -42,15 +42,15 @@ Then(/^"Appv2 Reviews" I can see the "([^"]*)" question ([1-9]+[0-9]*) feedback 
 
 	case qtype
 		when Application.KEY_Q_TEXT
-			aanswers = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[@class='q-reviews']/p[1]"))
-			acomments = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[@class='q-reviews']/p[2]"))
+			aanswers = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[contains(@class,'q-reviews')]/p[1]"))
+			acomments = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[contains(@class,'q-reviews')]/p[2]"))
 		when Application.KEY_Q_MULT
-			aanswers = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[@class='q-reviews']//ion-item"))
-			acomments = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[@class='q-reviews']/p[1]"))
+			aanswers = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[contains(@class,'q-reviews')]//ion-item"))
+			acomments = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[contains(@class,'q-reviews')]/p[1]"))
 		when Application.KEY_Q_CHECKBOX
 			tempList = []
-			acomments = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[@class='q-reviews']/p[1]"))
-			temp = wait_for_elements_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[@class='q-reviews']//ion-item")
+			acomments = refine_element_text_content(wait_for_element_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[contains(@class,'q-reviews')]/p[1]"))
+			temp = wait_for_elements_xpath($driver, $wait, "//app-assessment//ion-card[#{qindex}]//*[contains(@class,'q-reviews')]//ion-item")
 			temp.each do |t|
 				tempList.push(refine_element_text_content(t))
 			end
@@ -64,10 +64,7 @@ Then(/^"Appv2 Reviews" I can see the "([^"]*)" question ([1-9]+[0-9]*) feedback 
 end
 
 Then(/^"Appv2 Reviews" I mark the feedback as read$/) do
-	contentPage = wait_for_element($driver, $wait, "app-assessment ion-content")
-	btn = wait_for_element_xpath($driver, $wait, "//*[normalize-space()='Mark feedback as read']/ion-toggle")
-	scroll_by_keyboard_if_not_visible($driver, contentPage, btn)
-	btn.click()
+	wait_for_element_xpath($driver, $wait, "//app-assessment//ion-button[contains(@class, 'continue')]").click()
 end
 
 Then(/^"Appv2 Reviews" I see the rating pop up$/) do
@@ -83,7 +80,7 @@ end
 
 Then(/^"Appv2 Reviews" I choose "([^"]*)" to quich response$/) do |qresponse|
 	contentPage = wait_for_element($driver, $wait, "app-review-rating ion-content")
-	btn = wait_for_element_xpath($driver, $wait, "//app-review-rating//*[@class='quick-tagging']/a[normalize-space()='#{qresponse}']")
+	btn = wait_for_element_xpath($driver, $wait, "//app-review-rating//*[contains(@class, 'quick-tagging')]/a[normalize-space()='#{qresponse}']")
 	scroll_by_keyboard_if_not_visible($driver, contentPage, btn)
 	btn.click()
 	sleep 2
@@ -101,4 +98,8 @@ Then(/^"Appv2 Reviews" I submit the review rating$/) do
 	btn = wait_for_element_xpath($driver, $wait, "//app-review-rating//ion-button[normalize-space()='Submit']")
 	scroll_by_keyboard_if_not_visible($driver, contentPage, btn)
 	btn.click()
+	while wait_for_element($driver, $shortWait, "app-review-rating") != nil
+		sleep 1
+	end
+	sleep 1
 end
