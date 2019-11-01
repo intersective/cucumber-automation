@@ -22,11 +22,10 @@ Feature: AppV2 mentor review moderated assessment
 		Then "Appv2" I answer "Choice 1,Choice 0.6" for question 3 with question type "checkbox"
 		Then "Appv2 Reviews" I input review comment "mentor good comment" to question 3
 		Then "Appv2" I submit the review
-		Then "Appv2" I can see the submisison success messages
         Then "Appv2" I can see the fast feedback questions
-        Then "Appv2" I can see the fast feedback question 1 with title "Do you feel that your team is on track(mentor)?" and description "Do you feel that your team is on track?"
-        Then "Appv2" I can see the fast feedback question 2 with title "In which stage do you think your team is at?(mentor)" and description "In which stage do you think your team is at? Refer to the project content if you are unsure which about the different stages."
-        Then "Appv2" I answer "Yes" for the fast feedback question "1"
-        Then "Appv2" I answer "Norming" for the fast feedback question "2"
+        Then "Appv2" I can see the fast feedback question 1 with title "In which stage do you think your team is at?(mentor)" and description "In which stage do you think your team is at? Refer to the project content if you are unsure which about the different stages."
+        Then "Appv2" I can see the fast feedback question 2 with title "Do you feel that your team is on track(mentor)?" and description "Do you feel that your team is on track?"
+        Then "Appv2" I answer "Norming" for the fast feedback question "1"
+        Then "Appv2" I answer "Yes" for the fast feedback question "2"
         Then "Appv2" I submit the fast feedback
         Then "Appv2" I log out
