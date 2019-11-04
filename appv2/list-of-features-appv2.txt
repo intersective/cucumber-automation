@@ -8,5 +8,3 @@ features/practera/assignMentors_appv2.feature
 features/appv2/review/appV2MentorReview.feature
 features/practera/publishReview_appv2.feature
 features/appv2/review/appV2ReviewFeedback.feature
-features/practera/addTeam_appv2.feature
-features/appv2/assessment/appV2TeamModeratedAssessments.feature
