@@ -381,9 +381,16 @@ Then(/^"Practera" I can create an event today with activity "([^"]*)" and assess
     wait_for_element_visible($driver, $wait, ".select2-results > li > div > span").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityParticipant").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog input#EventVisibilityMentor").click()
+   
+    wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fstart .datetime-calendar").click()
+    wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fstart .datetime-calendar").click()
+    wait_for_element_visible($driver, $wait, "a[data-action='incrementMinutes']").click()
+    wait_for_element_xpath($driver, $wait, "//*[@class='modal-dialog']//label[normalize-space()='Starts']").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .datetime-calendar").click()
     wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .datetime-calendar").click()
-    wait_for_element_visible($driver, $wait, "div.modal[role=dialog] > .modal-dialog #fend .bootstrap-datetimepicker-widget .datepicker > .datepicker-days .today").click()
+    wait_for_element_visible($driver, $wait, "a[data-action='incrementHours']").click()
+    wait_for_element_xpath($driver, $wait, "//*[@class='modal-dialog']//label[normalize-space()='Starts']").click()
+
     sleep 2
     Selenium::WebDriver::Support::Select.new(wait_for_element($driver, $wait, "div.modal[role=dialog] > .modal-dialog select#EventAddNotify")).select_by(:index, 0)
     eventId = generate_uni_id()
