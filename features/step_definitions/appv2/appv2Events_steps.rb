@@ -55,3 +55,7 @@ end
 Then("\"Appv2 events\" I go to {string}") do |tabName|
     wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='#{tabName}']").click()
 end
+
+Then("\"Appv2 events\" I go back") do
+    wait_for_element_xpath($driver, $wait, "//app-events//ion-icon[@name='arrow-back']").click()
+end

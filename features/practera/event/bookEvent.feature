@@ -19,3 +19,6 @@ Feature: Book an event in the app
         Then "Appv2 events" I book the event
         When "Appv2 events" I go to "Booked"
         Then "Appv2 events" I can see the event
+        Then "Appv2 events" I go back
+        When "Appv2" I wait for loading finished
+        Then "Appv2" I log out
