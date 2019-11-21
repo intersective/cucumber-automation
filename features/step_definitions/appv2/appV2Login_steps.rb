@@ -2,17 +2,17 @@
 
 Then(/^"Appv2" I login with the (mentor|student)(|[1-9]+[0-9]*) account and password "([^"]*)"$/) do |arg1, arg2, uPassword|
 	studentAccount = get_user_from_data(arg2, arg1).account
-	userPassword = load_shared_data(uPassword)
+	userPassword = extract_parameter(uPassword, uPassword)
 	step("\"Appv2\" I login with username \"#{studentAccount}\" and password \"#{userPassword}\"")
 end
 
 Then(/^"Appv2" I login with username "([^"]*)" and password "([^"]*)"$/) do |username, userPassword|
-    u = extract_parameter(username, username)
-    p = extract_parameter(userPassword, userPassword)
+    utext = extract_parameter(username, username)
+    ptext = extract_parameter(userPassword, userPassword)
     emaile = wait_for_element_visible($driver, $wait, "ion-input[name='email'] > input")
-    emaile.send_keys(u)
+    emaile.send_keys(utext)
     passworde = wait_for_element_visible($driver, $wait, "ion-input[name='password'] > input")
-    passworde.send_keys(p)
+    passworde.send_keys(ptext)
     wait_for_element_visible($driver, $wait, "form ion-button[type=submit]").click()
 end
 

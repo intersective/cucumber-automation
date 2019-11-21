@@ -5,7 +5,7 @@ Feature: AppV2 team moderated assessment
 
     Scenario: Test AppV2 team moderated assessment
         Given I go to App V2
-        When "Appv2" I login with the student account and password "studentPassword"
+        When "Appv2" I login with the student account and password "#(studentPassword)"
         Then "Appv2" I choose a program "App Automation Program"
         Then "Appv2" I wait for loading finished
         Given "Appv2" I go to the "Activities" tab page
@@ -47,7 +47,7 @@ Feature: AppV2 team moderated assessment
 
     Scenario: Test team member review team work
         Given I go to App V2
-        When "Appv2" I login with the student2 account and password "studentPassword"
+        When "Appv2" I login with the student2 account and password "#(studentPassword)"
         Then "Appv2" I choose a program "App Automation Program"
         Then "Appv2" I wait for loading finished
         Then "Appv2" I can see the fast feedback questions
