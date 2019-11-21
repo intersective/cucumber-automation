@@ -78,7 +78,7 @@ Then(/^"Appv2 Reviews" I move the rating slider by ([1-9]+[0-9]*) times$/) do |m
 	sleep 3
 end
 
-Then(/^"Appv2 Reviews" I choose "([^"]*)" to quich response$/) do |qresponse|
+Then(/^"Appv2 Reviews" I choose "([^"]*)" to quick response$/) do |qresponse|
 	contentPage = wait_for_element($driver, $wait, "app-review-rating ion-content")
 	btn = wait_for_element_xpath($driver, $wait, "//app-review-rating//*[contains(@class, 'quick-tagging')]/a[normalize-space()='#{qresponse}']")
 	scroll_by_keyboard_if_not_visible($driver, contentPage, btn)
