@@ -23,7 +23,7 @@ Feature: AppV2 assessment review and feedback
         When "Appv2 Reviews" I mark the feedback as read
         Then "Appv2 Reviews" I see the rating pop up
         Then "Appv2 Reviews" I move the rating slider by 5 times
-        Then "Appv2 Reviews" I choose "You are awesome!" to quich response
+        Then "Appv2 Reviews" I choose "You are awesome!" to quick response
         Then "Appv2 Reviews" I add "good good" to personal comments
         Then "Appv2 Reviews" I submit the review rating
         Then I should see "Assessment" which is located at "//ion-title[normalize-space()='Assessment']" with xpath

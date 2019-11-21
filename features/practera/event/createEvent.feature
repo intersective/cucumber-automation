@@ -3,7 +3,7 @@ Feature: Practera create an event in a timeline
 	I want to have an event during a specfic of time
 	so that the students can participate in the event
 
-    Scenario: Test ractera create an event in a timeline
+    Scenario: Test practera create an event in a timeline
 		Given I go to Practera Platform
 		When The "message" which is located at ".toast-message" should be disappear
 		Then "Practera" I login with username "#(programv2AdminAccount)" and password "#(programAdminPassword)"
