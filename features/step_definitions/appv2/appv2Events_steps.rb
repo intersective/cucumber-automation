@@ -51,3 +51,7 @@ Then("\"Appv2 events\" I book an event {string}") do |eventName|
 		sleep 1
 	end
 end
+
+Then("\"Appv2 events\" I go to {string}") do |tabName|
+    wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='#{tabName}']").click()
+end

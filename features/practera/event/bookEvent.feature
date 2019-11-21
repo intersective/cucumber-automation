@@ -17,3 +17,5 @@ Feature: Book an event in the app
         Then I can see "Events" which is located at "//*[normalize-space()='Events']" with xpath
         Then "Appv2 events" I can see the event
         Then "Appv2 events" I book the event
+        When "Appv2 events" I go to "Booked"
+        Then "Appv2 events" I can see the event
