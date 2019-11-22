@@ -1,7 +1,7 @@
-Feature: Check in an event in the app
+Feature: Review an event check-ion in the app
 	As a participant
-	I want to do the checkin assessment of an event
-	so that I can give some feedback on the events
+	I want to review the check-in assessment of an event
+	so that I can review the things I have done at the event
 
     Scenario: Test Check in an event in the app
         Given I go to App V2
@@ -11,8 +11,7 @@ Feature: Check in an event in the app
         Then I click on "calendar" which is located at "//ion-icon[@name='calendar']" with xpath
         Then I can see "Events" which is located at "//*[normalize-space()='Events']" with xpath
         When "Appv2 events" I go to "Attended"
-        Then "Appv2 events" I can see the event
-        Then "Appv2 events" I do the checkin assessment of the event with:
+        Then "Appv2 events" I view the check-in of the event with:
             | answer | question number | question type |
             | New Choice 1 | 1 | multiple choice |
             | ohhh gogoggoo | 2 | text |

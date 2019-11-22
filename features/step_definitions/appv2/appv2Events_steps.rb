@@ -40,9 +40,7 @@ Then("\"Appv2 events\" I book the event") do
 end
 
 Then("\"Appv2 events\" I book an event {string}") do |eventName|
-    itemLocator = "//app-events//event-card//*[@class='content']/*[1][normalize-space()='#{eventName}']"
-    ele = wait_for_element_xpath($driver, $wait, itemLocator).click()
-    sleep 2
+    step("\"Appv2 events\" I go to an event \"#{eventName}\"")
     wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='Book']").click()
     wait_for_element_xpath($driver, $wait, "//ion-alert//div[normalize-space()='Booked Successfully!']")
     wait_for_element_xpath($driver, $wait, "//ion-alert//button").click()
@@ -59,21 +57,79 @@ Then("\"Appv2 events\" I go back") do
     wait_for_element_xpath($driver, $wait, "//app-events//ion-icon[@name='arrow-back']").click()
 end
 
-Then("\"Appv2 events\" I do the checkin assessment of the event") do
+Then("\"Appv2 events\" I do the checkin assessment of the event with:") do |table|
     eventName = load_shared_data(Application.KEY_CURRENTEVENT)["1"].name
-    step("\"Appv2 events\" I do the checkin assessment of an event \"#{eventName}\"")
+    step("\"Appv2 events\" I go to an event \"#{eventName}\"")
+    wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='Check In']").click()
+    
+    data = table.raw
+    rows = data.length - 1
+    cols = data[0].length - 2
+    for i in 1..rows
+        step("\"Appv2\" I answer \"#{data[i][0]}\" for question #{data[i][1]} with question type \"#{data[i][2]}\"")
+    end
+    step("\"Appv2\" I submit the assessment")
+    while wait_for_element_xpath($driver, $shortWait, "//app-assessment") != nil
+        sleep 1
+    end
 end
 
-Then("\"Appv2 events\" I do the checkin assessment of an event {string}") do |eventName|
-    itemLocator = "//app-events//event-card//*[@class='content']/*[1][normalize-space()='#{eventName}']"
-    ele = wait_for_element_xpath($driver, $wait, itemLocator).click()
+Then("\"Appv2 events\" I do the checkin assessment of an event {string} with:") do |eventName, table|
+    step("\"Appv2 events\" I go to an event \"#{eventName}\"")
     wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='Check In']").click()
 
-    step("\"Appv2\" I answer \"New Choice 1\" for question 1 with question type \"multiple choice\"")
-    step("\"Appv2\" I answer \"ohhh gogoggoo\" for question 2 with question type \"text\"")
-    step("\"Appv2\" I answer \"New Choice 1,New Choice 0\" for question 3 with question type \"checkbox\"")
+    data = table.raw
+    rows = data.length - 1
+    cols = data[0].length - 2
+    for i in 1..rows
+        step("\"Appv2\" I answer \"#{data[i][0]}\" for question #{data[i][1]} with question type \"#{data[i][2]}\"")
+    end
     step("\"Appv2\" I submit the assessment")
-    while wait_for_element_xpath($driver, $wait, "//app-assessment") != nil
+    while wait_for_element_xpath($driver, $shortWait, "//app-assessment") != nil
+        sleep 1
+    end
+end
+
+Then("\"Appv2 events\" I go to the event") do
+    eventName = load_shared_data(Application.KEY_CURRENTEVENT)["1"].name
+    step("\"Appv2 events\" I go to an event \"#{eventName}\"")
+end
+
+Then("\"Appv2 events\" I go to an event {string}") do |eventName|
+    itemLocator = "//app-events//event-card//*[@class='content']/*[1][normalize-space()='#{eventName}']"
+    ele = wait_for_element_xpath($driver, $wait, itemLocator).click()
+    sleep 1
+end
+
+Then("\"Appv2 events\" I view the check-in of the event with:") do |table|
+    eventName = load_shared_data(Application.KEY_CURRENTEVENT)["1"].name
+    step("\"Appv2 events\" I go to an event \"#{eventName}\"")
+    wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='View Check In']").click()
+
+    data = table.raw
+    rows = data.length - 1
+    cols = data[0].length - 2
+    for i in 1..rows
+        step("\"Appv2\" I can see the answer \"#{data[i][0]}\" for question #{data[i][1]} with question type \"#{data[i][2]}\"")
+    end
+    wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='Continue']").click()
+    while wait_for_element_xpath($driver, $shortWait, "//app-assessment") != nil
+        sleep 1
+    end
+end
+
+Then("\"Appv2 events\" I view the check-in of an event {string} with:") do |eventName, table|
+    step("\"Appv2 events\" I go to an event \"#{eventName}\"")
+    wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='View Check In']").click()
+
+    data = table.raw
+    rows = data.length - 1
+    cols = data[0].length - 2
+    for i in 1..rows
+        step("\"Appv2\" I can see the answer \"#{data[i][0]}\" for question #{data[i][1]} with question type \"#{data[i][2]}\"")
+    end
+    wait_for_element_xpath($driver, $wait, "//ion-button[normalize-space()='Continue']").click()
+    while wait_for_element_xpath($driver, $shortWait, "//app-assessment") != nil
         sleep 1
     end
 end
