@@ -10,4 +10,6 @@
 	"MAILTRAP_PRACTERA_INBOXID" : {practera inbox id},
 	"MAILTRAP_APITOKEN" : {mailtrap api token},
 	"VISIBLE_WAIT" : "60"
+	"USER-AGENT" : "",
+	"DEVICE_NAME" : ""
 }
