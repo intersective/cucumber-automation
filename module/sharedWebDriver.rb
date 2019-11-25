@@ -11,11 +11,16 @@ class SharedWebDriver
 		case tconfigObj["MODE"]
 			when "ui"
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
-				@driver = Selenium::WebDriver.for(:chrome)
+				options = Selenium::WebDriver::Chrome::Options.new
+				options = enable_mobile_device(options, tconfigObj)
+				options.add_argument('start-maximized')
+				@driver = Selenium::WebDriver.for(:chrome, options: options)
 			when "headless-chrome"
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
 				options = Selenium::WebDriver::Chrome::Options.new
 				options.add_argument('--headless')
+				options = enable_mobile_device(options, tconfigObj)
+				options.add_argument('start-maximized')
 				@driver = Selenium::WebDriver.for(:chrome, options: options)
 			when "headless-cancary"
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
@@ -45,11 +50,12 @@ class SharedWebDriver
 				@driver = Selenium::WebDriver.for(:remote, :url => "%s/wd/hub" % [tconfigObjHub["HUB_URL"]], :desired_capabilities => caps)
 			else
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
-				@driver = Selenium::WebDriver.for(:chrome)
+				options = Selenium::WebDriver::Chrome::Options.new
+				options = enable_mobile_device(options, tconfigObj)
+				options.add_argument('start-maximized')
+				@driver = Selenium::WebDriver.for(:chrome, options: options)
 		end
 		@driver.manage.window.move_to(0, 0)
-		maxWidth, maxHeight = @driver.execute_script("return [window.screen.availWidth, window.screen.availHeight];")
-		@driver.manage.window.resize_to(maxWidth, maxHeight)
 		@wait = Selenium::WebDriver::Wait.new(:timeout => 30) # seconds
 		@listWait = Selenium::WebDriver::Wait.new(:timeout => 120) # seconds
 		@shortWait = Selenium::WebDriver::Wait.new(:timeout => 3) # seconds
@@ -74,6 +80,14 @@ class SharedWebDriver
 
 	def get_list_waitor()
 		return @listWait
+	end
+
+	private def enable_mobile_device(options, tconfigObj)
+		if tconfigObj["USER_AGENT"] != "" && tconfigObj["DEVICE_NAME"] != ""
+			options.add_argument('user-agent=' + tconfigObj["USER_AGENT"])
+			options.add_emulation(:device_name => tconfigObj["DEVICE_NAME"])
+		end
+		return options
 	end
 
 end
