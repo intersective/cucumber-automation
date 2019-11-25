@@ -8,7 +8,6 @@ class SharedWebDriver
 	
 	def initialize
 		tconfigObj = load_config(Dir.pwd + "/configuration/user.json")
-		user_agent = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Mobile Safari/537.36"	
 		case tconfigObj["MODE"]
 			when "ui"
 				Selenium::WebDriver::Chrome.driver_path=tconfigObj["DRIVER_PATH"]
