@@ -80,11 +80,11 @@ end
 
 Then("\"Mailtrap\" I can see {string} in the email content") do |contentStr|
     if wait_for_elements_xpath($driver, $wait, "//*[text()='" + contentStr + "']") == nil
-        fail("I cannot see the email content")
+        verify_value("expected text exist", contentStr, "nil")
     end
 end
 
-Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {string} with {string} tries") do |type1, type1Value, type2, type2Value, tries|
+Then(/^"Mailtrap Api" I search email with (receiver|title) "([^"]*)" and (receiver|title) "([^"]*)" with "([^"]*)" tries$/) do |type1, type1Value, type2, type2Value, tries|
     apiUrl = "https://mailtrap.io/api/v1/inboxes/%s/messages" % [$configObj["MAILTRAP_PRACTERA_INBOXID"]]
     pheaders, pdata = buildMailTrapApiPara(type1Value)
     noFound = true
@@ -111,11 +111,19 @@ Then("\"Mailtrap Api\" I search email with {string} {string} and {string} {strin
     end
 end
 
-Then("\"Mailtrap Api\" I can see {string} in the email content") do |contentStr|
+Then(/^"Mailtrap Api" I (should|can) see "([^"]*)" in the email content$/) do |arg1, contentStr|
     message = load_shared_data(Application.KEY_MAILMESSAGE)
-    doc =  Nokogiri::HTML(message["html_body"])
-    if doc.xpath("//*[text()='" + contentStr + "']").first == nil
-        fail("I cannot see the email content")
+    apiUrl = "https://mailtrap.io" + message["html_source_path"]
+    pheaders, pdata = buildMailTrapApiPara(nil)
+    result = fire_request("get", apiUrl, pheaders, nil)
+    doc =  Nokogiri::HTML(result)
+    result = doc.xpath("//*[normalize-space()='" + contentStr + "']").first
+    if result == nil
+        if arg1 == "should"
+            fail("I cannot see the email content: " + contentStr)
+        else
+            verify_value("expected text exist", contentStr, "nil")
+        end
     end
 end
 
