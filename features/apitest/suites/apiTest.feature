@@ -110,9 +110,9 @@ Feature: API test
             | 734 | true | success |
         Then I wait 2 seconds
         Then "Json" I call the "post" api "https://sandbox.practera.com/api/characters" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", with:
-            | json parameters | result file |
-            | {"Character":{"id":655,"meta":{"private":0}}} | characters/success_1.json |
-            | {"Character":{"id":655,"meta":{"private":1}}} | characters/success_2.json |
+            | json parameters | keys in header | result file |
+            | {"Character":{"id":655,"meta":{"private":0}}} | 1=1 |characters/success_1.json |
+            | {"Character":{"id":655,"meta":{"private":1}}} | 1=1 |characters/success_2.json |
         Then I wait 2 seconds
         Then I call the "get" api "https://sandbox.practera.com/api/submissions.json" by headers "appkey=b11e7c189b;apikey=f16232310551a3d4d035", should have success and status with:
             | sentiment| team_id | timeline_id | success | status |
