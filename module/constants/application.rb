@@ -23,6 +23,7 @@ class Application
     @KEY_Q_MULT = "multiple choice".freeze
     @KEY_Q_CHECKBOX = "checkbox".freeze
     @KEY_Q_FILE = "file".freeze
+    @KEY_RUN_ID = "runid".freeze
 
     def self.KEY_STUDENTS
         return @KEY_STUDENTS
@@ -114,6 +115,10 @@ class Application
 
     def self.KEY_Q_ONEOF
         return @KEY_Q_ONEOF
+    end
+
+    def self.KEY_RUN_ID
+        return @KEY_RUN_ID
     end
 
 end

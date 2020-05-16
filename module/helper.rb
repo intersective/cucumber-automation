@@ -84,3 +84,43 @@ def load_config(configFile)
 	end
 	return configObj
 end
+
+def hash_deep_equal(hash1, hash2, result, rootPath)
+	hash1.each do |key, value|
+		if value.class == Hash
+			hash_deep_equal(value, hash2[key], result, [rootPath, key.to_s].join("/"))
+		elsif value.class == Array
+			len = value.length - 1
+			for i in 0..len do
+				if value[i].class == Hash
+					hash_deep_equal(value[i], hash2[key][i], result, [rootPath, key.to_s, i.to_s].join("/"))
+				else
+					if value[i] != hash2[key][i]
+						result.concat(";").concat(rootPath).concat("/").concat(key.to_s).concat("/").concat(i.to_s)
+					end
+				end
+			end
+		else
+            if value != hash2[key]
+                result.concat(";").concat(rootPath).concat("/").concat(key.to_s)
+			end
+		end
+    end
+	return result
+end
+
+def get_value_from_hash(pathStr, obj)
+	path = pathStr.split("/")
+	if pathStr.start_with?("/")
+		path.shift
+	end
+	value = obj
+	for p in path
+		if value.class == Array
+			value = value[p.to_i]
+		else
+			value = value[p]
+		end
+	end
+	return value
+end

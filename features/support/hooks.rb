@@ -12,9 +12,9 @@ AfterConfiguration do |config|
     $variableLoaded = false
     $currentFeatureFile = ""
     $visibleWait = $configObj["VISIBLE_WAIT"].to_i
+    $sharedData1 = SharedData.instance
     if $configObj["MODE"] != "apiTest"
         $sharedWebDriver1 = SharedWebDriver.instance
-        $sharedData1 = SharedData.instance
         $driver = $sharedWebDriver1.get_driver()
         $wait = $sharedWebDriver1.get_waitor()
         $shortWait = $sharedWebDriver1.get_short_waitor()
@@ -35,6 +35,7 @@ AfterConfiguration do |config|
         init_test_user_data(Dir.pwd + "/data/mentors.json", Application.KEY_MENTORS)
         init_test_data_into_key(Dir.pwd + "/data/commons.json")
     end
+    $sharedData1.put_data(Application.KEY_RUN_ID, SecureRandom.uuid)
 end
 
 Before do |scenario|

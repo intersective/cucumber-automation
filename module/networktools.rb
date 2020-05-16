@@ -1,14 +1,3 @@
-def fire_request(apiMethod, apiUrl, pheaders, data, cols, i)
-    pquery = {}
-    response = nil
-    for j in 0..cols
-        pquery[data[0][j].to_s] = data[i][j]
-    end
-    
-    result = fire_request_with_data(apiMethod, apiUrl, pheaders, pquery)
-    return result
-end
-
 def fire_request_with_data(apiMethod, apiUrl, pheaders, pdata)
     response = fire_request(apiMethod, apiUrl, pheaders, pdata)
     result = JSON.parse(response.body)
@@ -34,4 +23,13 @@ def build_header(headersStr)
         end
     end
     return pheaders
+end
+
+def build_request_form(cols, rows)
+    pquery = {}
+    len = cols.length - 1
+    for i in 0..len
+        pquery[cols[i]] = rows[i]
+    end
+    return pquery
 end
