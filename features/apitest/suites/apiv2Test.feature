@@ -34,10 +34,10 @@ Feature: API V2 test
         Then I call the app "get" api "https://sandbox.practera.com/api/v2/observation/slider/list.json" by headers "appkey=b11e7c189b;apikey=b96e61c911cc9bc095e4", with:
             | timeline_id | result file |
             | 763 | v2/observation/slider/list/success_4.json |
-        Then "object" I call the "post" api "https://sandbox.practera.com/api/v2/observation/slider/create?timeline_id=763" by headers "appkey=b11e7c189b;apikey=b96e61c911cc9bc095e4;Content-Type=application/json", should equal with:
-            | api parameters | keys in header | keys | result file |
-            | [{"id":"7","choice_id":null},{"id":"8","choice_id":null},{"id":"9","choice_id":null}] | | | v2/observation/slider/create/success_1.json |
-            | [{"id":"1","choice_id":null},{"id":"8","choice_id":null},{"id":"9","choice_id":null}] | | | v2/observation/slider/create/fail_1.json |
+        Then I call the apis with:
+            | api menthod | api endpoint | api request header | data format | api parameters | keys in header | keys | result file |
+            | post | https://sandbox.practera.com/api/v2/observation/slider/create?timeline_id=763 | appkey=b11e7c189b;apikey=b96e61c911cc9bc095e4;Content-Type=application/json | object | [{"id":"7","choice_id":null},{"id":"8","choice_id":null},{"id":"9","choice_id":null}] | | | v2/observation/slider/create/success_1.json |
+            | post | https://sandbox.practera.com/api/v2/observation/slider/create?timeline_id=763 | appkey=b11e7c189b;apikey=b96e61c911cc9bc095e4;Content-Type=application/json | object | [{"id":"1","choice_id":null},{"id":"8","choice_id":null},{"id":"9","choice_id":null}] | | | v2/observation/slider/create/fail_1.json |
         Then I call the app "get" api "https://sandbox.practera.com/api/v2/plan/experience/config" by headers "appkey=b11e7c189b;apikey=b96e61c911cc9bc095e4", with:
             | domain | timeline_id | result file |
             | appdev.practera.com | 763 | v2/plan/experience/config/success_1.json |
@@ -60,6 +60,6 @@ Feature: API V2 test
         When I call the app "get" api "https://sandbox.practera.com/api/v2/observation/slider/list.json" by headers "appkey=b11e7c189b;apikey=3056276aafe93845e2f2", with:
             | timeline_id | result file |
             | 763 | v2/observation/slider/list/success_3.json |
-        Then "object" I call the "post" api "https://sandbox.practera.com/api/v2/observation/slider/create?timeline_id=763" by headers "appkey=b11e7c189b;apikey=3056276aafe93845e2f2;Content-Type=application/json", should equal with:
-            | api parameters | keys in header | keys | result file |
-            | [{"id":"7","choice_id":3},{"id":"8","choice_id":2},{"id":"9","choice_id":2},{"id":"10","choice_id":2}] | | | v2/observation/slider/create/success_1.json |
+        Then I call the apis with:
+            | api menthod | api endpoint | api request header | data format | api parameters | keys in header | keys | result file |
+            | post | https://sandbox.practera.com/api/v2/observation/slider/create?timeline_id=763 | appkey=b11e7c189b;apikey=3056276aafe93845e2f2;Content-Type=application/json | object | [{"id":"7","choice_id":3},{"id":"8","choice_id":2},{"id":"9","choice_id":2},{"id":"10","choice_id":2}] | | | v2/observation/slider/create/success_1.json |

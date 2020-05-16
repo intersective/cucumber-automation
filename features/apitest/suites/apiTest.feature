@@ -109,10 +109,10 @@ Feature: API test
             | timelineID | keys | values |
             | 734 | success&status | true&success |
         Then I wait 2 seconds
-        Then "Json" I call the "post" api "https://sandbox.practera.com/api/characters" by headers "timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a", should equal with:
-            | json parameters | keys in header | keys | result file |
-            | {"Character":{"id":655,"meta":{"private":0}}} | | |characters/success_1.json |
-            | {"Character":{"id":655,"meta":{"private":1}}} | | |characters/success_2.json |
+        Then I call the apis with:
+            | api menthod | api endpoint | api request header | data format | json parameters | keys in header | keys | result file |
+            | post | https://sandbox.practera.com/api/characters | timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a | Json | {"Character":{"id":655,"meta":{"private":0}}} | | |characters/success_1.json |
+            | post | https://sandbox.practera.com/api/characters | timelineID=734;appkey=69ad1e66dc;apikey=b9b3537864043b34cb4a | Json | {"Character":{"id":655,"meta":{"private":1}}} | | |characters/success_2.json |
         Then I wait 2 seconds
         Then I call the "get" api "https://sandbox.practera.com/api/submissions.json" by headers "appkey=b11e7c189b;apikey=f16232310551a3d4d035", should have keys equal with:
             | sentiment| team_id | timeline_id | keys | values |
