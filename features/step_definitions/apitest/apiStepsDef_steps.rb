@@ -44,32 +44,42 @@ Given("I call the {string} api {string} by headers {string}, should have keys eq
     end
 end
 
-Given(/^"([^"]*)" I call the "([^"]*)" api "([^"]*)" by headers "([^"]*)",(| should equal)(| and set keys) with:$/) do |dataFormat, apiMethod, apiUrl, headersStr, verify, setkeys, table|
+Given("I call the apis with:") do |table|
     runId = $sharedData1.load_data_from_key(Application.KEY_RUN_ID)
     data = table.raw
-    row_len = data.length - 1
-    pheaders = build_header(headersStr)
+    rowLen = data.length - 1
+    apiMenthodIndex = 0
+    apiendpointIndex = 1
+    apiRequestHeaderIndex = 2
+    dataformatIndex = 3
+    requestParametersIndex = 4
+    additionalHeaderIndex = 5
+    exportValueIndex = 6
+    expectedResultFileIndex = 7
 
-    for i in 1..row_len
-        if data[i][1].length > 0
-            header_keys = data[i][1].split("&")
+    for i in 1..rowLen
+        pheaders = build_header(data[i][apiRequestHeaderIndex])
+        if data[i][additionalHeaderIndex].length > 0
+            header_keys = data[i][additionalHeaderIndex].split("&")
             for hk in header_keys
                 temp = hk.split("=")
-                value = $sharedData1.load_data_from_key(runId + "-" + i.to_s + "-" + temp[1])
+                value = $sharedData1.load_data_from_key(runId + "-" + temp[1])
                 pheaders[temp[0]] = value
             end
         end
 
-        if dataFormat == "Json"
-            result = fire_request_with_data(apiMethod, apiUrl, pheaders, JSON.parse(data[i][0]))
-        elsif dataFormat == "Graphql"
-            result = fire_request(apiMethod, apiUrl, pheaders, data[i][0])
+        apiMethod = data[i][apiMenthodIndex]
+        apiUrl = data[i][apiendpointIndex]
+        if data[i][dataformatIndex] == "Json"
+            result = fire_request_with_data(apiMethod, apiUrl, pheaders, JSON.parse(data[i][requestParametersIndex]))
+        elsif data[i][dataformatIndex] == "Graphql"
+            result = fire_request(apiMethod, apiUrl, pheaders, data[i][requestParametersIndex])
         else
-            result = fire_request_with_data(apiMethod, apiUrl, pheaders, data[i][0])
+            result = fire_request_with_data(apiMethod, apiUrl, pheaders, data[i][requestParametersIndex])
         end
 
-        if verify == " should equal"
-            expectedResult = read_json_file(Dir.pwd + "/testExpectedResult/" + data[i][3])
+        if data[i][expectedResultFileIndex].length > 0
+            expectedResult = read_json_file(Dir.pwd + "/testExpectedResult/" + data[i][expectedResultFileIndex])
             verificationResult = hash_deep_equal(expectedResult, result, "", "")
             if verificationResult.length > 0
                 tempVerificationResult = verificationResult.split(";")
@@ -83,12 +93,13 @@ Given(/^"([^"]*)" I call the "([^"]*)" api "([^"]*)" by headers "([^"]*)",(| sho
                 $testLogger1.log_case(message)
             end
         end
-        if setkeys == " and set keys"
-            keys = data[i][2].split("&")
+        if data[i][exportValueIndex].length > 0
+            keys = data[i][exportValueIndex].split("&")
             for k in keys
                 value = get_value_from_hash(k, result)
-                $sharedData1.put_data(runId + "-" + i.to_s + "-" + k.to_s, value)
+                $sharedData1.put_data(runId + "-" + k.to_s, value)
             end
         end
     end
+
 end
