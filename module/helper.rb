@@ -96,13 +96,13 @@ def hash_deep_equal(hash1, hash2, result, rootPath)
 					hash_deep_equal(value[i], hash2[key][i], result, [rootPath, key.to_s, i.to_s].join("/"))
 				else
 					if value[i] != hash2[key][i]
-						result.concat(";").concat(rootPath).concat("/").concat(key.to_s).concat("/").concat(i.to_s)
+						result.push([rootPath, key.to_s, i.to_s].join("/"))
 					end
 				end
 			end
 		else
-            if value != hash2[key]
-                result.concat(";").concat(rootPath).concat("/").concat(key.to_s)
+			if value != hash2[key]
+				result.push([rootPath, key.to_s].join("/"))
 			end
 		end
     end

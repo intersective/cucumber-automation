@@ -80,11 +80,9 @@ Given("I call the apis with:") do |table|
 
         if data[i][expectedResultFileIndex].length > 0
             expectedResult = read_json_file(Dir.pwd + "/testExpectedResult/" + data[i][expectedResultFileIndex])
-            verificationResult = hash_deep_equal(expectedResult, result, "", "")
+            verificationResult = hash_deep_equal(expectedResult, result, [], "")
             if verificationResult.length > 0
-                tempVerificationResult = verificationResult.split(";")
-                tempVerificationResult.shift
-                for one in tempVerificationResult
+                for one in verificationResult do
                     message = ["[", apiUrl, "] row_number:", i.to_s, " ", one, ":", get_value_from_hash(one, expectedResult)].join()
                     @collectedErrors.push(message)
                 end
