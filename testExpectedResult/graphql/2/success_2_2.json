@@ -49,6 +49,26 @@
                     "description": "",
                     "questions": []
                 }
+            ],
+            "submissions": [
+                {
+                    "id": 2,
+                    "status": "pending review",
+                    "completed": false,
+                    "modified": "2020-04-27 22:47:52",
+                    "locked": false,
+                    "submitter": {
+                        "name": "student two",
+                        "image": null
+                    },
+                    "answers": [
+                        {
+                            "questionId": 181,
+                            "answer": "470"
+                        }
+                    ],
+                    "review": null
+                }
             ]
         }
     }

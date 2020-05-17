@@ -86,26 +86,27 @@ def load_config(configFile)
 end
 
 def hash_deep_equal(hash1, hash2, result, rootPath)
-	hash1.each do |key, value|
-		if value.class == Hash
-			hash_deep_equal(value, hash2[key], result, [rootPath, key.to_s].join("/"))
-		elsif value.class == Array
-			len = value.length - 1
-			for i in 0..len do
-				if value[i].class == Hash
+	if hash1.class == Array
+		len = hash1.length - 1
+		for i in 0..len do
+			hash_deep_equal(hash1[i], hash2[i], result, [rootPath, i.to_s].join("/"))
+		end
+	elsif hash1.class == Hash
+		hash1.each do |key, value|
+			if value.class == Array
+				len2 = value.length - 1
+				for i in 0..len2 do
 					hash_deep_equal(value[i], hash2[key][i], result, [rootPath, key.to_s, i.to_s].join("/"))
-				else
-					if value[i] != hash2[key][i]
-						result.push([rootPath, key.to_s, i.to_s].join("/"))
-					end
 				end
-			end
-		else
-			if value != hash2[key]
-				result.push([rootPath, key.to_s].join("/"))
+			else
+				hash_deep_equal(value, hash2[key], result, [rootPath, key.to_s].join("/"))
 			end
 		end
-    end
+	else
+		if hash1 != hash2
+			result.push(rootPath)
+		end
+	end
 	return result
 end
 

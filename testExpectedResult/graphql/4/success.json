@@ -1,9 +1,9 @@
 {
     "data": {
         "assessment": {
-            "name": "Moderated Assessment 111",
-            "type": "moderated",
-            "description": "Needs a description...",
+            "name": "Quiz Assessment 111 - participant",
+            "type": "quiz",
+            "description": "Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111",
             "dueDate": "2020-04-22 21:00:00",
             "isTeam": false,
             "pulseCheck": true,
@@ -13,29 +13,30 @@
                     "description": "",
                     "questions": [
                         {
-                            "id": 181,
+                            "id": 183,
                             "name": "Question one",
                             "description": "",
                             "type": "oneof",
-                            "isRequired": true,
+                            "isRequired": false,
                             "hasComment": false,
                             "audience": [
+                                "reviewer",
                                 "submitter"
                             ],
                             "fileType": null,
                             "choices": [
                                 {
-                                    "id": 470,
+                                    "id": 476,
                                     "name": "New Choice 1",
                                     "explanation": null
                                 },
                                 {
-                                    "id": 471,
+                                    "id": 477,
                                     "name": "New Choice 0.6",
                                     "explanation": null
                                 },
                                 {
-                                    "id": 472,
+                                    "id": 478,
                                     "name": "New Choice 0.8",
                                     "explanation": null
                                 }
@@ -43,11 +44,6 @@
                             "teamMembers": null
                         }
                     ]
-                },
-                {
-                    "name": "Group two",
-                    "description": "",
-                    "questions": []
                 }
             ]
         }
