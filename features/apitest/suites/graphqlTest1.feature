@@ -5,7 +5,7 @@ Feature: Graphql API test
 
     Scenario: Graphql API test 1
         When I call the apis with:
-            | api menthod | api endpoint | api request header | data format | parameters | keys in header | keys | result file |
+            | api menthod | api endpoint | api request header | data format | parameters | set keys into header | export values | result file |
             | post | http://localhost:8080/api/auths.json | appKey=b11e7c189b | Json | {"User" : {"email" : "student.one@practera.com","password" :"El3phant"}} | | data/apikey | |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:60,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/activity/success_1.json |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:72,reviewer:false,activityId:51) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/1/success_1_1.json |
@@ -16,7 +16,7 @@ Feature: Graphql API test
 
     Scenario: Graphql API test 2
         When I call the apis with:
-            | api menthod | api endpoint | api request header | data format | parameters | keys in header | keys | result file |
+            | api menthod | api endpoint | api request header | data format | parameters | set keys into header | export values | result file |
             | post | http://localhost:8080/api/auths.json | appKey=b11e7c189b | Json | {"User" : {"email" : "student.two@practera.com","password" :"El3phant"}} | | data/apikey | |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:60,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/activity/success_2.json |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:72,reviewer:false,activityId:51) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/2/success_2_1.json |
@@ -27,7 +27,7 @@ Feature: Graphql API test
 
     Scenario: Graphql API test 3
         When I call the apis with:
-            | api menthod | api endpoint | api request header | data format | parameters | keys in header | keys | result file |
+            | api menthod | api endpoint | api request header | data format | parameters | set keys into header | export values | result file |
             | post | http://localhost:8080/api/auths.json | appKey=b11e7c189b | Json | {"User" : {"email" : "mentor.one@practera.com","password" :"El3phant"}} | | data/apikey | |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;timelineId=9 | Graphql | "{ assessment(id:62,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/activity/success_3.json |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;timelineId=9 | Graphql | "{ assessment(id:61,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/3/success_3_1.json |
@@ -37,7 +37,7 @@ Feature: Graphql API test
 
     Scenario: Graphql API test 4
         When I call the apis with:
-            | api menthod | api endpoint | api request header | data format | parameters | keys in header | keys | result file |
+            | api menthod | api endpoint | api request header | data format | parameters | set keys into header | export values | result file |
             | post | http://localhost:8080/api/auths.json | appKey=b11e7c189b | Json | {"User" : {"email" : "student.one@practera.com","password" :"El3phant"}} | | data/apikey | |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:61,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/4/success.json |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:62,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/4/success_1.json |
@@ -46,7 +46,7 @@ Feature: Graphql API test
 
     Scenario: Graphql API test 5
         When I call the apis with:
-            | api menthod | api endpoint | api request header | data format | parameters | keys in header | keys | result file |
+            | api menthod | api endpoint | api request header | data format | parameters | set keys into header | export values | result file |
             | post | http://localhost:8080/api/auths.json | appKey=b11e7c189b | Json | {"User" : {"email" : "student.one@practera.com","password" :"El3phant"}} | | data/apikey | |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:81,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } } }" | apikey=data/apikey | | graphql/5/success.json |
             | post | http://localhost:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | Graphql | "{ assessment(id:81,reviewer:false,activityId:45) { name type description dueDate isTeam pulseCheck groups{ name description questions{ id name description type isRequired hasComment audience fileType choices{ id name explanation } teamMembers{ userId userName teamId } } } submissions(id:6) { id status completed modified locked submitter { name image } answers{ questionId answer } review { id status modified reviewer { name } answers { questionId answer comment } } } } }" | apikey=data/apikey | | graphql/5/success_1.json |
