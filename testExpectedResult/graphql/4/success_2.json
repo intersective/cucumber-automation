@@ -1,0 +1,71 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Quiz Assessment 111 - participant",
+            "type": "quiz",
+            "description": "Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111 Quiz Assessment 111",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": false,
+            "pulseCheck": true,
+            "groups": [
+                {
+                    "name": "Group one",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 183,
+                            "name": "Question one",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 476,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 477,
+                                    "name": "New Choice 0.6",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 478,
+                                    "name": "New Choice 0.8",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ],
+            "submissions": [
+                {
+                    "id": 5,
+                    "status": "done",
+                    "completed": true,
+                    "modified": "2020-05-03 20:11:52",
+                    "locked": false,
+                    "submitter": {
+                        "name": "student one",
+                        "image": null
+                    },
+                    "answers": [
+                        {
+                            "questionId": 183,
+                            "answer": "477"
+                        }
+                    ],
+                    "review": null
+                }
+            ]
+        }
+    }
+}

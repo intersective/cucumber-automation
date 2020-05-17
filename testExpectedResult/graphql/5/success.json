@@ -1,0 +1,276 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Moderated Assessment 114 - comprehensive",
+            "type": "moderated",
+            "description": "Moderated Assessment 114 descriptions",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": false,
+            "pulseCheck": false,
+            "groups": [
+                {
+                    "name": "Group Text",
+                    "description": "Group Text descriptions",
+                    "questions": [
+                        {
+                            "id": 244,
+                            "name": "Question text - submitter",
+                            "description": "Question text - submitter descriptions",
+                            "type": "text",
+                            "isRequired": true,
+                            "hasComment": true,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 246,
+                            "name": "Question text",
+                            "description": "Question text descriptions",
+                            "type": "text",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group multiple choices",
+                    "description": "Group multiple choices group descriptions",
+                    "questions": [
+                        {
+                            "id": 247,
+                            "name": "Question multiple choices - submitter",
+                            "description": "Question multiple choices - submitter descriptions",
+                            "type": "oneof",
+                            "isRequired": true,
+                            "hasComment": true,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 611,
+                                    "name": "New Choice 1 - submitter",
+                                    "explanation": "New Choice 1 - submitter exp"
+                                },
+                                {
+                                    "id": 612,
+                                    "name": "New Choice 2 - submitter",
+                                    "explanation": "New Choice 2 - submitter exp"
+                                },
+                                {
+                                    "id": 613,
+                                    "name": "New Choice 3 - submitter",
+                                    "explanation": "New Choice 3 - submitter exp"
+                                }
+                            ],
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 249,
+                            "name": "Question multiple choices",
+                            "description": "Question multiple choices descriptions",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 617,
+                                    "name": "New Choice 1",
+                                    "explanation": "New Choice 1 exp"
+                                },
+                                {
+                                    "id": 618,
+                                    "name": "New Choice 2",
+                                    "explanation": "New Choice 2 exp"
+                                },
+                                {
+                                    "id": 619,
+                                    "name": "New Choice 3",
+                                    "explanation": "New Choice 3 exp"
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group checkbox",
+                    "description": "Group checkbox descriptions",
+                    "questions": [
+                        {
+                            "id": 250,
+                            "name": "Question checkbox - submitter",
+                            "description": "Question checkbox - submitter descriptions",
+                            "type": "multiple",
+                            "isRequired": true,
+                            "hasComment": true,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 620,
+                                    "name": "New Choice 1c - submitter",
+                                    "explanation": "New Choice 1c - submitter exp"
+                                },
+                                {
+                                    "id": 621,
+                                    "name": "New Choice 2c - submitter",
+                                    "explanation": "New Choice 2c - submitter hint"
+                                },
+                                {
+                                    "id": 622,
+                                    "name": "New Choice 3c - submitter",
+                                    "explanation": "New Choice 3c - submitter exp"
+                                }
+                            ],
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 252,
+                            "name": "Question checkbox",
+                            "description": "Question checkbox descriptions",
+                            "type": "multiple",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 626,
+                                    "name": "New Choice 1c",
+                                    "explanation": "New Choice 1c exp"
+                                },
+                                {
+                                    "id": 627,
+                                    "name": "New Choice 2c",
+                                    "explanation": "New Choice 2c exp"
+                                },
+                                {
+                                    "id": 628,
+                                    "name": "New Choice 3c",
+                                    "explanation": "New Choice 3c exp"
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group File",
+                    "description": "Group File descriptions",
+                    "questions": [
+                        {
+                            "id": 253,
+                            "name": "Question File any - submitter",
+                            "description": "Question File any - submitter descriptions",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": "any",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 255,
+                            "name": "Question Image - submitter",
+                            "description": "Question Image - submitter descriptions",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": "image",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 257,
+                            "name": "Question video - submitter",
+                            "description": "Question video - submitter descriptions",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": "video",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 259,
+                            "name": "Question File any",
+                            "description": "Question File any descriptions",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "any",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 260,
+                            "name": "Question Image",
+                            "description": "Question Image descriptions",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "image",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 261,
+                            "name": "Question Video",
+                            "description": "Question Video descriptions",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": true,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "video",
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

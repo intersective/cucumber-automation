@@ -1,0 +1,44 @@
+{
+    "data": {
+        "milestones": [
+            {
+                "id": 16,
+                "name": "Milestone 1",
+                "progress": 0,
+                "description": "Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1 Milestone 1",
+                "isLocked": false,
+                "activities": [
+                    {
+                        "id": 45,
+                        "name": "Activity 11",
+                        "progress": 0,
+                        "isLocked": false,
+                        "leadImage": null
+                    },
+                    {
+                        "id": 46,
+                        "name": "Activity 12",
+                        "progress": 0,
+                        "isLocked": false,
+                        "leadImage": null
+                    },
+                    {
+                        "id": 50,
+                        "name": "Activity 13",
+                        "progress": 0,
+                        "isLocked": false,
+                        "leadImage": null
+                    }
+                ]
+            },
+            {
+                "id": 15,
+                "name": "Milestone 2",
+                "progress": 0,
+                "description": null,
+                "isLocked": true,
+                "activities": []
+            }
+        ]
+    }
+}
