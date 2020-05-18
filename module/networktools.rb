@@ -1,9 +1,3 @@
-def fire_request_with_data(apiMethod, apiUrl, pheaders, pdata)
-    response = fire_request(apiMethod, apiUrl, pheaders, pdata)
-    result = JSON.parse(response.body)
-    return result
-end
-
 def fire_request(apiMethod, apiUrl, pheaders, pdata)
     if (apiMethod == "post")
         response = HTTParty.post(apiUrl, :body => pdata, :headers => pheaders)

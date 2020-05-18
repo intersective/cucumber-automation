@@ -9,7 +9,7 @@ Given("I call the app {string} api {string} by headers {string}, with:") do |api
 
     for i in 1..row_len
         requestData = build_request_form(cols, data[i].slice(0, col_len))
-        result = fire_request_with_data(apiMethod, apiUrl, pheaders, requestData)
+        result = JSON.parse(fire_request(apiMethod, apiUrl, pheaders, requestData).body)
         expectedResult = read_json_file(Dir.pwd + "/testExpectedResult/" + data[i][-1])
 
         verificationResult = hash_deep_equal(expectedResult, result, "", "")
@@ -32,7 +32,7 @@ Given("I call the {string} api {string} by headers {string}, should have keys eq
 
     for i in 1..row_len
         requestData = build_request_form(cols, data[i].slice(0, col_len))
-        result = fire_request_with_data(apiMethod, apiUrl, pheaders, requestData)
+        result = JSON.parse(fire_request(apiMethod, apiUrl, pheaders, requestData).body)
 
         keys = data[i][keys_index].split("&")
         values = data[i][value_index].split("&")
@@ -51,31 +51,22 @@ Given("I call the apis with:") do |table|
     apiMenthodIndex = 0
     apiendpointIndex = 1
     apiRequestHeaderIndex = 2
-    dataformatIndex = 3
+    parametersFormatIndex = 3
     requestParametersIndex = 4
-    additionalHeaderIndex = 5
-    exportValueIndex = 6
-    expectedResultFileIndex = 7
+    expectedResultFileIndex = 5
 
     for i in 1..rowLen
         pheaders = build_header(data[i][apiRequestHeaderIndex])
-        if data[i][additionalHeaderIndex].length > 0
-            header_keys = data[i][additionalHeaderIndex].split("&")
-            for hk in header_keys
-                temp = hk.split("=")
-                value = $sharedData1.load_data_from_key(runId + "-" + temp[1])
-                pheaders[temp[0]] = value
-            end
-        end
+        $apiService1.set_headers(pheaders)
 
         apiMethod = data[i][apiMenthodIndex]
         apiUrl = data[i][apiendpointIndex]
-        if data[i][dataformatIndex] == "Json"
-            result = fire_request_with_data(apiMethod, apiUrl, pheaders, JSON.parse(data[i][requestParametersIndex]))
-        elsif data[i][dataformatIndex] == "Graphql"
-            result = fire_request(apiMethod, apiUrl, pheaders, data[i][requestParametersIndex])
+        if data[i][parametersFormatIndex] == "json"
+            result = JSON.parse($apiService1.send_requeset(apiMethod, apiUrl,JSON.parse(data[i][requestParametersIndex])).body)
+        elsif data[i][parametersFormatIndex] == "object"
+            result = JSON.parse($apiService1.send_requeset(apiMethod, apiUrl, data[i][requestParametersIndex]).body)
         else
-            result = fire_request_with_data(apiMethod, apiUrl, pheaders, data[i][requestParametersIndex])
+            result = $apiService1.send_requeset(apiMethod, apiUrl, data[i][requestParametersIndex])
         end
 
         if data[i][expectedResultFileIndex].length > 0
@@ -91,13 +82,23 @@ Given("I call the apis with:") do |table|
                 $testLogger1.log_case(message)
             end
         end
-        if data[i][exportValueIndex].length > 0
-            keys = data[i][exportValueIndex].split("&")
-            for k in keys
-                value = get_value_from_hash(k, result)
-                $sharedData1.put_data(runId + "-" + k.to_s, value)
-            end
-        end
     end
 
+end
+
+Given("Practer app v2 api I login with username {string} and password {string} by {string}") do |username, password, apiUrl|
+    $apiService1.set_headers({
+        "appkey"=>"b11e7c189b",
+        "Content-Type"=>"application/json"
+    })
+    data = {
+        "User"=>{
+            "email"=>username,
+            "password"=>password
+        }
+    }.to_json
+    result = JSON.parse($apiService1.send_requeset("post", apiUrl, data).body)
+    $apiService1.set_headers({
+        "apikey"=>result["data"]["apikey"]
+    })
 end

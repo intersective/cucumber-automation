@@ -98,7 +98,7 @@ Then(/^"Mailtrap Api" I search email with (receiver|title) "([^"]*)" and (receiv
     end
     while noFound
         begin
-            result = fire_request_with_data("get", apiUrl, pheaders, pdata)
+            result = JSON.parse(fire_request("get", apiUrl, pheaders, pdata).body)
             mails = result.select do |message|
                 message["to_email"] == receiver && message["subject"] == title
             end

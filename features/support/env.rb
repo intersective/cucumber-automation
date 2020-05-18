@@ -11,6 +11,7 @@ require_relative "../../module/model/event"
 require_relative "../../module/constants/application"
 require_relative "../../module/service/userService"
 require_relative "../../module/service/eventService"
+require_relative "../../module/service/APIService"
 require_relative "../../module/initDataHelper"
 require 'httparty'
 require 'nokogiri'

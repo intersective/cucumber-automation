@@ -13,6 +13,7 @@ AfterConfiguration do |config|
     $currentFeatureFile = ""
     $visibleWait = $configObj["VISIBLE_WAIT"].to_i
     $sharedData1 = SharedData.instance
+    $apiService1 = APIService.instance
     if $configObj["MODE"] != "apiTest"
         $sharedWebDriver1 = SharedWebDriver.instance
         $driver = $sharedWebDriver1.get_driver()
