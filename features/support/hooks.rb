@@ -61,6 +61,8 @@ After do |scenario|
     else
         fail(@collectedErrors.join("\n"))
     end
+    $apiService1.clear_headers()
+    sleep 1
 end
 
 AfterStep do |reuslt, testStep|

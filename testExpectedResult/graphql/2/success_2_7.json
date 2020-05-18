@@ -47,7 +47,38 @@
                 {
                     "name": "Group two",
                     "description": "",
-                    "questions": []
+                    "questions": [
+                        {
+                            "id": 180,
+                            "name": "Question two",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": true,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 467,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 468,
+                                    "name": "New Choice 0.9",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 469,
+                                    "name": "New Choice 0.5",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
                 }
             ]
         }

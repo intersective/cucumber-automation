@@ -154,7 +154,13 @@
                             ],
                             "fileType": null,
                             "choices": null,
-                            "teamMembers": []
+                            "teamMembers": [
+                                {
+                                    "userId": 36,
+                                    "userName": "student two",
+                                    "teamId": 7
+                                }
+                            ]
                         },
                         {
                             "id": 196,
