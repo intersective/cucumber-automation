@@ -29,10 +29,10 @@
                     "deadline": "2020-04-23 07:00:00",
                     "contextId": 70,
                     "status": {
-                        "status": "",
-                        "isLocked": null,
-                        "submitterName": null,
-                        "submitterImage": null
+                        "status": "pending review",
+                        "isLocked": false,
+                        "submitterName": "mentor one",
+                        "submitterImage": "https://www.gravatar.com/avatar/c627ae6dabbd78839ff0cc9bac0aebd3?d=https%3A%2F%2Fmy.practera.com%2Fimg%2Fuser-512.png&s=50"
                     }
                 },
                 {
@@ -74,10 +74,10 @@
                     "deadline": "2020-04-23 07:00:00",
                     "contextId": 99,
                     "status": {
-                        "status": "",
-                        "isLocked": null,
-                        "submitterName": null,
-                        "submitterImage": null
+                        "status": "done",
+                        "isLocked": false,
+                        "submitterName": "mentor one",
+                        "submitterImage": "https://www.gravatar.com/avatar/c627ae6dabbd78839ff0cc9bac0aebd3?d=https%3A%2F%2Fmy.practera.com%2Fimg%2Fuser-512.png&s=50"
                     }
                 },
                 {
