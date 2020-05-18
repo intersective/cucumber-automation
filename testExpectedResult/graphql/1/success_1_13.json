@@ -1,0 +1,160 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Team Reflection Assessment 121",
+            "type": "reflection",
+            "description": "Needs a description...",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": true,
+            "pulseCheck": false,
+            "groups": [
+                {
+                    "name": "Group one",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 185,
+                            "name": "Question one",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 479,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 480,
+                                    "name": "New Choice Activity 22",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 481,
+                                    "name": "New Choice Activity 23",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group two",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 186,
+                            "name": "Question two",
+                            "description": "",
+                            "type": "multiple",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 482,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 483,
+                                    "name": "New Choice 2",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 484,
+                                    "name": "New Choice 3",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group three",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 187,
+                            "name": "Question three",
+                            "description": "",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "any",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 188,
+                            "name": "Question four",
+                            "description": "",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "image",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 189,
+                            "name": "Question five",
+                            "description": "",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "video",
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group four",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 190,
+                            "name": "Question six",
+                            "description": "",
+                            "type": "text",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Moderated Assessment 112 - mentor",
+            "type": "moderated",
+            "description": "Needs a description...",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": false,
+            "pulseCheck": true,
+            "groups": [
+                {
+                    "name": "Group one",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 177,
+                            "name": "Question one",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": true,
+                            "hasComment": false,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 458,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 459,
+                                    "name": "New Choice 0.6",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 460,
+                                    "name": "New Choice 0.8",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group two",
+                    "description": "",
+                    "questions": []
+                }
+            ],
+            "submissions": [
+                {
+                    "id": 11,
+                    "status": "pending review",
+                    "completed": false,
+                    "modified": "2020-05-10 19:16:33",
+                    "locked": false,
+                    "submitter": {
+                        "name": "mentor one",
+                        "image": null
+                    },
+                    "answers": [
+                        {
+                            "questionId": 177,
+                            "answer": "459"
+                        }
+                    ],
+                    "review": {
+                        "id": 3,
+                        "status": "not start",
+                        "modified": "2020-05-10 19:16:33",
+                        "reviewer": {
+                            "name": "mentor two"
+                        },
+                        "answers": []
+                    }
+                }
+            ]
+        }
+    }
+}

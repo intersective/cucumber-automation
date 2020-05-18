@@ -1,0 +1,270 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Team Reflection Assessment 121",
+            "type": "reflection",
+            "description": "Needs a description...",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": true,
+            "pulseCheck": false,
+            "groups": [
+                {
+                    "name": "Group one",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 185,
+                            "name": "Question one",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 479,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 480,
+                                    "name": "New Choice Activity 22",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 481,
+                                    "name": "New Choice Activity 23",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group two",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 186,
+                            "name": "Question two",
+                            "description": "",
+                            "type": "multiple",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 482,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 483,
+                                    "name": "New Choice 2",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 484,
+                                    "name": "New Choice 3",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group three",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 187,
+                            "name": "Question three",
+                            "description": "",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "any",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 188,
+                            "name": "Question four",
+                            "description": "",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "image",
+                            "choices": null,
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 189,
+                            "name": "Question five",
+                            "description": "",
+                            "type": "file",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": "video",
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group four",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 190,
+                            "name": "Question six",
+                            "description": "",
+                            "type": "text",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ],
+            "submissions": [
+                {
+                    "id": 13,
+                    "status": "done",
+                    "completed": false,
+                    "modified": "2020-05-10 20:03:11",
+                    "locked": false,
+                    "submitter": {
+                        "name": "student one",
+                        "image": null
+                    },
+                    "answers": [
+                        {
+                            "questionId": 185,
+                            "answer": "480"
+                        },
+                        {
+                            "questionId": 186,
+                            "answer": [
+                                483,
+                                484
+                            ]
+                        },
+                        {
+                            "questionId": 187,
+                            "answer": {
+                                "filename": "2017-Scrum-Guide-US.pdf",
+                                "handle": "VPycMnn0RyqL2cJGpmiw",
+                                "mimetype": "application/pdf",
+                                "originalPath": "2017-Scrum-Guide-US.pdf",
+                                "size": 595968,
+                                "source": "local_file_system",
+                                "url": "https://cdn.filestackcontent.com/VPycMnn0RyqL2cJGpmiw",
+                                "uploadId": "CE49L3i8X9EPRXy7",
+                                "originalFile": {
+                                    "name": "2017-Scrum-Guide-US.pdf",
+                                    "type": "application/pdf",
+                                    "size": 595968
+                                },
+                                "status": "Stored",
+                                "key": "appv2/stage/uploads/38135790c284b1f1409ca9a676a71841/PEoWHzfRR5GWVXB1PtGw_2017-Scrum-Guide-US.pdf",
+                                "container": "practera-aus",
+                                "workflows": {
+                                    "3c38ef53-a9d0-4aa4-9234-617d9f03c0de": {
+                                        "jobid": "b489e2ab-b6bf-4dbe-890c-758d13e1d8fa"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "questionId": 188,
+                            "answer": {
+                                "filename": "Kyoto_Animation.jpeg",
+                                "handle": "0z4SKYgSz0dq8pMSleow",
+                                "mimetype": "image/jpeg",
+                                "originalPath": "Kyoto Animation.jpeg",
+                                "size": 12788,
+                                "source": "local_file_system",
+                                "url": "https://cdn.filestackcontent.com/0z4SKYgSz0dq8pMSleow",
+                                "uploadId": "nmqWDe5c1rmQC8vH",
+                                "originalFile": {
+                                    "name": "Kyoto Animation.jpeg",
+                                    "type": "image/jpeg",
+                                    "size": 12788
+                                },
+                                "status": "Stored",
+                                "key": "appv2/stage/uploads/38135790c284b1f1409ca9a676a71841/UuLsO7kCSJ69bpe63TdP_Kyoto_Animation.jpeg",
+                                "container": "practera-aus",
+                                "workflows": {
+                                    "3c38ef53-a9d0-4aa4-9234-617d9f03c0de": {
+                                        "jobid": "5a20337b-c0ff-45be-a41f-6b8a79d5bc24"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "questionId": 189,
+                            "answer": {
+                                "filename": "WhatsApp_Video_2017-11-30_at_11.27.14.mp4",
+                                "handle": "vRvaVYXNQXyIWcfAERFE",
+                                "mimetype": "video/mp4",
+                                "originalPath": "WhatsApp Video 2017-11-30 at 11.27.14.mp4",
+                                "size": 700732,
+                                "source": "local_file_system",
+                                "url": "https://cdn.filestackcontent.com/vRvaVYXNQXyIWcfAERFE",
+                                "uploadId": "77MfO4mi6hlppQ7j",
+                                "originalFile": {
+                                    "name": "WhatsApp Video 2017-11-30 at 11.27.14.mp4",
+                                    "type": "video/mp4",
+                                    "size": 700732
+                                },
+                                "status": "Stored",
+                                "key": "appv2/stage/video/upload/38135790c284b1f1409ca9a676a71841/4twvqLo1TOWaCQ612WbA_WhatsApp_Video_2017-11-30_at_11_27_14.mp4",
+                                "container": "practera-aus",
+                                "workflows": {
+                                    "3c38ef53-a9d0-4aa4-9234-617d9f03c0de": {
+                                        "jobid": "9af47535-c3ed-4642-a561-472447997196"
+                                    }
+                                },
+                                "transcoded": "https://s3-ap-southeast-2.amazonaws.com/practera-aus/appv2/stage/video/transcoded/38135790c284b1f1409ca9a676a71841/4twvqLo1TOWaCQ612WbA_WhatsApp_Video_2017-11-30_at_11_27_14/4twvqLo1TOWaCQ612WbA_WhatsApp_Video_2017-11-30_at_11_27_14"
+                            }
+                        },
+                        {
+                            "questionId": 190,
+                            "answer": "student one text"
+                        }
+                    ],
+                    "review": null
+                }
+            ]
+        }
+    }
+}
