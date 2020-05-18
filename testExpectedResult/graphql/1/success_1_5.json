@@ -104,10 +104,10 @@
                     "deadline": "2020-04-23 07:00:00",
                     "contextId": 99,
                     "status": {
-                        "status": "",
-                        "isLocked": null,
-                        "submitterName": null,
-                        "submitterImage": null
+                        "status": "done",
+                        "isLocked": false,
+                        "submitterName": "student one",
+                        "submitterImage": "https://www.gravatar.com/avatar/f2dbf786fd5c15fe15913897d667a134?d=https%3A%2F%2Fmy.practera.com%2Fimg%2Fuser-512.png&s=50"
                     }
                 },
                 {

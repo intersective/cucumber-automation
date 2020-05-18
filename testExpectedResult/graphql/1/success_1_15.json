@@ -1,0 +1,51 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Quiz Assessment 114",
+            "type": "quiz",
+            "description": "",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": false,
+            "pulseCheck": false,
+            "groups": [
+                {
+                    "name": "Group one",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 243,
+                            "name": "Question one",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 608,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 609,
+                                    "name": "New Choice 0.6",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 610,
+                                    "name": "New Choice 0.8",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
