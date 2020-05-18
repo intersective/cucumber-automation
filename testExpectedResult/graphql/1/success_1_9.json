@@ -1,0 +1,323 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Example Team360 Assessment",
+            "type": "team360",
+            "description": "",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": false,
+            "pulseCheck": false,
+            "groups": [
+                {
+                    "name": "Self Assessment - TEAM LEADER ONLY",
+                    "description": "If you were the team leader in this phase of the project please complete this self assessment. If you were a team member SKIP TO THE NEXT GROUP OF QUESTIONS",
+                    "questions": [
+                        {
+                            "id": 192,
+                            "name": "Demonstrates reliability",
+                            "description": "As a leader your team member was reliable, got the work done and did her fair share to work hard and meet commitments. He or she followed through on assignments. Consistency is key. You were comfortable counting on him or her to deliver good performance all the time, not just some of the time.&nbsp;",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 488,
+                                    "name": "Expert",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 489,
+                                    "name": "Proficient ",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 490,
+                                    "name": "Competent",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 491,
+                                    "name": "Advanced Beginner",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 492,
+                                    "name": "Novice",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 193,
+                            "name": "Treats others in a respectful and supportive manner",
+                            "description": "A good leader treats his team members with courtesy and consideration — not just some of the time but consistently. In addition, a good leader shows understanding of his team and can provide the appropriate support for each team member to help them get the job done. A good leader doesn't place conditions on when they'll provide assistance, when they'll choose to listen, and when they'll share information. A good leader also has a sense of humor and knows how to have fun.",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 493,
+                                    "name": "Expert",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 494,
+                                    "name": "Proficient",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 495,
+                                    "name": "Competent",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 496,
+                                    "name": "Advanced Beginner",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 497,
+                                    "name": "Novice",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 194,
+                            "name": "Works as a Problem Solver",
+                            "description": "A good leader treats his team members with courtesy and consideration — not just some of the time but consistently. In addition, a good leader shows understanding of his team and can provide the appropriate support for each team member to help them get the job done. A good leader doesn't place conditions on when they'll provide assistance, when they'll choose to listen, and when they'll share information. A good leader also has a sense of humor and knows how to have fun. HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 498,
+                                    "name": "Expert",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 499,
+                                    "name": "Proficient",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 500,
+                                    "name": "Competent",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 501,
+                                    "name": "Advanced Beginner",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 502,
+                                    "name": "Novice",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Project Management  Skill PEER Assessment",
+                    "description": "Complete the review of your team leader's skills here.&nbsp;",
+                    "questions": [
+                        {
+                            "id": 195,
+                            "name": "NAME OF TEAM MEMBER",
+                            "description": "Please select who your team leader was for this module&nbsp;",
+                            "type": "team member selector",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": null,
+                            "teamMembers": []
+                        },
+                        {
+                            "id": 196,
+                            "name": "Demonstrates reliability",
+                            "description": "As a leader your team member was reliable, got the work done and did her fair share to work hard and meet commitments. He or she followed through on assignments. Consistency is key. You were comfortable counting on him or her to deliver good performance all the time, not just some of the time.&nbsp;",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 503,
+                                    "name": "Expert",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 504,
+                                    "name": "Proficient",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 505,
+                                    "name": "Competent",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 506,
+                                    "name": "Advanced Beginner",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 507,
+                                    "name": "Novice",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 197,
+                            "name": "Treats others in a respectful and supportive manner",
+                            "description": "A good leader treats his team members with courtesy and consideration — not just some of the time but consistently. In addition, a good leader shows understanding of his team and can provide the appropriate support for each team member to help them get the job done. A good leader doesn't place conditions on when they'll provide assistance, when they'll choose to listen, and when they'll share information. A good leader also has a sense of humor and knows how to have fun. <br>",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 508,
+                                    "name": "Expert",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 509,
+                                    "name": "Proficient",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 510,
+                                    "name": "Competent",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 511,
+                                    "name": "Advanced Beginner",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 512,
+                                    "name": "Novice",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 198,
+                            "name": "Works as a Problem Solver",
+                            "description": "<div>Teams, of course, deal with problems. Sometimes, it appears, that's the whole reason why a team is created — to address problems. Good leaders are willing to deal with all kinds of problems in a solutions­ oriented manner. They facilitate solving problems and don't dwell on problems, blame others for problems, or avoid problems.&nbsp; A good leader doesn't simply rehash a problem, or look for others to fault, or put off dealing with problem issues. A good leader facilitates getting&nbsp; problems out in the open for discussion and then helps the team find solutions and form action plans.</div>",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 513,
+                                    "name": "Expert",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 514,
+                                    "name": "Proficient",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 515,
+                                    "name": "Competent",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 516,
+                                    "name": "Advanced Beginner",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 517,
+                                    "name": "Novice",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        },
+                        {
+                            "id": 199,
+                            "name": "Constructive Feedback",
+                            "description": "",
+                            "type": "text",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Additional Feedback",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 200,
+                            "name": "Additional Feedback",
+                            "description": "",
+                            "type": "text",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": null,
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

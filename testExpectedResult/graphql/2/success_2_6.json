@@ -1,0 +1,56 @@
+{
+    "data": {
+        "activity": {
+            "id": 46,
+            "name": "Activity 12",
+            "description": "",
+            "tasks": [
+                {
+                    "id": 65,
+                    "name": "Example Team360 Assessment",
+                    "type": "assessment",
+                    "isLocked": false,
+                    "isTeam": false,
+                    "deadline": "2020-04-23 07:00:00",
+                    "contextId": 75,
+                    "status": {
+                        "status": "",
+                        "isLocked": null,
+                        "submitterName": null,
+                        "submitterImage": null
+                    }
+                },
+                {
+                    "id": 64,
+                    "name": "Team Quiz Assessment 121",
+                    "type": "assessment",
+                    "isLocked": false,
+                    "isTeam": true,
+                    "deadline": "2020-04-23 07:00:00",
+                    "contextId": 74,
+                    "status": {
+                        "status": "done",
+                        "isLocked": false,
+                        "submitterName": "student one",
+                        "submitterImage": "https://www.gravatar.com/avatar/f2dbf786fd5c15fe15913897d667a134?d=https%3A%2F%2Fmy.practera.com%2Fimg%2Fuser-512.png&s=50"
+                    }
+                },
+                {
+                    "id": 63,
+                    "name": "Team Reflection Assessment 121",
+                    "type": "assessment",
+                    "isLocked": false,
+                    "isTeam": true,
+                    "deadline": "2020-04-23 07:00:00",
+                    "contextId": 73,
+                    "status": {
+                        "status": "done",
+                        "isLocked": false,
+                        "submitterName": "student one",
+                        "submitterImage": "https://www.gravatar.com/avatar/f2dbf786fd5c15fe15913897d667a134?d=https%3A%2F%2Fmy.practera.com%2Fimg%2Fuser-512.png&s=50"
+                    }
+                }
+            ]
+        }
+    }
+}
