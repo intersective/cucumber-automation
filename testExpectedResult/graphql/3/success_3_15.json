@@ -1,0 +1,114 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Moderated Assessment 113 - participant",
+            "type": "moderated",
+            "description": "Needs a description...",
+            "dueDate": "",
+            "isTeam": false,
+            "pulseCheck": true,
+            "groups": [
+                {
+                    "name": "Group one",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 173,
+                            "name": "Question one",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": true,
+                            "hasComment": false,
+                            "audience": [
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 446,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 447,
+                                    "name": "New Choice 0.6",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 448,
+                                    "name": "New Choice 0.8",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Group two",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 174,
+                            "name": "Question two",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": true,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 449,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 450,
+                                    "name": "New Choice 0.9",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 451,
+                                    "name": "New Choice 0.5",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ],
+            "submissions": [
+                {
+                    "id": 10,
+                    "status": "pending review",
+                    "completed": null,
+                    "modified": "2020-05-07 17:49:24",
+                    "locked": false,
+                    "submitter": {
+                        "name": "student one",
+                        "image": null
+                    },
+                    "answers": [
+                        {
+                            "questionId": 173,
+                            "answer": "448"
+                        }
+                    ],
+                    "review": {
+                        "id": 2,
+                        "status": "1",
+                        "modified": "2020-05-07 17:50:14",
+                        "reviewer": {
+                            "name": "mentor one"
+                        },
+                        "answers": []
+                    }
+                }
+            ]
+        }
+    }
+}
