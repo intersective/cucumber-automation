@@ -1,0 +1,41 @@
+{
+    "data": {
+        "activity": {
+            "id": 50,
+            "name": "Activity 13",
+            "description": "",
+            "tasks": [
+                {
+                    "id": 45,
+                    "name": "Topic 131",
+                    "type": "topic",
+                    "isLocked": false,
+                    "isTeam": null,
+                    "deadline": null,
+                    "contextId": null,
+                    "status": {
+                        "status": "",
+                        "isLocked": null,
+                        "submitterName": null,
+                        "submitterImage": null
+                    }
+                },
+                {
+                    "id": 47,
+                    "name": "Topic 133",
+                    "type": "topic",
+                    "isLocked": false,
+                    "isTeam": null,
+                    "deadline": null,
+                    "contextId": null,
+                    "status": {
+                        "status": "",
+                        "isLocked": null,
+                        "submitterName": null,
+                        "submitterImage": null
+                    }
+                }
+            ]
+        }
+    }
+}

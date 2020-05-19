@@ -91,15 +91,15 @@ def hash_deep_equal(hash1, hash2, result, rootPath)
 	else
 		if hash2 != nil
 			if hash1.class == Array
-				hash1_len = hash1.length - 1
-				hash2_len = hash2.length - 1
-				if (hash1_len < 0 && hash2_len > 0) || (hash2_len < 0 && hash1_len > 0)
+				hash1Len = hash1.length - 1
+				hash2Len = hash2.length - 1
+				if (hash1Len < 0 && hash2Len > 0) || (hash2Len < 0 && hash1Len > 0)
 					result.push(rootPath)
 				else
-					if hash1_len != hash2_len
+					if hash1Len != hash2Len
 						result.push(rootPath)
 					end
-					max = hash1_len > hash2_len ? hash2_len : hash1_len
+					max = hash1Len > hash2Len ? hash2Len : hash1Len
 					for i in 0..max do
 						hash_deep_equal(hash1[i], hash2[i], result, [rootPath, i.to_s].join("/"))
 					end
