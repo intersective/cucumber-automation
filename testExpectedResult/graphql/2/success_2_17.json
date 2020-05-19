@@ -1,0 +1,71 @@
+{
+    "data": {
+        "assessment": {
+            "name": "Team Quiz Assessment 121",
+            "type": "quiz",
+            "description": "Needs a description...",
+            "dueDate": "2020-04-22 21:00:00",
+            "isTeam": true,
+            "pulseCheck": false,
+            "groups": [
+                {
+                    "name": "Group one",
+                    "description": "",
+                    "questions": [
+                        {
+                            "id": 191,
+                            "name": "Question one",
+                            "description": "",
+                            "type": "oneof",
+                            "isRequired": false,
+                            "hasComment": false,
+                            "audience": [
+                                "reviewer",
+                                "submitter"
+                            ],
+                            "fileType": null,
+                            "choices": [
+                                {
+                                    "id": 485,
+                                    "name": "New Choice 1",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 486,
+                                    "name": "New Choice 0.6",
+                                    "explanation": null
+                                },
+                                {
+                                    "id": 487,
+                                    "name": "New Choice 0.8",
+                                    "explanation": null
+                                }
+                            ],
+                            "teamMembers": null
+                        }
+                    ]
+                }
+            ],
+            "submissions": [
+                {
+                    "id": 8,
+                    "status": "done",
+                    "completed": false,
+                    "modified": "2020-05-07 14:37:57",
+                    "locked": false,
+                    "submitter": {
+                        "name": "student one",
+                        "image": null
+                    },
+                    "answers": [
+                        {
+                            "questionId": 191,
+                            "answer": "485"
+                        }
+                    ],
+                    "review": null
+                }
+            ]
+        }
+    }
+}
