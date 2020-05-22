@@ -12,11 +12,18 @@ Given("I call the app {string} api {string} by headers {string}, with:") do |api
         result = JSON.parse(fire_request(apiMethod, apiUrl, pheaders, requestData).body)
         expectedResult = read_json_file(Dir.pwd + "/testExpectedResult/" + data[i][-1])
 
-        verificationResult = hash_deep_equal(expectedResult, result, "", "")
-        if verificationResult.length > 0
-            $testLogger1.log_case(["[", apiUrl, "] ", verificationResult].join())
-        else
+        verificationResult = hash_deep_equal(expectedResult, result)
+        diff = verificationResult["diff"]
+        unset = verificationResult["unset"]
+        if diff.length < 1 && unset.length < 1
             $testLogger1.log_case(["[", apiUrl, "] passed"].join())
+        else
+            for one in diff do
+                $testLogger1.log_case(["[", apiUrl, "] ", one].join())
+            end
+            for one in unset do
+                $testLogger1.log_case(["[", apiUrl, "] ", one].join())
+            end
         end
     end
 end
@@ -71,15 +78,21 @@ Given("I call the apis with:") do |table|
 
         if data[i][expectedResultFileIndex].length > 0
             expectedResult = read_json_file(Dir.pwd + "/testExpectedResult/" + data[i][expectedResultFileIndex])
-            verificationResult = hash_deep_equal(expectedResult, result, [], "")
-            if verificationResult.length > 0
-                for one in verificationResult do
-                    message = ["[", apiUrl, "] row_number:", i.to_s, " ", one, ":", get_value_from_hash(one, expectedResult)].join()
-                    @collectedErrors.push(message)
-                end
-            else
+            verificationResult = hash_deep_equal(expectedResult, result)
+            diff = verificationResult["diff"]
+            unset = verificationResult["unset"]
+            if diff.length < 1 && unset.length < 1
                 message = ["[", apiUrl, "] passed"].join()
                 $testLogger1.log_case(message)
+            else
+                for one in diff do
+                    message = ["[", apiUrl, "] diif row_number:", i.to_s, " ", one].join()
+                    @collectedErrors.push(message)
+                end
+                for one in unset do
+                    message = ["[", apiUrl, "] unset row_number:", i.to_s, " ", one].join()
+                    @collectedErrors.push(message)
+                end
             end
         end
     end

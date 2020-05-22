@@ -85,59 +85,77 @@ def load_config(configFile)
 	return configObj
 end
 
-def hash_deep_equal(hash1, hash2, result, rootPath)
+def hash_deep_equal(hash1, hash2)
+	hash_deep_equal_inner(hash1, hash2, {"diff"=>[], "unset"=>[]}, "")
+end
+
+private def find_array_remainder(hash1_len, hash2_len, rootPath)
+	if hash1_len > hash2_len
+		start = hash2_len + 1
+		final = hash1_len
+		max = hash2_len
+	else
+		start = hash1_len + 1
+		final = hash2_len
+		max = hash1_len
+	end
+	result = []
+	for i in start..final do
+		result.push([rootPath, i.to_s].join("/"))
+	end
+	return result, max
+end
+
+private def hash_deep_equal_inner(hash1, hash2, result, rootPath)
 	if (hash1 == nil && hash2 != nil) || (hash1 != nil && hash2 == nil)
-		result.push(rootPath)
+		result["unset"].push(rootPath)
 	else
 		if hash2 != nil
 			if hash1.class == Array
-				hash1Len = hash1.length - 1
-				hash2Len = hash2.length - 1
-				if (hash1Len < 0 && hash2Len > 0) || (hash2Len < 0 && hash1Len > 0)
-					result.push(rootPath)
+				hash1_len = hash1.length - 1
+				hash2_len = hash2.length - 1
+				if (hash1_len < 0 && hash2_len > 0) || (hash2_len < 0 && hash1_len > 0)
+					result["unset"].push(rootPath)
 				else
-					if hash1Len != hash2Len
-						result.push(rootPath)
+					remindeResult, max = find_array_remainder(hash1_len, hash2_len, rootPath)
+					for one in remindeResult do
+						result["unset"].push(one)
 					end
-					max = hash1Len > hash2Len ? hash2Len : hash1Len
 					for i in 0..max do
-						hash_deep_equal(hash1[i], hash2[i], result, [rootPath, i.to_s].join("/"))
+						hash_deep_equal_inner(hash1[i], hash2[i], result, [rootPath, i.to_s].join("/"))
 					end
 				end
 			elsif hash1.class == Hash
 				if hash1.length < 0 || hash2.length < 0
-					result.push(rootPath)
+					result["unset"].push(rootPath)
 				else
-					if (hash1.length != hash2.length)
-						result.push(rootPath)
-					end
 					hash1.each do |key, value|
 						if value.class == Array
 							len = value.length - 1
 							if hash2[key] != nil
 								len2 = hash2[key].length - 1
 								if (len < 0 && len2 > 0) || (len2 < 0 && len > 0)
-									result.push([rootPath, key.to_s].join("/"))
+									result["unset"].push([rootPath, key.to_s].join("/"))
 								else
-									if len != len2
-										result.push([rootPath, key.to_s].join("/"))
+									remindeResult2, max2 = find_array_remainder(len, len2, [rootPath, key.to_s].join("/"))
+									for one in remindeResult2 do
+										result["unset"].push(one)
 									end
-									max2 = len > len2 ? len2 : len
 									for i in 0..max2 do
-										hash_deep_equal(value[i], hash2[key][i], result, [rootPath, key.to_s, i.to_s].join("/"))
+										hash_deep_equal_inner(value[i], hash2[key][i], result, [rootPath, key.to_s, i.to_s].join("/"))
 									end
 								end
 							else
-								result.push([rootPath, key.to_s].join("/"))
+								result["unset"].push([rootPath, key.to_s].join("/"))
 							end
 						else
-							hash_deep_equal(value, hash2[key], result, [rootPath, key.to_s].join("/"))
+							hash_deep_equal_inner(value, hash2[key], result, [rootPath, key.to_s].join("/"))
 						end
 					end
 				end
 			else
 				if hash1 != hash2
-					result.push(rootPath)
+					result["diff"].push(rootPath)
 				end
 			end
 		end
