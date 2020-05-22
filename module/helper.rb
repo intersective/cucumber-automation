@@ -89,6 +89,23 @@ def hash_deep_equal(hash1, hash2)
 	hash_deep_equal_inner(hash1, hash2, {"diff"=>[], "unset"=>[]}, "")
 end
 
+private def find_array_remainder(hash1_len, hash2_len, rootPath)
+	if hash1_len > hash2_len
+		start = hash2_len + 1
+		final = hash1_len
+		max = hash2_len
+	else
+		start = hash1_len + 1
+		final = hash2_len
+		max = hash1_len
+	end
+	result = []
+	for i in start..final do
+		result.push([rootPath, i.to_s].join("/"))
+	end
+	return result, max
+end
+
 private def hash_deep_equal_inner(hash1, hash2, result, rootPath)
 	if (hash1 == nil && hash2 != nil) || (hash1 != nil && hash2 == nil)
 		result["unset"].push(rootPath)
@@ -100,17 +117,9 @@ private def hash_deep_equal_inner(hash1, hash2, result, rootPath)
 				if (hash1_len < 0 && hash2_len > 0) || (hash2_len < 0 && hash1_len > 0)
 					result["unset"].push(rootPath)
 				else
-					if hash1_len > hash2_len
-						start = hash2_len + 1
-						final = hash1_len
-						max = hash2_len
-					else
-						start = hash1_len + 1
-						final = hash2_len
-						max = hash1_len
-					end
-					for i in start..final do
-						result["unset"].push([rootPath, i.to_s].join("/"))
+					remindeResult, max = find_array_remainder(hash1_len, hash2_len, rootPath)
+					for one in remindeResult do
+						result["unset"].push(one)
 					end
 					for i in 0..max do
 						hash_deep_equal_inner(hash1[i], hash2[i], result, [rootPath, i.to_s].join("/"))
@@ -128,17 +137,9 @@ private def hash_deep_equal_inner(hash1, hash2, result, rootPath)
 								if (len < 0 && len2 > 0) || (len2 < 0 && len > 0)
 									result["unset"].push([rootPath, key.to_s].join("/"))
 								else
-									if len > len2
-										start2 = len2 + 1
-										final2 = len
-										max2 = len2
-									else
-										start2 = len + 1
-										final2 = len2
-										max2 = len
-									end
-									for i in start2..final2 do
-										result["unset"].push([rootPath, key.to_s, i.to_s].join("/"))
+									remindeResult2, max2 = find_array_remainder(len, len2, [rootPath, key.to_s].join("/"))
+									for one in remindeResult2 do
+										result["unset"].push(one)
 									end
 									for i in 0..max2 do
 										hash_deep_equal_inner(value[i], hash2[key][i], result, [rootPath, key.to_s, i.to_s].join("/"))
