@@ -86,7 +86,7 @@ Given("I call the apis with:") do |table|
                 $testLogger1.log_case(message)
             else
                 for one in diff do
-                    message = ["[", apiUrl, "] diif row_number:", i.to_s, " ", one].join()
+                    message = ["[", apiUrl, "] diff row_number:", i.to_s, " ", one].join()
                     @collectedErrors.push(message)
                 end
                 for one in unset do
