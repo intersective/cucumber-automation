@@ -1,0 +1,18 @@
+{
+    "data": {
+        "peers": [
+            {
+                "id": 35,
+                "name": "student one",
+                "email": "student.one@practera.com",
+                "image": null
+            },
+            {
+                "id": 36,
+                "name": "student two",
+                "email": "student.two@practera.com",
+                "image": null
+            }
+        ]
+    }
+}
