@@ -18,7 +18,7 @@
                 "name": "Institution Level Achievement One",
                 "description": "description for achievement 100",
                 "badge": null,
-                "progress": 0,
+                "progress": 1,
                 "tags": [
                     {
                         "id": 7
