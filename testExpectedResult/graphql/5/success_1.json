@@ -4,7 +4,7 @@
             "name": "Moderated Assessment 114 - comprehensive",
             "type": "moderated",
             "description": "Moderated Assessment 114 descriptions",
-            "dueDate": "2020-04-22 21:00:00",
+            "dueDate": "2020-04-23 07:00:00",
             "isTeam": false,
             "pulseCheck": false,
             "groups": [
@@ -276,7 +276,7 @@
                     "id": 6,
                     "status": "in progress",
                     "completed": false,
-                    "modified": "2020-05-04 16:40:30",
+                    "modified": "2020-05-05 02:40:30",
                     "locked": false,
                     "submitter": {
                         "name": "student one",

@@ -86,7 +86,7 @@
                     "id": 10,
                     "status": "pending review",
                     "completed": null,
-                    "modified": "2020-05-07 17:49:24",
+                    "modified": "2020-05-08 03:49:24",
                     "locked": false,
                     "submitter": {
                         "name": "student one",
@@ -101,7 +101,7 @@
                     "review": {
                         "id": 2,
                         "status": "1",
-                        "modified": "2020-05-07 17:50:14",
+                        "modified": "2020-05-08 03:50:14",
                         "reviewer": {
                             "name": "mentor one"
                         },
