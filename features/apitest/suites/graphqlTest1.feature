@@ -40,6 +40,7 @@ Feature: Graphql API test
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | raw | "{peers {id,name,email,image}}" | graphql/1/success_1_24.json |
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | raw | "{experts(assessmentId:60) {id,name,email,image}}" | graphql/1/success_1_25.json |
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | raw | "{activities(active:true){id name description isLocked leadImage progress}}" | graphql/1/success_1_26.json |
+        Then I wait 5 seconds
 
     Scenario: Graphql API test 2
         Given Practer app v2 api I login with username "student.two@practera.com" and password "El3phant" by "https://stage-test.practera.com/api/auths.json"
@@ -68,6 +69,7 @@ Feature: Graphql API test
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | raw | "{peers {id,name,email,image}}" | graphql/2/success_2_20.json |
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | raw | "{experts(assessmentId:60) {id,name,email,image}}" | graphql/2/success_2_21.json |
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;teamId=7;timelineId=9 | raw | "{activities(active:true){id name description isLocked leadImage progress}}" | graphql/2/success_2_22.json |
+        Then I wait 5 seconds
 
     Scenario: Graphql API test 3
         Given Practer app v2 api I login with username "mentor.one@practera.com" and password "El3phant" by "https://stage-test.practera.com/api/auths.json"
@@ -98,3 +100,4 @@ Feature: Graphql API test
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;timelineId=9 | raw | "{peers {id,name,email,image}}" | graphql/3/success_3_20.json |
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;timelineId=9 | raw | "{experts(assessmentId:60) {id,name,email,image}}" | graphql/3/success_3_21.json |
             | post | http://stage-test.practera.com:8000 | appkey=b11e7c189b;Content-Type=application/plain;timelineId=9 | raw | "{activities(active:true){id name description isLocked leadImage progress}}" | graphql/3/success_3_22.json |
+        Then I wait 5 seconds
