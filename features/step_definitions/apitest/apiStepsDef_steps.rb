@@ -63,6 +63,7 @@ Given("I call the apis with:") do |table|
     expectedResultFileIndex = 5
 
     for i in 1..rowLen
+        sleep 2
         pheaders = build_header(data[i][apiRequestHeaderIndex])
         $apiService1.set_headers(pheaders)
 
@@ -93,6 +94,7 @@ Given("I call the apis with:") do |table|
                     message = ["[", apiUrl, "] unset row_number:", i.to_s, " ", one].join()
                     @collectedErrors.push(message)
                 end
+                $testLogger1.log_case(["[", apiUrl, "] row_number:", i.to_s, " result: ", JSON.generate(result)].join())
             end
         end
     end

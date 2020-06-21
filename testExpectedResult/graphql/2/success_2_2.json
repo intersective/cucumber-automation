@@ -4,7 +4,7 @@
             "name": "Moderated Assessment 111",
             "type": "moderated",
             "description": "Needs a description...",
-            "dueDate": "2020-04-22 21:00:00",
+            "dueDate": "2020-04-23 07:00:00",
             "isTeam": false,
             "pulseCheck": true,
             "groups": [
@@ -55,7 +55,7 @@
                     "id": 2,
                     "status": "pending review",
                     "completed": false,
-                    "modified": "2020-04-27 22:47:52",
+                    "modified": "2020-04-28 08:47:52",
                     "locked": false,
                     "submitter": {
                         "name": "student two",

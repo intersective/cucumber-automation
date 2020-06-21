@@ -4,7 +4,7 @@
             "name": "Example Team360 Assessment",
             "type": "team360",
             "description": "",
-            "dueDate": "2020-04-22 21:00:00",
+            "dueDate": "2020-04-23 07:00:00",
             "isTeam": false,
             "pulseCheck": false,
             "groups": [
@@ -329,7 +329,7 @@
                     "id": 9,
                     "status": "done",
                     "completed": true,
-                    "modified": "2020-05-07 15:07:04",
+                    "modified": "2020-05-08 01:07:04",
                     "locked": false,
                     "submitter": {
                         "name": "student one",
