@@ -1,0 +1,28 @@
+{
+    "data": {
+        "handleReview": {
+            "id": 14,
+            "status": "accepted",
+            "isDone": false,
+            "meta": {
+                "reviewerType": "expert",
+                "logs": [
+                    {
+                        "reviewerId": 35,
+                        "acceptance": "rejected"
+                    },
+                    {
+                        "reviewerId": 37,
+                        "acceptance": "accepted"
+                    }
+                ]
+            },
+            "reviewer": {
+                "id": 37,
+                "name": "mentor one",
+                "email": "mentor.one@practera.com",
+                "image": null
+            }
+        }
+    }
+}

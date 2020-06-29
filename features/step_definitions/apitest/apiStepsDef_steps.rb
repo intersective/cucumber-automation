@@ -65,6 +65,7 @@ Given("I call the apis with:") do |table|
     for i in 1..rowLen
         sleep 2
         pheaders = build_header(data[i][apiRequestHeaderIndex])
+        pheaders["apikey"] = $apiService1.get_header("apikey")
         $apiService1.set_headers(pheaders)
 
         apiMethod = data[i][apiMenthodIndex]
@@ -113,7 +114,7 @@ Given("Practer app v2 api I login with username {string} and password {string} b
         }
     }.to_json
     result = JSON.parse($apiService1.send_requeset("post", apiUrl, data).body)
-    $apiService1.set_headers({
+    $apiService1.append_headers({
         "apikey"=>result["data"]["apikey"]
     })
 end

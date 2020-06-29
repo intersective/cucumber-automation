@@ -1,1 +1,2 @@
 features/apitest/suites/graphqlTest1.feature
+features/apitest/suites/graphqlTest_datachange.feature
